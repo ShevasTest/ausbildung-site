@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   alternates: {
     languages: {
-      de: "/",
+      de: "/de",
       en: "/en",
     },
   },
@@ -73,26 +73,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.siteName,
-    title: "Alexander | Ausbildung Portfolio",
+    title: "Oleksandr | Ausbildung Portfolio",
     description:
       "Moderne Frontend-Projekte mit Fokus auf Performance, Accessibility und sauberer Architektur.",
     locale: "de_DE",
-    url: "/",
+    url: "/de",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/de/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Alexander Ausbildung Portfolio",
+        alt: "Oleksandr Ausbildung Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alexander | Ausbildung Portfolio",
+    title: "Oleksandr | Ausbildung Portfolio",
     description:
       "Moderne Frontend-Projekte mit Fokus auf Performance, Accessibility und sauberer Architektur.",
-    images: ["/opengraph-image"],
+    images: ["/de/opengraph-image"],
   },
   category: "technology",
 };

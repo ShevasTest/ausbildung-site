@@ -160,7 +160,7 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
           </div>
 
           <div style={{ display: "flex", gap: "14px", alignItems: "center", fontSize: "24px" }}>
-            <span style={{ color: "#60A5FA", fontWeight: 600 }}>Alexander Portfolio</span>
+            <span style={{ color: "#60A5FA", fontWeight: 600 }}>Oleksandr Portfolio</span>
             <span style={{ color: "#64748B" }}>•</span>
             <span style={{ color: "#CBD5E1" }}>Next.js · TypeScript</span>
           </div>

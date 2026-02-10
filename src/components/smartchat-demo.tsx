@@ -97,17 +97,17 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     chat: {
       assistantLabel: "SmartChat",
-      userLabel: "Du",
+      userLabel: "Sie",
       welcomeMessage:
-        "Hallo! Ich bin **SmartChat** — ein Demo-Assistent für dein Ausbildung-Portfolio.\n\n- Schreibe eine Frage oder eine Aufgabe.\n- Ich antworte mit **Streaming-Ausgabe** wie in echten AI-Tools.\n- Ich kann `Markdown` und Codeblöcke darstellen.\n\nTipp: Frag z. B. nach einer Next.js-Komponente oder einer kurzen Architektur-Idee.",
+        "Hallo! Ich bin **SmartChat** — ein Demo-Assistent für Ihr Ausbildung-Portfolio.\n\n- Schreiben Sie eine Frage oder eine Aufgabe.\n- Ich antworte mit **Streaming-Ausgabe** wie in echten AI-Tools.\n- Ich kann `Markdown` und Codeblöcke darstellen.\n\nTipp: Fragen Sie z. B. nach einer Next.js-Komponente oder einer kurzen Architektur-Idee.",
       typing: "Antwort wird gestreamt ...",
       emptyTitle: "Noch keine Nachrichten",
-      emptyText: "Starte links einen neuen Chat und schicke rechts deine erste Nachricht.",
+      emptyText: "Starten Sie links eine neue Unterhaltung und schicken Sie rechts Ihre erste Nachricht.",
       generatedAt: "um",
     },
     composer: {
       placeholder:
-        "Frag etwas Konkretes: z. B. \"Wie baue ich Streaming in Next.js ohne API-Key-Demo?\"",
+        "Fragen Sie etwas Konkretes: z. B. \"Wie baue ich Streaming in Next.js ohne API-Key-Demo?\"", 
       send: "Senden",
       sending: "Streaming ...",
       stop: "Stoppen",

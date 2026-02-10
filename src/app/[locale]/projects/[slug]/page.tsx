@@ -111,7 +111,7 @@ export async function generateMetadata({
     alternates: {
       canonical: canonicalPath,
       languages: {
-        de: `/projects/${slug}`,
+        de: `/de/projects/${slug}`,
         en: `/en/projects/${slug}`,
       },
     },

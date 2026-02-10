@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
+// localizedPath and normalizeLocale available from @/lib/seo if needed
 
 type SiteHeaderProps = {
   locale: string;
@@ -8,7 +9,7 @@ type SiteHeaderProps = {
 
 export async function SiteHeader({ locale }: SiteHeaderProps) {
   const t = await getTranslations({ locale, namespace: "Nav" });
-  const homeHref = locale === "de" ? "/" : `/${locale}`;
+  const homeHref = `/${locale}`;
   const homeLabel = locale === "de" ? "Zur Startseite" : "Go to homepage";
   const navLabel = locale === "de" ? "Hauptnavigation" : "Main navigation";
   const mobileNavLabel = locale === "de" ? "Abschnittsnavigation" : "Section navigation";

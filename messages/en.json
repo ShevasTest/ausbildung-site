@@ -1,14 +1,14 @@
 {
   "Meta": {
     "title": "Ausbildung Portfolio",
-    "description": "Portfolio of Alexander — aspiring software developer for a German Ausbildung program.",
-    "ogTitle": "Alexander | Ausbildung Portfolio",
+    "description": "Portfolio of Oleksandr — aspiring software developer for a German Ausbildung program.",
+    "ogTitle": "Oleksandr | Ausbildung Portfolio",
     "ogDescription": "Modern web projects focused on performance, accessibility and clean architecture.",
     "projectTitle": "Project: {slug}",
     "projectDescription": "Detailed project page with goals, stack and implementation notes."
   },
   "Nav": {
-    "brand": "Alexander",
+    "brand": "Oleksandr",
     "hero": "Hero",
     "about": "About",
     "projects": "Projects",
@@ -91,7 +91,7 @@
     ],
     "profile": {
       "badge": "Profile",
-      "name": "Alexander",
+      "name": "Oleksandr",
       "role": "Aspiring Software Developer (Fachinformatiker AE)",
       "initials": "AS",
       "placeholder": "Photo placeholder",
@@ -314,6 +314,6 @@
     "back": "Back to homepage"
   },
   "Footer": {
-    "rights": "© {year} Alexander. Built with Next.js & TypeScript."
+    "rights": "© {year} Oleksandr. Built with Next.js & TypeScript."
   }
 }

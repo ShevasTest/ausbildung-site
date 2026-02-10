@@ -172,7 +172,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     chips: ["Städtevergleich", "Trend-Visualisierung", "Einkommens-Rechner"],
     cityList: {
       title: "Städte im Vergleich",
-      hint: "Wähle eine Stadt. Rechts siehst du sofort Verlauf, Benchmark und Auswirkung auf das benötigte Einkommen.",
+      hint: "Wählen Sie eine Stadt. Rechts sehen Sie sofort Verlauf, Benchmark und die Auswirkung auf das benötigte Einkommen.",
       selected: "Ausgewählt",
       sortHigh: "Teuerste zuerst",
       sortLow: "Günstigste zuerst",
@@ -188,10 +188,10 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     comparison: {
       title: "Ranking nach Mietniveau",
       subtitle: "Jahreswert 2025 · Kaltmiete pro m²",
-      selectedBadge: "deine Auswahl",
+      selectedBadge: "Ihre Auswahl",
     },
     calculator: {
-      title: "Wie viel Einkommen brauchst du?",
+      title: "Wie viel Einkommen benötigen Sie?",
       subtitle:
         "Faustregel-Rechner für Ausbildung/Junior-Level: Warmmiete sollte je nach Sicherheitsniveau 30–40% des Nettohaushaltseinkommens ausmachen.",
       cityLabel: "Stadt",
@@ -252,11 +252,11 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       householdSingle: "1 income",
       householdPair: "2 incomes",
       budgetRule: "Budget rule",
-      netPerIncome: "Recommended net per income",
+      netPerIncome: "Recommended net income per earner",
       warmRent: "Estimated warm rent",
       coldRent: "Cold rent",
       grossIncome: "Estimated gross household income",
-      localMedian: "Compared to local median net",
+      localMedian: "Compared to local median net income",
       affordability: "Market pressure",
       statusRelaxed: "Comfortable",
       statusBalanced: "Demanding but realistic",
@@ -432,7 +432,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
   const medianComparisonHint =
     localeKey === "de"
       ? "vom lokalen Median-Netto je Einkommen"
-      : "of local median net per income";
+      : "of local median net income per earner";
 
   const cityPath = getLinePath(chartPoints.city);
   const cityAreaPath = getAreaPath(chartPoints.city, chartPoints.baselineY);

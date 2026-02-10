@@ -36,6 +36,10 @@ type DemoCopy = {
     hint: string;
     placeholder: string;
     characters: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    cityLabel: string;
+    cityPlaceholder: string;
     presetsLabel: string;
     focusLabel: string;
     toneLabel: string;
@@ -100,7 +104,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     chips: ["Streaming Output", "HR-taugliche Formulierungen", "100% Mock-Daten lokal"],
     input: {
       title: "Stellenanzeige einfügen",
-      hint: "Nutze den Originaltext der Ausschreibung. Der Helfer extrahiert Rolle, Keywords und passende Argumentation.",
+      hint: "Verwenden Sie den Originaltext der Ausschreibung. Der Helfer extrahiert Rolle, Keywords und passende Argumentation.",
       placeholder:
         "Beispiel: Wir suchen zum 01.08.2026 eine/n Auszubildende/n Fachinformatiker/in für Anwendungsentwicklung (m/w/d) in Berlin ...",
       characters: "Zeichen",
@@ -109,6 +113,10 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       toneLabel: "Ton",
       strengthsLabel: "Persönliche Stärken hervorheben",
       strengthsHint: "Maximal 3 auswählen",
+      nameLabel: "Ihr Name",
+      namePlaceholder: "z.B. Max Mustermann",
+      cityLabel: "Ihr Standort",
+      cityPlaceholder: "z.B. München",
       generate: "Anschreiben generieren",
       generating: "Generiere Anschreiben ...",
       errorRequired: "Bitte zuerst eine Stellenanzeige einfügen.",
@@ -120,7 +128,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       copyError: "Fehler",
       emptyTitle: "Noch kein Anschreiben erstellt",
       emptyText:
-        "Fülle links den Stellentext aus und starte die Generierung. Rechts erscheint ein gestreamter Entwurf mit sauberem Aufbau.",
+        "Füllen Sie links den Stellentext aus und starten Sie die Generierung. Rechts erscheint ein gestreamter Entwurf mit sauberem Aufbau.",
       statusIdle: "Bereit für Analyse",
       statusAnalyzing: "Analysiere Stellenanzeige ...",
       statusDrafting: "Erstelle ersten Entwurf ...",
@@ -208,7 +216,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       fullstack:
         "Neben der UI-Umsetzung denke ich Schnittstellen und Datenfluss mit. In Projekten habe ich API-Integrationen, Validierung und wartbare Strukturierung von Frontend- und Backend-Logik kombiniert.",
       teamfit:
-        "Ich suche bewusst ein Ausbildungsteam, in dem ich strukturiert Verantwortung übernehme, Feedback schnell in bessere Lösungen übersetze und mich fachlich wie menschlich weiterentwickle.",
+        "Ich suche bewusst ein Ausbildungsteam, bei dem ich strukturiert Verantwortung übernehme, Feedback schnell in bessere Lösungen übersetze und mich fachlich wie menschlich weiterentwickle.",
       ai:
         "Ich nutze KI-Tools produktiv und verantwortungsvoll: für Recherche, Strukturierung und schnellere Iteration — immer mit klarer Qualitätskontrolle im finalen Code.",
     },
@@ -251,6 +259,10 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       toneLabel: "Tone",
       strengthsLabel: "Highlight strengths",
       strengthsHint: "Select up to 3",
+      nameLabel: "Your name",
+      namePlaceholder: "e.g. John Smith",
+      cityLabel: "Your location",
+      cityPlaceholder: "e.g. Munich",
       generate: "Generate cover letter",
       generating: "Generating cover letter ...",
       errorRequired: "Please paste a job description first.",
@@ -375,27 +387,34 @@ const COPY: Record<LocaleKey, DemoCopy> = {
   },
 };
 
-const KEYWORD_LIBRARY: Array<{ match: string; label: string }> = [
-  { match: "next.js", label: "Next.js" },
-  { match: "nextjs", label: "Next.js" },
-  { match: "react", label: "React" },
-  { match: "typescript", label: "TypeScript" },
-  { match: "javascript", label: "JavaScript" },
-  { match: "api", label: "API" },
-  { match: "rest", label: "REST" },
-  { match: "sql", label: "SQL" },
-  { match: "datenbank", label: "Datenbanken" },
-  { match: "database", label: "Databases" },
-  { match: "ux", label: "UX" },
-  { match: "accessibility", label: "Accessibility" },
-  { match: "barriere", label: "Accessibility" },
-  { match: "performance", label: "Performance" },
-  { match: "team", label: "Teamarbeit" },
-  { match: "agil", label: "Agile Arbeitsweise" },
-  { match: "dokumentation", label: "Dokumentation" },
-  { match: "cloud", label: "Cloud" },
-  { match: "python", label: "Python" },
-  { match: "node", label: "Node.js" },
+type KeywordEntry = {
+  match: string;
+  labelDe: string;
+  labelEn: string;
+};
+
+const KEYWORD_LIBRARY: KeywordEntry[] = [
+  { match: "next.js", labelDe: "Next.js", labelEn: "Next.js" },
+  { match: "nextjs", labelDe: "Next.js", labelEn: "Next.js" },
+  { match: "react", labelDe: "React", labelEn: "React" },
+  { match: "typescript", labelDe: "TypeScript", labelEn: "TypeScript" },
+  { match: "javascript", labelDe: "JavaScript", labelEn: "JavaScript" },
+  { match: "api", labelDe: "API", labelEn: "API" },
+  { match: "rest", labelDe: "REST", labelEn: "REST" },
+  { match: "sql", labelDe: "SQL", labelEn: "SQL" },
+  { match: "datenbank", labelDe: "Datenbanken", labelEn: "Databases" },
+  { match: "database", labelDe: "Datenbanken", labelEn: "Databases" },
+  { match: "ux", labelDe: "UX", labelEn: "UX" },
+  { match: "accessibility", labelDe: "Accessibility", labelEn: "Accessibility" },
+  { match: "barriere", labelDe: "Barrierefreiheit", labelEn: "Accessibility" },
+  { match: "performance", labelDe: "Performance", labelEn: "Performance" },
+  { match: "team", labelDe: "Teamarbeit", labelEn: "Teamwork" },
+  { match: "agil", labelDe: "Agile Arbeitsweise", labelEn: "Agile" },
+  { match: "agile", labelDe: "Agile Arbeitsweise", labelEn: "Agile" },
+  { match: "dokumentation", labelDe: "Dokumentation", labelEn: "Documentation" },
+  { match: "cloud", labelDe: "Cloud", labelEn: "Cloud" },
+  { match: "python", labelDe: "Python", labelEn: "Python" },
+  { match: "node", labelDe: "Node.js", labelEn: "Node.js" },
 ];
 
 function normalizeCompany(rawValue: string) {
@@ -454,7 +473,7 @@ function extractRole(vacancyText: string, fallbackRole: string) {
   return fallbackRole;
 }
 
-function extractKeywords(vacancyText: string) {
+function extractKeywords(vacancyText: string, localeKey: LocaleKey) {
   const lowered = vacancyText.toLowerCase();
   const found: string[] = [];
 
@@ -463,8 +482,10 @@ function extractKeywords(vacancyText: string) {
       continue;
     }
 
-    if (!found.includes(entry.label)) {
-      found.push(entry.label);
+    const label = localeKey === "de" ? entry.labelDe : entry.labelEn;
+
+    if (!found.includes(label)) {
+      found.push(label);
     }
 
     if (found.length >= 7) {
@@ -481,8 +502,9 @@ function buildGermanLetter(params: {
   focus: FocusKey;
   strengths: string[];
   copy: DemoCopy;
+  applicantName: string;
 }) {
-  const { analysis, tone, focus, strengths, copy } = params;
+  const { analysis, tone, focus, strengths, copy, applicantName } = params;
   const salutation =
     analysis.company === copy.analysis.unknownCompany
       ? "Sehr geehrtes Recruiting-Team,"
@@ -520,7 +542,7 @@ function buildGermanLetter(params: {
     "Über die Möglichkeit, mich persönlich vorzustellen und mehr über Ihr Team zu erfahren, freue ich mich sehr.",
     "",
     "Mit freundlichen Grüßen",
-    "Alexander",
+    applicantName,
     "",
     "Anlagen: Lebenslauf, Zeugnisse",
   ].join("\n");
@@ -532,8 +554,9 @@ function buildEnglishLetter(params: {
   focus: FocusKey;
   strengths: string[];
   copy: DemoCopy;
+  applicantName: string;
 }) {
-  const { analysis, tone, focus, strengths, copy } = params;
+  const { analysis, tone, focus, strengths, copy, applicantName } = params;
   const salutation =
     analysis.company === copy.analysis.unknownCompany
       ? "Dear recruiting team,"
@@ -571,14 +594,14 @@ function buildEnglishLetter(params: {
     "I would value the opportunity to introduce myself in a personal interview and learn more about your team.",
     "",
     "Kind regards,",
-    "Alexander",
+    applicantName,
   ].join("\n");
 }
 
-function createAnalysis(copy: DemoCopy, vacancyText: string, focus: FocusKey): VacancyAnalysis {
+function createAnalysis(copy: DemoCopy, vacancyText: string, focus: FocusKey, localeKey: LocaleKey): VacancyAnalysis {
   const company = extractCompany(vacancyText) || copy.analysis.unknownCompany;
   const role = extractRole(vacancyText, copy.analysis.fallbackRole);
-  const keywords = extractKeywords(vacancyText);
+  const keywords = extractKeywords(vacancyText, localeKey);
 
   const argumentLabel =
     copy.focusOptions.find((item) => item.value === focus)?.label ?? copy.focusOptions[0]?.label ?? "";
@@ -598,6 +621,8 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   const [vacancyText, setVacancyText] = useState(copy.presets[0]?.text ?? "");
   const [focus, setFocus] = useState<FocusKey>(copy.presets[0]?.focus ?? "frontend");
   const [tone, setTone] = useState<ToneKey>("professional");
+  const [applicantName, setApplicantName] = useState("Oleksandr");
+  const [applicantCity, setApplicantCity] = useState("");
   const [selectedStrengths, setSelectedStrengths] = useState<string[]>([
     copy.strengths[0]?.id ?? "initiative",
     copy.strengths[2]?.id ?? "structure",
@@ -621,7 +646,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   }, []);
 
   const analysis = useMemo(
-    () => createAnalysis(copy, vacancyText, focus),
+    () => createAnalysis(copy, vacancyText, focus, localeKey),
     [copy, focus, vacancyText],
   );
 
@@ -712,7 +737,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
     setInputError("");
     setCopyState("idle");
 
-    const nextAnalysis = createAnalysis(copy, trimmed, focus);
+    const nextAnalysis = createAnalysis(copy, trimmed, focus, localeKey);
     const generated =
       localeKey === "de"
         ? buildGermanLetter({
@@ -721,6 +746,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             focus,
             strengths: selectedStrengths,
             copy,
+            applicantName: applicantName.trim() || "Oleksandr",
           })
         : buildEnglishLetter({
             analysis: nextAnalysis,
@@ -728,6 +754,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             focus,
             strengths: selectedStrengths,
             copy,
+            applicantName: applicantName.trim() || "Oleksandr",
           });
 
     streamText(generated);
@@ -806,6 +833,35 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
           </div>
 
           {inputError ? <p className="mt-2 text-xs font-medium text-rose-500">{inputError}</p> : null}
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div>
+              <label htmlFor="applicant-name" className="block text-sm font-semibold text-foreground">
+                {copy.input.nameLabel}
+              </label>
+              <input
+                id="applicant-name"
+                type="text"
+                value={applicantName}
+                onChange={(e) => setApplicantName(e.target.value)}
+                placeholder={copy.input.namePlaceholder}
+                className="contact-field mt-1.5 w-full rounded-xl px-3 py-2.5 text-sm"
+              />
+            </div>
+            <div>
+              <label htmlFor="applicant-city" className="block text-sm font-semibold text-foreground">
+                {copy.input.cityLabel}
+              </label>
+              <input
+                id="applicant-city"
+                type="text"
+                value={applicantCity}
+                onChange={(e) => setApplicantCity(e.target.value)}
+                placeholder={copy.input.cityPlaceholder}
+                className="contact-field mt-1.5 w-full rounded-xl px-3 py-2.5 text-sm"
+              />
+            </div>
+          </div>
 
           <div className="mt-5">
             <p className="text-xs font-semibold tracking-[0.13em] text-primary uppercase">

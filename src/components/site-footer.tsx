@@ -31,7 +31,7 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
               href="mailto:oleksandr.o.shevchenko@gmail.com"
               className="transition hover:text-primary"
             >
-              Email
+              {locale === "de" ? "E-Mail" : "Email"}
             </a>
           </li>
           <li>

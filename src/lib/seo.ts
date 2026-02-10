@@ -1,7 +1,7 @@
 export const siteConfig = {
   baseUrl: "https://alex-ausbildung-portfolio.vercel.app",
-  siteName: "Alexander Portfolio",
-  authorName: "Alexander",
+  siteName: "Oleksandr Portfolio",
+  authorName: "Oleksandr Shevchenko",
   githubUrl: "https://github.com/ShevasTest",
   linkedInUrl: "https://www.linkedin.com/in/oleksandr-it/",
   email: "oleksandr.o.shevchenko@gmail.com",
@@ -26,7 +26,7 @@ export function localizedPath(locale: string, path = "/") {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
   if (safeLocale === "de") {
-    return normalizedPath;
+    return normalizedPath === "/" ? "/de" : `/de${normalizedPath}`;
   }
 
   return normalizedPath === "/" ? "/en" : `/en${normalizedPath}`;

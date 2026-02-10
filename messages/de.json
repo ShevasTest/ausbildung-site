@@ -1,14 +1,14 @@
 {
   "Meta": {
     "title": "Ausbildung Portfolio",
-    "description": "Portfolio von Alexander — angehender Fachinformatiker für Anwendungsentwicklung.",
-    "ogTitle": "Alexander | Ausbildung Portfolio",
+    "description": "Portfolio von Oleksandr — angehender Fachinformatiker für Anwendungsentwicklung.",
+    "ogTitle": "Oleksandr | Ausbildung Portfolio",
     "ogDescription": "Moderne Webprojekte mit Fokus auf Performance, Accessibility und sauberer Architektur.",
     "projectTitle": "Projekt: {slug}",
     "projectDescription": "Detaillierte Projektseite mit Zielen, Stack und Umsetzungsschritten."
   },
   "Nav": {
-    "brand": "Alexander",
+    "brand": "Oleksandr",
     "hero": "Hero",
     "about": "Über mich",
     "projects": "Projekte",
@@ -40,7 +40,7 @@
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
     "panelTitle": "Vom Selbststudium in professionelle Teams",
-    "panelText": "Ich suche einen Ausbildungsplatz, in dem ich mein technisches Fundament in echte Produktarbeit einbringe und gleichzeitig strukturiert weiterwachse.",
+    "panelText": "Ich suche einen Ausbildungsplatz, bei dem ich mein technisches Fundament in echte Produktarbeit einbringe und gleichzeitig strukturiert weiterwachse.",
     "stats": [
       {
         "label": "Projektfokus",
@@ -63,7 +63,7 @@
     "paragraphs": [
       "Mein Einstieg in die Entwicklung begann mit Neugier: Ich wollte verstehen, wie gute digitale Produkte entstehen und warum manche Interfaces sofort logisch wirken.",
       "Dafür habe ich mir einen festen Lernrhythmus aufgebaut — mit täglichen Coding-Sprints, sauberer Dokumentation und konsequenter Qualitätskontrolle über Build, Performance und Accessibility.",
-      "Heute setze ich vollständige Frontend-Features eigenständig um: von der Idee über responsive UI bis zu wartbarem TypeScript-Code. Für 2026 suche ich ein Ausbildungsteam, in dem ich diese Praxis in professionelle Produktarbeit überführe."
+      "Heute setze ich vollständige Frontend-Features eigenständig um: von der Idee über responsive UI bis zu wartbarem TypeScript-Code. Für 2026 suche ich ein Ausbildungsteam, bei dem ich diese Praxis in professionelle Produktarbeit überführe."
     ],
     "highlights": [
       {
@@ -87,11 +87,11 @@
     "motivationPoints": [
       "Ich lerne schnell und setze Feedback direkt in bessere technische Lösungen um.",
       "Ich arbeite zuverlässig in klaren Strukturen und verliere dabei nie den Blick für Nutzer:innen.",
-      "Ich suche ein Team, in dem ich von erfahrenen Entwickler:innen lerne und früh produktiv mitarbeite."
+      "Ich suche ein Team, bei dem ich von erfahrenen Entwickler:innen lerne und früh produktiv mitarbeite."
     ],
     "profile": {
       "badge": "Profil",
-      "name": "Alexander",
+      "name": "Oleksandr",
       "role": "Angehender Fachinformatiker für Anwendungsentwicklung",
       "initials": "AS",
       "placeholder": "Foto folgt",
@@ -314,6 +314,6 @@
     "back": "Zurück zur Startseite"
   },
   "Footer": {
-    "rights": "© {year} Alexander. Entwickelt mit Next.js & TypeScript."
+    "rights": "© {year} Oleksandr. Entwickelt mit Next.js & TypeScript."
   }
 }
