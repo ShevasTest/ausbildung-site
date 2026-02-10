@@ -1,0 +1,319 @@
+{
+  "Meta": {
+    "title": "Ausbildung Portfolio",
+    "description": "Portfolio von Alexander — angehender Fachinformatiker für Anwendungsentwicklung.",
+    "ogTitle": "Alexander | Ausbildung Portfolio",
+    "ogDescription": "Moderne Webprojekte mit Fokus auf Performance, Accessibility und sauberer Architektur.",
+    "projectTitle": "Projekt: {slug}",
+    "projectDescription": "Detaillierte Projektseite mit Zielen, Stack und Umsetzungsschritten."
+  },
+  "Nav": {
+    "brand": "Alexander",
+    "hero": "Hero",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "skills": "Kenntnisse",
+    "resume": "Lebenslauf",
+    "contact": "Kontakt",
+    "language": "Sprache",
+    "theme": "Designmodus"
+  },
+  "Hero": {
+    "badge": "Angehender Fachinformatiker für Anwendungsentwicklung",
+    "kicker": "Ausbildung 2026 · Fokus Frontend Engineering",
+    "titleLead": "Ich entwickle",
+    "rotatingWords": [
+      "schnelle Web-Apps",
+      "barrierearme Interfaces",
+      "saubere TypeScript-Architektur",
+      "digitale Produkte mit echtem Nutzen"
+    ],
+    "titleEnd": "für Teams, die Verantwortung und Eigeninitiative schätzen.",
+    "subtitle": "Durch konsequentes Selbststudium und tägliche Praxis setze ich komplette Produktideen von der Konzeption bis zur responsiven Umsetzung um — performance-orientiert, verständlich und bereit für den produktiven Einsatz.",
+    "points": [
+      "Mobile-first Umsetzung für Recruiting auf dem Smartphone",
+      "Interaktionen mit 60fps auf Basis von transform + opacity",
+      "Klare Informationsarchitektur statt visueller Spielerei",
+      "Codequalität mit TypeScript strict und wiederverwendbaren Komponenten"
+    ],
+    "ctaProjects": "Projekte ansehen",
+    "ctaContact": "Kontakt aufnehmen",
+    "panelEyebrow": "Was ich einbringe",
+    "panelTitle": "Vom Selbststudium in professionelle Teams",
+    "panelText": "Ich suche einen Ausbildungsplatz, in dem ich mein technisches Fundament in echte Produktarbeit einbringe und gleichzeitig strukturiert weiterwachse.",
+    "stats": [
+      {
+        "label": "Projektfokus",
+        "value": "5 praxisnahe End-to-End Demos"
+      },
+      {
+        "label": "Qualitätsziel",
+        "value": "Lighthouse 95+ & WCAG AA"
+      },
+      {
+        "label": "Arbeitsweise",
+        "value": "Eigeninitiative · Klarheit · Zuverlässigkeit"
+      }
+    ]
+  },
+  "About": {
+    "title": "Über mich",
+    "eyebrow": "Selbststudium mit klarer Richtung",
+    "lead": "Ich bringe Eigeninitiative, Struktur und echte Projektpraxis mit — genau die Kombination, die Teams in der Ausbildung brauchen.",
+    "paragraphs": [
+      "Mein Einstieg in die Entwicklung begann mit Neugier: Ich wollte verstehen, wie gute digitale Produkte entstehen und warum manche Interfaces sofort logisch wirken.",
+      "Dafür habe ich mir einen festen Lernrhythmus aufgebaut — mit täglichen Coding-Sprints, sauberer Dokumentation und konsequenter Qualitätskontrolle über Build, Performance und Accessibility.",
+      "Heute setze ich vollständige Frontend-Features eigenständig um: von der Idee über responsive UI bis zu wartbarem TypeScript-Code. Für 2026 suche ich ein Ausbildungsteam, in dem ich diese Praxis in professionelle Produktarbeit überführe."
+    ],
+    "highlights": [
+      {
+        "label": "Eigeninitiative",
+        "value": "Tägliches Selbststudium mit klaren Lernzielen und selbstständiger Umsetzung kompletter Features."
+      },
+      {
+        "label": "Produktdenken",
+        "value": "Nicht nur Komponenten bauen, sondern Nutzerproblem, Flow und Business-Kontext mitdenken."
+      },
+      {
+        "label": "Team-Reife",
+        "value": "Strukturierter Code, nachvollziehbare Entscheidungen und verlässliche Übergaben."
+      },
+      {
+        "label": "Ausbildungsziel 2026",
+        "value": "Praxiserfahrung mit fundiertem Fachwissen verbinden und schnell Verantwortung übernehmen."
+      }
+    ],
+    "motivationTitle": "Was ich in die Ausbildung mitbringe",
+    "motivationPoints": [
+      "Ich lerne schnell und setze Feedback direkt in bessere technische Lösungen um.",
+      "Ich arbeite zuverlässig in klaren Strukturen und verliere dabei nie den Blick für Nutzer:innen.",
+      "Ich suche ein Team, in dem ich von erfahrenen Entwickler:innen lerne und früh produktiv mitarbeite."
+    ],
+    "profile": {
+      "badge": "Profil",
+      "name": "Alexander",
+      "role": "Angehender Fachinformatiker für Anwendungsentwicklung",
+      "initials": "AS",
+      "placeholder": "Foto folgt",
+      "caption": "Ich kombiniere diszipliniertes Selbststudium mit praktischer Produktentwicklung und klarer Kommunikation.",
+      "facts": [
+        "Standort: Deutschland · Ausbildung ab 2026",
+        "Sprachen: Deutsch B1 (aktiv Richtung B2) · Englisch sicher",
+        "Fokus: Next.js, React, TypeScript, Performance & Accessibility"
+      ]
+    }
+  },
+  "Projects": {
+    "title": "Projekte",
+    "intro": "Fünf praxisnahe Produkte, die echte Alltagsthemen adressieren und meine Arbeitsweise transparent zeigen.",
+    "items": [
+      {
+        "slug": "ki-bewerbungshelfer",
+        "title": "KI-Bewerbungshelfer",
+        "summary": "Analysiert Stellenanzeigen und erstellt personalisierte Anschreiben mit editierbarem Export.",
+        "stack": "Next.js · Server Actions · AI API"
+      },
+      {
+        "slug": "mietpreise-tracker",
+        "title": "Mietpreise-Tracker",
+        "summary": "Vergleicht Mietkosten deutscher Städte mit Trends und Einkommens-Rechner.",
+        "stack": "Next.js · Open Data APIs · Charts"
+      },
+      {
+        "slug": "smartchat",
+        "title": "SmartChat",
+        "summary": "Moderner KI-Chat mit Streaming, Verlauf, Markdown und Code-Highlighting.",
+        "stack": "Next.js · Streaming · IndexedDB"
+      },
+      {
+        "slug": "devdash",
+        "title": "DevDash",
+        "summary": "Anpassbares Entwickler-Dashboard mit Widgets, Pomodoro und GitHub-Aktivität.",
+        "stack": "Next.js · Modular UI · PWA"
+      },
+      {
+        "slug": "portfolio",
+        "title": "Dieses Portfolio",
+        "summary": "Open-Source Showcase mit i18n, Theme-System und Lighthouse-optimiertem UI.",
+        "stack": "Next.js · Tailwind v4 · next-intl"
+      }
+    ],
+    "openProject": "Projekt öffnen"
+  },
+  "Skills": {
+    "title": "Kenntnisse",
+    "intro": "Technologien, Tools und Arbeitsweisen, mit denen ich bereits in echten Projektumsetzungen arbeite.",
+    "legend": "Selbsteinschätzung auf Basis praktischer Umsetzung in eigenen End-to-End-Projekten",
+    "groups": [
+      {
+        "name": "Frontend",
+        "description": "Fokus auf schnelle, barrierearme Benutzeroberflächen mit klarer Informationsarchitektur.",
+        "level": 90,
+        "levelLabel": "Sehr sicher in responsiven UI-Implementierungen",
+        "items": [
+          "React",
+          "Next.js App Router",
+          "TypeScript",
+          "Tailwind CSS v4",
+          "Framer Motion"
+        ]
+      },
+      {
+        "name": "Backend",
+        "description": "Solide Grundlagen für API-Anbindung, Datenfluss und serverseitige Logik im Next.js-Umfeld.",
+        "level": 76,
+        "levelLabel": "Sicher in produktnahen Daten- und API-Flows",
+        "items": [
+          "Server Actions",
+          "REST APIs",
+          "JSON/Schema",
+          "Route Handlers",
+          "Validierung"
+        ]
+      },
+      {
+        "name": "Tools",
+        "description": "Werkzeuge für sauberen Workflow, Qualitätssicherung und nachvollziehbare Entwicklungsschritte.",
+        "level": 84,
+        "levelLabel": "Strukturiertes Arbeiten mit Qualitätsfokus",
+        "items": [
+          "Git & GitHub",
+          "npm",
+          "ESLint",
+          "Lighthouse",
+          "Figma-to-Code"
+        ]
+      },
+      {
+        "name": "Soft Skills",
+        "description": "Arbeitsweise, die im Ausbildungsteam zählt: Zuverlässigkeit, Lernbereitschaft und Kommunikation.",
+        "level": 88,
+        "levelLabel": "Stark in Zusammenarbeit und Eigenverantwortung",
+        "items": [
+          "Eigeninitiative",
+          "Strukturierte Problemlösung",
+          "Dokumentation",
+          "Feedback-Umsetzung",
+          "Kontinuierliches Lernen"
+        ]
+      }
+    ]
+  },
+  "Resume": {
+    "eyebrow": "Lebenslauf & Entwicklung",
+    "title": "Lebenslauf",
+    "intro": "Mein Weg in die Anwendungsentwicklung ist praxisnah und klar strukturiert: konsequentes Selbststudium, reale Projekte und ein konkretes Ausbildungsziel für 2026.",
+    "timeline": [
+      {
+        "period": "2024 — heute",
+        "title": "Strukturiertes Selbststudium im Frontend Engineering",
+        "text": "Tägliche Coding-Sprints, dokumentierte Lernziele und kontinuierliche Qualitätschecks mit Build, Performance und Accessibility.",
+        "focus": "Fokus: React · Next.js · TypeScript",
+        "chips": [
+          "Eigeninitiative",
+          "Tägliche Praxis",
+          "Qualitätsfokus"
+        ]
+      },
+      {
+        "period": "2025",
+        "title": "Produktnahe Projektumsetzung",
+        "text": "Konzeption und Umsetzung mehrerer End-to-End-Projekte mit klarem Nutzerszenario statt Tutorial-Apps. Schwerpunkt auf responsiver UI und wartbarer Architektur.",
+        "focus": "Fokus: UX · Komponentenarchitektur",
+        "chips": [
+          "5 Demo-Konzepte",
+          "Mobile-first",
+          "Sauberer Code"
+        ]
+      },
+      {
+        "period": "2026 (Ziel)",
+        "title": "Ausbildung Fachinformatiker AE",
+        "text": "Einstieg in ein Ausbildungsteam, um praktische Erfahrung mit professionellen Entwicklungsprozessen, Teamarbeit und Verantwortung im Produktalltag zu verbinden.",
+        "focus": "Ziel: Ausbildungsstart 2026",
+        "chips": [
+          "Lernbereitschaft",
+          "Teamfähigkeit",
+          "Verlässlichkeit"
+        ]
+      }
+    ],
+    "closingTitle": "Was ein Team von mir erwarten kann",
+    "closingText": "Ich arbeite strukturiert, lerne schnell und denke in Nutzerproblemen. Mein Ziel ist es, früh produktiv mitzuwirken und Verantwortung verlässlich zu übernehmen.",
+    "closingBadges": [
+      "Eigeninitiative",
+      "Klare Kommunikation",
+      "Schnelle Umsetzung",
+      "Ausbildungsfokus 2026"
+    ]
+  },
+  "Contact": {
+    "eyebrow": "Kontakt & nächster Schritt",
+    "title": "Kontakt",
+    "intro": "Ich freue mich über Gespräche zu Ausbildung, Praktikum oder Probearbeiten im Bereich Anwendungsentwicklung.",
+    "linksTitle": "Direkte Kontaktwege",
+    "linksIntro": "Für eine schnelle Rückmeldung erreichen Sie mich direkt per E-Mail oder über meine Profile.",
+    "quickLinks": [
+      {
+        "label": "E-Mail",
+        "value": "oleksandr.o.shevchenko@gmail.com",
+        "href": "mailto:oleksandr.o.shevchenko@gmail.com"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/ShevasTest",
+        "href": "https://github.com/ShevasTest"
+      },
+      {
+        "label": "LinkedIn",
+        "value": "linkedin.com/in/oleksandr-it",
+        "href": "https://www.linkedin.com/in/oleksandr-it/"
+      }
+    ],
+    "availability": {
+      "title": "Verfügbarkeit",
+      "text": "Aktiv auf der Suche nach einem Ausbildungsplatz für 2026 und offen für Praktikum, Probearbeit oder Kennenlerngespräche.",
+      "badges": [
+        "Ausbildung 2026",
+        "Praktikum möglich",
+        "Antwort in 24h"
+      ]
+    },
+    "form": {
+      "title": "Kurze Nachricht senden",
+      "intro": "Schildern Sie kurz Rolle, Team oder Projekt. Ich antworte strukturiert und zeitnah.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Ihr Name",
+      "emailLabel": "E-Mail",
+      "emailPlaceholder": "name@unternehmen.de",
+      "messageLabel": "Nachricht",
+      "messagePlaceholder": "Worum geht es? (Rolle, Zeitraum, Team, nächste Schritte)"
+    },
+    "submit": {
+      "idle": "Nachricht vorbereiten",
+      "sending": "Wird vorbereitet ...",
+      "successTitle": "Danke für Ihre Nachricht",
+      "successText": "Ihr E-Mail-Programm wurde mit einer vorformulierten Nachricht geöffnet."
+    },
+    "validation": {
+      "nameRequired": "Bitte geben Sie Ihren Namen ein.",
+      "emailRequired": "Bitte geben Sie eine E-Mail-Adresse ein.",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "messageRequired": "Bitte fügen Sie eine Nachricht hinzu.",
+      "messageMin": "Bitte schreiben Sie mindestens 24 Zeichen, damit ich den Kontext verstehe."
+    },
+    "mailSubject": "Kontakt über Portfolio — Ausbildung Fachinformatiker AE",
+    "emailLabel": "E-Mail",
+    "email": "oleksandr.o.shevchenko@gmail.com",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "ProjectPage": {
+    "badge": "Projektseite in Vorbereitung",
+    "description": "Hier folgen bald Ziele, Architektur-Entscheidungen, Tech Stack und Demo-Links.",
+    "back": "Zurück zur Startseite"
+  },
+  "Footer": {
+    "rights": "© {year} Alexander. Entwickelt mit Next.js & TypeScript."
+  }
+}

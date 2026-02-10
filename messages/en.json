@@ -1,0 +1,319 @@
+{
+  "Meta": {
+    "title": "Ausbildung Portfolio",
+    "description": "Portfolio of Alexander — aspiring software developer for a German Ausbildung program.",
+    "ogTitle": "Alexander | Ausbildung Portfolio",
+    "ogDescription": "Modern web projects focused on performance, accessibility and clean architecture.",
+    "projectTitle": "Project: {slug}",
+    "projectDescription": "Detailed project page with goals, stack and implementation notes."
+  },
+  "Nav": {
+    "brand": "Alexander",
+    "hero": "Hero",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "resume": "Resume",
+    "contact": "Contact",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "Hero": {
+    "badge": "Aspiring Software Developer (Fachinformatiker AE)",
+    "kicker": "Ausbildung 2026 · Frontend Engineering Focus",
+    "titleLead": "I build",
+    "rotatingWords": [
+      "fast web apps",
+      "accessible interfaces",
+      "clean TypeScript architecture",
+      "products that solve real needs"
+    ],
+    "titleEnd": "for teams that value ownership and initiative.",
+    "subtitle": "Through focused self-learning and daily hands-on practice, I turn product ideas into responsive implementations — performance-oriented, maintainable and ready for real-world use.",
+    "points": [
+      "Mobile-first delivery for recruiters reviewing on phones",
+      "60fps interactions based on transform + opacity",
+      "Clear information hierarchy over visual noise",
+      "TypeScript strict code quality with reusable components"
+    ],
+    "ctaProjects": "View projects",
+    "ctaContact": "Get in touch",
+    "panelEyebrow": "What I bring",
+    "panelTitle": "From self-learning into professional product teams",
+    "panelText": "I am looking for an Ausbildung position where I can contribute my technical foundation to real product work and keep growing in a structured environment.",
+    "stats": [
+      {
+        "label": "Project focus",
+        "value": "5 practical end-to-end demos"
+      },
+      {
+        "label": "Quality target",
+        "value": "Lighthouse 95+ & WCAG AA"
+      },
+      {
+        "label": "Work style",
+        "value": "Initiative · Clarity · Reliability"
+      }
+    ]
+  },
+  "About": {
+    "title": "About me",
+    "eyebrow": "Self-learning with clear direction",
+    "lead": "I bring initiative, structure and real project execution — the exact mix teams need in an Ausbildung context.",
+    "paragraphs": [
+      "My path into development started with curiosity: I wanted to understand how strong digital products are built and why some interfaces feel intuitive from the first second.",
+      "To improve fast, I built a disciplined learning routine with daily coding sprints, clear documentation and consistent quality checks for build stability, performance and accessibility.",
+      "Today I can deliver complete frontend features end-to-end: from concept to responsive UI and maintainable TypeScript architecture. For 2026, I am looking for an Ausbildung team where I can turn this practice into professional product work."
+    ],
+    "highlights": [
+      {
+        "label": "Initiative",
+        "value": "Daily self-learning with clear milestones and independent delivery of complete features."
+      },
+      {
+        "label": "Product mindset",
+        "value": "I do not just ship components — I think in user needs, flow clarity and business relevance."
+      },
+      {
+        "label": "Team readiness",
+        "value": "Structured code, transparent technical decisions and reliable handovers."
+      },
+      {
+        "label": "2026 goal",
+        "value": "Combine practical experience with formal training and take responsibility early."
+      }
+    ],
+    "motivationTitle": "What I bring into an Ausbildung role",
+    "motivationPoints": [
+      "I learn quickly and translate feedback into better technical solutions immediately.",
+      "I work reliably within clear structures while staying focused on user impact.",
+      "I am looking for a team where I can learn from experienced engineers and contribute productively early."
+    ],
+    "profile": {
+      "badge": "Profile",
+      "name": "Alexander",
+      "role": "Aspiring Software Developer (Fachinformatiker AE)",
+      "initials": "AS",
+      "placeholder": "Photo placeholder",
+      "caption": "I combine disciplined self-learning with hands-on product building and clear communication.",
+      "facts": [
+        "Location: Germany · Ausbildung target 2026",
+        "Languages: German B1 (actively improving to B2) · English fluent for tech work",
+        "Focus: Next.js, React, TypeScript, performance and accessibility"
+      ]
+    }
+  },
+  "Projects": {
+    "title": "Projects",
+    "intro": "Five practical products that address real everyday needs and clearly show my engineering approach.",
+    "items": [
+      {
+        "slug": "ki-bewerbungshelfer",
+        "title": "AI Application Assistant",
+        "summary": "Analyzes job posts and drafts personalized cover letters with editable export.",
+        "stack": "Next.js · Server Actions · AI API"
+      },
+      {
+        "slug": "mietpreise-tracker",
+        "title": "Rent Price Tracker",
+        "summary": "Compares rent costs across German cities with trend charts and income calculator.",
+        "stack": "Next.js · Open Data APIs · Charts"
+      },
+      {
+        "slug": "smartchat",
+        "title": "SmartChat",
+        "summary": "Advanced AI chat with streaming answers, history, markdown and code highlighting.",
+        "stack": "Next.js · Streaming · IndexedDB"
+      },
+      {
+        "slug": "devdash",
+        "title": "DevDash",
+        "summary": "Customizable developer dashboard with widgets, Pomodoro and GitHub activity.",
+        "stack": "Next.js · Modular UI · PWA"
+      },
+      {
+        "slug": "portfolio",
+        "title": "This Portfolio",
+        "summary": "Open-source showcase with i18n, theme system and Lighthouse-oriented UX.",
+        "stack": "Next.js · Tailwind v4 · next-intl"
+      }
+    ],
+    "openProject": "Open project"
+  },
+  "Skills": {
+    "title": "Skills",
+    "intro": "Technologies, tools and work habits that I already apply in real project implementations.",
+    "legend": "Self-assessment based on practical delivery in personal end-to-end projects",
+    "groups": [
+      {
+        "name": "Frontend",
+        "description": "Focused on fast, accessible interfaces with clear information hierarchy.",
+        "level": 90,
+        "levelLabel": "Highly confident in responsive UI delivery",
+        "items": [
+          "React",
+          "Next.js App Router",
+          "TypeScript",
+          "Tailwind CSS v4",
+          "Framer Motion"
+        ]
+      },
+      {
+        "name": "Backend",
+        "description": "Solid foundation for API integration, data flow and server-side logic in Next.js apps.",
+        "level": 76,
+        "levelLabel": "Confident with production-like API and data flows",
+        "items": [
+          "Server Actions",
+          "REST APIs",
+          "JSON/Schema",
+          "Route Handlers",
+          "Validation"
+        ]
+      },
+      {
+        "name": "Tools",
+        "description": "Tooling for clean workflow, quality checks and transparent implementation steps.",
+        "level": 84,
+        "levelLabel": "Structured execution with quality focus",
+        "items": [
+          "Git & GitHub",
+          "npm",
+          "ESLint",
+          "Lighthouse",
+          "Figma-to-Code"
+        ]
+      },
+      {
+        "name": "Soft Skills",
+        "description": "Team qualities that matter in Ausbildung: reliability, learning mindset and communication.",
+        "level": 88,
+        "levelLabel": "Strong ownership and collaboration skills",
+        "items": [
+          "Self-initiative",
+          "Structured problem solving",
+          "Documentation",
+          "Fast feedback integration",
+          "Continuous learning"
+        ]
+      }
+    ]
+  },
+  "Resume": {
+    "eyebrow": "Resume & Growth Path",
+    "title": "Resume",
+    "intro": "My path into software development is practical and clearly structured: disciplined self-learning, real product projects and a concrete Ausbildung target for 2026.",
+    "timeline": [
+      {
+        "period": "2024 — present",
+        "title": "Structured Self-Learning in Frontend Engineering",
+        "text": "Daily coding sprints, documented learning goals and continuous quality checks with build stability, performance and accessibility.",
+        "focus": "Focus: React · Next.js · TypeScript",
+        "chips": [
+          "Self-initiative",
+          "Daily practice",
+          "Quality mindset"
+        ]
+      },
+      {
+        "period": "2025",
+        "title": "Product-Oriented Project Delivery",
+        "text": "Planned and built multiple end-to-end projects around clear user scenarios instead of tutorial-style apps. Strong focus on responsive UI and maintainable architecture.",
+        "focus": "Focus: UX · Component architecture",
+        "chips": [
+          "5 demo concepts",
+          "Mobile-first",
+          "Clean code"
+        ]
+      },
+      {
+        "period": "2026 (goal)",
+        "title": "Ausbildung in Software Development",
+        "text": "Join an Ausbildung team to combine practical experience with professional development processes, teamwork and accountable product delivery.",
+        "focus": "Goal: Ausbildung start in 2026",
+        "chips": [
+          "Learning mindset",
+          "Team collaboration",
+          "Reliability"
+        ]
+      }
+    ],
+    "closingTitle": "What a team can expect from me",
+    "closingText": "I work in a structured way, learn quickly and stay focused on user problems. My goal is to contribute productively early and take ownership reliably.",
+    "closingBadges": [
+      "Self-initiative",
+      "Clear communication",
+      "Fast execution",
+      "Ausbildung focus 2026"
+    ]
+  },
+  "Contact": {
+    "eyebrow": "Contact & next step",
+    "title": "Contact",
+    "intro": "I am open to conversations about Ausbildung roles, internships or trial work in software development.",
+    "linksTitle": "Direct channels",
+    "linksIntro": "For a fast response, feel free to reach out via email or my public profiles.",
+    "quickLinks": [
+      {
+        "label": "Email",
+        "value": "oleksandr.o.shevchenko@gmail.com",
+        "href": "mailto:oleksandr.o.shevchenko@gmail.com"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/ShevasTest",
+        "href": "https://github.com/ShevasTest"
+      },
+      {
+        "label": "LinkedIn",
+        "value": "linkedin.com/in/oleksandr-it",
+        "href": "https://www.linkedin.com/in/oleksandr-it/"
+      }
+    ],
+    "availability": {
+      "title": "Availability",
+      "text": "Actively looking for an Ausbildung position starting in 2026 and open to internships, trial days or intro conversations.",
+      "badges": [
+        "Ausbildung 2026",
+        "Internship open",
+        "Reply within 24h"
+      ]
+    },
+    "form": {
+      "title": "Send a short message",
+      "intro": "Share the role, team or project context in a few lines. I reply quickly and with clear structure.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "name@company.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "What is this about? (role, timeline, team, next steps)"
+    },
+    "submit": {
+      "idle": "Prepare message",
+      "sending": "Preparing ...",
+      "successTitle": "Thanks for your message",
+      "successText": "Your email app was opened with a prefilled draft message."
+    },
+    "validation": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter an email address.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Please add a short message.",
+      "messageMin": "Please write at least 24 characters so I can understand the context."
+    },
+    "mailSubject": "Portfolio contact — Ausbildung Software Development",
+    "emailLabel": "Email",
+    "email": "oleksandr.o.shevchenko@gmail.com",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "ProjectPage": {
+    "badge": "Project page coming soon",
+    "description": "Detailed goals, architecture decisions, tech stack and demo links will be added here soon.",
+    "back": "Back to homepage"
+  },
+  "Footer": {
+    "rights": "© {year} Alexander. Built with Next.js & TypeScript."
+  }
+}

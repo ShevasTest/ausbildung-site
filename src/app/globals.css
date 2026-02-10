@@ -1,0 +1,943 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafa;
+  --foreground: #111827;
+  --card: #ffffff;
+  --muted: #4b5563;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-solid: #1d4ed8;
+  --accent: #047857;
+}
+
+:root[data-theme="dark"] {
+  --background: #0a0a0f;
+  --foreground: #f3f4f6;
+  --card: #11131a;
+  --muted: #9ca3af;
+  --border: #222838;
+  --primary: #60a5fa;
+  --primary-solid: #2563eb;
+  --accent: #34d399;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --color-primary: var(--primary);
+  --color-primary-solid: var(--primary-solid);
+  --color-accent: var(--accent);
+  --color-bg-dark: #0a0a0f;
+  --color-bg-light: #fafafa;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--color-primary) 42%, var(--color-border));
+  background: var(--color-card);
+  color: var(--color-foreground);
+  padding: 0.45rem 0.82rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transform: translate3d(0, -170%, 0);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translate3d(0, 0, 0);
+}
+
+:where(
+  a[href],
+  button:not(:disabled),
+  input:not([type="hidden"]),
+  select,
+  textarea,
+  summary,
+  [role="button"],
+  [role="tab"],
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-primary) 82%, white 18%);
+  outline-offset: 3px;
+}
+
+.page-transition-shell {
+  animation: page-enter 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.section-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 760px;
+}
+
+::selection {
+  background-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
+}
+
+.hero-orb {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.8;
+  will-change: transform;
+  animation: hero-orb-float 8s ease-in-out infinite;
+}
+
+.hero-orb-primary {
+  top: -7rem;
+  right: -5rem;
+  width: clamp(12rem, 30vw, 18rem);
+  height: clamp(12rem, 30vw, 18rem);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgb(59 130 246 / 0.33) 0%,
+    rgb(59 130 246 / 0) 72%
+  );
+}
+
+.hero-orb-accent {
+  bottom: -8rem;
+  left: -6rem;
+  width: clamp(11rem, 27vw, 16rem);
+  height: clamp(11rem, 27vw, 16rem);
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgb(16 185 129 / 0.26) 0%,
+    rgb(16 185 129 / 0) 72%
+  );
+  animation-delay: -3.2s;
+}
+
+.hero-reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  animation: hero-reveal 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-word-window {
+  position: relative;
+  display: inline-flex;
+  height: 1.18em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.hero-word-track {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  animation: hero-word-cycle 12s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+}
+
+.hero-word {
+  display: block;
+  line-height: 1.18;
+  background: linear-gradient(130deg, #3b82f6 5%, #10b981 55%, #3b82f6 100%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.about-reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.about-reveal-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.about-profile-orb {
+  pointer-events: none;
+  position: absolute;
+  top: -5.5rem;
+  right: -4rem;
+  width: clamp(9rem, 22vw, 13rem);
+  height: clamp(9rem, 22vw, 13rem);
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgb(59 130 246 / 0.24) 0%,
+    rgb(59 130 246 / 0) 72%
+  );
+  animation: hero-orb-float 7.2s ease-in-out infinite;
+}
+
+.skills-reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.skills-reveal-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.skills-meter-track {
+  position: relative;
+  overflow: hidden;
+  height: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--color-border) 88%, transparent);
+  background: color-mix(in oklab, var(--color-primary) 12%, transparent);
+}
+
+.skills-meter-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+}
+
+.skills-meter-fill.is-visible {
+  transform: scaleX(var(--skill-scale));
+}
+
+.skills-chip {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.skills-chip:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 44%, var(--color-border));
+  color: var(--color-foreground);
+  background-color: color-mix(in oklab, var(--color-primary) 12%, var(--color-card));
+}
+
+.resume-timeline-wrapper {
+  position: relative;
+}
+
+.resume-timeline-line {
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  left: 0.45rem;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgb(59 130 246 / 0.25) 0%,
+    rgb(59 130 246 / 0.46) 32%,
+    rgb(16 185 129 / 0.42) 68%,
+    rgb(16 185 129 / 0.18) 100%
+  );
+}
+
+.resume-item {
+  position: relative;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.resume-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.resume-item-marker {
+  position: absolute;
+  left: 0;
+  top: 1.35rem;
+  display: inline-flex;
+  height: 0.95rem;
+  width: 0.95rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--color-primary) 45%, var(--color-border));
+  background: var(--color-card);
+}
+
+.resume-item-marker-core {
+  display: block;
+  height: 0.45rem;
+  width: 0.45rem;
+  border-radius: 9999px;
+  background: linear-gradient(130deg, #3b82f6 0%, #10b981 100%);
+}
+
+.resume-summary {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.resume-summary.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.resume-chip {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.resume-chip:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 44%, var(--color-border));
+  color: var(--color-foreground);
+  background-color: color-mix(in oklab, var(--color-primary) 12%, var(--color-card));
+}
+
+.contact-reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.contact-reveal-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.contact-link-card {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.contact-link-card:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 45%, var(--color-border));
+  background-color: color-mix(in oklab, var(--color-primary) 8%, var(--color-card));
+}
+
+.contact-link-value {
+  word-break: break-word;
+}
+
+.contact-field {
+  border: 1px solid var(--color-border);
+  background: color-mix(in oklab, var(--color-background) 90%, var(--color-card));
+  color: var(--color-foreground);
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.contact-field::placeholder {
+  color: color-mix(in oklab, var(--color-muted) 88%, transparent);
+}
+
+.contact-field:focus-visible {
+  outline: none;
+  border-color: color-mix(in oklab, var(--color-primary) 68%, var(--color-border));
+  background: color-mix(in oklab, var(--color-background) 74%, var(--color-card));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 20%, transparent);
+}
+
+.contact-submit {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.contact-submit:hover:not(:disabled) {
+  transform: translate3d(0, -1px, 0);
+}
+
+.contact-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.78;
+}
+
+.contact-status {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  pointer-events: none;
+}
+
+.contact-status.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+.ki-option-card {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.ki-option-card:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 44%, var(--color-border));
+  background-color: color-mix(in oklab, var(--color-primary) 8%, var(--color-card));
+}
+
+.ki-stream-caret {
+  display: inline-block;
+  margin-left: 1px;
+  color: var(--color-primary);
+  animation: ki-caret-blink 0.95s steps(1, end) infinite;
+}
+
+.rent-city-button {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.rent-city-button:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 45%, var(--color-border));
+}
+
+.rent-city-button.is-active {
+  transform: translate3d(0, -1px, 0);
+}
+
+.rent-pill {
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.rent-pill:hover {
+  transform: translate3d(0, -1px, 0);
+}
+
+.rent-slider {
+  accent-color: var(--color-primary);
+}
+
+.rent-bar-track {
+  height: 0.56rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--color-border) 88%, transparent);
+  background: color-mix(in oklab, var(--color-primary) 10%, transparent);
+}
+
+.rent-bar-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.62s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+}
+
+.rent-bar-fill.is-visible {
+  transform: scaleX(var(--rent-bar-scale));
+}
+
+.rent-trend-point {
+  opacity: 0;
+  transform: translate3d(0, 8px, 0) scale(0.88);
+  transform-origin: center;
+  animation: rent-point-in 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: var(--rent-point-delay, 0ms);
+}
+
+.smartchat-ghost-btn {
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.smartchat-ghost-btn:hover:not(:disabled) {
+  transform: translate3d(0, -1px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 40%, var(--color-border));
+  color: var(--color-primary);
+  background-color: color-mix(in oklab, var(--color-primary) 8%, var(--color-card));
+}
+
+.smartchat-ghost-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.smartchat-thread-btn,
+.smartchat-model-btn,
+.smartchat-message {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.smartchat-thread-btn:hover,
+.smartchat-model-btn:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 42%, var(--color-border));
+}
+
+.smartchat-thread-btn.is-active,
+.smartchat-model-btn:focus-visible {
+  transform: translate3d(0, -1px, 0);
+}
+
+.smartchat-markdown {
+  color: var(--color-foreground);
+}
+
+.smartchat-paragraph {
+  line-height: 1.62;
+  color: color-mix(in oklab, var(--color-foreground) 92%, var(--color-muted));
+  overflow-wrap: anywhere;
+}
+
+.smartchat-h2,
+.smartchat-h3,
+.smartchat-h4 {
+  margin-top: 0.7rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.smartchat-h2 {
+  font-size: 1rem;
+}
+
+.smartchat-h3 {
+  font-size: 0.97rem;
+}
+
+.smartchat-h4 {
+  font-size: 0.9rem;
+}
+
+.smartchat-list {
+  margin-top: 0.35rem;
+  margin-left: 1.2rem;
+  line-height: 1.55;
+  color: color-mix(in oklab, var(--color-foreground) 90%, var(--color-muted));
+}
+
+.smartchat-list li + li {
+  margin-top: 0.18rem;
+}
+
+.smartchat-quote {
+  margin-top: 0.45rem;
+  border-left: 2px solid color-mix(in oklab, var(--color-primary) 46%, transparent);
+  padding-left: 0.7rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
+}
+
+.smartchat-inline-code {
+  border-radius: 0.45rem;
+  border: 1px solid color-mix(in oklab, var(--color-border) 86%, transparent);
+  background: color-mix(in oklab, var(--color-primary) 10%, var(--color-card));
+  padding: 0.08rem 0.42rem;
+  font-family: var(--font-mono);
+  font-size: 0.79em;
+  color: color-mix(in oklab, var(--color-primary) 72%, var(--color-foreground));
+}
+
+.smartchat-code-shell {
+  margin-top: 0.6rem;
+  overflow: hidden;
+  border-radius: 0.95rem;
+  border: 1px solid color-mix(in oklab, var(--color-border) 92%, transparent);
+  background: color-mix(in oklab, var(--color-bg-dark) 92%, black);
+}
+
+:root[data-theme="light"] .smartchat-code-shell {
+  background: color-mix(in oklab, var(--color-bg-dark) 89%, white);
+}
+
+.smartchat-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid color-mix(in oklab, white 12%, transparent);
+  padding: 0.36rem 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(148 163 184 / 0.9);
+}
+
+.smartchat-code-pre {
+  overflow-x: auto;
+  padding: 0.62rem 0.75rem 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: rgb(226 232 240 / 0.95);
+}
+
+.smartchat-code-line {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem;
+  min-height: 1.2rem;
+}
+
+.smartchat-code-number {
+  user-select: none;
+  text-align: right;
+  color: rgb(148 163 184 / 0.52);
+}
+
+.smartchat-code-content {
+  white-space: pre;
+}
+
+.smartchat-token-keyword {
+  color: rgb(96 165 250 / 0.95);
+}
+
+.smartchat-token-string {
+  color: rgb(52 211 153 / 0.95);
+}
+
+.smartchat-token-number {
+  color: rgb(250 204 21 / 0.95);
+}
+
+.smartchat-token-comment {
+  color: rgb(148 163 184 / 0.72);
+}
+
+.smartchat-token-plain {
+  color: rgb(226 232 240 / 0.95);
+}
+
+.smartchat-dot {
+  display: inline-block;
+  height: 0.35rem;
+  width: 0.35rem;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--color-primary) 75%, white);
+  animation: smartchat-dot-bounce 0.9s ease-in-out infinite;
+}
+
+.smartchat-dot:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.smartchat-dot:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.devdash-widget {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.devdash-widget:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 42%, var(--color-border));
+}
+
+.devdash-widget.is-target {
+  border-color: color-mix(in oklab, var(--color-primary) 54%, var(--color-border));
+  background: color-mix(in oklab, var(--color-primary) 7%, var(--color-card));
+}
+
+.devdash-widget.is-dragging {
+  opacity: 0.72;
+  transform: scale(0.99);
+}
+
+.devdash-icon-btn,
+.devdash-pill,
+.devdash-drag-handle,
+.devdash-news-item,
+.devdash-ring-progress {
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background-color 0.18s ease,
+    opacity 0.18s ease,
+    stroke-dashoffset 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.devdash-icon-btn:hover,
+.devdash-pill:hover,
+.devdash-drag-handle:hover,
+.devdash-news-item:hover {
+  transform: translate3d(0, -1px, 0);
+  border-color: color-mix(in oklab, var(--color-primary) 40%, var(--color-border));
+}
+
+.devdash-drag-handle {
+  cursor: grab;
+}
+
+.devdash-drag-handle:active {
+  cursor: grabbing;
+}
+
+.devdash-forecast-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center bottom;
+  transform: scaleY(0);
+  transition: transform 0.52s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: linear-gradient(180deg, #3b82f6 0%, #10b981 100%);
+}
+
+.devdash-forecast-fill.is-visible {
+  transform: scaleY(var(--devdash-forecast-scale));
+}
+
+.devdash-heat-cell {
+  display: inline-block;
+  height: 0.68rem;
+  width: 0.68rem;
+  border-radius: 0.2rem;
+  border: 1px solid color-mix(in oklab, var(--color-border) 86%, transparent);
+  background: color-mix(in oklab, var(--color-border) 60%, transparent);
+}
+
+.devdash-heat-cell.level-1 {
+  background: color-mix(in oklab, var(--color-primary) 24%, var(--color-card));
+}
+
+.devdash-heat-cell.level-2 {
+  background: color-mix(in oklab, var(--color-primary) 42%, var(--color-card));
+}
+
+.devdash-heat-cell.level-3 {
+  background: color-mix(in oklab, var(--color-primary) 60%, var(--color-card));
+}
+
+.devdash-heat-cell.level-4 {
+  background: linear-gradient(130deg, #3b82f6 0%, #10b981 100%);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-orb-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) scale(1.04);
+  }
+}
+
+@keyframes hero-word-cycle {
+  0%,
+  16% {
+    transform: translate3d(0, 0%, 0);
+  }
+  20%,
+  36% {
+    transform: translate3d(0, -100%, 0);
+  }
+  40%,
+  56% {
+    transform: translate3d(0, -200%, 0);
+  }
+  60%,
+  76% {
+    transform: translate3d(0, -300%, 0);
+  }
+  80%,
+  96%,
+  100% {
+    transform: translate3d(0, -400%, 0);
+  }
+}
+
+@keyframes rent-point-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes ki-caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes smartchat-dot-bounce {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-transition-shell,
+  .hero-reveal,
+  .hero-word-track,
+  .hero-orb,
+  .about-profile-orb {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .about-reveal-item,
+  .skills-reveal-item,
+  .resume-item,
+  .resume-summary,
+  .contact-reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .skills-meter-fill {
+    transform: scaleX(var(--skill-scale));
+    transition: none;
+  }
+
+  .skills-chip,
+  .resume-chip,
+  .contact-link-card,
+  .contact-field,
+  .contact-submit,
+  .ki-option-card,
+  .rent-city-button,
+  .rent-pill,
+  .rent-bar-fill,
+  .smartchat-ghost-btn,
+  .smartchat-thread-btn,
+  .smartchat-model-btn,
+  .smartchat-message,
+  .devdash-widget,
+  .devdash-icon-btn,
+  .devdash-pill,
+  .devdash-drag-handle,
+  .devdash-news-item,
+  .devdash-ring-progress,
+  .devdash-forecast-fill {
+    transition: none;
+  }
+
+  .devdash-forecast-fill {
+    transform: scaleY(var(--devdash-forecast-scale));
+  }
+
+  .devdash-widget:hover,
+  .devdash-icon-btn:hover,
+  .devdash-pill:hover,
+  .devdash-drag-handle:hover,
+  .devdash-news-item:hover {
+    transform: none;
+  }
+
+  .rent-trend-point {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .ki-stream-caret,
+  .smartchat-dot {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
