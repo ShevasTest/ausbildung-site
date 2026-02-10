@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 export type AboutHighlight = {
@@ -112,11 +113,15 @@ export function AboutSection({
             </p>
 
             <div className="relative mt-5 flex items-center gap-4">
-              <div className="inline-flex h-24 w-24 shrink-0 flex-col items-center justify-center rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
-                <span className="text-3xl font-semibold tracking-tight text-foreground">
-                  {profileInitials}
-                </span>
-                <span className="mt-1 text-[11px] font-medium text-muted">{profilePlaceholder}</span>
+              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-primary/30">
+                <Image
+                  src="/profile.jpg"
+                  alt={profileName}
+                  fill
+                  className="object-cover"
+                  sizes="96px"
+                  priority
+                />
               </div>
 
               <div className="min-w-0">

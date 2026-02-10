@@ -34,13 +34,13 @@ const themeScript = `
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.baseUrl),
-  applicationName: "Alexander Ausbildung Portfolio",
+  applicationName: "Oleksandr Ausbildung Portfolio",
   title: {
-    default: "Alexander | Ausbildung Portfolio",
-    template: "%s | Alexander",
+    default: "Oleksandr | Ausbildung Portfolio",
+    template: "%s | Oleksandr",
   },
   description:
-    "Portfolio von Alexander — angehender Fachinformatiker für Anwendungsentwicklung.",
+    "Portfolio von Oleksandr — angehender Fachinformatiker für Anwendungsentwicklung.",
   keywords: [
     "Ausbildung Fachinformatiker",
     "Frontend Portfolio",
