@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/seo";
 
-const baseUrl = "https://alex-ausbildung-portfolio.vercel.app";
 const projectSlugs = [
   "ki-bewerbungshelfer",
   "mietpreise-tracker",
@@ -9,37 +9,25 @@ const projectSlugs = [
   "portfolio",
 ];
 
+const locales = ["de", "en"] as const;
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/en`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-  ];
+  const pages: MetadataRoute.Sitemap = locales.map((locale) => ({
+    url: `${siteConfig.baseUrl}/${locale}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: locale === "de" ? 1 : 0.9,
+  }));
 
   for (const slug of projectSlugs) {
-    pages.push(
-      {
-        url: `${baseUrl}/projects/${slug}`,
+    for (const locale of locales) {
+      pages.push({
+        url: `${siteConfig.baseUrl}/${locale}/projects/${slug}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.8,
-      },
-      {
-        url: `${baseUrl}/en/projects/${slug}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.8,
-      },
-    );
+      });
+    }
   }
 
   return pages;

@@ -1,5 +1,5 @@
-const CACHE_NAME = "alex-portfolio-shell-v1";
-const OFFLINE_FALLBACKS = ["/", "/favicon.ico", "/icon.svg"];
+const CACHE_NAME = "oleksandr-portfolio-shell-v1";
+const OFFLINE_FALLBACKS = ["/", "/icon.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

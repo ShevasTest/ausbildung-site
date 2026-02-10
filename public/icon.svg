@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">Oleksandr Portfolio Icon</title>
-  <desc id="desc">Gradient square with monogram A.</desc>
+  <desc id="desc">Gradient square with monogram O.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0%" stop-color="#3B82F6" />
@@ -9,8 +9,15 @@
   </defs>
   <rect width="512" height="512" rx="112" fill="#0A0A0F" />
   <rect x="36" y="36" width="440" height="440" rx="96" fill="url(#bg)" opacity="0.92" />
-  <path
-    d="M168 364L242 148H270L344 364H304L287 313H225L208 364H168ZM236 273H276L256 206L236 273Z"
+  <text
+    x="256"
+    y="290"
+    text-anchor="middle"
+    dominant-baseline="central"
     fill="#F8FAFC"
-  />
+    font-family="Inter, system-ui, sans-serif"
+    font-size="240"
+    font-weight="700"
+    letter-spacing="-8"
+  >O</text>
 </svg>

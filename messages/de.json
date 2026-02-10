@@ -303,10 +303,7 @@
       "messageMin": "Bitte schreiben Sie mindestens 24 Zeichen, damit ich den Kontext verstehe."
     },
     "mailSubject": "Kontakt über Portfolio — Ausbildung Fachinformatiker AE",
-    "emailLabel": "E-Mail",
-    "email": "oleksandr.o.shevchenko@gmail.com",
-    "linkedin": "LinkedIn",
-    "github": "GitHub"
+    "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {
     "badge": "Projektseite in Vorbereitung",

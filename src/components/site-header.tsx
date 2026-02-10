@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
-// localizedPath and normalizeLocale available from @/lib/seo if needed
 
 type SiteHeaderProps = {
   locale: string;

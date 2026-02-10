@@ -503,8 +503,9 @@ function buildGermanLetter(params: {
   strengths: string[];
   copy: DemoCopy;
   applicantName: string;
+  applicantCity: string;
 }) {
-  const { analysis, tone, focus, strengths, copy, applicantName } = params;
+  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity } = params;
   const salutation =
     analysis.company === copy.analysis.unknownCompany
       ? "Sehr geehrtes Recruiting-Team,"
@@ -526,7 +527,10 @@ function buildGermanLetter(params: {
       ? selectedStrengths.join(" ")
       : "Ich arbeite eigenverantwortlich, denke mit und entwickle Lösungen so, dass sie im Team langfristig wartbar bleiben.";
 
+  const cityLine = applicantCity ? `${applicantCity}, den ${new Date().toLocaleDateString("de-DE")}` : "";
+
   return [
+    ...(cityLine ? [cityLine, ""] : []),
     `Betreff: Bewerbung um ${analysis.role}`,
     "",
     salutation,
@@ -555,8 +559,9 @@ function buildEnglishLetter(params: {
   strengths: string[];
   copy: DemoCopy;
   applicantName: string;
+  applicantCity: string;
 }) {
-  const { analysis, tone, focus, strengths, copy, applicantName } = params;
+  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity } = params;
   const salutation =
     analysis.company === copy.analysis.unknownCompany
       ? "Dear recruiting team,"
@@ -578,7 +583,12 @@ function buildEnglishLetter(params: {
       ? selectedStrengths.join(" ")
       : "I work with ownership, think in product context and keep implementation details maintainable for team collaboration.";
 
+  const dateLine = applicantCity
+    ? `${applicantCity}, ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`
+    : "";
+
   return [
+    ...(dateLine ? [dateLine, ""] : []),
     `Subject: Application for ${analysis.role}`,
     "",
     salutation,
@@ -747,6 +757,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             strengths: selectedStrengths,
             copy,
             applicantName: applicantName.trim() || "Oleksandr",
+            applicantCity: applicantCity.trim(),
           })
         : buildEnglishLetter({
             analysis: nextAnalysis,
@@ -755,6 +766,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             strengths: selectedStrengths,
             copy,
             applicantName: applicantName.trim() || "Oleksandr",
+            applicantCity: applicantCity.trim(),
           });
 
     streamText(generated);

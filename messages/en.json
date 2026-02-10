@@ -303,10 +303,7 @@
       "messageMin": "Please write at least 24 characters so I can understand the context."
     },
     "mailSubject": "Portfolio contact — Ausbildung Software Development",
-    "emailLabel": "Email",
-    "email": "oleksandr.o.shevchenko@gmail.com",
-    "linkedin": "LinkedIn",
-    "github": "GitHub"
+    "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {
     "badge": "Project page coming soon",
