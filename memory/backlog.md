@@ -33,4 +33,4 @@
 - ✅ 4.2 Accessibility audit — WCAG AA. Keyboard navigation, screen reader, contrast ratios, focus states — 2026-02-10
 - ✅ 4.3 SEO + OG images — metadata для каждой страницы, Open Graph images, structured data, robots.txt — 2026-02-10
 - 🔄 4.4 Final responsive check — идеальный вид на iPhone SE, iPhone 14, iPad, Desktop. Скриншоты — 2026-02-10 (responsive фиксы внесены, screenshots blocked: в runtime нет системных browser libs)
-- ⬜ 4.5 Deploy — GitHub repo + Vercel. README.md с описанием проекта (на английском, для GitHub)
+- 🔄 4.5 Deploy — GitHub repo + Vercel. README.md с описанием проекта (на английском, для GitHub) — 2026-02-10 (локальный git init + main + origin + initial commit + README обновлён; push/deploy заблокированы: нет GitHub/Vercel credentials в runtime)

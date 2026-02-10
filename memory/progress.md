@@ -311,3 +311,18 @@
 - Проверки качества:
   - Build: `npm run build` ✅
   - Lint: `npm run lint` ✅
+
+### Phase 4 — 4.5 Deploy (GitHub repo + Vercel)
+- Полностью переписан `README.md` на английском под GitHub-позиционирование: added value proposition, feature highlights, список 5 demo-проектов, стек, локальный запуск, структура и деплой-инструкции.
+- Инициализирован локальный git-репозиторий в `/home/openclaw/workspace-portfolio/ausbildung-site`:
+  - создана ветка `main`,
+  - добавлен `origin` → `https://github.com/ShevasTest/ausbildung-site.git`,
+  - выполнен initial commit (`chore: prepare github-ready readme and deployment baseline`).
+- Зафиксирован внешний блокер по GitHub: `git push -u origin main` не выполнен в runtime из-за отсутствия авторизованных GitHub credentials (`could not read Username for 'https://github.com'`).
+- Зафиксирован внешний блокер по Vercel: деплой невозможен без `vercel login`/token в текущем runtime.
+- Дополнительно восстановлены dev-зависимости в окружении (`npm install --include=dev`), чтобы build-проверка была валидной после деплой-подготовки.
+- Проверки качества:
+  - Build: `npm run build` ✅
+
+#### Дизайн-ресёрч
+- Для задачи 4.5 дизайн-ресёрч не выполнялся: это инфраструктурная deploy/GitHub задача, не новая UI-секция и не новый демо-проект.
