@@ -21,7 +21,7 @@ export function LocaleSwitcher() {
     <div
       role="group"
       aria-label={switcherLabel}
-      className="inline-flex items-center rounded-full border border-border bg-card p-1 text-xs font-medium"
+      className="inline-flex items-center rounded-full border border-border bg-card p-1 text-[11px] font-medium sm:text-xs"
     >
       {locales.map((option) => {
         const isActive = option === locale;
@@ -39,7 +39,7 @@ export function LocaleSwitcher() {
             key={option}
             type="button"
             onClick={() => switchLocale(option)}
-            className={`rounded-full px-2.5 py-1 transition ${
+            className={`rounded-full px-2 py-1 transition sm:px-2.5 ${
               isActive
                 ? "bg-primary-solid text-white"
                 : "text-muted hover:text-foreground"

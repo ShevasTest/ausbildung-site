@@ -24,11 +24,11 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/92">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6">
         <a
           href={homeHref}
           aria-label={homeLabel}
-          className="max-w-[9.5rem] truncate text-base font-semibold tracking-tight text-primary sm:max-w-none sm:text-lg"
+          className="max-w-[8.75rem] truncate text-base font-semibold tracking-tight text-primary sm:max-w-none sm:text-lg"
         >
           {t("brand")}
         </a>
@@ -45,7 +45,7 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <LocaleSwitcher />
           <ThemeToggle />
         </div>
@@ -53,13 +53,13 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
 
       <nav
         aria-label={mobileNavLabel}
-        className="mx-auto flex w-full max-w-6xl items-center gap-2 overflow-x-auto px-4 pb-3 text-sm text-muted md:hidden sm:px-6"
+        className="mx-auto flex w-full max-w-6xl items-center gap-2 overflow-x-auto px-4 pb-2 text-xs text-muted md:hidden sm:px-6 sm:pb-3 sm:text-sm"
       >
         {sections.map((section) => (
           <a
             key={section.id}
             href={`${homeHref}#${section.id}`}
-            className="whitespace-nowrap rounded-full border border-border bg-card px-3 py-1.5 transition hover:text-foreground"
+            className="whitespace-nowrap rounded-full border border-border bg-card px-2.5 py-1.5 transition hover:text-foreground sm:px-3"
           >
             {section.label}
           </a>

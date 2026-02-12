@@ -850,8 +850,8 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   };
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
-      <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 lg:p-9">
+    <main className="mx-auto w-full max-w-6xl px-4 py-7 sm:px-6 sm:py-12">
+      <div className="rounded-3xl border border-border bg-card p-4 sm:p-7 lg:p-9">
         <div className="flex flex-wrap items-center gap-3">
           <span className="inline-flex rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
             {copy.badge}
@@ -864,8 +864,8 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
           </Link>
         </div>
 
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{copy.title}</h1>
-        <p className="mt-3 max-w-4xl leading-relaxed text-muted">{copy.subtitle}</p>
+        <h1 className="mt-4 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl">{copy.title}</h1>
+        <p className="mt-3 max-w-4xl text-[0.98rem] leading-relaxed text-muted sm:text-base">{copy.subtitle}</p>
 
         <ul className="mt-5 flex flex-wrap gap-2.5">
           {copy.chips.map((chip) => (
@@ -876,8 +876,8 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
         </ul>
       </div>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-[0.95fr_1.05fr]">
-        <section className="rounded-3xl border border-border bg-card p-5 sm:p-6">
+      <div className="mt-4 grid gap-4 md:grid-cols-[0.95fr_1.05fr]">
+        <section className="rounded-3xl border border-border bg-card p-4 sm:p-6">
           <h2 className="text-lg font-semibold tracking-tight">{copy.input.title}</h2>
           <p className="mt-2 text-sm leading-relaxed text-muted">{copy.input.hint}</p>
 
@@ -1018,14 +1018,14 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             type="button"
             onClick={handleGenerate}
             disabled={isGenerating}
-            className="contact-submit mt-5 inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-4 py-2.5 text-sm font-semibold text-white"
+            className="contact-submit mt-5 inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-4 py-3 text-sm font-semibold text-white"
           >
             {isGenerating ? copy.input.generating : copy.input.generate}
           </button>
         </section>
 
         <section className="space-y-4">
-          <article className="rounded-3xl border border-border bg-card p-5 sm:p-6">
+          <article className="rounded-3xl border border-border bg-card p-4 sm:p-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h2 className="text-lg font-semibold tracking-tight">{copy.output.title}</h2>
 
@@ -1059,7 +1059,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
               </div>
             </div>
 
-            <div className="mt-4 min-h-[300px] rounded-2xl border border-border bg-background/65 p-4 sm:min-h-[360px]">
+            <div className="mt-4 min-h-[240px] rounded-2xl border border-border bg-background/65 p-3.5 sm:min-h-[360px] sm:p-4">
               {!targetText ? (
                 <div className="rounded-2xl border border-dashed border-border bg-card/70 p-4">
                   <p className="text-sm font-semibold text-foreground">{copy.output.emptyTitle}</p>
@@ -1077,7 +1077,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             </div>
           </article>
 
-          <article className="rounded-3xl border border-border bg-card p-5 sm:p-6">
+          <article className="rounded-3xl border border-border bg-card p-4 sm:p-6">
             <h3 className="text-base font-semibold tracking-tight">{copy.analysis.title}</h3>
 
             <dl className="mt-4 grid gap-3 sm:grid-cols-2">

@@ -98,17 +98,17 @@ export function AboutSection({
   profileFacts,
 }: AboutSectionProps) {
   return (
-    <section id="about" className="section-deferred scroll-mt-28 py-14 sm:py-20">
-      <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+    <section id="about" className="section-deferred scroll-mt-28 py-12 sm:py-20">
+      <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
         <RevealBlock className="lg:sticky lg:top-24" delayMs={20}>
-          <article className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8">
+          <article className="relative overflow-hidden rounded-3xl border border-border bg-card p-5 sm:p-8">
             <div aria-hidden className="about-profile-orb" />
 
             <p className="relative text-xs font-semibold tracking-[0.16em] text-primary uppercase">
               {profileBadge}
             </p>
 
-            <div className="relative mt-5 flex items-center gap-4">
+            <div className="relative mt-5 flex items-center gap-4 max-[420px]:flex-col max-[420px]:items-start">
               <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-primary/25 bg-background shadow-sm">
                 <Image
                   src="/profile.jpg"
@@ -145,14 +145,14 @@ export function AboutSection({
         <div className="space-y-5">
           <RevealBlock delayMs={60}>
             <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">{eyebrow}</p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h2>
-            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-primary">{lead}</p>
+            <h2 className="mt-3 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-primary sm:text-lg">{lead}</p>
           </RevealBlock>
 
           <div className="space-y-4">
             {paragraphs.map((paragraph, index) => (
               <RevealBlock key={`${index}-${paragraph.slice(0, 24)}`} delayMs={110 + index * 70}>
-                <p className="max-w-3xl leading-relaxed text-muted">{paragraph}</p>
+                <p className="max-w-3xl text-[0.98rem] leading-relaxed text-muted sm:text-base">{paragraph}</p>
               </RevealBlock>
             ))}
           </div>
@@ -172,7 +172,7 @@ export function AboutSection({
 
           <RevealBlock delayMs={360}>
             <article className="about-motivation-card rounded-2xl border border-border bg-card p-4 sm:p-6">
-              <h3 className="about-motivation-title text-base font-semibold tracking-tight text-foreground sm:text-lg">
+              <h3 className="about-motivation-title text-base font-semibold tracking-tight text-balance text-foreground sm:text-lg">
                 {motivationTitle}
               </h3>
 
@@ -180,7 +180,7 @@ export function AboutSection({
                 {motivationPoints.map((point) => (
                   <li
                     key={point}
-                    className="about-motivation-item flex items-start gap-2 text-[0.95rem] leading-[1.55] text-muted sm:gap-2.5 sm:text-sm"
+                    className="about-motivation-item flex items-start gap-2 text-sm leading-relaxed text-muted sm:gap-2.5"
                   >
                     <span
                       aria-hidden

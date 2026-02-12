@@ -103,16 +103,16 @@ export default async function HomePage({ params }: HomePageProps) {
   ]);
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
       <section
         id="hero"
-        className="hero-section relative scroll-mt-32 overflow-hidden rounded-3xl border border-border bg-card"
+        className="hero-section relative scroll-mt-32 overflow-hidden rounded-2xl border border-border bg-card sm:rounded-3xl"
       >
         <div aria-hidden className="hero-orb hero-orb-primary" />
         <div aria-hidden className="hero-orb hero-orb-accent" />
 
-        <div className="relative grid gap-10 p-6 sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div className="relative grid gap-8 p-5 sm:gap-10 sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div className="space-y-6">
             <span
               className="hero-reveal inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
@@ -129,7 +129,7 @@ export default async function HomePage({ params }: HomePageProps) {
             </p>
 
             <h1
-              className="hero-reveal text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl"
+              className="hero-reveal text-[1.95rem] leading-[1.12] font-semibold tracking-tight text-balance sm:text-4xl sm:leading-tight lg:text-5xl"
               style={{ animationDelay: "0.16s" }}
             >
               <span>{t("Hero.titleLead")}</span>{" "}
@@ -148,7 +148,7 @@ export default async function HomePage({ params }: HomePageProps) {
             </h1>
 
             <p
-              className="hero-reveal max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+              className="hero-reveal max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg"
               style={{ animationDelay: "0.22s" }}
             >
               {t("Hero.subtitle")}
@@ -159,7 +159,7 @@ export default async function HomePage({ params }: HomePageProps) {
               style={{ animationDelay: "0.28s" }}
             >
               {heroPoints.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-sm text-muted">
+                <li key={point} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
                   <span
                     aria-hidden
                     className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-xs font-bold text-accent"
@@ -177,13 +177,13 @@ export default async function HomePage({ params }: HomePageProps) {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center rounded-full bg-primary-solid px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:opacity-95"
+                className="inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:opacity-95 sm:w-auto"
               >
                 {t("Hero.ctaProjects")}
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+                className="inline-flex w-full items-center justify-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:w-auto"
               >
                 {t("Hero.ctaContact")}
               </a>
@@ -191,13 +191,13 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
 
           <aside
-            className="hero-reveal rounded-2xl border border-border bg-background/80 p-6 shadow-[0_14px_35px_rgba(10,10,15,0.16)]"
+            className="hero-reveal rounded-2xl border border-border bg-background/80 p-5 shadow-[0_14px_35px_rgba(10,10,15,0.16)] sm:p-6"
             style={{ animationDelay: "0.22s" }}
           >
             <p className="text-xs font-semibold tracking-[0.16em] text-primary uppercase">
               {t("Hero.panelEyebrow")}
             </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight text-balance sm:text-2xl">
+            <h2 className="mt-2 text-xl leading-tight font-semibold tracking-tight text-balance sm:text-2xl">
               {t("Hero.panelTitle")}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">{t("Hero.panelText")}</p>

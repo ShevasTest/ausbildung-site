@@ -502,8 +502,8 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
       : `Rent trend for ${selectedCity.city}`;
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
-      <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 lg:p-9">
+    <main className="mx-auto w-full max-w-7xl px-4 py-7 sm:px-6 sm:py-12">
+      <div className="rounded-3xl border border-border bg-card p-4 sm:p-7 lg:p-9">
         <div className="flex flex-wrap items-center gap-3">
           <span className="inline-flex rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
             {copy.badge}
@@ -516,8 +516,8 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
           </Link>
         </div>
 
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{copy.title}</h1>
-        <p className="mt-3 max-w-4xl leading-relaxed text-muted">{copy.subtitle}</p>
+        <h1 className="mt-4 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl">{copy.title}</h1>
+        <p className="mt-3 max-w-4xl text-[0.98rem] leading-relaxed text-muted sm:text-base">{copy.subtitle}</p>
 
         <ul className="mt-5 flex flex-wrap gap-2.5">
           {copy.chips.map((chip) => (
@@ -531,8 +531,8 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
         </ul>
       </div>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-[0.9fr_1.1fr]">
-        <section className="rounded-3xl border border-border bg-card p-5 sm:p-6">
+      <div className="mt-4 grid gap-4 md:grid-cols-[0.9fr_1.1fr]">
+        <section className="rounded-3xl border border-border bg-card p-4 sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <h2 className="text-lg font-semibold tracking-tight">{copy.cityList.title}</h2>
@@ -544,7 +544,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                 type="button"
                 onClick={() => setSortMode("high")}
                 aria-pressed={sortMode === "high"}
-                className={`rent-pill flex-1 rounded-full px-3 py-1 text-center text-xs font-semibold sm:flex-none ${
+                className={`rent-pill flex-1 rounded-full px-2.5 py-1 text-center text-[11px] font-semibold sm:flex-none sm:px-3 sm:text-xs ${
                   sortMode === "high"
                     ? "bg-primary-solid text-white"
                     : "text-muted hover:bg-primary/10 hover:text-primary"
@@ -556,7 +556,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                 type="button"
                 onClick={() => setSortMode("low")}
                 aria-pressed={sortMode === "low"}
-                className={`rent-pill flex-1 rounded-full px-3 py-1 text-center text-xs font-semibold sm:flex-none ${
+                className={`rent-pill flex-1 rounded-full px-2.5 py-1 text-center text-[11px] font-semibold sm:flex-none sm:px-3 sm:text-xs ${
                   sortMode === "low"
                     ? "bg-primary-solid text-white"
                     : "text-muted hover:bg-primary/10 hover:text-primary"

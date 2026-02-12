@@ -333,16 +333,16 @@ export function ContactSection({
   };
 
   return (
-    <section ref={sectionRef} id="contact" className="section-deferred scroll-mt-28 py-14 sm:py-20">
+    <section ref={sectionRef} id="contact" className="section-deferred scroll-mt-28 py-12 sm:py-20">
       <div className={`contact-reveal-item max-w-3xl ${shouldReveal ? "is-visible" : ""}`}>
         <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">{eyebrow}</p>
-        <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h2>
-        <p className="mt-4 leading-relaxed text-muted">{intro}</p>
+        <h2 className="mt-3 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
+        <p className="mt-4 text-[0.98rem] leading-relaxed text-muted sm:text-base">{intro}</p>
       </div>
 
       <div className="mt-8 grid gap-4 lg:grid-cols-[0.94fr_1.06fr]">
         <article
-          className={`contact-reveal-item rounded-3xl border border-border bg-card p-5 sm:p-6 ${shouldReveal ? "is-visible" : ""}`}
+          className={`contact-reveal-item rounded-3xl border border-border bg-card p-4 sm:p-6 ${shouldReveal ? "is-visible" : ""}`}
           style={{ transitionDelay: "90ms" }}
         >
           <p className="text-xs font-semibold tracking-[0.14em] text-primary uppercase">{linksTitle}</p>
@@ -358,7 +358,7 @@ export function ContactSection({
                     href={link.href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noreferrer" : undefined}
-                    className="contact-link-card group flex items-center gap-3 rounded-2xl border border-border bg-background/70 p-3"
+                    className="contact-link-card group flex items-start gap-3 rounded-2xl border border-border bg-background/70 p-3"
                   >
                     <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
                       <span className="h-5 w-5">{getLinkIcon(link.href)}</span>
@@ -400,7 +400,7 @@ export function ContactSection({
         </article>
 
         <article
-          className={`contact-reveal-item rounded-3xl border border-border bg-card p-5 sm:p-6 ${shouldReveal ? "is-visible" : ""}`}
+          className={`contact-reveal-item rounded-3xl border border-border bg-card p-4 sm:p-6 ${shouldReveal ? "is-visible" : ""}`}
           style={{ transitionDelay: "160ms" }}
         >
           <p className="text-xs font-semibold tracking-[0.14em] text-primary uppercase">{formCopy.title}</p>
@@ -485,7 +485,7 @@ export function ContactSection({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="contact-submit inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-4 py-2.5 text-sm font-semibold text-white"
+              className="contact-submit inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-4 py-3 text-sm font-semibold text-white"
             >
               {isSubmitting ? submitCopy.sending : submitCopy.idle}
             </button>

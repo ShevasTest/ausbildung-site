@@ -107,10 +107,10 @@ function resolveTags(project: ProjectItem) {
 
 export function ProjectsSection({ title, intro, openProjectLabel, projects }: ProjectsSectionProps) {
   return (
-    <section id="projects" className="section-deferred scroll-mt-28 py-14 sm:py-20">
+    <section id="projects" className="section-deferred scroll-mt-28 py-12 sm:py-20">
       <div className="max-w-3xl">
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h2>
-        <p className="mt-4 leading-relaxed text-muted">{intro}</p>
+        <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
+        <p className="mt-4 text-[0.98rem] leading-relaxed text-muted sm:text-base">{intro}</p>
       </div>
 
       <div className="mt-8 grid gap-4 md:grid-cols-12">
@@ -121,7 +121,7 @@ export function ProjectsSection({ title, intro, openProjectLabel, projects }: Pr
           return (
             <article
               key={project.slug}
-              className={`group relative overflow-hidden rounded-3xl border border-border bg-card p-5 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/40 sm:p-6 ${visual.layout}`}
+              className={`group relative overflow-hidden rounded-3xl border border-border bg-card p-4 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/40 sm:p-6 ${visual.layout}`}
             >
               <div
                 aria-hidden
@@ -139,7 +139,7 @@ export function ProjectsSection({ title, intro, openProjectLabel, projects }: Pr
                   </span>
                 </div>
 
-                <h3 className="mt-5 text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+                <h3 className="mt-5 text-lg leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-xl">
                   {project.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{project.summary}</p>
@@ -160,7 +160,7 @@ export function ProjectsSection({ title, intro, openProjectLabel, projects }: Pr
                 <Link
                   href={`/projects/${project.slug}`}
                   prefetch={false}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:translate-x-1"
+                  className="mt-auto pt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:translate-x-1"
                 >
                   <span>{openProjectLabel}</span>
                   <span aria-hidden>→</span>

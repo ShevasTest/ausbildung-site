@@ -58,7 +58,7 @@ export function ThemeToggle() {
     return (
       <div
         aria-hidden
-        className="h-9 w-9 rounded-full border border-border bg-card"
+        className="h-8 w-8 rounded-full border border-border bg-card sm:h-9 sm:w-9"
       />
     );
   }
@@ -67,7 +67,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-sm transition hover:border-primary hover:text-primary"
+      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card text-sm transition hover:border-primary hover:text-primary sm:h-9 sm:w-9"
       aria-label={theme === "dark" ? labels.switchToLight : labels.switchToDark}
       aria-pressed={theme === "dark"}
       title={theme === "dark" ? labels.lightMode : labels.darkMode}

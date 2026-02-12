@@ -120,13 +120,13 @@ export function SkillsSection({ title, intro, legend, groups }: SkillsSectionPro
   const shouldAnimateIn = isVisible || prefersReducedMotion;
 
   return (
-    <section ref={sectionRef} id="skills" className="section-deferred scroll-mt-28 py-14 sm:py-20">
+    <section ref={sectionRef} id="skills" className="section-deferred scroll-mt-28 py-12 sm:py-20">
       <div className="max-w-3xl">
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h2>
-        <p className="mt-4 leading-relaxed text-muted">{intro}</p>
+        <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
+        <p className="mt-4 text-[0.98rem] leading-relaxed text-muted sm:text-base">{intro}</p>
       </div>
 
-      <p className="mt-4 text-xs font-medium tracking-wide text-muted uppercase">{legend}</p>
+      <p className="mt-4 max-w-3xl text-xs leading-relaxed font-medium tracking-wide text-muted uppercase">{legend}</p>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {groups.map((group, index) => {
@@ -144,7 +144,7 @@ export function SkillsSection({ title, intro, legend, groups }: SkillsSectionPro
           return (
             <article
               key={group.name}
-              className={`skills-reveal-item group relative overflow-hidden rounded-3xl border border-border bg-card p-5 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/35 sm:p-6 ${cardVisibleClass}`}
+              className={`skills-reveal-item group relative overflow-hidden rounded-3xl border border-border bg-card p-4 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/35 sm:p-6 ${cardVisibleClass}`}
               style={{ transitionDelay: `${70 + index * 70}ms` }}
             >
               <div
@@ -163,7 +163,7 @@ export function SkillsSection({ title, intro, legend, groups }: SkillsSectionPro
                   </span>
                 </div>
 
-                <h3 className="mt-5 text-lg font-semibold tracking-tight text-foreground">{group.name}</h3>
+                <h3 className="mt-5 text-lg leading-tight font-semibold tracking-tight text-balance text-foreground">{group.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{group.description}</p>
 
                 <div className="mt-5">
