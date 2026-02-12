@@ -113,12 +113,12 @@ export function AboutSection({
             </p>
 
             <div className="relative mt-5 flex items-center gap-4">
-              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-primary/30">
+              <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-2xl border border-primary/30">
                 <Image
                   src="/profile.jpg"
                   alt={profileName}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="96px"
                   priority
                 />

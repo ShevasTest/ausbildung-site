@@ -8,7 +8,7 @@
     "projectDescription": "Detailed project page with goals, stack and implementation notes."
   },
   "Nav": {
-    "brand": "Oleksandr",
+    "brand": "Oleksandr Shevchenko",
     "hero": "Hero",
     "about": "About",
     "projects": "Projects",
@@ -91,7 +91,7 @@
     ],
     "profile": {
       "badge": "Profile",
-      "name": "Oleksandr",
+      "name": "Oleksandr Shevchenko",
       "role": "Aspiring Software Developer (Fachinformatiker AE)",
       "initials": "OS",
       "placeholder": "Photo placeholder",
@@ -317,6 +317,6 @@
     "back": "Back to homepage"
   },
   "Footer": {
-    "rights": "© {year} Oleksandr. Built with Next.js & TypeScript."
+    "rights": "© {year} Oleksandr Shevchenko. Built with Next.js & TypeScript."
   }
 }
