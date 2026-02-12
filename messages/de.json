@@ -20,7 +20,7 @@
   },
   "Hero": {
     "badge": "Angehender Fachinformatiker für Anwendungsentwicklung",
-    "kicker": "Ausbildung 2026 · Junior-Level Frontend",
+    "kicker": "Ausbildung 2026 · Junior-Frontend-Level",
     "titleLead": "Ich lerne",
     "rotatingWords": [
       "Webentwicklung Schritt für Schritt",
@@ -63,7 +63,7 @@
     "paragraphs": [
       "Mein Einstieg in die Entwicklung begann mit Neugier: Ich wollte verstehen, wie gute digitale Produkte entstehen und warum manche Interfaces sofort logisch wirken.",
       "Dafür habe ich mir einen festen Lernrhythmus aufgebaut — mit regelmäßigen Coding-Sessions, klaren Lernzielen und nachvollziehbaren Fortschritten.",
-      "Aktuell arbeite ich an kleineren Frontend-Aufgaben und nutze AI-Tools aktiv, um schneller zu recherchieren, zu testen und Lösungen umzusetzen. Für 2026 suche ich ein Ausbildungsteam, in dem ich diese Basis professionell ausbauen kann."
+      "Aktuell arbeite ich an kleineren Frontend-Aufgaben und nutze KI-Tools aktiv, um schneller zu recherchieren, zu testen und Lösungen umzusetzen. Für 2026 suche ich ein Ausbildungsteam, in dem ich diese Basis professionell ausbauen kann."
     ],
     "highlights": [
       {
@@ -111,7 +111,7 @@
         "slug": "ki-bewerbungshelfer",
         "title": "KI-Bewerbungshelfer",
         "summary": "Analysiert Stellenanzeigen und erstellt personalisierte Anschreiben mit editierbarem Export.",
-        "stack": "Next.js · Server Actions · AI API"
+        "stack": "Next.js · Server Actions · KI-API"
       },
       {
         "slug": "mietpreise-tracker",
@@ -173,19 +173,19 @@
           "Git & GitHub",
           "VS Code",
           "npm",
-          "AI-Tools (Claude, ChatGPT)",
+          "KI-Tools (Claude, ChatGPT)",
           "Lighthouse"
         ]
       },
       {
-        "name": "AI-gestütztes Arbeiten",
-        "description": "Effektiver Einsatz von KI-Tools für Problemlösung, Code-Erstellung und schnelles Prototyping",
-        "level": 85,
-        "levelLabel": "Sehr sicher im praktischen Einsatz von KI-Tools",
+        "name": "KI-gestütztes Arbeiten",
+        "description": "Strukturierter Einsatz von KI-Tools für Recherche, Debugging und Prototyping",
+        "level": 72,
+        "levelLabel": "Sicher im praktischen Einsatz mit klarer Qualitätskontrolle",
         "items": [
           "Claude / ChatGPT",
           "Prompt Engineering",
-          "AI-gestütztes Debugging",
+          "KI-gestütztes Debugging",
           "Rapid Prototyping",
           "Code Review mit KI"
         ]
@@ -213,7 +213,7 @@
       {
         "period": "2024 — heute",
         "title": "Strukturiertes Selbststudium im Frontend mit KI-Unterstützung",
-        "text": "Regelmäßige Coding-Sessions, dokumentierte Lernziele und kontinuierliches Lernen mit Unterstützung durch AI-Tools.",
+        "text": "Regelmäßige Coding-Sessions, dokumentierte Lernziele und kontinuierliches Lernen mit Unterstützung durch KI-Tools.",
         "focus": "Fokus: HTML/CSS · JavaScript · React-Basics",
         "chips": [
           "Eigeninitiative",
@@ -224,7 +224,7 @@
       {
         "period": "2025",
         "title": "Projektumsetzung mit KI-Unterstützung",
-        "text": "Planung und Umsetzung mehrerer Demo-Projekte mit AI-Unterstützung statt reiner Tutorial-Nachbauten. Fokus auf verständliche UI und funktionale Prototypen.",
+        "text": "Planung und Umsetzung mehrerer Demo-Projekte mit KI-Unterstützung statt reiner Tutorial-Nachbauten. Fokus auf verständliche UI und funktionale Prototypen.",
         "focus": "Fokus: UI-Grundlagen · Prototyping",
         "chips": [
           "4 Demo-Konzepte",
@@ -234,7 +234,7 @@
       },
       {
         "period": "2026 (Ziel)",
-        "title": "Ausbildung Fachinformatiker AE",
+        "title": "Ausbildung zum Fachinformatiker für Anwendungsentwicklung (AE)",
         "text": "Einstieg in ein Ausbildungsteam, um praktische Erfahrung mit professionellen Entwicklungsprozessen, Teamarbeit und Verantwortung im Produktalltag zu verbinden.",
         "focus": "Ziel: Ausbildungsstart 2026",
         "chips": [
@@ -256,7 +256,7 @@
   "Contact": {
     "eyebrow": "Kontakt & nächster Schritt",
     "title": "Kontakt",
-    "intro": "Ich freue mich über Gespräche zu Ausbildung, Praktikum oder Probearbeiten im Bereich Anwendungsentwicklung.",
+    "intro": "Ich freue mich über Gespräche zu einer Ausbildung, zu Praktika oder zu Probearbeit im Bereich Anwendungsentwicklung.",
     "linksTitle": "Direkte Kontaktwege",
     "linksIntro": "Für eine schnelle Rückmeldung erreichen Sie mich direkt per E-Mail oder über meine Profile.",
     "quickLinks": [
@@ -308,7 +308,7 @@
       "messageRequired": "Bitte fügen Sie eine Nachricht hinzu.",
       "messageMin": "Bitte schreiben Sie mindestens 24 Zeichen, damit ich den Kontext verstehe."
     },
-    "mailSubject": "Kontakt über Portfolio — Ausbildung Fachinformatiker AE",
+    "mailSubject": "Kontakt über Portfolio — Ausbildung Fachinformatiker Anwendungsentwicklung (AE)",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {

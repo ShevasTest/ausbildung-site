@@ -227,8 +227,6 @@ export default async function HomePage({ params }: HomePageProps) {
         profileBadge={t("About.profile.badge")}
         profileName={t("About.profile.name")}
         profileRole={t("About.profile.role")}
-        profileInitials={t("About.profile.initials")}
-        profilePlaceholder={t("About.profile.placeholder")}
         profileCaption={t("About.profile.caption")}
         profileFacts={aboutProfileFacts}
       />

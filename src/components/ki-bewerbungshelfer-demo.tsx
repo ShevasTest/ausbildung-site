@@ -716,7 +716,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
 
   const analysis = useMemo(
     () => createAnalysis(copy, vacancyText, focus, localeKey),
-    [copy, focus, vacancyText],
+    [copy, focus, localeKey, vacancyText],
   );
 
   const progress = targetText.length > 0 ? streamedText.length / targetText.length : 0;

@@ -19,8 +19,6 @@ type AboutSectionProps = {
   profileBadge: string;
   profileName: string;
   profileRole: string;
-  profileInitials: string;
-  profilePlaceholder: string;
   profileCaption: string;
   profileFacts: string[];
 };
@@ -96,8 +94,6 @@ export function AboutSection({
   profileBadge,
   profileName,
   profileRole,
-  profileInitials,
-  profilePlaceholder,
   profileCaption,
   profileFacts,
 }: AboutSectionProps) {

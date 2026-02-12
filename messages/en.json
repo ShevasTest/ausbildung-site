@@ -19,8 +19,8 @@
     "theme": "Theme"
   },
   "Hero": {
-    "badge": "Aspiring Software Developer (Fachinformatiker AE)",
-    "kicker": "Ausbildung 2026 · Junior frontend path",
+    "badge": "Aspiring Fachinformatiker (Application Development, AE)",
+    "kicker": "Ausbildung 2026 · Junior frontend track",
     "titleLead": "I learn",
     "rotatingWords": [
       "web development step by step",
@@ -92,7 +92,7 @@
     "profile": {
       "badge": "Profile",
       "name": "Oleksandr Shevchenko",
-      "role": "Aspiring Software Developer (Fachinformatiker AE)",
+      "role": "Aspiring Fachinformatiker (Application Development, AE)",
       "initials": "OS",
       "placeholder": "Photo placeholder",
       "caption": "I combine disciplined self-learning with AI-assisted practice and build my technical foundation step by step.",
@@ -179,9 +179,9 @@
       },
       {
         "name": "AI-assisted work",
-        "description": "Effective use of AI tools for problem-solving, code creation and rapid prototyping",
-        "level": 85,
-        "levelLabel": "Very strong in practical AI usage",
+        "description": "Structured use of AI tools for research, debugging and prototyping",
+        "level": 72,
+        "levelLabel": "Confident practical usage with clear quality checks",
         "items": [
           "Claude / ChatGPT",
           "Prompt engineering",
@@ -196,7 +196,7 @@
         "level": 80,
         "levelLabel": "Reliable, collaborative and eager to learn",
         "items": [
-          "Self-initiative",
+          "Initiative",
           "Structured problem solving",
           "Documentation",
           "Fast feedback integration",
