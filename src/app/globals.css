@@ -41,6 +41,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -860,6 +862,35 @@ body {
   50% {
     opacity: 1;
     transform: translate3d(0, -2px, 0);
+  }
+}
+
+@media (max-width: 430px) {
+  .about-motivation-card {
+    padding: 1rem;
+    border-radius: 1.25rem;
+  }
+
+  .about-motivation-title {
+    font-size: 1.125rem;
+    line-height: 1.35;
+  }
+
+  .about-motivation-list {
+    margin-top: 0.65rem;
+    gap: 0.7rem;
+  }
+
+  .about-motivation-item {
+    gap: 0.6rem;
+    font-size: 0.96rem;
+    line-height: 1.52;
+  }
+
+  .about-motivation-icon {
+    height: 1.8rem;
+    width: 1.8rem;
+    font-size: 0.92rem;
   }
 }
 

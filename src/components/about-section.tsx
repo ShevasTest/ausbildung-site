@@ -171,19 +171,24 @@ export function AboutSection({
           </div>
 
           <RevealBlock delayMs={360}>
-            <article className="rounded-2xl border border-border bg-card p-5 sm:p-6">
-              <h3 className="text-base font-semibold tracking-tight text-foreground">{motivationTitle}</h3>
+            <article className="about-motivation-card rounded-2xl border border-border bg-card p-4 sm:p-6">
+              <h3 className="about-motivation-title text-base font-semibold tracking-tight text-foreground sm:text-lg">
+                {motivationTitle}
+              </h3>
 
-              <ul className="mt-4 space-y-3">
+              <ul className="about-motivation-list mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
                 {motivationPoints.map((point) => (
-                  <li key={point} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
+                  <li
+                    key={point}
+                    className="about-motivation-item flex items-start gap-2 text-[0.95rem] leading-[1.55] text-muted sm:gap-2.5 sm:text-sm"
+                  >
                     <span
                       aria-hidden
-                      className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary"
+                      className="about-motivation-icon mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary"
                     >
                       →
                     </span>
-                    <span>{point}</span>
+                    <span className="about-motivation-text">{point}</span>
                   </li>
                 ))}
               </ul>
