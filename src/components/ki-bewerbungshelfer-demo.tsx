@@ -74,6 +74,7 @@ type DemoCopy = {
     noKeywords: string;
   };
   footerNote: string;
+  aiModeNote: string;
   presets: VacancyPreset[];
   focusOptions: OptionItem<FocusKey>[];
   toneOptions: OptionItem<ToneKey>[];
@@ -148,20 +149,49 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     footerNote:
       "Hinweis: Dies ist eine Demo mit lokal simulierten AI-Antworten (kein externes Modell, kein API-Key nötig).",
+    aiModeNote: "AI-Modus: Lokaler Demo-Generator (kein externes LLM)",
     presets: [
       {
-        id: "preset-berlin-startup",
-        label: "Frontend-Ausbildung (Berlin Startup)",
+        id: "preset-startup-frontend",
+        label: "Startup Frontend (Berlin)",
         focus: "frontend",
         text:
-          "Wir suchen zum 01.08.2026 eine/n Auszubildende/n Fachinformatiker/in für Anwendungsentwicklung (m/w/d) in Berlin. Du entwickelst mit unserem Produktteam moderne Web-Features auf Basis von React, Next.js und TypeScript. Wichtig sind Eigeninitiative, strukturierte Arbeitsweise, Teamfähigkeit sowie Interesse an UX und Performance.",
+          "Ein Berliner SaaS-Startup sucht zum 01.08.2026 eine/n Auszubildende/n Fachinformatiker/in für Anwendungsentwicklung (m/w/d). Du entwickelst im Frontend-Team Features mit React, Next.js und TypeScript, arbeitest eng mit Product/Design zusammen und verbesserst UX sowie Ladezeiten.",
       },
       {
         id: "preset-corporate-it",
-        label: "Inhouse IT (Konzernumfeld)",
+        label: "Corporate IT (Inhouse)",
         focus: "teamfit",
         text:
-          "Für unsere zentrale IT in München suchen wir Auszubildende Fachinformatiker Anwendungsentwicklung (w/m/d). Du arbeitest an internen Tools, APIs und Automatisierung. Erwünscht sind Grundkenntnisse in JavaScript, Datenbanken, saubere Dokumentation, kommunikative Zusammenarbeit mit Fachabteilungen sowie Lernbereitschaft.",
+          "Für unsere zentrale IT in München suchen wir Auszubildende Fachinformatiker Anwendungsentwicklung (w/m/d). Du arbeitest an internen Tools, APIs und Automatisierung. Wichtig sind Dokumentation, Abstimmung mit Fachabteilungen und eine verlässliche Zusammenarbeit im Team.",
+      },
+      {
+        id: "preset-ecommerce",
+        label: "E-Commerce Plattform",
+        focus: "fullstack",
+        text:
+          "Ein wachsender E-Commerce-Anbieter in Hamburg stellt Auszubildende (m/w/d) ein. Aufgaben: Weiterentwicklung von Shop-Frontend, Checkout-Prozessen und Schnittstellen zu Zahlungs- und Warenwirtschaftssystemen. Erwartet werden JavaScript/TypeScript-Basis, API-Verständnis und datengetriebenes Denken.",
+      },
+      {
+        id: "preset-public-sector",
+        label: "Behörden / Öffentlicher Dienst",
+        focus: "teamfit",
+        text:
+          "Eine kommunale IT-Dienststelle sucht Auszubildende Fachinformatiker/in Anwendungsentwicklung (m/w/d) für Digitalisierungsprojekte. Sie unterstützen Bürgerportale, Formular-Workflows und barrierearme Oberflächen. Gefragt sind Sorgfalt, Datenschutzbewusstsein und klare Kommunikation.",
+      },
+      {
+        id: "preset-agency",
+        label: "Digitalagentur Webprojekte",
+        focus: "frontend",
+        text:
+          "Eine Agentur in Köln bietet eine Ausbildung im Bereich Anwendungsentwicklung an. Sie arbeiten in wechselnden Kundenprojekten an Landingpages, Content-Plattformen und UI-Komponenten. Gewünscht: saubere HTML/CSS/JS-Grundlagen, Kreativität und strukturierte Projektarbeit.",
+      },
+      {
+        id: "preset-qa-testing",
+        label: "QA / Testing Fokus",
+        focus: "ai",
+        text:
+          "Ein Softwarehaus in Frankfurt sucht Auszubildende (m/w/d) mit Schwerpunkt Qualitätssicherung in der Entwicklung. Aufgaben sind Testfall-Design, automatisierte UI/API-Tests, Fehleranalyse und Zusammenarbeit mit Dev-Teams. Vorteilhaft: Interesse an Testing-Tools, CI und genauer Dokumentation.",
       },
     ],
     focusOptions: [
@@ -293,20 +323,49 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       noKeywords: "No clear keywords detected yet",
     },
     footerNote: "Note: this is a local mock AI demo (no external model and no API key required).",
+    aiModeNote: "AI mode: Local demo generator (no external LLM)",
     presets: [
       {
-        id: "preset-berlin-startup",
-        label: "Frontend apprenticeship",
+        id: "preset-startup-frontend",
+        label: "Startup frontend (Berlin)",
         focus: "frontend",
         text:
-          "We are looking for an apprentice software developer (m/f/d) starting August 2026 in Berlin. You will build modern web features with React, Next.js and TypeScript. We value initiative, structured execution, teamwork and interest in UX and performance.",
+          "A Berlin SaaS startup is hiring an apprentice software developer (m/f/d) starting August 2026. You will build product-facing frontend features with React, Next.js and TypeScript, collaborate closely with product/design and improve UX and page performance.",
       },
       {
         id: "preset-corporate-it",
-        label: "Corporate in-house IT",
+        label: "Corporate IT (in-house)",
         focus: "teamfit",
         text:
-          "For our central IT department in Munich we are hiring apprentice software developers. You work on internal tools, APIs and automation. Required: basic JavaScript, database understanding, clean documentation, collaboration with business teams and strong willingness to learn.",
+          "Our central IT department in Munich is hiring apprentice developers. You work on internal tools, APIs and workflow automation. We expect clear documentation, cross-team collaboration and reliable delivery in a structured environment.",
+      },
+      {
+        id: "preset-ecommerce",
+        label: "E-commerce platform",
+        focus: "fullstack",
+        text:
+          "A fast-growing e-commerce company in Hamburg is looking for apprentices (m/f/d). Tasks include improving storefront features, checkout flows and integrations with payment/inventory systems. We value JavaScript/TypeScript basics, API understanding and data-aware thinking.",
+      },
+      {
+        id: "preset-public-sector",
+        label: "Public sector / government IT",
+        focus: "teamfit",
+        text:
+          "A municipal IT service provider offers an apprenticeship in software development. You support citizen portals, digital form workflows and accessibility-focused interfaces. We are looking for diligence, privacy awareness and clear communication.",
+      },
+      {
+        id: "preset-agency",
+        label: "Digital agency client work",
+        focus: "frontend",
+        text:
+          "A digital agency in Cologne is hiring apprentices for web application development. You contribute to multiple client projects: landing pages, content platforms and reusable UI components. Solid HTML/CSS/JS basics, creativity and structured teamwork are required.",
+      },
+      {
+        id: "preset-qa-testing",
+        label: "QA / testing-focused role",
+        focus: "ai",
+        text:
+          "A software company in Frankfurt is hiring apprentices with a QA/testing focus. Responsibilities include test case design, automated UI/API testing, bug triage and collaboration with developers. Interest in testing tools, CI pipelines and precise documentation is a plus.",
       },
     ],
     focusOptions: [
@@ -1074,7 +1133,10 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
         </section>
       </div>
 
-      <p className="mt-5 text-xs leading-relaxed text-muted">{copy.footerNote}</p>
+      <div className="mt-5 space-y-1.5">
+        <p className="text-xs leading-relaxed text-muted">{copy.footerNote}</p>
+        <p className="text-xs font-semibold text-primary">{copy.aiModeNote}</p>
+      </div>
     </main>
   );
 }

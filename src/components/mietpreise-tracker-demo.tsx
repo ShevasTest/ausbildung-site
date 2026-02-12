@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 
 type LocaleKey = "de" | "en";
 type SortMode = "high" | "low";
-type BudgetRatio = 0.3 | 0.35 | 0.4;
+type BudgetMode = "percent" | "euro";
 type HouseholdMode = "single" | "pair";
 
 type CityRentData = {
@@ -51,9 +51,13 @@ type DemoCopy = {
     householdLabel: string;
     householdSingle: string;
     householdPair: string;
-    budgetRule: string;
-    customBudgetLabel: string;
-    customBudgetPlaceholder: string;
+    budgetModeLabel: string;
+    budgetModePercent: string;
+    budgetModeEuro: string;
+    budgetControlPercent: string;
+    budgetControlEuro: string;
+    budgetDecrease: string;
+    budgetIncrease: string;
     netPerIncome: string;
     warmRent: string;
     coldRent: string;
@@ -74,7 +78,6 @@ type MietpreiseTrackerDemoProps = {
 };
 
 const YEARS = [2020, 2021, 2022, 2023, 2024, 2025] as const;
-const BUDGET_RATIOS: BudgetRatio[] = [0.3, 0.35, 0.4];
 const INCIDENTAL_COST_PER_SQM = 3.2;
 
 const CITY_RENT_DATA: CityRentData[] = [
@@ -201,9 +204,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       householdLabel: "Haushalt",
       householdSingle: "1 Einkommen",
       householdPair: "2 Einkommen",
-      budgetRule: "Budget-Regel",
-      customBudgetLabel: "Eigenes Budget",
-      customBudgetPlaceholder: "z.B. 800 €",
+      budgetModeLabel: "Budget-Modus",
+      budgetModePercent: "%",
+      budgetModeEuro: "€",
+      budgetControlPercent: "Budget in % vom Nettohaushalt",
+      budgetControlEuro: "Fixes Budget in €",
+      budgetDecrease: "Budget verringern",
+      budgetIncrease: "Budget erhöhen",
       netPerIncome: "Empfohlenes Netto je Einkommen",
       warmRent: "Geschätzte Warmmiete",
       coldRent: "Kaltmiete",
@@ -255,9 +262,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       householdLabel: "Household",
       householdSingle: "1 income",
       householdPair: "2 incomes",
-      budgetRule: "Budget rule",
-      customBudgetLabel: "Custom budget",
-      customBudgetPlaceholder: "e.g. 800 €",
+      budgetModeLabel: "Budget mode",
+      budgetModePercent: "%",
+      budgetModeEuro: "€",
+      budgetControlPercent: "Budget as % of net household income",
+      budgetControlEuro: "Fixed budget in €",
+      budgetDecrease: "Decrease budget",
+      budgetIncrease: "Increase budget",
       netPerIncome: "Recommended net income per earner",
       warmRent: "Estimated warm rent",
       coldRent: "Cold rent",
@@ -336,8 +347,9 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
   const [selectedCityId, setSelectedCityId] = useState<string>("berlin");
   const [sortMode, setSortMode] = useState<SortMode>("high");
   const [apartmentSize, setApartmentSize] = useState<number>(55);
-  const [budgetRatio, setBudgetRatio] = useState<BudgetRatio>(0.35);
-  const [customBudgetInput, setCustomBudgetInput] = useState<string>("");
+  const [budgetMode, setBudgetMode] = useState<BudgetMode>("percent");
+  const [budgetPercent, setBudgetPercent] = useState<number>(35);
+  const [customBudgetEuro, setCustomBudgetEuro] = useState<number>(1200);
   const [householdMode, setHouseholdMode] = useState<HouseholdMode>("single");
 
   const selectedCity =
@@ -419,11 +431,50 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
     };
   }, [cityAverageTrend, selectedCity.rents]);
 
+  const clampValue = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+
+  const updateApartmentSize = (value: string) => {
+    const nextValue = Number(value);
+    if (!Number.isFinite(nextValue)) {
+      return;
+    }
+
+    setApartmentSize(clampValue(Math.round(nextValue), 25, 120));
+  };
+
+  const updateBudgetFromSlider = (value: string) => {
+    const nextValue = Number(value);
+    if (!Number.isFinite(nextValue)) {
+      return;
+    }
+
+    if (budgetMode === "percent") {
+      setBudgetPercent(clampValue(Math.round(nextValue), 20, 60));
+      return;
+    }
+
+    const stepped = Math.round(nextValue / 50) * 50;
+    setCustomBudgetEuro(clampValue(stepped, 500, 3000));
+  };
+
+  const adjustBudget = (direction: -1 | 1) => {
+    if (budgetMode === "percent") {
+      setBudgetPercent((previous) => clampValue(previous + direction, 20, 60));
+      return;
+    }
+
+    setCustomBudgetEuro((previous) => clampValue(previous + direction * 50, 500, 3000));
+  };
+
+  const currentBudgetDisplay =
+    budgetMode === "percent"
+      ? `${formatNumber(budgetPercent, localeTag, 0)}%`
+      : `${formatNumber(customBudgetEuro, localeTag, 0)} €`;
+
   const coldRent = selectedCurrentRent * apartmentSize;
   const warmRent = coldRent + apartmentSize * INCIDENTAL_COST_PER_SQM;
-  const parsedCustomBudget = Number(customBudgetInput);
-  const hasCustomBudget = Number.isFinite(parsedCustomBudget) && parsedCustomBudget > 0;
-  const requiredNetIncome = hasCustomBudget ? parsedCustomBudget : warmRent / budgetRatio;
+  const requiredNetIncome =
+    budgetMode === "percent" ? warmRent / (budgetPercent / 100) : customBudgetEuro;
   const requiredGrossIncome = requiredNetIncome * 1.45;
 
   const incomesCount = householdMode === "single" ? 1 : 2;
@@ -754,7 +805,8 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                 max={120}
                 step={1}
                 value={apartmentSize}
-                onChange={(event) => setApartmentSize(Number(event.target.value))}
+                onInput={(event) => updateApartmentSize(event.currentTarget.value)}
+                onChange={(event) => updateApartmentSize(event.currentTarget.value)}
                 className="rent-slider mt-3 h-2 w-full cursor-pointer"
               />
             </div>
@@ -790,40 +842,74 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
             </fieldset>
 
             <fieldset className="mt-4">
-              <legend className="text-sm font-semibold text-foreground">{copy.calculator.budgetRule}</legend>
-              <div className="mt-2 grid grid-cols-3 gap-2">
-                {BUDGET_RATIOS.map((ratio) => (
-                  <button
-                    key={ratio}
-                    type="button"
-                    onClick={() => setBudgetRatio(ratio)}
-                    aria-pressed={budgetRatio === ratio}
-                    className={`rent-pill rounded-xl border px-2 py-2 text-xs font-semibold ${
-                      budgetRatio === ratio
-                        ? "border-primary/40 bg-primary/12 text-primary"
-                        : "border-border bg-card text-muted hover:border-primary/35 hover:text-primary"
-                    }`}
-                  >
-                    {Math.round(ratio * 100)}%
-                  </button>
-                ))}
+              <legend className="text-sm font-semibold text-foreground">{copy.calculator.budgetModeLabel}</legend>
+
+              <div className="mt-2 flex items-center gap-2 rounded-full border border-border bg-card p-1">
+                <button
+                  type="button"
+                  onClick={() => setBudgetMode("percent")}
+                  aria-pressed={budgetMode === "percent"}
+                  className={`rent-pill flex-1 rounded-full px-3 py-1.5 text-xs font-semibold ${
+                    budgetMode === "percent"
+                      ? "bg-primary-solid text-white"
+                      : "text-muted hover:bg-primary/10 hover:text-primary"
+                  }`}
+                >
+                  {copy.calculator.budgetModePercent}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBudgetMode("euro")}
+                  aria-pressed={budgetMode === "euro"}
+                  className={`rent-pill flex-1 rounded-full px-3 py-1.5 text-xs font-semibold ${
+                    budgetMode === "euro"
+                      ? "bg-primary-solid text-white"
+                      : "text-muted hover:bg-primary/10 hover:text-primary"
+                  }`}
+                >
+                  {copy.calculator.budgetModeEuro}
+                </button>
               </div>
 
-              <div className="mt-3">
-                <label htmlFor="custom-budget" className="text-xs font-semibold text-foreground">
-                  {copy.calculator.customBudgetLabel}
-                </label>
-                <input
-                  id="custom-budget"
-                  type="number"
-                  min={0}
-                  step={10}
-                  inputMode="decimal"
-                  value={customBudgetInput}
-                  onChange={(event) => setCustomBudgetInput(event.target.value)}
-                  placeholder={copy.calculator.customBudgetPlaceholder}
-                  className="contact-field mt-2 w-full rounded-2xl px-3 py-2.5 text-sm"
-                />
+              <div className="mt-3 rounded-2xl border border-border bg-card/70 p-3">
+                <div className="flex items-center justify-between gap-2 text-sm">
+                  <label htmlFor="budget-slider" className="font-semibold text-foreground">
+                    {budgetMode === "percent"
+                      ? copy.calculator.budgetControlPercent
+                      : copy.calculator.budgetControlEuro}
+                  </label>
+                  <span className="font-mono text-muted">{currentBudgetDisplay}</span>
+                </div>
+
+                <div className="mt-3 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => adjustBudget(-1)}
+                    aria-label={copy.calculator.budgetDecrease}
+                    className="rent-pill inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background/80 text-sm font-semibold text-muted transition hover:border-primary/35 hover:text-primary"
+                  >
+                    −
+                  </button>
+                  <input
+                    id="budget-slider"
+                    type="range"
+                    min={budgetMode === "percent" ? 20 : 500}
+                    max={budgetMode === "percent" ? 60 : 3000}
+                    step={budgetMode === "percent" ? 1 : 50}
+                    value={budgetMode === "percent" ? budgetPercent : customBudgetEuro}
+                    onInput={(event) => updateBudgetFromSlider(event.currentTarget.value)}
+                    onChange={(event) => updateBudgetFromSlider(event.currentTarget.value)}
+                    className="rent-slider h-2 w-full cursor-pointer"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => adjustBudget(1)}
+                    aria-label={copy.calculator.budgetIncrease}
+                    className="rent-pill inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background/80 text-sm font-semibold text-muted transition hover:border-primary/35 hover:text-primary"
+                  >
+                    +
+                  </button>
+                </div>
               </div>
             </fieldset>
           </article>
