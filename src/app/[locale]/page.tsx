@@ -75,7 +75,7 @@ export default async function HomePage({ params }: HomePageProps) {
       jobTitle:
         safeLocale === "de"
           ? "Angehender Fachinformatiker für Anwendungsentwicklung"
-          : "Aspiring Software Developer (Fachinformatiker AE)",
+          : "Aspiring Fachinformatiker (Application Development, AE)",
       knowsAbout: [
         "Next.js",
         "React",

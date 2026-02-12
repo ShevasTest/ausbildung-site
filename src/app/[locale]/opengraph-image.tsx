@@ -17,7 +17,7 @@ const copy = {
   en: {
     badge: "Ausbildung Portfolio 2026",
     title: "Oleksandr",
-    subtitle: "Aspiring Software Developer (Fachinformatiker AE)",
+    subtitle: "Aspiring Fachinformatiker (Application Development, AE)",
     points: "Next.js · TypeScript · Performance · Accessibility",
   },
 } as const;
@@ -105,7 +105,7 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
           </div>
 
           <div style={{ fontSize: "24px", color: "#CBD5E1", fontWeight: 500 }}>
-            alex-ausbildung-portfolio.vercel.app
+            ausbildung-site.vercel.app
           </div>
         </div>
       </div>

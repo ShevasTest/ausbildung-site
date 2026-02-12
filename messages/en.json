@@ -216,7 +216,7 @@
         "text": "Regular coding sessions, documented learning goals and continuous learning with support from AI tools.",
         "focus": "Focus: HTML/CSS · JavaScript · React basics",
         "chips": [
-          "Self-initiative",
+          "Initiative",
           "Daily practice",
           "AI-assisted"
         ]
@@ -234,7 +234,7 @@
       },
       {
         "period": "2026 (goal)",
-        "title": "Ausbildung in Software Development",
+        "title": "Ausbildung as Fachinformatiker (Application Development, AE)",
         "text": "Join an Ausbildung team to combine practical experience with professional development processes, teamwork and accountable product delivery.",
         "focus": "Goal: Ausbildung start in 2026",
         "chips": [
@@ -247,7 +247,7 @@
     "closingTitle": "What a team can expect from me",
     "closingText": "I work in a structured way, learn quickly and speak openly about my current level. My goal is to contribute reliably in a team and keep improving.",
     "closingBadges": [
-      "Self-initiative",
+      "Initiative",
       "Clear communication",
       "Fast execution",
       "Ausbildung focus 2026"
@@ -308,7 +308,7 @@
       "messageRequired": "Please add a short message.",
       "messageMin": "Please write at least 24 characters so I can understand the context."
     },
-    "mailSubject": "Portfolio contact — Ausbildung Software Development",
+    "mailSubject": "Portfolio contact — Ausbildung as Fachinformatiker (AE)",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {

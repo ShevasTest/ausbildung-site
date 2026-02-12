@@ -720,7 +720,7 @@ ${model.voice}
 - **Teamwert:** zeigen, wie deine Arbeitsweise einem Ausbildungsteam hilft.
 
 ### Beispiel-Formulierung
-"Ich habe mir Frontend-Entwicklung im Selbststudium aufgebaut und komplette Projekte umgesetzt — inklusive responsiver UI, sauberem TypeScript und Performance-Checks. Damit bringe ich nicht nur Lernbereitschaft, sondern bereits belastbare Praxis in ein Ausbildungsteam mit."
+"Ich habe mir Frontend-Entwicklung im Selbststudium aufgebaut und kleinere bis mittlere Projektmodule umgesetzt — inklusive responsiver UI, sauberem TypeScript und Performance-Checks. Damit bringe ich nicht nur Lernbereitschaft, sondern erste praxisnahe Erfahrung in ein Ausbildungsteam mit."
 
 ### Nächster Schritt
 - Verbinde diese Aussage mit 1–2 konkreten Portfolio-Projekten.
@@ -827,7 +827,7 @@ ${model.voice}
 - **Team value:** show how your workflow helps an Ausbildung team.
 
 ### Example phrasing
-"I built my frontend foundation through structured self-learning and delivered complete projects with responsive UI, clean TypeScript and performance checks. This means I bring not only motivation, but already practical implementation skills to an Ausbildung team."
+"I built my frontend foundation through structured self-learning and delivered small to medium project modules with responsive UI, clean TypeScript and performance checks. This means I bring not only motivation, but also first practical implementation experience to an Ausbildung team."
 
 ### Next step
 - Link this statement to 1–2 portfolio projects.

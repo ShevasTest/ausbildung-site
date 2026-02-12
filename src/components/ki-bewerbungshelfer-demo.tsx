@@ -163,7 +163,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
         label: "Corporate IT (Inhouse)",
         focus: "teamfit",
         text:
-          "Für unsere zentrale IT in München suchen wir Auszubildende Fachinformatiker Anwendungsentwicklung (w/m/d). Du arbeitest an internen Tools, APIs und Automatisierung. Wichtig sind Dokumentation, Abstimmung mit Fachabteilungen und eine verlässliche Zusammenarbeit im Team.",
+          "Für unsere zentrale IT in München suchen wir Auszubildende zum Fachinformatiker für Anwendungsentwicklung (w/m/d). Du arbeitest an internen Tools, APIs und Automatisierung. Wichtig sind Dokumentation, Abstimmung mit Fachabteilungen und eine verlässliche Zusammenarbeit im Team.",
       },
       {
         id: "preset-ecommerce",
@@ -177,7 +177,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
         label: "Behörden / Öffentlicher Dienst",
         focus: "teamfit",
         text:
-          "Eine kommunale IT-Dienststelle sucht Auszubildende Fachinformatiker/in Anwendungsentwicklung (m/w/d) für Digitalisierungsprojekte. Sie unterstützen Bürgerportale, Formular-Workflows und barrierearme Oberflächen. Gefragt sind Sorgfalt, Datenschutzbewusstsein und klare Kommunikation.",
+          "Eine kommunale IT-Dienststelle sucht Auszubildende zum Fachinformatiker für Anwendungsentwicklung (m/w/d) für Digitalisierungsprojekte. Sie unterstützen Bürgerportale, Formular-Workflows und barrierearme Oberflächen. Gefragt sind Sorgfalt, Datenschutzbewusstsein und klare Kommunikation.",
       },
       {
         id: "preset-agency",
@@ -242,7 +242,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     ],
     focusParagraphs: {
       frontend:
-        "Besonders stark bin ich in der Umsetzung responsiver Frontend-Lösungen mit Next.js und TypeScript. Ich achte konsequent auf Accessibility, Performance und eine klare Informationsarchitektur.",
+        "Ich sammle aktuell praktische Erfahrung in der Umsetzung responsiver Frontend-Lösungen mit Next.js und TypeScript. Dabei achte ich auf Accessibility, Performance und eine klare Informationsarchitektur.",
       fullstack:
         "Neben der UI-Umsetzung denke ich Schnittstellen und Datenfluss mit. In Projekten habe ich API-Integrationen, Validierung und wartbare Strukturierung von Frontend- und Backend-Logik kombiniert.",
       teamfit:
@@ -416,7 +416,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     ],
     focusParagraphs: {
       frontend:
-        "I am strongest when building responsive frontend solutions with Next.js and TypeScript, with clear attention to accessibility, performance and hierarchy.",
+        "I am currently building practical experience in responsive frontend solutions with Next.js and TypeScript, with clear attention to accessibility, performance and hierarchy.",
       fullstack:
         "Beyond UI delivery, I think in APIs and data flow. In projects, I combine integration work, validation and maintainable frontend/backend structures.",
       teamfit:
