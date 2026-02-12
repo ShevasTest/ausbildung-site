@@ -454,7 +454,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
     }
 
     const stepped = Math.round(nextValue / 50) * 50;
-    setCustomBudgetEuro(clampValue(stepped, 500, 3000));
+    setCustomBudgetEuro(clampValue(stepped, 500, 6000));
   };
 
   const adjustBudget = (direction: -1 | 1) => {
@@ -463,7 +463,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
       return;
     }
 
-    setCustomBudgetEuro((previous) => clampValue(previous + direction * 50, 500, 3000));
+    setCustomBudgetEuro((previous) => clampValue(previous + direction * 50, 500, 6000));
   };
 
   const currentBudgetDisplay =
@@ -894,7 +894,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                     id="budget-slider"
                     type="range"
                     min={budgetMode === "percent" ? 20 : 500}
-                    max={budgetMode === "percent" ? 60 : 3000}
+                    max={budgetMode === "percent" ? 60 : 6000}
                     step={budgetMode === "percent" ? 1 : 50}
                     value={budgetMode === "percent" ? budgetPercent : customBudgetEuro}
                     onInput={(event) => updateBudgetFromSlider(event.currentTarget.value)}
@@ -911,25 +911,46 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                   </button>
                 </div>
 
-                {budgetMode === "percent" ? (
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {[35, 40, 45, 50].map((preset) => (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {[35, 40, 45, 50].map((preset) => {
+                    if (budgetMode === "percent") {
+                      return (
+                        <button
+                          key={`pct-${preset}`}
+                          type="button"
+                          onClick={() => setBudgetPercent(preset)}
+                          aria-pressed={budgetPercent === preset}
+                          className={`rent-pill rounded-xl border px-2.5 py-1.5 text-xs font-semibold ${
+                            budgetPercent === preset
+                              ? "border-primary/40 bg-primary/12 text-primary"
+                              : "border-border bg-background/80 text-muted hover:border-primary/35 hover:text-primary"
+                          }`}
+                        >
+                          {preset}%
+                        </button>
+                      );
+                    }
+
+                    const euroPreset = Math.round((warmRent / (preset / 100)) / 50) * 50;
+                    const clampedEuroPreset = clampValue(euroPreset, 500, 6000);
+
+                    return (
                       <button
-                        key={preset}
+                        key={`eur-${preset}`}
                         type="button"
-                        onClick={() => setBudgetPercent(preset)}
-                        aria-pressed={budgetPercent === preset}
+                        onClick={() => setCustomBudgetEuro(clampedEuroPreset)}
+                        aria-pressed={customBudgetEuro === clampedEuroPreset}
                         className={`rent-pill rounded-xl border px-2.5 py-1.5 text-xs font-semibold ${
-                          budgetPercent === preset
+                          customBudgetEuro === clampedEuroPreset
                             ? "border-primary/40 bg-primary/12 text-primary"
                             : "border-border bg-background/80 text-muted hover:border-primary/35 hover:text-primary"
                         }`}
                       >
-                        {preset}%
+                        {formatNumber(clampedEuroPreset, localeTag, 0)} €
                       </button>
-                    ))}
-                  </div>
-                ) : null}
+                    );
+                  })}
+                </div>
               </div>
             </fieldset>
           </article>
