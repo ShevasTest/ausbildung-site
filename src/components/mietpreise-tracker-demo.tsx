@@ -911,44 +911,41 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                 </div>
 
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {[35, 40, 45, 50].map((preset) => {
-                    if (budgetMode === "percent") {
-                      return (
-                        <button
-                          key={`pct-${preset}`}
-                          type="button"
-                          onClick={() => setBudgetPercent(preset)}
-                          aria-pressed={budgetPercent === preset}
-                          className={`rent-pill rounded-xl border px-2.5 py-1.5 text-xs font-semibold ${
-                            budgetPercent === preset
-                              ? "border-primary/40 bg-primary/12 text-primary"
-                              : "border-border bg-background/80 text-muted hover:border-primary/35 hover:text-primary"
-                          }`}
-                        >
-                          {preset}%
-                        </button>
-                      );
-                    }
-
-                    const euroPreset = Math.round((warmRent / (preset / 100)) / 50) * 50;
-                    const clampedEuroPreset = clampValue(euroPreset, 500, 3000);
-
-                    return (
-                      <button
-                        key={`eur-${preset}`}
-                        type="button"
-                        onClick={() => setCustomBudgetEuro(clampedEuroPreset)}
-                        aria-pressed={customBudgetEuro === clampedEuroPreset}
-                        className={`rent-pill rounded-xl border px-2.5 py-1.5 text-xs font-semibold ${
-                          customBudgetEuro === clampedEuroPreset
-                            ? "border-primary/40 bg-primary/12 text-primary"
-                            : "border-border bg-background/80 text-muted hover:border-primary/35 hover:text-primary"
-                        }`}
-                      >
-                        {formatNumber(clampedEuroPreset, localeTag, 0)} €
-                      </button>
-                    );
-                  })}
+                  {(budgetMode === "percent"
+                    ? [35, 40, 45, 50].map((preset) => ({
+                        key: `pct-${preset}`,
+                        label: `${preset}%`,
+                        active: budgetPercent === preset,
+                        onClick: () => setBudgetPercent(preset),
+                      }))
+                    : [35, 40, 45, 50]
+                        .map((preset) => {
+                          const euroPreset = Math.round((warmRent / (preset / 100)) / 50) * 50;
+                          const clampedEuroPreset = clampValue(euroPreset, 500, 3000);
+                          return {
+                            key: `eur-${preset}`,
+                            value: clampedEuroPreset,
+                            label: `${formatNumber(clampedEuroPreset, localeTag, 0)} €`,
+                            active: customBudgetEuro === clampedEuroPreset,
+                            onClick: () => setCustomBudgetEuro(clampedEuroPreset),
+                          };
+                        })
+                        .sort((a, b) => a.value - b.value)
+                  ).map((presetItem) => (
+                    <button
+                      key={presetItem.key}
+                      type="button"
+                      onClick={presetItem.onClick}
+                      aria-pressed={presetItem.active}
+                      className={`rent-pill rounded-xl border px-2.5 py-1.5 text-xs font-semibold ${
+                        presetItem.active
+                          ? "border-primary/40 bg-primary/12 text-primary"
+                          : "border-border bg-background/80 text-muted hover:border-primary/35 hover:text-primary"
+                      }`}
+                    >
+                      {presetItem.label}
+                    </button>
+                  ))}
                 </div>
               </div>
             </fieldset>
