@@ -433,13 +433,12 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
 
   const clampValue = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
-  const updateApartmentSize = (value: string) => {
-    const nextValue = Number(value);
-    if (!Number.isFinite(nextValue)) {
+  const updateApartmentSize = (value: number) => {
+    if (!Number.isFinite(value)) {
       return;
     }
 
-    setApartmentSize(clampValue(Math.round(nextValue), 25, 120));
+    setApartmentSize(clampValue(Math.round(value), 25, 120));
   };
 
   const updateBudgetFromSlider = (value: string) => {
@@ -454,7 +453,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
     }
 
     const stepped = Math.round(nextValue / 50) * 50;
-    setCustomBudgetEuro(clampValue(stepped, 500, 6000));
+    setCustomBudgetEuro(clampValue(stepped, 500, 3000));
   };
 
   const adjustBudget = (direction: -1 | 1) => {
@@ -463,7 +462,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
       return;
     }
 
-    setCustomBudgetEuro((previous) => clampValue(previous + direction * 50, 500, 6000));
+    setCustomBudgetEuro((previous) => clampValue(previous + direction * 50, 500, 3000));
   };
 
   const currentBudgetDisplay =
@@ -805,8 +804,8 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                 max={120}
                 step={1}
                 value={apartmentSize}
-                onInput={(event) => updateApartmentSize(event.currentTarget.value)}
-                onChange={(event) => updateApartmentSize(event.currentTarget.value)}
+                onInput={(event) => updateApartmentSize(event.currentTarget.valueAsNumber)}
+                onChange={(event) => updateApartmentSize(event.currentTarget.valueAsNumber)}
                 className="rent-slider mt-3 h-2 w-full cursor-pointer"
               />
             </div>
@@ -894,7 +893,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                     id="budget-slider"
                     type="range"
                     min={budgetMode === "percent" ? 20 : 500}
-                    max={budgetMode === "percent" ? 60 : 6000}
+                    max={budgetMode === "percent" ? 60 : 3000}
                     step={budgetMode === "percent" ? 1 : 50}
                     value={budgetMode === "percent" ? budgetPercent : customBudgetEuro}
                     onInput={(event) => updateBudgetFromSlider(event.currentTarget.value)}
@@ -932,7 +931,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                     }
 
                     const euroPreset = Math.round((warmRent / (preset / 100)) / 50) * 50;
-                    const clampedEuroPreset = clampValue(euroPreset, 500, 6000);
+                    const clampedEuroPreset = clampValue(euroPreset, 500, 3000);
 
                     return (
                       <button
