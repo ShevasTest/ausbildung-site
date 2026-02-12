@@ -910,6 +910,26 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                     +
                   </button>
                 </div>
+
+                {budgetMode === "percent" ? (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {[35, 40, 45, 50].map((preset) => (
+                      <button
+                        key={preset}
+                        type="button"
+                        onClick={() => setBudgetPercent(preset)}
+                        aria-pressed={budgetPercent === preset}
+                        className={`rent-pill rounded-xl border px-2.5 py-1.5 text-xs font-semibold ${
+                          budgetPercent === preset
+                            ? "border-primary/40 bg-primary/12 text-primary"
+                            : "border-border bg-background/80 text-muted hover:border-primary/35 hover:text-primary"
+                        }`}
+                      >
+                        {preset}%
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </fieldset>
           </article>
