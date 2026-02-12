@@ -20,67 +20,67 @@
   },
   "Hero": {
     "badge": "Angehender Fachinformatiker für Anwendungsentwicklung",
-    "kicker": "Ausbildung 2026 · Fokus Frontend Engineering",
-    "titleLead": "Ich entwickle",
+    "kicker": "Ausbildung 2026 · Junior-Level Frontend",
+    "titleLead": "Ich lerne",
     "rotatingWords": [
-      "schnelle Web-Apps",
-      "barrierearme Interfaces",
-      "saubere TypeScript-Architektur",
-      "digitale Produkte mit echtem Nutzen"
+      "Webentwicklung Schritt für Schritt",
+      "responsive Interfaces mit HTML/CSS",
+      "React- und Next.js-Basics",
+      "praxisnahe Projekte mit KI-Unterstützung"
     ],
-    "titleEnd": "für Teams, die Verantwortung und Eigeninitiative schätzen.",
-    "subtitle": "Durch konsequentes Selbststudium und tägliche Praxis setze ich komplette Produktideen von der Konzeption bis zur responsiven Umsetzung um — performance-orientiert, verständlich und bereit für den produktiven Einsatz.",
+    "titleEnd": "und bereite mich auf ein Ausbildungsteam im Jahr 2026 vor.",
+    "subtitle": "Durch Selbststudium und KI-gestützte Praxis baue ich solide Grundlagen auf, setze kleine bis mittlere Features um und entwickle mein technisches Profil kontinuierlich weiter.",
     "points": [
       "Mobile-first Umsetzung für Recruiting auf dem Smartphone",
-      "Interaktionen mit 60fps auf Basis von transform + opacity",
-      "Klare Informationsarchitektur statt visueller Spielerei",
-      "Codequalität mit TypeScript strict und wiederverwendbaren Komponenten"
+      "Klare Informationsstruktur statt visueller Überladung",
+      "Erste Erfahrungen mit React, Next.js und API-Anbindung",
+      "Lernen mit Feedback, Dokumentation und KI-Tools"
     ],
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
-    "panelTitle": "Vom Selbststudium in professionelle Teams",
-    "panelText": "Ich suche einen Ausbildungsplatz, bei dem ich mein technisches Fundament in echte Produktarbeit einbringe und gleichzeitig strukturiert weiterwachse.",
+    "panelTitle": "Vom Selbststudium in die Ausbildung",
+    "panelText": "Ich suche einen Ausbildungsplatz, in dem ich als Junior mitarbeiten, von erfahrenen Entwickler:innen lernen und mich Schritt für Schritt weiterentwickeln kann.",
     "stats": [
       {
         "label": "Projektfokus",
-        "value": "5 praxisnahe End-to-End Demos"
+        "value": "4 praxisnahe Demos"
       },
       {
         "label": "Qualitätsziel",
-        "value": "Lighthouse 95+ & WCAG AA"
+        "value": "Solide Grundlagen in Performance & Accessibility"
       },
       {
         "label": "Arbeitsweise",
-        "value": "Eigeninitiative · Klarheit · Zuverlässigkeit"
+        "value": "Eigeninitiative · Lernbereitschaft · Zuverlässigkeit"
       }
     ]
   },
   "About": {
     "title": "Über mich",
     "eyebrow": "Selbststudium mit klarer Richtung",
-    "lead": "Ich bringe Eigeninitiative, Struktur und echte Projektpraxis mit — genau die Kombination, die Teams in der Ausbildung brauchen.",
+    "lead": "Ich bringe Eigeninitiative, Lernbereitschaft und erste Projektpraxis mit — eine gute Basis für den Ausbildungsstart.",
     "paragraphs": [
       "Mein Einstieg in die Entwicklung begann mit Neugier: Ich wollte verstehen, wie gute digitale Produkte entstehen und warum manche Interfaces sofort logisch wirken.",
-      "Dafür habe ich mir einen festen Lernrhythmus aufgebaut — mit täglichen Coding-Sprints, sauberer Dokumentation und konsequenter Qualitätskontrolle über Build, Performance und Accessibility.",
-      "Heute setze ich vollständige Frontend-Features eigenständig um: von der Idee über responsive UI bis zu wartbarem TypeScript-Code. Für 2026 suche ich ein Ausbildungsteam, bei dem ich diese Praxis in professionelle Produktarbeit überführe."
+      "Dafür habe ich mir einen festen Lernrhythmus aufgebaut — mit regelmäßigen Coding-Sessions, klaren Lernzielen und nachvollziehbaren Fortschritten.",
+      "Aktuell arbeite ich an kleineren Frontend-Aufgaben und nutze AI-Tools aktiv, um schneller zu recherchieren, zu testen und Lösungen umzusetzen. Für 2026 suche ich ein Ausbildungsteam, in dem ich diese Basis professionell ausbauen kann."
     ],
     "highlights": [
       {
         "label": "Eigeninitiative",
-        "value": "Tägliches Selbststudium mit klaren Lernzielen und selbstständiger Umsetzung kompletter Features."
+        "value": "Ich lerne kontinuierlich im Selbststudium und setze Gelerntes direkt in kleine Projekte um."
       },
       {
-        "label": "Produktdenken",
-        "value": "Nicht nur Komponenten bauen, sondern Nutzerproblem, Flow und Business-Kontext mitdenken."
+        "label": "Lernfokus",
+        "value": "Ich arbeite strukturiert an Grundlagen in HTML, CSS, JavaScript und React."
       },
       {
-        "label": "Team-Reife",
-        "value": "Strukturierter Code, nachvollziehbare Entscheidungen und verlässliche Übergaben."
+        "label": "KI-gestütztes Arbeiten",
+        "value": "Ich nutze Claude und ChatGPT für Recherche, Prototyping und Debugging."
       },
       {
         "label": "Ausbildungsziel 2026",
-        "value": "Praxiserfahrung mit fundiertem Fachwissen verbinden und schnell Verantwortung übernehmen."
+        "value": "In einem Team fachlich wachsen, Praxis sammeln und zuverlässig mitarbeiten."
       }
     ],
     "motivationTitle": "Was ich in die Ausbildung mitbringe",
@@ -93,19 +93,19 @@
       "badge": "Profil",
       "name": "Oleksandr",
       "role": "Angehender Fachinformatiker für Anwendungsentwicklung",
-      "initials": "AS",
+      "initials": "OS",
       "placeholder": "Foto folgt",
-      "caption": "Ich kombiniere diszipliniertes Selbststudium mit praktischer Produktentwicklung und klarer Kommunikation.",
+      "caption": "Ich kombiniere diszipliniertes Selbststudium mit KI-gestützter Praxis und baue mein technisches Fundament Schritt für Schritt aus.",
       "facts": [
         "Standort: Deutschland · Ausbildung ab 2026",
-        "Sprachen: Deutsch B1 (aktiv Richtung B2) · Englisch sicher",
-        "Fokus: Next.js, React, TypeScript, Performance & Accessibility"
+        "Sprachen: Deutsch B1 (aktiv Richtung B2) · Englisch A2 (im Aufbau)",
+        "Fokus: HTML/CSS, JavaScript-Grundlagen, erste Projekte mit React und Next.js"
       ]
     }
   },
   "Projects": {
     "title": "Projekte",
-    "intro": "Fünf praxisnahe Produkte, die echte Alltagsthemen adressieren und meine Arbeitsweise transparent zeigen.",
+    "intro": "Vier praxisnahe Projekte, die reale Alltagsthemen aufgreifen und meine aktuelle Arbeitsweise zeigen.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
@@ -130,65 +130,71 @@
         "title": "DevDash",
         "summary": "Anpassbares Entwickler-Dashboard mit Widgets, Pomodoro und GitHub-Aktivität.",
         "stack": "Next.js · Modular UI · PWA"
-      },
-      {
-        "slug": "portfolio",
-        "title": "Dieses Portfolio",
-        "summary": "Open-Source Showcase mit i18n, Theme-System und Lighthouse-optimiertem UI.",
-        "stack": "Next.js · Tailwind v4 · next-intl"
       }
     ],
     "openProject": "Projekt öffnen"
   },
   "Skills": {
     "title": "Kenntnisse",
-    "intro": "Technologien, Tools und Arbeitsweisen, mit denen ich bereits in echten Projektumsetzungen arbeite.",
-    "legend": "Selbsteinschätzung auf Basis praktischer Umsetzung in eigenen End-to-End-Projekten",
+    "intro": "Technologien und Werkzeuge, mit denen ich aktuell lerne und erste Projekte umsetze.",
+    "legend": "Selbsteinschätzung auf Basis meiner aktuellen Praxis im Selbststudium",
     "groups": [
       {
         "name": "Frontend",
-        "description": "Fokus auf schnelle, barrierearme Benutzeroberflächen mit klarer Informationsarchitektur.",
-        "level": 90,
-        "levelLabel": "Sehr sicher in responsiven UI-Implementierungen",
+        "description": "Grundkenntnisse in HTML, CSS und erste Erfahrungen mit React und Next.js",
+        "level": 45,
+        "levelLabel": "Grundlagen vorhanden, aktuell im Ausbau",
         "items": [
-          "React",
-          "Next.js App Router",
-          "TypeScript",
-          "Tailwind CSS v4",
-          "Framer Motion"
+          "HTML & CSS",
+          "JavaScript (Grundlagen)",
+          "React (Basics)",
+          "Next.js (erste Projekte)",
+          "Tailwind CSS"
         ]
       },
       {
         "name": "Backend",
-        "description": "Solide Grundlagen für API-Anbindung, Datenfluss und serverseitige Logik im Next.js-Umfeld.",
-        "level": 76,
-        "levelLabel": "Sicher in produktnahen Daten- und API-Flows",
+        "description": "Erste Schritte mit Python und API-Anbindung",
+        "level": 25,
+        "levelLabel": "Erste praktische Erfahrungen",
         "items": [
-          "Server Actions",
-          "REST APIs",
-          "JSON/Schema",
-          "Route Handlers",
-          "Validierung"
+          "Python (Grundlagen)",
+          "REST APIs (Grundlagen)",
+          "JSON",
+          "Server Actions (Next.js)"
         ]
       },
       {
         "name": "Tools",
-        "description": "Werkzeuge für sauberen Workflow, Qualitätssicherung und nachvollziehbare Entwicklungsschritte.",
-        "level": 84,
-        "levelLabel": "Strukturiertes Arbeiten mit Qualitätsfokus",
+        "description": "Git, VS Code, npm — Basiswerkzeuge für den Entwicklungsalltag",
+        "level": 55,
+        "levelLabel": "Sicher in den Basiswerkzeugen",
         "items": [
           "Git & GitHub",
+          "VS Code",
           "npm",
-          "ESLint",
-          "Lighthouse",
-          "Figma-to-Code"
+          "AI-Tools (Claude, ChatGPT)",
+          "Lighthouse"
+        ]
+      },
+      {
+        "name": "AI-gestütztes Arbeiten",
+        "description": "Effektiver Einsatz von KI-Tools für Problemlösung, Code-Erstellung und schnelles Prototyping",
+        "level": 85,
+        "levelLabel": "Sehr sicher im praktischen Einsatz von KI-Tools",
+        "items": [
+          "Claude / ChatGPT",
+          "Prompt Engineering",
+          "AI-gestütztes Debugging",
+          "Rapid Prototyping",
+          "Code Review mit KI"
         ]
       },
       {
         "name": "Soft Skills",
         "description": "Arbeitsweise, die im Ausbildungsteam zählt: Zuverlässigkeit, Lernbereitschaft und Kommunikation.",
-        "level": 88,
-        "levelLabel": "Stark in Zusammenarbeit und Eigenverantwortung",
+        "level": 80,
+        "levelLabel": "Zuverlässig, lernbereit und strukturiert",
         "items": [
           "Eigeninitiative",
           "Strukturierte Problemlösung",
@@ -202,28 +208,28 @@
   "Resume": {
     "eyebrow": "Lebenslauf & Entwicklung",
     "title": "Lebenslauf",
-    "intro": "Mein Weg in die Anwendungsentwicklung ist praxisnah und klar strukturiert: konsequentes Selbststudium, reale Projekte und ein konkretes Ausbildungsziel für 2026.",
+    "intro": "Mein Weg in die Anwendungsentwicklung ist praxisnah und klar strukturiert: konsequentes Selbststudium mit KI-Unterstützung, reale Projekte und ein konkretes Ausbildungsziel für 2026.",
     "timeline": [
       {
         "period": "2024 — heute",
-        "title": "Strukturiertes Selbststudium im Frontend Engineering",
-        "text": "Tägliche Coding-Sprints, dokumentierte Lernziele und kontinuierliche Qualitätschecks mit Build, Performance und Accessibility.",
-        "focus": "Fokus: React · Next.js · TypeScript",
+        "title": "Strukturiertes Selbststudium im Frontend mit KI-Unterstützung",
+        "text": "Regelmäßige Coding-Sessions, dokumentierte Lernziele und kontinuierliches Lernen mit Unterstützung durch AI-Tools.",
+        "focus": "Fokus: HTML/CSS · JavaScript · React-Basics",
         "chips": [
           "Eigeninitiative",
           "Tägliche Praxis",
-          "Qualitätsfokus"
+          "KI-gestützt"
         ]
       },
       {
         "period": "2025",
-        "title": "Produktnahe Projektumsetzung",
-        "text": "Konzeption und Umsetzung mehrerer End-to-End-Projekte mit klarem Nutzerszenario statt Tutorial-Apps. Schwerpunkt auf responsiver UI und wartbarer Architektur.",
-        "focus": "Fokus: UX · Komponentenarchitektur",
+        "title": "Projektumsetzung mit KI-Unterstützung",
+        "text": "Planung und Umsetzung mehrerer Demo-Projekte mit AI-Unterstützung statt reiner Tutorial-Nachbauten. Fokus auf verständliche UI und funktionale Prototypen.",
+        "focus": "Fokus: UI-Grundlagen · Prototyping",
         "chips": [
-          "5 Demo-Konzepte",
+          "4 Demo-Konzepte",
           "Mobile-first",
-          "Sauberer Code"
+          "KI-gestützt"
         ]
       },
       {
@@ -239,7 +245,7 @@
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich arbeite strukturiert, lerne schnell und denke in Nutzerproblemen. Mein Ziel ist es, früh produktiv mitzuwirken und Verantwortung verlässlich zu übernehmen.",
+    "closingText": "Ich arbeite strukturiert, lerne schnell und spreche offen über meinen aktuellen Stand. Mein Ziel ist es, im Team zuverlässig mitzuwirken und fachlich zu wachsen.",
     "closingBadges": [
       "Eigeninitiative",
       "Klare Kommunikation",

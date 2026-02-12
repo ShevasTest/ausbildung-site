@@ -4,7 +4,7 @@
 - Next.js 15 App Router (RSC + Server Actions)
 - TypeScript strict
 - Tailwind CSS v4
-- Framer Motion (лёгкие анимации)
+- CSS анимации (opacity + transform only)
 - next-intl (i18n)
 - НЕТ Three.js — производительность важнее 3D
 

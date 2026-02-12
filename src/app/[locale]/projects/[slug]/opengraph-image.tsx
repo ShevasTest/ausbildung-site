@@ -50,12 +50,12 @@ const projectCopy = {
   },
   portfolio: {
     de: {
-      title: "Dieses Portfolio",
-      subtitle: "i18n, Lighthouse 95+, WCAG AA und mobile-first UX",
+      title: "Portfolio-Website",
+      subtitle: "Mehrsprachig, responsiv und auf Ausbildung ausgerichtet",
     },
     en: {
-      title: "This Portfolio",
-      subtitle: "i18n, Lighthouse 95+, WCAG AA and mobile-first UX",
+      title: "Portfolio Website",
+      subtitle: "Multilingual, responsive and tailored for Ausbildung applications",
     },
   },
 } as const;

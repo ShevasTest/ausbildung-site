@@ -20,67 +20,67 @@
   },
   "Hero": {
     "badge": "Aspiring Software Developer (Fachinformatiker AE)",
-    "kicker": "Ausbildung 2026 · Frontend Engineering Focus",
-    "titleLead": "I build",
+    "kicker": "Ausbildung 2026 · Junior frontend path",
+    "titleLead": "I learn",
     "rotatingWords": [
-      "fast web apps",
-      "accessible interfaces",
-      "clean TypeScript architecture",
-      "products that solve real needs"
+      "web development step by step",
+      "responsive interfaces with HTML/CSS",
+      "React and Next.js basics",
+      "practical projects with AI support"
     ],
-    "titleEnd": "for teams that value ownership and initiative.",
-    "subtitle": "Through focused self-learning and daily hands-on practice, I turn product ideas into responsive implementations — performance-oriented, maintainable and ready for real-world use.",
+    "titleEnd": "and prepare for an Ausbildung team in 2026.",
+    "subtitle": "Through self-study and AI-assisted practice, I build solid fundamentals, implement small to medium features and improve my skills continuously.",
     "points": [
-      "Mobile-first delivery for recruiters reviewing on phones",
-      "60fps interactions based on transform + opacity",
-      "Clear information hierarchy over visual noise",
-      "TypeScript strict code quality with reusable components"
+      "Mobile-first implementation for recruiters on smartphones",
+      "Clear information structure over visual noise",
+      "First experience with React, Next.js and API integration",
+      "Learning with feedback, documentation and AI tools"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "From self-learning into professional product teams",
-    "panelText": "I am looking for an Ausbildung position where I can contribute my technical foundation to real product work and keep growing in a structured environment.",
+    "panelTitle": "From self-study to Ausbildung",
+    "panelText": "I am looking for an Ausbildung position where I can contribute as a junior, learn from experienced developers and grow step by step.",
     "stats": [
       {
         "label": "Project focus",
-        "value": "5 practical end-to-end demos"
+        "value": "4 practical demos"
       },
       {
         "label": "Quality target",
-        "value": "Lighthouse 95+ & WCAG AA"
+        "value": "Solid foundations in performance & accessibility"
       },
       {
         "label": "Work style",
-        "value": "Initiative · Clarity · Reliability"
+        "value": "Initiative · Learning mindset · Reliability"
       }
     ]
   },
   "About": {
     "title": "About me",
     "eyebrow": "Self-learning with clear direction",
-    "lead": "I bring initiative, structure and real project execution — the exact mix teams need in an Ausbildung context.",
+    "lead": "I bring initiative, learning mindset and first project practice — a solid base for starting an Ausbildung.",
     "paragraphs": [
       "My path into development started with curiosity: I wanted to understand how strong digital products are built and why some interfaces feel intuitive from the first second.",
-      "To improve fast, I built a disciplined learning routine with daily coding sprints, clear documentation and consistent quality checks for build stability, performance and accessibility.",
-      "Today I can deliver complete frontend features end-to-end: from concept to responsive UI and maintainable TypeScript architecture. For 2026, I am looking for an Ausbildung team where I can turn this practice into professional product work."
+      "To improve consistently, I built a structured learning routine with regular coding sessions, small learning goals and trackable progress.",
+      "Right now I work on smaller frontend tasks and actively use AI tools to research, test and implement solutions faster. For 2026, I am looking for an Ausbildung team where I can grow this foundation professionally."
     ],
     "highlights": [
       {
         "label": "Initiative",
-        "value": "Daily self-learning with clear milestones and independent delivery of complete features."
+        "value": "I learn continuously in self-study and apply new knowledge directly in small projects."
       },
       {
-        "label": "Product mindset",
-        "value": "I do not just ship components — I think in user needs, flow clarity and business relevance."
+        "label": "Learning focus",
+        "value": "I work step by step on fundamentals in HTML, CSS, JavaScript and React."
       },
       {
-        "label": "Team readiness",
-        "value": "Structured code, transparent technical decisions and reliable handovers."
+        "label": "AI-assisted workflow",
+        "value": "I use Claude and ChatGPT for research, prototyping and debugging."
       },
       {
         "label": "2026 goal",
-        "value": "Combine practical experience with formal training and take responsibility early."
+        "value": "Grow in a team, gain practical experience and contribute reliably."
       }
     ],
     "motivationTitle": "What I bring into an Ausbildung role",
@@ -93,19 +93,19 @@
       "badge": "Profile",
       "name": "Oleksandr",
       "role": "Aspiring Software Developer (Fachinformatiker AE)",
-      "initials": "AS",
+      "initials": "OS",
       "placeholder": "Photo placeholder",
-      "caption": "I combine disciplined self-learning with hands-on product building and clear communication.",
+      "caption": "I combine disciplined self-learning with AI-assisted practice and build my technical foundation step by step.",
       "facts": [
         "Location: Germany · Ausbildung target 2026",
-        "Languages: German B1 (actively improving to B2) · English fluent for tech work",
-        "Focus: Next.js, React, TypeScript, performance and accessibility"
+        "Languages: German B1 (actively improving to B2) · English A2 (actively improving)",
+        "Focus: HTML/CSS, JavaScript fundamentals, first projects with React and Next.js"
       ]
     }
   },
   "Projects": {
     "title": "Projects",
-    "intro": "Five practical products that address real everyday needs and clearly show my engineering approach.",
+    "intro": "Four practical projects that address real everyday needs and show my current working style.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
@@ -130,65 +130,71 @@
         "title": "DevDash",
         "summary": "Customizable developer dashboard with widgets, Pomodoro and GitHub activity.",
         "stack": "Next.js · Modular UI · PWA"
-      },
-      {
-        "slug": "portfolio",
-        "title": "This Portfolio",
-        "summary": "Open-source showcase with i18n, theme system and Lighthouse-oriented UX.",
-        "stack": "Next.js · Tailwind v4 · next-intl"
       }
     ],
     "openProject": "Open project"
   },
   "Skills": {
     "title": "Skills",
-    "intro": "Technologies, tools and work habits that I already apply in real project implementations.",
-    "legend": "Self-assessment based on practical delivery in personal end-to-end projects",
+    "intro": "Technologies and tools I currently use while learning and building first projects.",
+    "legend": "Self-assessment based on my current hands-on practice",
     "groups": [
       {
         "name": "Frontend",
-        "description": "Focused on fast, accessible interfaces with clear information hierarchy.",
-        "level": 90,
-        "levelLabel": "Highly confident in responsive UI delivery",
+        "description": "Basic HTML, CSS knowledge and first experience with React and Next.js",
+        "level": 45,
+        "levelLabel": "Foundations in place, currently improving",
         "items": [
-          "React",
-          "Next.js App Router",
-          "TypeScript",
-          "Tailwind CSS v4",
-          "Framer Motion"
+          "HTML & CSS",
+          "JavaScript (basics)",
+          "React (basics)",
+          "Next.js (first projects)",
+          "Tailwind CSS"
         ]
       },
       {
         "name": "Backend",
-        "description": "Solid foundation for API integration, data flow and server-side logic in Next.js apps.",
-        "level": 76,
-        "levelLabel": "Confident with production-like API and data flows",
+        "description": "First steps with Python and API integration",
+        "level": 25,
+        "levelLabel": "Early practical experience",
         "items": [
-          "Server Actions",
-          "REST APIs",
-          "JSON/Schema",
-          "Route Handlers",
-          "Validation"
+          "Python (basics)",
+          "REST APIs (basics)",
+          "JSON",
+          "Server Actions (Next.js)"
         ]
       },
       {
         "name": "Tools",
-        "description": "Tooling for clean workflow, quality checks and transparent implementation steps.",
-        "level": 84,
-        "levelLabel": "Structured execution with quality focus",
+        "description": "Git, VS Code, npm — essential development tools",
+        "level": 55,
+        "levelLabel": "Confident with essential tools",
         "items": [
           "Git & GitHub",
+          "VS Code",
           "npm",
-          "ESLint",
-          "Lighthouse",
-          "Figma-to-Code"
+          "AI tools (Claude, ChatGPT)",
+          "Lighthouse"
+        ]
+      },
+      {
+        "name": "AI-assisted work",
+        "description": "Effective use of AI tools for problem-solving, code creation and rapid prototyping",
+        "level": 85,
+        "levelLabel": "Very strong in practical AI usage",
+        "items": [
+          "Claude / ChatGPT",
+          "Prompt engineering",
+          "AI-assisted debugging",
+          "Rapid prototyping",
+          "AI-assisted code review"
         ]
       },
       {
         "name": "Soft Skills",
         "description": "Team qualities that matter in Ausbildung: reliability, learning mindset and communication.",
-        "level": 88,
-        "levelLabel": "Strong ownership and collaboration skills",
+        "level": 80,
+        "levelLabel": "Reliable, collaborative and eager to learn",
         "items": [
           "Self-initiative",
           "Structured problem solving",
@@ -202,28 +208,28 @@
   "Resume": {
     "eyebrow": "Resume & Growth Path",
     "title": "Resume",
-    "intro": "My path into software development is practical and clearly structured: disciplined self-learning, real product projects and a concrete Ausbildung target for 2026.",
+    "intro": "My path into software development is practical and clearly structured: disciplined self-learning with AI support, real projects and a concrete Ausbildung target for 2026.",
     "timeline": [
       {
         "period": "2024 — present",
-        "title": "Structured Self-Learning in Frontend Engineering",
-        "text": "Daily coding sprints, documented learning goals and continuous quality checks with build stability, performance and accessibility.",
-        "focus": "Focus: React · Next.js · TypeScript",
+        "title": "Structured Self-Learning in Frontend with AI Support",
+        "text": "Regular coding sessions, documented learning goals and continuous learning with support from AI tools.",
+        "focus": "Focus: HTML/CSS · JavaScript · React basics",
         "chips": [
           "Self-initiative",
           "Daily practice",
-          "Quality mindset"
+          "AI-assisted"
         ]
       },
       {
         "period": "2025",
-        "title": "Product-Oriented Project Delivery",
-        "text": "Planned and built multiple end-to-end projects around clear user scenarios instead of tutorial-style apps. Strong focus on responsive UI and maintainable architecture.",
-        "focus": "Focus: UX · Component architecture",
+        "title": "Project Delivery with AI Support",
+        "text": "Planned and built multiple demo projects with AI support instead of tutorial-only clones. Focus on understandable UI and functional prototypes.",
+        "focus": "Focus: UI fundamentals · Prototyping",
         "chips": [
-          "5 demo concepts",
+          "4 demo concepts",
           "Mobile-first",
-          "Clean code"
+          "AI-assisted"
         ]
       },
       {
@@ -239,7 +245,7 @@
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I work in a structured way, learn quickly and stay focused on user problems. My goal is to contribute productively early and take ownership reliably.",
+    "closingText": "I work in a structured way, learn quickly and speak openly about my current level. My goal is to contribute reliably in a team and keep improving.",
     "closingBadges": [
       "Self-initiative",
       "Clear communication",

@@ -108,6 +108,9 @@ type DemoCopy = {
     breakDone: string;
   };
   notes: {
+    addNote: string;
+    deleteNote: string;
+    noteLabel: string;
     placeholder: string;
     templatesLabel: string;
     saved: string;
@@ -352,6 +355,9 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       breakDone: "Pause beendet. Bereit für den nächsten Fokus-Block.",
     },
     notes: {
+      addNote: "+ Neue Notiz",
+      deleteNote: "🗑️ Löschen",
+      noteLabel: "Notiz",
       placeholder:
         "Heute wichtig: Recruiter-Mail beantworten, Portfolio-Refactoring planen, README für DevDash ergänzen ...",
       templatesLabel: "Vorlagen",
@@ -460,6 +466,9 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       breakDone: "Break complete. Ready for the next focus block.",
     },
     notes: {
+      addNote: "+ New note",
+      deleteNote: "🗑️ Delete",
+      noteLabel: "Note",
       placeholder:
         "Today: answer recruiter email, plan portfolio refactor, improve DevDash README ...",
       templatesLabel: "Templates",
@@ -575,7 +584,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
   const [completedSessions, setCompletedSessions] = useState(0);
   const [pomodoroInfo, setPomodoroInfo] = useState<string>("");
 
-  const [notes, setNotes] = useState("");
+  const [notes, setNotes] = useState<string[]>([""]);
   const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
 
   const [newsCategory, setNewsCategory] = useState<NewsCategory>("all");
@@ -637,6 +646,38 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
   const ringCircumference = 2 * Math.PI * ringRadius;
   const ringOffset = ringCircumference * (1 - Math.min(Math.max(pomodoroProgress, 0), 1));
 
+  const addNote = () => {
+    setNotes((previous) => [...previous, ""]);
+  };
+
+  const updateNote = (index: number, value: string) => {
+    setNotes((previous) => previous.map((note, noteIndex) => (noteIndex === index ? value : note)));
+  };
+
+  const deleteNote = (index: number) => {
+    setNotes((previous) => {
+      if (previous.length <= 1) {
+        return [""];
+      }
+
+      return previous.filter((_, noteIndex) => noteIndex !== index);
+    });
+  };
+
+  const insertTemplateIntoLatestNote = (template: string) => {
+    setNotes((previous) => {
+      if (previous.length === 0) {
+        return [`• ${template}`];
+      }
+
+      const targetIndex = previous.length - 1;
+      const currentText = previous[targetIndex] ?? "";
+      const nextText = currentText.trim().length > 0 ? `${currentText}\n• ${template}` : `• ${template}`;
+
+      return previous.map((note, noteIndex) => (noteIndex === targetIndex ? nextText : note));
+    });
+  };
+
   useEffect(() => {
     try {
       const storedLayout = window.localStorage.getItem(STORAGE_KEYS.layout);
@@ -648,8 +689,17 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
       }
 
       const storedNotes = window.localStorage.getItem(STORAGE_KEYS.notes);
-      if (typeof storedNotes === "string") {
-        setNotes(storedNotes);
+      if (typeof storedNotes === "string" && storedNotes.length > 0) {
+        try {
+          const parsedNotes = JSON.parse(storedNotes) as unknown;
+          if (Array.isArray(parsedNotes) && parsedNotes.every((entry) => typeof entry === "string")) {
+            setNotes(parsedNotes.length > 0 ? parsedNotes : [""]);
+          } else {
+            setNotes([storedNotes]);
+          }
+        } catch {
+          setNotes([storedNotes]);
+        }
       }
 
       const storedFocus = window.localStorage.getItem(STORAGE_KEYS.focus);
@@ -693,7 +743,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
     }
 
     try {
-      window.localStorage.setItem(STORAGE_KEYS.notes, notes);
+      window.localStorage.setItem(STORAGE_KEYS.notes, JSON.stringify(notes));
       setLastSavedAt(Date.now());
     } catch {
       // Ignore storage failures.
@@ -1134,18 +1184,49 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
             }).format(new Date(lastSavedAt))
           : "—";
 
+      const totalChars = notes.reduce((sum, note) => sum + note.length, 0);
+
       return (
         <div className="space-y-3">
-          <label htmlFor="devdash-notes" className="sr-only">
-            Notes
-          </label>
-          <textarea
-            id="devdash-notes"
-            value={notes}
-            onChange={(event) => setNotes(event.target.value)}
-            placeholder={copy.notes.placeholder}
-            className="contact-field min-h-[166px] w-full resize-y rounded-2xl px-3 py-2.5 text-sm leading-relaxed"
-          />
+          <button
+            type="button"
+            onClick={addNote}
+            className="contact-submit inline-flex w-full items-center justify-center rounded-xl bg-primary-solid px-4 py-2.5 text-sm font-semibold text-white"
+          >
+            {copy.notes.addNote}
+          </button>
+
+          <div className="space-y-2.5">
+            {notes.map((note, index) => {
+              const noteId = `devdash-note-${index}`;
+
+              return (
+                <article key={noteId} className="rounded-2xl border border-border bg-background/65 p-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <label htmlFor={noteId} className="text-xs font-semibold tracking-[0.11em] text-muted uppercase">
+                      {copy.notes.noteLabel} {index + 1}
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => deleteNote(index)}
+                      aria-label={`${copy.notes.deleteNote} ${copy.notes.noteLabel} ${index + 1}`}
+                      className="devdash-pill rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold text-muted"
+                    >
+                      {copy.notes.deleteNote}
+                    </button>
+                  </div>
+
+                  <textarea
+                    id={noteId}
+                    value={note}
+                    onChange={(event) => updateNote(index, event.target.value)}
+                    placeholder={copy.notes.placeholder}
+                    className="contact-field mt-2 min-h-[120px] w-full resize-y rounded-2xl px-3 py-2.5 text-sm leading-relaxed"
+                  />
+                </article>
+              );
+            })}
+          </div>
 
           <div>
             <p className="text-[11px] font-semibold tracking-[0.13em] text-muted uppercase">{copy.notes.templatesLabel}</p>
@@ -1154,11 +1235,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
                 <button
                   key={template}
                   type="button"
-                  onClick={() =>
-                    setNotes((previous) =>
-                      previous.trim().length > 0 ? `${previous}\n• ${template}` : `• ${template}`,
-                    )
-                  }
+                  onClick={() => insertTemplateIntoLatestNote(template)}
                   className="devdash-pill max-w-full rounded-full border border-border bg-background/70 px-2.5 py-1 text-left text-xs font-medium text-muted whitespace-normal"
                 >
                   + {template}
@@ -1172,7 +1249,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
               {copy.notes.saved}: {formattedSavedTime}
             </span>
             <span>
-              {copy.notes.chars}: {notes.length}
+              {copy.notes.chars}: {totalChars}
             </span>
           </div>
         </div>

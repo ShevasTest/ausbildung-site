@@ -52,6 +52,8 @@ type DemoCopy = {
     householdSingle: string;
     householdPair: string;
     budgetRule: string;
+    customBudgetLabel: string;
+    customBudgetPlaceholder: string;
     netPerIncome: string;
     warmRent: string;
     coldRent: string;
@@ -80,84 +82,84 @@ const CITY_RENT_DATA: CityRentData[] = [
     id: "munich",
     city: "München",
     state: "Bayern",
-    rents: [18.1, 19.0, 20.1, 21.2, 21.8, 22.4],
+    rents: [16.8, 17.6, 18.5, 19.3, 20.0, 20.6],
     medianNetIncome: 3450,
   },
   {
     id: "frankfurt",
     city: "Frankfurt am Main",
     state: "Hessen",
-    rents: [14.7, 15.5, 16.3, 17.0, 17.6, 18.2],
+    rents: [13.1, 13.7, 14.3, 15.0, 15.5, 16.0],
     medianNetIncome: 3300,
   },
   {
     id: "stuttgart",
     city: "Stuttgart",
     state: "Baden-Württemberg",
-    rents: [13.9, 14.6, 15.2, 15.8, 16.4, 16.9],
+    rents: [12.4, 13.0, 13.6, 14.1, 14.6, 15.1],
     medianNetIncome: 3200,
   },
   {
     id: "berlin",
     city: "Berlin",
     state: "Berlin",
-    rents: [11.2, 11.8, 12.9, 13.8, 14.5, 15.2],
+    rents: [10.0, 10.6, 11.2, 11.8, 12.4, 13.0],
     medianNetIncome: 2850,
   },
   {
     id: "hamburg",
     city: "Hamburg",
     state: "Hamburg",
-    rents: [12.0, 12.6, 13.3, 14.1, 14.8, 15.4],
+    rents: [11.0, 11.4, 11.9, 12.3, 12.7, 13.1],
     medianNetIncome: 3000,
   },
   {
     id: "cologne",
     city: "Köln",
     state: "Nordrhein-Westfalen",
-    rents: [11.5, 12.1, 12.8, 13.6, 14.1, 14.7],
+    rents: [10.4, 10.9, 11.4, 11.8, 12.2, 12.6],
     medianNetIncome: 2900,
   },
   {
     id: "duesseldorf",
     city: "Düsseldorf",
     state: "Nordrhein-Westfalen",
-    rents: [11.8, 12.3, 13.0, 13.5, 14.0, 14.4],
+    rents: [10.9, 11.3, 11.8, 12.2, 12.6, 12.9],
     medianNetIncome: 3050,
   },
   {
     id: "nuremberg",
     city: "Nürnberg",
     state: "Bayern",
-    rents: [10.2, 10.7, 11.2, 11.8, 12.2, 12.7],
+    rents: [9.2, 9.6, 10.0, 10.4, 10.8, 11.2],
     medianNetIncome: 2800,
   },
   {
     id: "hannover",
     city: "Hannover",
     state: "Niedersachsen",
-    rents: [8.7, 9.1, 9.6, 10.0, 10.5, 10.9],
+    rents: [8.2, 8.6, 9.0, 9.5, 10.0, 10.4],
     medianNetIncome: 2700,
   },
   {
     id: "leipzig",
     city: "Leipzig",
     state: "Sachsen",
-    rents: [7.2, 7.6, 8.1, 8.7, 9.2, 9.7],
+    rents: [6.8, 7.2, 7.6, 8.0, 8.4, 8.8],
     medianNetIncome: 2500,
   },
   {
     id: "dresden",
     city: "Dresden",
     state: "Sachsen",
-    rents: [7.8, 8.1, 8.5, 8.9, 9.3, 9.8],
+    rents: [7.1, 7.4, 7.8, 8.2, 8.6, 8.9],
     medianNetIncome: 2450,
   },
   {
     id: "dortmund",
     city: "Dortmund",
     state: "Nordrhein-Westfalen",
-    rents: [7.1, 7.4, 7.8, 8.2, 8.6, 8.9],
+    rents: [6.9, 7.2, 7.5, 7.8, 8.1, 8.5],
     medianNetIncome: 2550,
   },
 ];
@@ -200,6 +202,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       householdSingle: "1 Einkommen",
       householdPair: "2 Einkommen",
       budgetRule: "Budget-Regel",
+      customBudgetLabel: "Eigenes Budget",
+      customBudgetPlaceholder: "z.B. 800 €",
       netPerIncome: "Empfohlenes Netto je Einkommen",
       warmRent: "Geschätzte Warmmiete",
       coldRent: "Kaltmiete",
@@ -213,7 +217,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     chartFooter: "Linie: ausgewählte Stadt · gestrichelte Linie: Durchschnitt über alle Städte",
     dataNote:
-      "Datenbasis: realitätsnahe Demo-Werte auf Basis öffentlich berichteter Miettrends in deutschen Großstädten (kein Live-API).",
+      "Datenbasis: realitätsnahe Demo-Werte 2025 auf Basis öffentlich berichteter Angebotsmieten (u. a. ImmoScout24/Statista, kein Live-API).",
   },
   en: {
     badge: "Live demo · Germany rental data",
@@ -252,6 +256,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       householdSingle: "1 income",
       householdPair: "2 incomes",
       budgetRule: "Budget rule",
+      customBudgetLabel: "Custom budget",
+      customBudgetPlaceholder: "e.g. 800 €",
       netPerIncome: "Recommended net income per earner",
       warmRent: "Estimated warm rent",
       coldRent: "Cold rent",
@@ -265,7 +271,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     chartFooter: "Solid line: selected city · dashed line: average of all cities",
     dataNote:
-      "Dataset: realistic demo values based on publicly reported rental trends in major German cities (no live API).",
+      "Dataset: realistic 2025 demo values based on publicly reported asking rents (e.g. ImmoScout24/Statista, no live API).",
   },
 };
 
@@ -331,6 +337,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
   const [sortMode, setSortMode] = useState<SortMode>("high");
   const [apartmentSize, setApartmentSize] = useState<number>(55);
   const [budgetRatio, setBudgetRatio] = useState<BudgetRatio>(0.35);
+  const [customBudgetInput, setCustomBudgetInput] = useState<string>("");
   const [householdMode, setHouseholdMode] = useState<HouseholdMode>("single");
 
   const selectedCity =
@@ -414,7 +421,9 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
 
   const coldRent = selectedCurrentRent * apartmentSize;
   const warmRent = coldRent + apartmentSize * INCIDENTAL_COST_PER_SQM;
-  const requiredNetIncome = warmRent / budgetRatio;
+  const parsedCustomBudget = Number(customBudgetInput);
+  const hasCustomBudget = Number.isFinite(parsedCustomBudget) && parsedCustomBudget > 0;
+  const requiredNetIncome = hasCustomBudget ? parsedCustomBudget : warmRent / budgetRatio;
   const requiredGrossIncome = requiredNetIncome * 1.45;
 
   const incomesCount = householdMode === "single" ? 1 : 2;
@@ -798,6 +807,23 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                     {Math.round(ratio * 100)}%
                   </button>
                 ))}
+              </div>
+
+              <div className="mt-3">
+                <label htmlFor="custom-budget" className="text-xs font-semibold text-foreground">
+                  {copy.calculator.customBudgetLabel}
+                </label>
+                <input
+                  id="custom-budget"
+                  type="number"
+                  min={0}
+                  step={10}
+                  inputMode="decimal"
+                  value={customBudgetInput}
+                  onChange={(event) => setCustomBudgetInput(event.target.value)}
+                  placeholder={copy.calculator.customBudgetPlaceholder}
+                  className="contact-field mt-2 w-full rounded-2xl px-3 py-2.5 text-sm"
+                />
               </div>
             </fieldset>
           </article>
