@@ -1,7 +1,7 @@
 {
   "Meta": {
     "title": "Developer Portfolio",
-    "description": "Portfolio of Oleksandr Shevchenko — Junior Web Developer focused on full-stack development and AI-augmented workflow.",
+    "description": "Portfolio of Oleksandr Shevchenko — Junior Web Developer focused on web development and AI-augmented workflow.",
     "ogTitle": "Oleksandr Shevchenko | Junior Developer Portfolio",
     "ogDescription": "Web apps, automations and AI-powered tools — built fast, shipped production-ready.",
     "projectTitle": "Project: {slug}",
@@ -23,28 +23,28 @@
     "kicker": "Open to work · Remote or on-site · Germany",
     "titleLead": "I build",
     "rotatingWords": [
-      "full-stack web applications",
+      "web applications with AI assistance",
       "automations and Telegram bots",
       "AI-powered tools and APIs",
       "fast prototypes that actually ship"
     ],
     "titleEnd": "and deliver working solutions — quickly and reliably.",
-    "subtitle": "Two years of hands-on AI-augmented development: from idea to build to deployment. I work across frontend, backend and automation — with AI as a tool, not a crutch.",
+    "subtitle": "Two years of hands-on AI-augmented development: from idea to build to deployment. I work across frontend, automation and APIs — with AI as a tool, not a crutch.",
     "points": [
       "1st place among ~12,000 participants in the RS School / EPAM prep course",
-      "Frontend roadmap ~80% complete — HTML, CSS, JS, React, Next.js",
+      "Frontend self-study via roadmap.sh (~80% complete, 2023–2024)",
       "Real systems built: AI agents, Telegram bots, REST APIs, automation scripts",
       "Deployed on own hardware (Orange Pi) and Vercel"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "Full stack, shipped with AI",
+    "panelTitle": "Shipped with AI",
     "panelText": "Looking for a junior position where I can build real features, learn in a team and take on responsibility early.",
     "stats": [
       {
         "label": "Strength",
-        "value": "AI-augmented full-stack delivery"
+        "value": "AI-augmented delivery"
       },
       {
         "label": "Languages",
@@ -62,8 +62,8 @@
     "lead": "Career changer with a real track record: RS School top 1 among ~12,000, two years of hands-on AI-assisted development and a set of built and deployed systems.",
     "paragraphs": [
       "My path into development started with a strong signal: after finishing my degree in Economic Cybernetics (ZAB-recognized bachelor), I placed 1st among roughly 12,000 participants in the RS School / EPAM prep course.",
-      "Instead of enrolling in the follow-up bootcamp, I chose self-directed learning — roadmap.sh, real projects, and from 2024 onwards an intensive AI-augmented workflow.",
-      "Today I build web apps, Telegram bots, REST APIs and automation systems independently. AI amplifies my output — I understand what I build and can maintain and explain it."
+      "Instead of enrolling in the follow-up bootcamp, I chose self-directed learning — roadmap.sh (2023–2024) and from 2024 onwards an intensive AI-augmented workflow.",
+      "Today I build web apps, Telegram bots, REST APIs and automation systems — with AI as a tool. I understand what I build and can maintain and explain it."
     ],
     "highlights": [
       {
@@ -71,8 +71,8 @@
         "value": "1st place among ~12,000 participants in the RS School / EPAM prep course (2023)."
       },
       {
-        "label": "Full-stack delivery",
-        "value": "Frontend, backend, APIs, bots — I take projects from idea to deployment."
+        "label": "AI-augmented delivery",
+        "value": "Frontend, APIs, bots, automations — I take projects from idea to deployment."
       },
       {
         "label": "AI as a tool",
@@ -95,17 +95,17 @@
       "role": "Junior Web Developer",
       "initials": "OS",
       "placeholder": "Photo coming soon",
-      "caption": "Career changer with proven learning speed, real shipped projects and an AI-augmented full-stack workflow.",
+      "caption": "Career changer with proven learning speed, real shipped projects and an AI-augmented workflow.",
       "facts": [
         "Location: Germany · Remote or on-site",
         "Languages: German B1 · Ukrainian native · English basics",
-        "Stack: Next.js · React · Node.js · Python · REST APIs · Telegram Bot API"
+        "Stack: HTML/CSS · JavaScript · Python · REST APIs · Telegram Bot API"
       ]
     }
   },
   "Projects": {
     "title": "Projects",
-    "intro": "Four web applications built around real use cases — developed with Next.js and AI assistance.",
+    "intro": "Four web applications built around real use cases — conceived and developed with AI assistance.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
@@ -132,7 +132,7 @@
         "stack": "Next.js · Modular UI · PWA"
       }
     ],
-    "openProject": "Open project"
+    "openProject": "Details"
   },
   "Skills": {
     "title": "Skills",
@@ -141,7 +141,7 @@
     "groups": [
       {
         "name": "Frontend",
-        "description": "React, Next.js, Tailwind — used productively in own projects",
+        "description": "HTML, CSS, JavaScript, React — self-taught and used in real projects",
         "level": 60,
         "levelLabel": "Solid foundations, production-ready",
         "items": [
@@ -149,21 +149,19 @@
           "JavaScript (ES6+)",
           "TypeScript (basics)",
           "React",
-          "Next.js 15",
           "Tailwind CSS"
         ]
       },
       {
         "name": "Backend & APIs",
-        "description": "Node.js, REST APIs, Telegram bots, Python scripts — built and deployed",
-        "level": 50,
+        "description": "REST APIs, Telegram bots, Python scripts — built and deployed",
+        "level": 45,
         "levelLabel": "Functional, real projects shipped",
         "items": [
-          "Node.js",
           "REST APIs",
           "Python (scripting)",
           "Telegram Bot API",
-          "Server Actions (Next.js)",
+          "Shell scripting",
           "JSON & Webhooks"
         ]
       },
@@ -200,7 +198,7 @@
   "Resume": {
     "eyebrow": "Background & Projects",
     "title": "Resume",
-    "intro": "From an Economic Cybernetics degree to a top finish in the RS School prep course to two years of independent full-stack practice with AI tools.",
+    "intro": "From an Economic Cybernetics degree to a top finish in the RS School prep course to two years of independent practice with AI tools.",
     "timeline": [
       {
         "period": "2022",
@@ -227,8 +225,8 @@
       {
         "period": "2023 — 2024",
         "title": "Frontend self-study via roadmap.sh",
-        "text": "Systematic study of the frontend roadmap: HTML, CSS, JavaScript (ES6+), React, Next.js — approximately 80% complete. Built and deployed first own projects alongside.",
-        "focus": "Stack: HTML · CSS · JavaScript · React · Next.js",
+        "text": "Systematic study of the frontend roadmap: HTML, CSS, JavaScript (ES6+), React — approximately 80% complete. Built and deployed first own projects alongside.",
+        "focus": "Stack: HTML · CSS · JavaScript · React",
         "chips": [
           "Roadmap ~80%",
           "Self-directed",
@@ -239,7 +237,7 @@
         "period": "2024 — 2026",
         "title": "Real systems built with AI-augmented workflow",
         "text": "Built and deployed AI agent systems, Telegram bots, REST APIs, automation scripts and web applications. Running on own server (Orange Pi) and Vercel.",
-        "focus": "Stack: Node.js · Python · Next.js · Telegram API · Claude API",
+        "focus": "Stack: Python · REST APIs · Telegram API · Claude API",
         "chips": [
           "AI agents",
           "Telegram bots",
@@ -320,6 +318,6 @@
     "back": "Back to homepage"
   },
   "Footer": {
-    "rights": "© {year} Oleksandr Shevchenko. Built with Next.js & TypeScript."
+    "rights": "© {year} Oleksandr Shevchenko."
   }
 }
