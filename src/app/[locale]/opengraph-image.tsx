@@ -9,16 +9,16 @@ export const contentType = "image/png";
 
 const copy = {
   de: {
-    badge: "Ausbildung Portfolio 2026",
+    badge: "Junior Web Developer · AI-augmented",
     title: "Oleksandr",
-    subtitle: "Angehender Fachinformatiker für Anwendungsentwicklung",
-    points: "Next.js · TypeScript · Performance · Accessibility",
+    subtitle: "Full-Stack · Automation · AI-powered Tools",
+    points: "Next.js · Node.js · TypeScript · Claude API",
   },
   en: {
-    badge: "Ausbildung Portfolio 2026",
+    badge: "Junior Web Developer · AI-augmented",
     title: "Oleksandr",
-    subtitle: "Aspiring Fachinformatiker (Application Development, AE)",
-    points: "Next.js · TypeScript · Performance · Accessibility",
+    subtitle: "Full-Stack · Automation · AI-powered Tools",
+    points: "Next.js · Node.js · TypeScript · Claude API",
   },
 } as const;
 
@@ -105,7 +105,7 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
           </div>
 
           <div style={{ fontSize: "24px", color: "#CBD5E1", fontWeight: 500 }}>
-            ausbildung-site.vercel.app
+            work.oleksandr-shevchenko.de
           </div>
         </div>
       </div>
