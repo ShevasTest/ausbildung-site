@@ -23,28 +23,28 @@
     "kicker": "Offen für Stellen · Remote oder vor Ort · Deutschland",
     "titleLead": "Ich baue",
     "rotatingWords": [
-      "Full-Stack-Webanwendungen",
+      "Webanwendungen mit KI-Unterstützung",
       "Automationen und Telegram-Bots",
       "KI-gestützte Tools und APIs",
       "schnelle Prototypen die funktionieren"
     ],
     "titleEnd": "und liefere funktionierende Lösungen — schnell und zuverlässig.",
-    "subtitle": "Zwei Jahre Praxis mit KI-gestützter Entwicklung: von der Idee über den Build bis zum Deployment. Ich entwickle Frontend, Backend und Automationen — mit KI als Werkzeug, nicht als Krücke.",
+    "subtitle": "Zwei Jahre Praxis mit KI-gestützter Entwicklung: von der Idee über den Build bis zum Deployment. Ich entwickle Frontend, Automationen und APIs — mit KI als Werkzeug, nicht als Krücke.",
     "points": [
       "1. Platz unter ~12.000 Teilnehmern beim RS School / EPAM Vorbereitungskurs",
-      "Frontend-Roadmap zu ~80 % abgeschlossen (HTML, CSS, JS, React, Next.js)",
+      "Frontend-Selbststudium nach roadmap.sh (~80 % abgeschlossen, 2023–2024)",
       "Reale Systeme gebaut: AI-Agenten, Telegram-Bots, REST-APIs, Automationen",
       "Deployment auf eigenem Server (Orange Pi) und Vercel"
     ],
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
-    "panelTitle": "Vollständiger Stack, geliefert mit KI",
+    "panelTitle": "Liefern mit KI-Unterstützung",
     "panelText": "Ich suche eine Junior-Stelle, bei der ich reale Features entwickle, im Team lerne und früh Verantwortung übernehmen kann.",
     "stats": [
       {
         "label": "Stärke",
-        "value": "AI-augmented Full-Stack Delivery"
+        "value": "AI-augmented Delivery"
       },
       {
         "label": "Sprachen",
@@ -62,8 +62,8 @@
     "lead": "Quereinsteiger mit echtem Track Record: RS School Top 1 unter ~12.000, zwei Jahre Praxis mit KI-Tools und eine Reihe gebauter und deployeter Systeme.",
     "paragraphs": [
       "Mein Weg in die Entwicklung startete konsequent: Nach dem Studium (Wirtschaftskybernetik, ZAB-anerkannter Bachelor) legte ich beim RS School / EPAM Vorbereitungskurs den 1. Platz unter rund 12.000 Teilnehmern ab.",
-      "Statt in die klassische Kursstruktur zu gehen, lernte ich selbstständig — mit roadmap.sh, realen Projekten und ab 2024 intensiv mit KI-Tools als Entwicklungspartner.",
-      "Heute baue ich eigenständig Webanwendungen, Telegram-Bots, REST-APIs und Automationen. KI beschleunigt meinen Workflow stark — ich verstehe was ich baue und kann es erklären und warten."
+      "Statt in die klassische Kursstruktur zu gehen, lernte ich selbstständig — mit roadmap.sh (2023–2024) und ab 2024 intensiv mit KI-Tools als Entwicklungspartner.",
+      "Heute baue ich eigenständig Webanwendungen, Telegram-Bots, REST-APIs und Automationen — mit KI als Werkzeug. Ich verstehe was ich baue und kann es erklären und warten."
     ],
     "highlights": [
       {
@@ -71,8 +71,8 @@
         "value": "1. Platz unter ~12.000 Teilnehmern beim RS School / EPAM Prep-Kurs (2023)."
       },
       {
-        "label": "Full-Stack Delivery",
-        "value": "Frontend, Backend, APIs, Bots — ich bringe Projekte von der Idee bis zum Deployment."
+        "label": "Delivery mit KI",
+        "value": "Frontend, APIs, Bots, Automationen — ich bringe Projekte von der Idee bis zum Deployment."
       },
       {
         "label": "KI als Werkzeug",
@@ -95,17 +95,17 @@
       "role": "Junior Web Developer",
       "initials": "OS",
       "placeholder": "Foto folgt",
-      "caption": "Quereinsteiger mit nachgewiesener Lerngeschwindigkeit, realen Projekten und KI-gestütztem Full-Stack-Workflow.",
+      "caption": "Quereinsteiger mit nachgewiesener Lerngeschwindigkeit, realen Projekten und KI-gestütztem Workflow.",
       "facts": [
         "Standort: Deutschland · Remote oder vor Ort",
         "Sprachen: Deutsch B1 · Ukrainisch nativ · Englisch Grundkenntnisse",
-        "Stack: Next.js · React · Node.js · Python · REST APIs · Telegram Bot API"
+        "Stack: HTML/CSS · JavaScript · Python · REST APIs · Telegram Bot API"
       ]
     }
   },
   "Projects": {
     "title": "Projekte",
-    "intro": "Vier Webanwendungen mit echten Use Cases — entwickelt mit Next.js und KI-Unterstützung.",
+    "intro": "Vier Webanwendungen mit echten Use Cases — konzipiert und mit KI-Unterstützung entwickelt.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
@@ -132,7 +132,7 @@
         "stack": "Next.js · Modular UI · PWA"
       }
     ],
-    "openProject": "Projekt öffnen"
+    "openProject": "Details"
   },
   "Skills": {
     "title": "Skills",
@@ -141,7 +141,7 @@
     "groups": [
       {
         "name": "Frontend",
-        "description": "React, Next.js, Tailwind — produktiv eingesetzt in eigenen Projekten",
+        "description": "HTML, CSS, JavaScript, React — selbst erarbeitet und in Projekten eingesetzt",
         "level": 60,
         "levelLabel": "Solide Grundlagen, produktiv einsetzbar",
         "items": [
@@ -149,21 +149,19 @@
           "JavaScript (ES6+)",
           "TypeScript (Grundlagen)",
           "React",
-          "Next.js 15",
           "Tailwind CSS"
         ]
       },
       {
         "name": "Backend & APIs",
-        "description": "Node.js, REST APIs, Telegram Bots, Python-Skripte — gebaut und deployed",
-        "level": 50,
+        "description": "REST APIs, Telegram Bots, Python-Skripte — gebaut und deployed",
+        "level": 45,
         "levelLabel": "Funktional, reale Projekte ausgeliefert",
         "items": [
-          "Node.js",
           "REST APIs",
           "Python (Scripting)",
           "Telegram Bot API",
-          "Server Actions (Next.js)",
+          "Shell Scripting",
           "JSON & Webhooks"
         ]
       },
@@ -200,7 +198,7 @@
   "Resume": {
     "eyebrow": "Werdegang & Projekte",
     "title": "Lebenslauf",
-    "intro": "Vom Wirtschaftskybernetik-Studium über einen Top-Platz beim RS School Prep-Kurs bis hin zu zwei Jahren eigenständiger Full-Stack-Praxis mit KI-Tools.",
+    "intro": "Vom Wirtschaftskybernetik-Studium über einen Top-Platz beim RS School Prep-Kurs bis hin zu zwei Jahren eigenständiger Praxis mit KI-Tools.",
     "timeline": [
       {
         "period": "2022",
@@ -227,8 +225,8 @@
       {
         "period": "2023 — 2024",
         "title": "Selbststudium Frontend nach roadmap.sh",
-        "text": "Systematisches Durcharbeiten der Frontend-Roadmap: HTML, CSS, JavaScript (ES6+), React, Next.js — rund 80 % abgeschlossen. Parallel erste eigene Projekte gebaut und deployed.",
-        "focus": "Stack: HTML · CSS · JavaScript · React · Next.js",
+        "text": "Systematisches Durcharbeiten der Frontend-Roadmap: HTML, CSS, JavaScript (ES6+), React — rund 80 % abgeschlossen. Parallel erste eigene Projekte gebaut und deployed.",
+        "focus": "Stack: HTML · CSS · JavaScript · React",
         "chips": [
           "Roadmap ~80%",
           "Eigeninitiative",
@@ -239,7 +237,7 @@
         "period": "2024 — 2026",
         "title": "Reale Systeme mit KI-gestütztem Workflow",
         "text": "Entwicklung und Deployment von AI-Agenten-Systemen, Telegram-Bots, REST-APIs, Automationen und Webanwendungen. Betrieb auf eigenem Server (Orange Pi) und Vercel.",
-        "focus": "Stack: Node.js · Python · Next.js · Telegram API · Claude API",
+        "focus": "Stack: Python · REST APIs · Telegram API · Claude API",
         "chips": [
           "AI-Agenten",
           "Telegram Bots",
@@ -320,6 +318,6 @@
     "back": "Zurück zur Startseite"
   },
   "Footer": {
-    "rights": "© {year} Oleksandr Shevchenko. Entwickelt mit Next.js & TypeScript."
+    "rights": "© {year} Oleksandr Shevchenko."
   }
 }
