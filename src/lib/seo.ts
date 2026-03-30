@@ -1,5 +1,5 @@
 export const siteConfig = {
-  baseUrl: "https://ausbildung-site.vercel.app",
+  baseUrl: "https://work.oleksandr-shevchenko.de",
   siteName: "Oleksandr Portfolio",
   authorName: "Oleksandr Shevchenko",
   githubUrl: "https://github.com/ShevasTest",
@@ -37,5 +37,5 @@ export function absoluteUrl(path: string) {
 }
 
 export function toJsonLd(value: object | object[]) {
-  return JSON.stringify(value).replace(/</g, "\\u003c");
+  return JSON.stringify(value).replace(/</g, "\u003c");
 }
