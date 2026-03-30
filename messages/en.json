@@ -1,15 +1,15 @@
 {
   "Meta": {
-    "title": "Ausbildung Portfolio",
-    "description": "Portfolio of Oleksandr — aspiring software developer for a German Ausbildung program.",
-    "ogTitle": "Oleksandr | Ausbildung Portfolio",
-    "ogDescription": "Modern web projects focused on performance, accessibility and clean architecture.",
+    "title": "Developer Portfolio",
+    "description": "Portfolio of Oleksandr Shevchenko — Junior Web Developer focused on full-stack development and AI-augmented workflow.",
+    "ogTitle": "Oleksandr Shevchenko | Junior Developer Portfolio",
+    "ogDescription": "Web apps, automations and AI-powered tools — built fast, shipped production-ready.",
     "projectTitle": "Project: {slug}",
-    "projectDescription": "Detailed project page with goals, stack and implementation notes."
+    "projectDescription": "Project details: goals, tech stack and implementation."
   },
   "Nav": {
     "brand": "Oleksandr Shevchenko",
-    "hero": "Hero",
+    "hero": "Home",
     "about": "About",
     "projects": "Projects",
     "skills": "Skills",
@@ -19,116 +19,116 @@
     "theme": "Theme"
   },
   "Hero": {
-    "badge": "Aspiring Fachinformatiker (Application Development, AE)",
-    "kicker": "Ausbildung 2026 · Junior frontend track",
-    "titleLead": "I learn",
+    "badge": "Junior Web Developer · AI-augmented workflow",
+    "kicker": "Open to work · Remote or on-site · Germany",
+    "titleLead": "I build",
     "rotatingWords": [
-      "web development step by step",
-      "responsive interfaces with HTML/CSS",
-      "React and Next.js basics",
-      "practical projects with AI support"
+      "full-stack web applications",
+      "automations and Telegram bots",
+      "AI-powered tools and APIs",
+      "fast prototypes that actually ship"
     ],
-    "titleEnd": "and prepare for an Ausbildung team in 2026.",
-    "subtitle": "Through self-study and AI-assisted practice, I build solid fundamentals, implement small to medium features and improve my skills continuously.",
+    "titleEnd": "and deliver working solutions — quickly and reliably.",
+    "subtitle": "Two years of hands-on AI-augmented development: from idea to build to deployment. I work across frontend, backend and automation — with AI as a tool, not a crutch.",
     "points": [
-      "Mobile-first implementation for recruiters on smartphones",
-      "Clear information structure over visual noise",
-      "First experience with React, Next.js and API integration",
-      "Learning with feedback, documentation and AI tools"
+      "1st place among ~12,000 participants in the RS School / EPAM prep course",
+      "Frontend roadmap ~80% complete — HTML, CSS, JS, React, Next.js",
+      "Real systems built: AI agents, Telegram bots, REST APIs, automation scripts",
+      "Deployed on own hardware (Orange Pi) and Vercel"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "From self-study to Ausbildung",
-    "panelText": "I am looking for an Ausbildung position where I can contribute as a junior, learn from experienced developers and grow step by step.",
+    "panelTitle": "Full stack, shipped with AI",
+    "panelText": "Looking for a junior position where I can build real features, learn in a team and take on responsibility early.",
     "stats": [
       {
-        "label": "Project focus",
-        "value": "4 practical demos"
+        "label": "Strength",
+        "value": "AI-augmented full-stack delivery"
       },
       {
-        "label": "Quality target",
-        "value": "Solid foundations in performance & accessibility"
+        "label": "Languages",
+        "value": "German B1 · Ukrainian native · English basics"
       },
       {
-        "label": "Work style",
-        "value": "Initiative · Learning mindset · Reliability"
+        "label": "Availability",
+        "value": "Immediately · Remote or on-site"
       }
     ]
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Self-learning with clear direction",
-    "lead": "I bring initiative, learning mindset and first project practice — a solid base for starting an Ausbildung.",
+    "eyebrow": "Self-taught · real projects · clear results",
+    "lead": "Career changer with a real track record: RS School top 1 among ~12,000, two years of hands-on AI-assisted development and a set of built and deployed systems.",
     "paragraphs": [
-      "My path into development started with curiosity: I wanted to understand how strong digital products are built and why some interfaces feel intuitive from the first second.",
-      "To improve consistently, I built a structured learning routine with regular coding sessions, small learning goals and trackable progress.",
-      "Right now I work on smaller frontend tasks and actively use AI tools to research, test and implement solutions faster. For 2026, I am looking for an Ausbildung team where I can grow this foundation professionally."
+      "My path into development started with a strong signal: after finishing my degree in Economic Cybernetics (ZAB-recognized bachelor), I placed 1st among roughly 12,000 participants in the RS School / EPAM prep course.",
+      "Instead of enrolling in the follow-up bootcamp, I chose self-directed learning — roadmap.sh, real projects, and from 2024 onwards an intensive AI-augmented workflow.",
+      "Today I build web apps, Telegram bots, REST APIs and automation systems independently. AI amplifies my output — I understand what I build and can maintain and explain it."
     ],
     "highlights": [
       {
-        "label": "Initiative",
-        "value": "I learn continuously in self-study and apply new knowledge directly in small projects."
+        "label": "Top performer",
+        "value": "1st place among ~12,000 participants in the RS School / EPAM prep course (2023)."
       },
       {
-        "label": "Learning focus",
-        "value": "I work step by step on fundamentals in HTML, CSS, JavaScript and React."
+        "label": "Full-stack delivery",
+        "value": "Frontend, backend, APIs, bots — I take projects from idea to deployment."
       },
       {
-        "label": "AI-assisted workflow",
-        "value": "I use Claude and ChatGPT for research, prototyping and debugging."
+        "label": "AI as a tool",
+        "value": "I use Claude Code and ChatGPT as productivity multipliers — not as a replacement for understanding."
       },
       {
-        "label": "2026 goal",
-        "value": "Grow in a team, gain practical experience and contribute reliably."
+        "label": "Available now",
+        "value": "Based in Germany, open to remote or on-site junior positions."
       }
     ],
-    "motivationTitle": "What I bring into an Ausbildung role",
+    "motivationTitle": "What a team gets from me",
     "motivationPoints": [
-      "I learn quickly and translate feedback into better technical solutions immediately.",
-      "I work reliably within clear structures while staying focused on user impact.",
-      "I am looking for a team where I can learn from experienced engineers and contribute productively early."
+      "I deliver working solutions — no perfectionism at the expense of shipping.",
+      "I learn fast, ask when I'm stuck, and communicate clearly about my current level.",
+      "AI-augmented workflow is my default: I ship faster than a classic junior and I'm honest about what I know and don't know."
     ],
     "profile": {
       "badge": "Profile",
       "name": "Oleksandr Shevchenko",
-      "role": "Aspiring Fachinformatiker (Application Development, AE)",
+      "role": "Junior Web Developer",
       "initials": "OS",
-      "placeholder": "Photo placeholder",
-      "caption": "I combine disciplined self-learning with AI-assisted practice and build my technical foundation step by step.",
+      "placeholder": "Photo coming soon",
+      "caption": "Career changer with proven learning speed, real shipped projects and an AI-augmented full-stack workflow.",
       "facts": [
-        "Location: Germany · Ausbildung target 2026",
-        "Languages: German B1 (actively improving to B2) · English A2 (actively improving)",
-        "Focus: HTML/CSS, JavaScript fundamentals, first projects with React and Next.js"
+        "Location: Germany · Remote or on-site",
+        "Languages: German B1 · Ukrainian native · English basics",
+        "Stack: Next.js · React · Node.js · Python · REST APIs · Telegram Bot API"
       ]
     }
   },
   "Projects": {
     "title": "Projects",
-    "intro": "Four practical projects that address real everyday needs and show my current working style.",
+    "intro": "Four web applications built around real use cases — developed with Next.js and AI assistance.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
         "title": "AI Application Assistant",
         "summary": "Analyzes job posts and drafts personalized cover letters with editable export.",
-        "stack": "Next.js · Server Actions · AI API"
+        "stack": "Next.js · Server Actions · Claude API"
       },
       {
         "slug": "mietpreise-tracker",
         "title": "Rent Price Tracker",
-        "summary": "Compares rent costs across German cities with trend charts and income calculator.",
-        "stack": "Next.js · Open Data APIs · Charts"
+        "summary": "Compares rent costs across German cities with trend charts and an income calculator.",
+        "stack": "Next.js · Open Data APIs · Recharts"
       },
       {
         "slug": "smartchat",
         "title": "SmartChat",
-        "summary": "Advanced AI chat with streaming answers, history, markdown and code highlighting.",
+        "summary": "AI chat with streaming responses, conversation history, Markdown and code highlighting.",
         "stack": "Next.js · Streaming · IndexedDB"
       },
       {
         "slug": "devdash",
         "title": "DevDash",
-        "summary": "Customizable developer dashboard with widgets, Pomodoro and GitHub activity.",
+        "summary": "Customizable developer dashboard with widgets, Pomodoro timer and GitHub activity.",
         "stack": "Next.js · Modular UI · PWA"
       }
     ],
@@ -136,129 +136,132 @@
   },
   "Skills": {
     "title": "Skills",
-    "intro": "Technologies and tools I currently use while learning and building first projects.",
-    "legend": "Self-assessment based on my current hands-on practice",
+    "intro": "Technologies I use to build and ship real projects.",
+    "legend": "Self-assessment based on two years of active hands-on practice",
     "groups": [
       {
         "name": "Frontend",
-        "description": "Basic HTML, CSS knowledge and first experience with React and Next.js",
-        "level": 45,
-        "levelLabel": "Foundations in place, currently improving",
+        "description": "React, Next.js, Tailwind — used productively in own projects",
+        "level": 60,
+        "levelLabel": "Solid foundations, production-ready",
         "items": [
           "HTML & CSS",
-          "JavaScript (basics)",
-          "React (basics)",
-          "Next.js (first projects)",
+          "JavaScript (ES6+)",
+          "TypeScript (basics)",
+          "React",
+          "Next.js 15",
           "Tailwind CSS"
         ]
       },
       {
-        "name": "Backend",
-        "description": "First steps with Python and API integration",
-        "level": 25,
-        "levelLabel": "Early practical experience",
+        "name": "Backend & APIs",
+        "description": "Node.js, REST APIs, Telegram bots, Python scripts — built and deployed",
+        "level": 50,
+        "levelLabel": "Functional, real projects shipped",
         "items": [
-          "Python (basics)",
-          "REST APIs (basics)",
-          "JSON",
-          "Server Actions (Next.js)"
+          "Node.js",
+          "REST APIs",
+          "Python (scripting)",
+          "Telegram Bot API",
+          "Server Actions (Next.js)",
+          "JSON & Webhooks"
         ]
       },
       {
-        "name": "Tools",
-        "description": "Git, VS Code, npm — essential development tools",
-        "level": 55,
-        "levelLabel": "Confident with essential tools",
+        "name": "Tools & DevOps",
+        "description": "Git, Vercel, npm, SSH, Docker basics — daily practice",
+        "level": 65,
+        "levelLabel": "Reliable in daily use",
         "items": [
           "Git & GitHub",
-          "VS Code",
-          "npm",
-          "AI tools (Claude, ChatGPT)",
-          "Lighthouse"
+          "Vercel",
+          "npm / Bun",
+          "Docker (basics)",
+          "SSH & Linux CLI",
+          "Claude Code (CLI)"
         ]
       },
       {
-        "name": "AI-assisted work",
-        "description": "Structured use of AI tools for research, debugging and prototyping",
-        "level": 72,
-        "levelLabel": "Confident practical usage with clear quality checks",
+        "name": "AI & Automation",
+        "description": "Claude Code, ChatGPT, Prompt Engineering — daily workflow multiplier",
+        "level": 85,
+        "levelLabel": "Highly productive — clear competitive edge",
         "items": [
-          "Claude / ChatGPT",
+          "Claude Code (CLI)",
+          "ChatGPT / GPT API",
           "Prompt engineering",
-          "AI-assisted debugging",
-          "Rapid prototyping",
-          "AI-assisted code review"
-        ]
-      },
-      {
-        "name": "Soft Skills",
-        "description": "Team qualities that matter in Ausbildung: reliability, learning mindset and communication.",
-        "level": 80,
-        "levelLabel": "Reliable, collaborative and eager to learn",
-        "items": [
-          "Initiative",
-          "Structured problem solving",
-          "Documentation",
-          "Fast feedback integration",
-          "Continuous learning"
+          "AI agent systems",
+          "Automation scripting",
+          "Rapid prototyping"
         ]
       }
     ]
   },
   "Resume": {
-    "eyebrow": "Resume & Growth Path",
+    "eyebrow": "Background & Projects",
     "title": "Resume",
-    "intro": "My path into software development is practical and clearly structured: disciplined self-learning with AI support, real projects and a concrete Ausbildung target for 2026.",
+    "intro": "From an Economic Cybernetics degree to a top finish in the RS School prep course to two years of independent full-stack practice with AI tools.",
     "timeline": [
       {
-        "period": "2024 — present",
-        "title": "Structured Self-Learning in Frontend with AI Support",
-        "text": "Regular coding sessions, documented learning goals and continuous learning with support from AI tools.",
-        "focus": "Focus: HTML/CSS · JavaScript · React basics",
+        "period": "2022",
+        "title": "Bachelor's in Economic Cybernetics — ZAB recognized",
+        "text": "Graduated from the State University of Trade and Economics (Kyiv). Recognized by the German ZAB as a full equivalent bachelor's degree.",
+        "focus": "Field: Economic Cybernetics · ZAB-recognized",
         "chips": [
-          "Initiative",
-          "Daily practice",
-          "AI-assisted"
+          "Bachelor's degree",
+          "ZAB-recognized",
+          "Ukraine"
         ]
       },
       {
-        "period": "2025",
-        "title": "Project Delivery with AI Support",
-        "text": "Planned and built multiple demo projects with AI support instead of tutorial-only clones. Focus on understandable UI and functional prototypes.",
-        "focus": "Focus: UI fundamentals · Prototyping",
+        "period": "2023",
+        "title": "1st place among ~12,000 in the RS School / EPAM prep course",
+        "text": "Top result in the nationwide prep course — among roughly 12,000 participants. Chose self-directed learning over the follow-up bootcamp.",
+        "focus": "Focus: Algorithms · JavaScript · Problem solving",
         "chips": [
-          "4 demo concepts",
-          "Mobile-first",
-          "AI-assisted"
+          "Top 1 / ~12,000",
+          "RS School",
+          "EPAM"
         ]
       },
       {
-        "period": "2026 (goal)",
-        "title": "Ausbildung as Fachinformatiker (Application Development, AE)",
-        "text": "Join an Ausbildung team to combine practical experience with professional development processes, teamwork and accountable product delivery.",
-        "focus": "Goal: Ausbildung start in 2026",
+        "period": "2023 — 2024",
+        "title": "Frontend self-study via roadmap.sh",
+        "text": "Systematic study of the frontend roadmap: HTML, CSS, JavaScript (ES6+), React, Next.js — approximately 80% complete. Built and deployed first own projects alongside.",
+        "focus": "Stack: HTML · CSS · JavaScript · React · Next.js",
         "chips": [
-          "Learning mindset",
-          "Team collaboration",
-          "Reliability"
+          "Roadmap ~80%",
+          "Self-directed",
+          "First deployments"
+        ]
+      },
+      {
+        "period": "2024 — 2026",
+        "title": "Real systems built with AI-augmented workflow",
+        "text": "Built and deployed AI agent systems, Telegram bots, REST APIs, automation scripts and web applications. Running on own server (Orange Pi) and Vercel.",
+        "focus": "Stack: Node.js · Python · Next.js · Telegram API · Claude API",
+        "chips": [
+          "AI agents",
+          "Telegram bots",
+          "Own server"
         ]
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I work in a structured way, learn quickly and speak openly about my current level. My goal is to contribute reliably in a team and keep improving.",
+    "closingText": "I ship results. AI amplifies my workflow significantly — I understand what I build, can maintain it and explain it. I'm transparent about my level and keep learning every day.",
     "closingBadges": [
-      "Initiative",
-      "Clear communication",
-      "Fast execution",
-      "Ausbildung focus 2026"
+      "Available immediately",
+      "Remote-ready",
+      "Fast learner",
+      "AI workflow"
     ]
   },
   "Contact": {
     "eyebrow": "Contact & next step",
     "title": "Contact",
-    "intro": "I am open to conversations about Ausbildung roles, internships or trial work in software development.",
+    "intro": "Open to conversations about junior developer roles — frontend, full-stack or backend. Remote or on-site in Germany.",
     "linksTitle": "Direct channels",
-    "linksIntro": "For a fast response, feel free to reach out via email or my public profiles.",
+    "linksIntro": "For a fast response, reach out via email or my public profiles.",
     "quickLinks": [
       {
         "label": "Email",
@@ -278,16 +281,16 @@
     ],
     "availability": {
       "title": "Availability",
-      "text": "Actively looking for an Ausbildung position starting in 2026 and open to internships, trial days or intro conversations.",
+      "text": "Actively looking for work. Open to junior developer roles, traineeships and trial days — remote or on-site in Germany.",
       "badges": [
-        "Ausbildung 2026",
-        "Internship open",
+        "Available now",
+        "Remote or on-site",
         "Reply within 24h"
       ]
     },
     "form": {
       "title": "Send a short message",
-      "intro": "Share the role, team or project context in a few lines. I reply quickly and with clear structure.",
+      "intro": "Share the role, team or project in a few lines. I reply quickly and with clear structure.",
       "nameLabel": "Name",
       "namePlaceholder": "Your name",
       "emailLabel": "Email",
@@ -308,11 +311,11 @@
       "messageRequired": "Please add a short message.",
       "messageMin": "Please write at least 24 characters so I can understand the context."
     },
-    "mailSubject": "Portfolio contact — Ausbildung as Fachinformatiker (AE)",
+    "mailSubject": "Portfolio contact — Junior Web Developer",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {
-    "badge": "Project page coming soon",
+    "badge": "Project details",
     "description": "Detailed goals, architecture decisions, tech stack and demo links will be added here soon.",
     "back": "Back to homepage"
   },
