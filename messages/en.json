@@ -105,37 +105,39 @@
   },
   "Projects": {
     "title": "Projects",
+    "eyebrow": "Selected work",
     "intro": "Four practical projects that address real everyday needs and show my current working style.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
         "title": "AI Application Assistant",
         "summary": "Analyzes job posts and drafts personalized cover letters with editable export.",
-        "stack": "Next.js · Server Actions · AI API"
+        "stack": "Next.js · LLM streaming · API routes"
       },
       {
         "slug": "mietpreise-tracker",
         "title": "Rent Price Tracker",
         "summary": "Compares rent costs across German cities with trend charts and income calculator.",
-        "stack": "Next.js · Open Data APIs · Charts"
+        "stack": "Next.js · Market data Q4 2025 · SVG charts"
       },
       {
         "slug": "smartchat",
         "title": "SmartChat",
         "summary": "Advanced AI chat with streaming answers, history, markdown and code highlighting.",
-        "stack": "Next.js · Streaming · IndexedDB"
+        "stack": "Next.js · LLM streaming · localStorage"
       },
       {
         "slug": "devdash",
         "title": "DevDash",
         "summary": "Customizable developer dashboard with widgets, Pomodoro and GitHub activity.",
-        "stack": "Next.js · Modular UI · PWA"
+        "stack": "Next.js · Live APIs · PWA"
       }
     ],
     "openProject": "Open project"
   },
   "Skills": {
     "title": "Skills",
+    "eyebrow": "Tools & knowledge",
     "intro": "Technologies and tools I currently use while learning and building first projects.",
     "legend": "Self-assessment based on my current hands-on practice",
     "groups": [
@@ -296,10 +298,14 @@
       "messagePlaceholder": "What is this about? (role, timeline, team, next steps)"
     },
     "submit": {
-      "idle": "Prepare message",
-      "sending": "Preparing ...",
+      "idle": "Send message",
+      "sending": "Sending ...",
       "successTitle": "Thanks for your message",
-      "successText": "Your email app was opened with a prefilled draft message."
+      "successText": "Your message has been delivered. I usually reply within 24 hours.",
+      "mailtoTitle": "Almost done",
+      "mailtoText": "Your email app was opened with a prefilled draft — just hit send.",
+      "errorTitle": "Sending failed",
+      "errorText": "Please try again later or write to me directly via email."
     },
     "validation": {
       "nameRequired": "Please enter your name.",

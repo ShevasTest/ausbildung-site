@@ -85,84 +85,84 @@ const CITY_RENT_DATA: CityRentData[] = [
     id: "munich",
     city: "München",
     state: "Bayern",
-    rents: [16.8, 17.6, 18.5, 19.3, 20.0, 20.6],
+    rents: [17.9, 18.4, 19.3, 20.4, 21.4, 22.2],
     medianNetIncome: 3450,
   },
   {
     id: "frankfurt",
     city: "Frankfurt am Main",
     state: "Hessen",
-    rents: [13.1, 13.7, 14.3, 15.0, 15.5, 16.0],
+    rents: [13.8, 14.0, 14.5, 15.2, 15.9, 16.5],
     medianNetIncome: 3300,
   },
   {
     id: "stuttgart",
     city: "Stuttgart",
     state: "Baden-Württemberg",
-    rents: [12.4, 13.0, 13.6, 14.1, 14.6, 15.1],
+    rents: [14.2, 14.4, 14.8, 15.2, 15.7, 16.1],
     medianNetIncome: 3200,
   },
   {
     id: "berlin",
     city: "Berlin",
     state: "Berlin",
-    rents: [10.0, 10.6, 11.2, 11.8, 12.4, 13.0],
+    rents: [10.5, 11.5, 13.0, 13.9, 14.8, 15.3],
     medianNetIncome: 2850,
   },
   {
     id: "hamburg",
     city: "Hamburg",
     state: "Hamburg",
-    rents: [11.0, 11.4, 11.9, 12.3, 12.7, 13.1],
+    rents: [12.5, 12.9, 13.4, 14.0, 14.6, 15.1],
     medianNetIncome: 3000,
   },
   {
     id: "cologne",
     city: "Köln",
     state: "Nordrhein-Westfalen",
-    rents: [10.4, 10.9, 11.4, 11.8, 12.2, 12.6],
+    rents: [11.9, 12.2, 12.7, 13.2, 13.7, 14.1],
     medianNetIncome: 2900,
   },
   {
     id: "duesseldorf",
     city: "Düsseldorf",
     state: "Nordrhein-Westfalen",
-    rents: [10.9, 11.3, 11.8, 12.2, 12.6, 12.9],
+    rents: [11.3, 11.6, 12.0, 12.5, 13.0, 13.4],
     medianNetIncome: 3050,
   },
   {
     id: "nuremberg",
     city: "Nürnberg",
     state: "Bayern",
-    rents: [9.2, 9.6, 10.0, 10.4, 10.8, 11.2],
+    rents: [10.2, 10.5, 10.9, 11.3, 11.7, 12.0],
     medianNetIncome: 2800,
   },
   {
     id: "hannover",
     city: "Hannover",
     state: "Niedersachsen",
-    rents: [8.2, 8.6, 9.0, 9.5, 10.0, 10.4],
+    rents: [9.4, 9.7, 10.0, 10.4, 10.8, 11.1],
     medianNetIncome: 2700,
   },
   {
     id: "leipzig",
     city: "Leipzig",
     state: "Sachsen",
-    rents: [6.8, 7.2, 7.6, 8.0, 8.4, 8.8],
+    rents: [7.4, 7.7, 8.0, 8.4, 8.8, 9.2],
     medianNetIncome: 2500,
   },
   {
     id: "dresden",
     city: "Dresden",
     state: "Sachsen",
-    rents: [7.1, 7.4, 7.8, 8.2, 8.6, 8.9],
+    rents: [7.9, 8.1, 8.4, 8.7, 9.1, 9.4],
     medianNetIncome: 2450,
   },
   {
     id: "dortmund",
     city: "Dortmund",
     state: "Nordrhein-Westfalen",
-    rents: [6.9, 7.2, 7.5, 7.8, 8.1, 8.5],
+    rents: [7.5, 7.8, 8.1, 8.5, 8.9, 9.2],
     medianNetIncome: 2550,
   },
 ];
@@ -224,7 +224,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     chartFooter: "Linie: ausgewählte Stadt · gestrichelte Linie: Durchschnitt über alle Städte",
     dataNote:
-      "Datenbasis: realitätsnahe Demo-Werte 2025 auf Basis öffentlich berichteter Angebotsmieten (u. a. ImmoScout24/Statista, kein Live-API).",
+      "Datenbasis: Median-Angebotsmieten (Kaltmiete, Neuvermietung) aus öffentlich verfügbaren Marktberichten, u. a. empirica-Preisdatenbank, IW Köln und ImmoScout24-Auswertungen · Stand: Q4 2025 · kuratierter statischer Datensatz, gerundet auf 0,1 €/m².",
   },
   en: {
     badge: "Live demo · Germany rental data",
@@ -282,7 +282,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     chartFooter: "Solid line: selected city · dashed line: average of all cities",
     dataNote:
-      "Dataset: realistic 2025 demo values based on publicly reported asking rents (e.g. ImmoScout24/Statista, no live API).",
+      "Dataset: median asking rents (cold rent, new lets) from publicly available market reports, incl. the empirica price database, IW Köln and ImmoScout24 analyses · as of Q4 2025 · curated static dataset, rounded to €0.10/sqm.",
   },
 };
 
@@ -505,7 +505,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
     <main className="mx-auto w-full max-w-7xl px-4 py-7 sm:px-6 sm:py-12">
       <div className="rounded-3xl border border-border bg-card p-4 sm:p-7 lg:p-9">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="inline-flex rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+          <span className="inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
             {copy.badge}
           </span>
           <Link
@@ -516,7 +516,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
           </Link>
         </div>
 
-        <h1 className="mt-4 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl">{copy.title}</h1>
+        <h1 className="font-display mt-4 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl">{copy.title}</h1>
         <p className="mt-3 max-w-4xl text-[0.98rem] leading-relaxed text-muted sm:text-base">{copy.subtitle}</p>
 
         <ul className="mt-5 flex flex-wrap gap-2.5">
@@ -736,7 +736,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                 const scale = maxRentInList > 0 ? currentRent / maxRentInList : 0;
                 const isSelected = city.id === selectedCity.id;
                 const barStyle = {
-                  "--rent-bar-scale": scale.toFixed(4),
+                  "--meter-scale": scale.toFixed(4),
                 } as CSSProperties;
 
                 return (

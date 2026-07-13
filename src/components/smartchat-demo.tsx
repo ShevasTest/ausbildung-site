@@ -4,8 +4,9 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 
 type LocaleKey = "de" | "en";
-type ModelKey = "gpt4o" | "claude-sonnet" | "llama";
+type StyleKey = "direkt" | "strukturiert" | "kompakt";
 type ChatRole = "user" | "assistant";
+type EngineMode = "unknown" | "live" | "demo";
 
 type ChatMessage = {
   id: string;
@@ -18,14 +19,14 @@ type ChatMessage = {
 type ChatThread = {
   id: string;
   title: string;
-  model: ModelKey;
+  style: StyleKey;
   createdAt: number;
   updatedAt: number;
   messages: ChatMessage[];
 };
 
-type ModelOption = {
-  id: ModelKey;
+type StyleOption = {
+  id: StyleKey;
   label: string;
   badge: string;
   description: string;
@@ -42,8 +43,8 @@ type DemoCopy = {
     historyTitle: string;
     historyHint: string;
     newChat: string;
-    modelTitle: string;
-    modelHint: string;
+    styleTitle: string;
+    styleHint: string;
     untitled: string;
   };
   chat: {
@@ -55,6 +56,11 @@ type DemoCopy = {
     emptyText: string;
     generatedAt: string;
   };
+  status: {
+    live: string;
+    demo: string;
+    rateLimited: string;
+  };
   composer: {
     placeholder: string;
     send: string;
@@ -64,8 +70,9 @@ type DemoCopy = {
   };
   quickPromptsTitle: string;
   quickPrompts: string[];
-  footerNote: string;
-  models: ModelOption[];
+  footerNoteLive: string;
+  footerNoteDemo: string;
+  styles: StyleOption[];
 };
 
 type MarkdownBlock =
@@ -81,33 +88,39 @@ type SmartChatDemoProps = {
 
 const COPY: Record<LocaleKey, DemoCopy> = {
   de: {
-    badge: "Live-Demo · SmartChat ohne API-Key",
+    badge: "Live-Demo · SmartChat",
     title: "SmartChat",
     subtitle:
-      "ChatGPT-ähnliche Oberfläche mit Chat-Verlauf, Modellwahl, Streaming-Antworten, Markdown-Rendering und Code-Highlighting. Alles läuft lokal mit realistischen Mock-Antworten.",
+      "ChatGPT-ähnliche Oberfläche mit Chat-Verlauf, Antwortstilen, Streaming-Antworten, Markdown-Rendering und Code-Highlighting. Die Antworten kommen von einem echten Sprachmodell über eine eigene Server-Route — ohne konfigurierten API-Key läuft automatisch ein lokaler Demo-Modus.",
     back: "Zurück zur Startseite",
-    chips: ["Streaming", "Markdown + Code", "Chat-Verlauf", "Modellauswahl"],
+    chips: ["Live-Streaming", "Markdown + Code", "Verlauf lokal gespeichert", "Antwortstile"],
     sidebar: {
       historyTitle: "Chat-Verlauf",
-      historyHint: "Unterhaltungen bleiben im aktuellen Demo-Lauf erhalten und zeigen typische Produkt-UX.",
+      historyHint: "Unterhaltungen werden lokal im Browser gespeichert und bleiben beim nächsten Besuch erhalten.",
       newChat: "Neue Unterhaltung",
-      modelTitle: "Modell wählen",
-      modelHint: "Jeder Thread kann ein anderes Modellprofil nutzen.",
+      styleTitle: "Antwortstil",
+      styleHint: "Jeder Thread kann mit einem eigenen Antwortstil laufen.",
       untitled: "Neue Unterhaltung",
     },
     chat: {
       assistantLabel: "SmartChat",
       userLabel: "Sie",
       welcomeMessage:
-        "Hallo! Ich bin **SmartChat** — ein Demo-Assistent für Ihr Ausbildung-Portfolio.\n\n- Schreiben Sie eine Frage oder eine Aufgabe.\n- Ich antworte mit **Streaming-Ausgabe** wie in echten AI-Tools.\n- Ich kann `Markdown` und Codeblöcke darstellen.\n\nTipp: Fragen Sie z. B. nach einer Next.js-Komponente oder einer kurzen Architektur-Idee.",
+        "Hallo! Ich bin **SmartChat** — der Assistent in diesem Portfolio.\n\n- Stellen Sie eine Frage zu Webentwicklung, TypeScript oder Bewerbung.\n- Ich antworte mit **Streaming-Ausgabe** und `Markdown` inklusive Codeblöcken.\n- Ihr Verlauf bleibt lokal in Ihrem Browser.\n\nTipp: Fragen Sie z. B. nach einer Next.js-Komponente oder einer kurzen Architektur-Idee.",
       typing: "Antwort wird gestreamt ...",
       emptyTitle: "Noch keine Nachrichten",
       emptyText: "Starten Sie links eine neue Unterhaltung und schicken Sie rechts Ihre erste Nachricht.",
       generatedAt: "um",
     },
+    status: {
+      live: "Live-KI",
+      demo: "Demo-Modus",
+      rateLimited:
+        "**Kurze Pause:** Das Anfragelimit ist gerade erreicht. Bitte versuchen Sie es in einer Minute erneut.",
+    },
     composer: {
       placeholder:
-        "Fragen Sie etwas Konkretes: z. B. \"Wie baue ich Streaming in Next.js ohne API-Key-Demo?\"", 
+        "Fragen Sie etwas Konkretes: z. B. \"Wie baue ich Streaming-UI in Next.js?\"",
       send: "Senden",
       sending: "Streaming ...",
       stop: "Stoppen",
@@ -117,63 +130,70 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     quickPrompts: [
       "Gib mir ein TypeScript-Beispiel für einen Streaming-Chat in React.",
       "Wie erkläre ich Eigeninitiative im Vorstellungsgespräch auf Deutsch?",
-      "Entwirf eine klare Architektur für Chat-Verlauf + Modellauswahl.",
+      "Entwirf eine klare Architektur für Chat-Verlauf + Antwortstile.",
       "Welche 3 UX-Details machen einen Chat wie ChatGPT professionell?",
     ],
-    footerNote:
-      "Hinweis: Demo mit lokal generierten Antworten (kein externes LLM, keine API-Anfrage). Fokus liegt auf UX, Architektur und Produktreife.",
-    models: [
+    footerNoteLive:
+      "Hinweis: Antworten werden von einem echten Sprachmodell über eine Server-Route mit Rate-Limit generiert. Bitte keine persönlichen oder vertraulichen Daten eingeben.",
+    footerNoteDemo:
+      "Hinweis: Aktuell läuft der lokale Demo-Modus (kein API-Key auf dem Server konfiguriert). Die Oberfläche, das Streaming und der Verlauf funktionieren identisch — mit API-Key antwortet ein echtes Sprachmodell.",
+    styles: [
       {
-        id: "gpt4o",
-        label: "GPT-4o",
-        badge: "Schnell + präzise",
-        description: "Direkte, klare Antwortstruktur mit Fokus auf umsetzbare Schritte.",
-        voice: "Ich gehe direkt auf die Kernfrage und liefere sofort umsetzbare Bausteine.",
+        id: "direkt",
+        label: "Direkt",
+        badge: "Schnell",
+        description: "Kurze, umsetzungsorientierte Antworten mit klaren nächsten Schritten.",
+        voice: "Ich gehe direkt auf die Kernfrage ein und liefere sofort umsetzbare Bausteine.",
       },
       {
-        id: "claude-sonnet",
-        label: "Claude Sonnet",
-        badge: "Strukturiert",
-        description: "Mehr Kontext, saubere Gliederung und Begründung der Entscheidungen.",
+        id: "strukturiert",
+        label: "Strukturiert",
+        badge: "Gegliedert",
+        description: "Klare Gliederung mit kurzen Überschriften und knapper Begründung.",
         voice: "Ich strukturiere die Antwort stärker und begründe kurz die technischen Trade-offs.",
       },
       {
-        id: "llama",
-        label: "Llama 3.1",
-        badge: "Pragmatisch",
-        description: "Kompakte Antwort mit Fokus auf robuste Basislösung.",
-        voice: "Ich priorisiere pragmatische Lösungen, die schnell stabil laufen.",
+        id: "kompakt",
+        label: "Kompakt",
+        badge: "Auf den Punkt",
+        description: "Nur das Wesentliche — ideal für schnelle Checks.",
+        voice: "Ich priorisiere die kompakteste brauchbare Antwort.",
       },
     ],
   },
   en: {
-    badge: "Live demo · SmartChat without API key",
+    badge: "Live demo · SmartChat",
     title: "SmartChat",
     subtitle:
-      "ChatGPT-like interface with chat history, model selector, streaming replies, markdown rendering and code highlighting. Everything runs locally with realistic mock answers.",
+      "ChatGPT-like interface with chat history, answer styles, streaming replies, markdown rendering and code highlighting. Replies come from a real language model through a dedicated server route — without a configured API key the demo automatically falls back to a local mode.",
     back: "Back to homepage",
-    chips: ["Streaming", "Markdown + code", "Chat history", "Model selector"],
+    chips: ["Live streaming", "Markdown + code", "History stored locally", "Answer styles"],
     sidebar: {
       historyTitle: "Chat history",
-      historyHint: "Conversations persist during this demo session to mirror product-like UX.",
+      historyHint: "Conversations are stored locally in your browser and survive your next visit.",
       newChat: "New conversation",
-      modelTitle: "Choose model",
-      modelHint: "Each thread can run with a different model profile.",
+      styleTitle: "Answer style",
+      styleHint: "Each thread can run with its own answer style.",
       untitled: "New conversation",
     },
     chat: {
       assistantLabel: "SmartChat",
       userLabel: "You",
       welcomeMessage:
-        "Hi! I am **SmartChat** — a demo assistant for this Ausbildung portfolio.\n\n- Ask a question or define a task.\n- I answer with **streaming output** like real AI products.\n- I can render `Markdown` and highlighted code blocks.\n\nTip: ask for a Next.js component or a short architecture proposal.",
+        "Hi! I am **SmartChat** — the assistant inside this portfolio.\n\n- Ask a question about web development, TypeScript or job applications.\n- I answer with **streaming output** and `Markdown` including code blocks.\n- Your history stays local in your browser.\n\nTip: ask for a Next.js component or a short architecture proposal.",
       typing: "Streaming response ...",
       emptyTitle: "No messages yet",
       emptyText: "Create a thread on the left and send your first message.",
       generatedAt: "at",
     },
+    status: {
+      live: "Live AI",
+      demo: "Demo mode",
+      rateLimited:
+        "**Short break:** the request limit was just reached. Please try again in a minute.",
+    },
     composer: {
-      placeholder:
-        "Ask something specific, e.g. \"How do I build streaming UI in Next.js for a mock AI demo?\"",
+      placeholder: "Ask something specific, e.g. \"How do I build streaming UI in Next.js?\"",
       send: "Send",
       sending: "Streaming ...",
       stop: "Stop",
@@ -183,32 +203,34 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     quickPrompts: [
       "Show me a TypeScript example for a streaming chat in React.",
       "How can I explain initiative in a German Ausbildung interview?",
-      "Design a clean architecture for history + model selection.",
+      "Design a clean architecture for history + answer styles.",
       "Which 3 UX details make a chat app feel professional?",
     ],
-    footerNote:
-      "Note: this demo uses local mock generation (no external LLM requests). It showcases UX quality, architecture and implementation depth.",
-    models: [
+    footerNoteLive:
+      "Note: replies are generated by a real language model through a rate-limited server route. Please do not enter personal or confidential data.",
+    footerNoteDemo:
+      "Note: the local demo mode is active (no API key configured on the server). UI, streaming and history behave identically — with an API key a real language model answers.",
+    styles: [
       {
-        id: "gpt4o",
-        label: "GPT-4o",
-        badge: "Fast + precise",
-        description: "Direct, implementation-oriented replies with clear action points.",
+        id: "direkt",
+        label: "Direct",
+        badge: "Fast",
+        description: "Short, implementation-oriented replies with clear next steps.",
         voice: "I keep it concise and highly actionable.",
       },
       {
-        id: "claude-sonnet",
-        label: "Claude Sonnet",
-        badge: "Structured",
-        description: "More context, clean hierarchy and quick trade-off explanation.",
+        id: "strukturiert",
+        label: "Structured",
+        badge: "Organized",
+        description: "Clear hierarchy with short headings and brief reasoning.",
         voice: "I prioritize structure and explicit reasoning.",
       },
       {
-        id: "llama",
-        label: "Llama 3.1",
-        badge: "Pragmatic",
-        description: "Compact answer focused on robust baseline implementation.",
-        voice: "I focus on practical solutions that work quickly and reliably.",
+        id: "kompakt",
+        label: "Compact",
+        badge: "To the point",
+        description: "Essentials only — ideal for quick checks.",
+        voice: "I prioritize the most compact useful answer.",
       },
     ],
   },
@@ -275,7 +297,7 @@ function createInitialThread(copy: DemoCopy): ChatThread {
   return {
     id: createId("thread"),
     title: copy.sidebar.untitled,
-    model: copy.models[0]?.id ?? "gpt4o",
+    style: copy.styles[0]?.id ?? "direkt",
     createdAt: timestamp,
     updatedAt: timestamp,
     messages: [
@@ -634,8 +656,8 @@ function summarizePrompt(prompt: string) {
   return normalized.length > 95 ? `${normalized.slice(0, 94)}…` : normalized;
 }
 
-function buildGermanReply(params: { prompt: string; model: ModelOption }) {
-  const { prompt, model } = params;
+function buildGermanReply(params: { prompt: string; style: StyleOption }) {
+  const { prompt, style } = params;
   const lower = prompt.toLowerCase();
   const promptSummary = summarizePrompt(prompt);
 
@@ -643,7 +665,7 @@ function buildGermanReply(params: { prompt: string; model: ModelOption }) {
     /(code|typescript|javascript|react|next|komponente|api|refactor|debug|fehler|funktion)/i.test(
       lower,
     );
-  const asksForArchitecture = /(architektur|struktur|state|zustand|thread|history|modell|datenfluss)/i.test(
+  const asksForArchitecture = /(architektur|struktur|state|zustand|thread|history|stil|datenfluss)/i.test(
     lower,
   );
   const asksForInterview = /(bewerbung|interview|ausbildung|hr|anschreiben|lebenslauf|motivation)/i.test(
@@ -651,11 +673,11 @@ function buildGermanReply(params: { prompt: string; model: ModelOption }) {
   );
 
   if (asksForCode) {
-    return `**${model.label} · Mock Antwort**
+    return `**Demo-Modus · Lokale Antwort (${style.label})**
 
 > Kontext erkannt: ${promptSummary || "Technische Umsetzungsfrage"}
 
-${model.voice}
+${style.voice}
 
 ### Vorschlag in 3 Schritten
 - Antwort-Streaming als inkrementelles Update in kleinen Chunks umsetzen.
@@ -663,15 +685,16 @@ ${model.voice}
 - Für mobile UX einen fixen Composer + auto-scroll auf die letzte Nachricht nutzen.
 
 \`\`\`tsx
-type StreamState = {
-  fullText: string;
-  cursor: number;
-};
+const reader = response.body.getReader();
+const decoder = new TextDecoder();
+let text = "";
 
-const nextChunk = ({ fullText, cursor }: StreamState) =>
-  fullText.slice(0, Math.min(fullText.length, cursor + 6));
-
-const frameDelay = 18 + Math.floor(Math.random() * 24);
+while (true) {
+  const { done, value } = await reader.read();
+  if (done) break;
+  text += decoder.decode(value, { stream: true });
+  updateMessage(text);
+}
 \`\`\`
 
 ### Warum das robust ist
@@ -681,14 +704,14 @@ const frameDelay = 18 + Math.floor(Math.random() * 24);
   }
 
   if (asksForArchitecture) {
-    return `**${model.label} · Mock Antwort**
+    return `**Demo-Modus · Lokale Antwort (${style.label})**
 
 > Kontext erkannt: ${promptSummary || "Architekturfrage"}
 
-${model.voice}
+${style.voice}
 
 ### Architektur-Blueprint
-1. \`threads[]\` hält Verlauf, Titel, Modell und Metadaten.
+1. \`threads[]\` hält Verlauf, Titel, Antwortstil und Metadaten.
 2. \`activeThreadId\` steuert Fokus und Rendering der Chatfläche.
 3. \`isStreaming\` verhindert konkurrierende Sends während der Ausgabe.
 
@@ -696,23 +719,23 @@ ${model.voice}
 type ChatThread = {
   id: string;
   title: string;
-  model: "gpt4o" | "claude-sonnet" | "llama";
+  style: "direkt" | "strukturiert" | "kompakt";
   messages: Array<{ role: "user" | "assistant"; content: string }>;
 };
 \`\`\`
 
 ### UX-Details für "professionell"
 - Verständliche Thread-Titel aus der ersten User-Nachricht.
-- Sichtbarer Modellstatus direkt neben dem Verlauf.
-- Lesbare Nachrichtentypografie mit klaren Abständen für HR-Scannbarkeit.`;
+- Sichtbarer Live-/Demo-Status direkt neben dem Verlauf.
+- Lesbare Nachrichtentypografie mit klaren Abständen.`;
   }
 
   if (asksForInterview) {
-    return `**${model.label} · Mock Antwort**
+    return `**Demo-Modus · Lokale Antwort (${style.label})**
 
 > Kontext erkannt: ${promptSummary || "Bewerbungsfrage"}
 
-${model.voice}
+${style.voice}
 
 ### HR-starke Antwortstruktur
 - **Ausgangslage:** kurz erklären, wie du den Einstieg in die Entwicklung gefunden hast.
@@ -727,11 +750,11 @@ ${model.voice}
 - Halte die Antwort unter 45 Sekunden, damit sie im Interview klar wirkt.`;
   }
 
-  return `**${model.label} · Mock Antwort**
+  return `**Demo-Modus · Lokale Antwort (${style.label})**
 
 > Kontext erkannt: ${promptSummary || "Allgemeine Anfrage"}
 
-${model.voice}
+${style.voice}
 
 ### Schnelle Orientierung
 - Definiere zuerst das Ziel (UX, Technik oder Business-Impact).
@@ -744,25 +767,25 @@ ${model.voice}
 - Abschluss: \`npm run build\` und technische Entscheidung dokumentieren.`;
 }
 
-function buildEnglishReply(params: { prompt: string; model: ModelOption }) {
-  const { prompt, model } = params;
+function buildEnglishReply(params: { prompt: string; style: StyleOption }) {
+  const { prompt, style } = params;
   const lower = prompt.toLowerCase();
   const promptSummary = summarizePrompt(prompt);
 
   const asksForCode = /(code|typescript|javascript|react|next|component|api|refactor|debug|function)/i.test(
     lower,
   );
-  const asksForArchitecture = /(architecture|state|thread|history|model|data flow|structure)/i.test(
+  const asksForArchitecture = /(architecture|state|thread|history|style|data flow|structure)/i.test(
     lower,
   );
   const asksForInterview = /(interview|ausbildung|hr|cover letter|resume|motivation)/i.test(lower);
 
   if (asksForCode) {
-    return `**${model.label} · Mock response**
+    return `**Demo mode · Local reply (${style.label})**
 
 > Detected context: ${promptSummary || "Technical implementation request"}
 
-${model.voice}
+${style.voice}
 
 ### 3-step implementation
 - Stream assistant output in small chunks for immediate feedback.
@@ -770,15 +793,16 @@ ${model.voice}
 - Keep a fixed composer + auto-scroll on mobile.
 
 \`\`\`tsx
-type StreamState = {
-  fullText: string;
-  cursor: number;
-};
+const reader = response.body.getReader();
+const decoder = new TextDecoder();
+let text = "";
 
-const nextChunk = ({ fullText, cursor }: StreamState) =>
-  fullText.slice(0, Math.min(fullText.length, cursor + 6));
-
-const frameDelay = 18 + Math.floor(Math.random() * 24);
+while (true) {
+  const { done, value } = await reader.read();
+  if (done) break;
+  text += decoder.decode(value, { stream: true });
+  updateMessage(text);
+}
 \`\`\`
 
 ### Why this works well
@@ -788,14 +812,14 @@ const frameDelay = 18 + Math.floor(Math.random() * 24);
   }
 
   if (asksForArchitecture) {
-    return `**${model.label} · Mock response**
+    return `**Demo mode · Local reply (${style.label})**
 
 > Detected context: ${promptSummary || "Architecture request"}
 
-${model.voice}
+${style.voice}
 
 ### Architecture blueprint
-1. \`threads[]\` stores history, title, model and metadata.
+1. \`threads[]\` stores history, title, answer style and metadata.
 2. \`activeThreadId\` controls which conversation is rendered.
 3. \`isStreaming\` blocks parallel sends while generating output.
 
@@ -803,23 +827,23 @@ ${model.voice}
 type ChatThread = {
   id: string;
   title: string;
-  model: "gpt4o" | "claude-sonnet" | "llama";
+  style: "direkt" | "strukturiert" | "kompakt";
   messages: Array<{ role: "user" | "assistant"; content: string }>;
 };
 \`\`\`
 
 ### UX details that feel professional
 - Smart thread titles from the first user message.
-- Visible model status near chat history.
+- Visible live/demo status near chat history.
 - Readable message typography with clear rhythm.`;
   }
 
   if (asksForInterview) {
-    return `**${model.label} · Mock response**
+    return `**Demo mode · Local reply (${style.label})**
 
 > Detected context: ${promptSummary || "Interview question"}
 
-${model.voice}
+${style.voice}
 
 ### HR-ready structure
 - **Starting point:** explain briefly how you entered software development.
@@ -834,11 +858,11 @@ ${model.voice}
 - Keep the spoken answer under 45 seconds for interview clarity.`;
   }
 
-  return `**${model.label} · Mock response**
+  return `**Demo mode · Local reply (${style.label})**
 
 > Detected context: ${promptSummary || "General request"}
 
-${model.voice}
+${style.voice}
 
 ### Quick orientation
 - Start with a clear outcome (UX, engineering, business impact).
@@ -851,12 +875,12 @@ ${model.voice}
 - Finish: run \`npm run build\` and document decisions.`;
 }
 
-function buildMockReply(params: { localeKey: LocaleKey; prompt: string; model: ModelOption }) {
+function buildMockReply(params: { localeKey: LocaleKey; prompt: string; style: StyleOption }) {
   if (params.localeKey === "de") {
-    return buildGermanReply({ prompt: params.prompt, model: params.model });
+    return buildGermanReply({ prompt: params.prompt, style: params.style });
   }
 
-  return buildEnglishReply({ prompt: params.prompt, model: params.model });
+  return buildEnglishReply({ prompt: params.prompt, style: params.style });
 }
 
 function formatTime(timestamp: number, localeKey: LocaleKey) {
@@ -883,9 +907,31 @@ function relativeUpdatedLabel(timestamp: number, localeKey: LocaleKey) {
   return formatTime(timestamp, localeKey);
 }
 
+function isStoredThread(value: unknown): value is ChatThread {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const thread = value as ChatThread;
+  return (
+    typeof thread.id === "string" &&
+    typeof thread.title === "string" &&
+    (thread.style === "direkt" || thread.style === "strukturiert" || thread.style === "kompakt") &&
+    Array.isArray(thread.messages) &&
+    thread.messages.every(
+      (message) =>
+        message &&
+        typeof message.id === "string" &&
+        (message.role === "user" || message.role === "assistant") &&
+        typeof message.content === "string",
+    )
+  );
+}
+
 export function SmartChatDemo({ locale }: SmartChatDemoProps) {
   const localeKey: LocaleKey = locale === "de" ? "de" : "en";
   const copy = COPY[localeKey];
+  const storageKey = `smartchat-threads-v2-${localeKey}`;
 
   const initialThreadRef = useRef<ChatThread>(createInitialThread(copy));
 
@@ -893,10 +939,55 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
   const [activeThreadId, setActiveThreadId] = useState<string>(() => initialThreadRef.current.id);
   const [inputValue, setInputValue] = useState<string>("");
   const [isStreaming, setIsStreaming] = useState(false);
+  const [engineMode, setEngineMode] = useState<EngineMode>("unknown");
+  const [engineLabel, setEngineLabel] = useState<string>("");
+  const [isHydrated, setIsHydrated] = useState(false);
 
   const streamTimerRef = useRef<number | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
   const messagesRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(storageKey);
+      if (raw) {
+        const parsed = JSON.parse(raw) as { threads?: unknown; activeThreadId?: unknown };
+        const storedThreads = Array.isArray(parsed.threads)
+          ? parsed.threads.filter(isStoredThread)
+          : [];
+
+        if (storedThreads.length > 0) {
+          setThreads(storedThreads);
+          const storedActive =
+            typeof parsed.activeThreadId === "string" &&
+            storedThreads.some((thread) => thread.id === parsed.activeThreadId)
+              ? parsed.activeThreadId
+              : storedThreads[0].id;
+          setActiveThreadId(storedActive);
+        }
+      }
+    } catch {
+      // Corrupted storage: keep the fresh initial thread.
+    }
+
+    setIsHydrated(true);
+  }, [storageKey]);
+
+  useEffect(() => {
+    if (!isHydrated) {
+      return;
+    }
+
+    try {
+      window.localStorage.setItem(
+        storageKey,
+        JSON.stringify({ threads: threads.slice(0, 20), activeThreadId }),
+      );
+    } catch {
+      // Storage full or blocked: history persistence silently degrades.
+    }
+  }, [threads, activeThreadId, storageKey, isHydrated]);
 
   const activeThread = useMemo(
     () => threads.find((thread) => thread.id === activeThreadId) ?? threads[0] ?? null,
@@ -908,13 +999,13 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
     [threads],
   );
 
-  const activeModel = useMemo(() => {
+  const activeStyle = useMemo(() => {
     if (!activeThread) {
-      return copy.models[0];
+      return copy.styles[0];
     }
 
-    return copy.models.find((item) => item.id === activeThread.model) ?? copy.models[0];
-  }, [activeThread, copy.models]);
+    return copy.styles.find((item) => item.id === activeThread.style) ?? copy.styles[0];
+  }, [activeThread, copy.styles]);
 
   const latestMessage = activeThread?.messages[activeThread.messages.length - 1] ?? null;
   const latestLength = latestMessage?.content.length ?? 0;
@@ -934,10 +1025,38 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
       if (streamTimerRef.current !== null) {
         window.clearTimeout(streamTimerRef.current);
       }
+      abortRef.current?.abort();
     };
   }, []);
 
+  const patchMessage = (
+    threadId: string,
+    messageId: string,
+    content: string,
+    stillStreaming: boolean,
+  ) => {
+    setThreads((previous) =>
+      previous.map((thread) => {
+        if (thread.id !== threadId) {
+          return thread;
+        }
+
+        return {
+          ...thread,
+          updatedAt: Date.now(),
+          messages: thread.messages.map((message) =>
+            message.id === messageId
+              ? { ...message, content, isStreaming: stillStreaming }
+              : message,
+          ),
+        };
+      }),
+    );
+  };
+
   const stopStreaming = () => {
+    abortRef.current?.abort();
+
     if (streamTimerRef.current !== null) {
       window.clearTimeout(streamTimerRef.current);
       streamTimerRef.current = null;
@@ -961,41 +1080,17 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
     );
   };
 
-  const startStreaming = (threadId: string, messageId: string, fullReply: string) => {
+  const streamLocalMock = (threadId: string, messageId: string, fullReply: string) => {
     if (streamTimerRef.current !== null) {
       window.clearTimeout(streamTimerRef.current);
       streamTimerRef.current = null;
     }
 
-    setIsStreaming(true);
     let cursor = 0;
 
     const tick = () => {
       cursor = Math.min(fullReply.length, cursor + Math.max(3, Math.floor(Math.random() * 7)));
-
-      setThreads((previous) =>
-        previous.map((thread) => {
-          if (thread.id !== threadId) {
-            return thread;
-          }
-
-          return {
-            ...thread,
-            updatedAt: Date.now(),
-            messages: thread.messages.map((message) => {
-              if (message.id !== messageId) {
-                return message;
-              }
-
-              return {
-                ...message,
-                content: fullReply.slice(0, cursor),
-                isStreaming: cursor < fullReply.length,
-              };
-            }),
-          };
-        }),
-      );
+      patchMessage(threadId, messageId, fullReply.slice(0, cursor), cursor < fullReply.length);
 
       if (cursor >= fullReply.length) {
         setIsStreaming(false);
@@ -1009,6 +1104,77 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
     tick();
   };
 
+  const streamFromApi = async (
+    threadId: string,
+    messageId: string,
+    history: Array<{ role: ChatRole; content: string }>,
+    style: StyleOption,
+    prompt: string,
+  ) => {
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: history, style: style.id, locale: localeKey }),
+        signal: controller.signal,
+      });
+
+      if (response.status === 429) {
+        setEngineMode((previous) => (previous === "demo" ? "demo" : "live"));
+        patchMessage(threadId, messageId, copy.status.rateLimited, false);
+        setIsStreaming(false);
+        return;
+      }
+
+      if (!response.ok || !response.body) {
+        setEngineMode("demo");
+        setEngineLabel("");
+        streamLocalMock(threadId, messageId, buildMockReply({ localeKey, prompt, style }));
+        return;
+      }
+
+      setEngineMode("live");
+      setEngineLabel(response.headers.get("X-Llm-Label") ?? "");
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulated = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) {
+          break;
+        }
+
+        accumulated += decoder.decode(value, { stream: true });
+        patchMessage(threadId, messageId, accumulated, true);
+      }
+
+      if (accumulated.trim().length === 0) {
+        setEngineMode("demo");
+        streamLocalMock(threadId, messageId, buildMockReply({ localeKey, prompt, style }));
+        return;
+      }
+
+      patchMessage(threadId, messageId, accumulated, false);
+      setIsStreaming(false);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
+        setIsStreaming(false);
+        return;
+      }
+
+      setEngineMode("demo");
+      setEngineLabel("");
+      streamLocalMock(threadId, messageId, buildMockReply({ localeKey, prompt, style }));
+    } finally {
+      abortRef.current = null;
+    }
+  };
+
   const handleCreateThread = () => {
     if (isStreaming) {
       return;
@@ -1018,7 +1184,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
     const nextThread: ChatThread = {
       id: createId("thread"),
       title: copy.sidebar.untitled,
-      model: activeModel?.id ?? copy.models[0]?.id ?? "gpt4o",
+      style: activeStyle?.id ?? copy.styles[0]?.id ?? "direkt",
       createdAt: timestamp,
       updatedAt: timestamp,
       messages: [
@@ -1037,7 +1203,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
     textareaRef.current?.focus();
   };
 
-  const handleModelChange = (modelId: ModelKey) => {
+  const handleStyleChange = (styleId: StyleKey) => {
     if (!activeThread || isStreaming) {
       return;
     }
@@ -1047,7 +1213,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
         thread.id === activeThread.id
           ? {
               ...thread,
-              model: modelId,
+              style: styleId,
               updatedAt: Date.now(),
             }
           : thread,
@@ -1086,8 +1252,14 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
         ? activeThread.title
         : createThreadTitle(trimmed, copy.sidebar.untitled);
 
-    const selectedModel = copy.models.find((model) => model.id === activeThread.model) ?? copy.models[0];
-    const fullReply = buildMockReply({ localeKey, prompt: trimmed, model: selectedModel });
+    const selectedStyle = copy.styles.find((style) => style.id === activeThread.style) ?? copy.styles[0];
+
+    // History for the model: skip the local welcome message, keep the last turns.
+    const history = [...activeThread.messages, userMessage]
+      .filter((message, index) => !(index === 0 && message.role === "assistant"))
+      .filter((message) => message.content.trim().length > 0)
+      .slice(-10)
+      .map((message) => ({ role: message.role, content: message.content }));
 
     setThreads((previous) =>
       previous.map((thread) => {
@@ -1105,20 +1277,39 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
     );
 
     setInputValue("");
-    startStreaming(activeThread.id, assistantMessage.id, fullReply);
+    setIsStreaming(true);
+    void streamFromApi(activeThread.id, assistantMessage.id, history, selectedStyle, trimmed);
   };
 
   if (!activeThread) {
     return null;
   }
 
+  const statusChip =
+    engineMode === "live" ? (
+      <span
+        className="inline-flex items-center gap-1.5 rounded-full border border-accent/35 bg-accent/10 px-2.5 py-1 font-mono text-[10px] font-semibold tracking-[0.08em] text-accent uppercase"
+        title={engineLabel}
+      >
+        <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+        {copy.status.live}
+        {engineLabel ? ` · ${engineLabel}` : ""}
+      </span>
+    ) : engineMode === "demo" ? (
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/80 px-2.5 py-1 font-mono text-[10px] font-semibold tracking-[0.08em] text-muted uppercase">
+        <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-muted" />
+        {copy.status.demo}
+      </span>
+    ) : null;
+
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
-      <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 lg:p-9">
+      <div className="tick-card rounded-3xl border border-border bg-card p-5 sm:p-7 lg:p-9">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="inline-flex rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+          <span className="inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
             {copy.badge}
           </span>
+          {statusChip}
           <Link
             href="/#projects"
             className="inline-flex rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"
@@ -1127,14 +1318,14 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
           </Link>
         </div>
 
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{copy.title}</h1>
+        <h1 className="font-display mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{copy.title}</h1>
         <p className="mt-3 max-w-4xl leading-relaxed text-muted">{copy.subtitle}</p>
 
         <ul className="mt-5 flex flex-wrap gap-2.5">
           {copy.chips.map((chip) => (
             <li
               key={chip}
-              className="rounded-full border border-border bg-background/80 px-2.5 py-1 text-xs font-medium text-muted"
+              className="rounded-full border border-border bg-background/80 px-2.5 py-1 font-mono text-[11px] font-medium text-muted"
             >
               {chip}
             </li>
@@ -1160,19 +1351,19 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
           </div>
 
           <div className="rounded-2xl border border-border bg-background/70 p-3">
-            <p className="text-xs font-semibold tracking-[0.14em] text-primary uppercase">
-              {copy.sidebar.modelTitle}
+            <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
+              {copy.sidebar.styleTitle}
             </p>
-            <p className="mt-1 text-xs text-muted">{copy.sidebar.modelHint}</p>
+            <p className="mt-1 text-xs text-muted">{copy.sidebar.styleHint}</p>
 
             <ul className="mt-2 space-y-2">
-              {copy.models.map((model) => {
-                const isActive = activeThread.model === model.id;
+              {copy.styles.map((style) => {
+                const isActive = activeThread.style === style.id;
                 return (
-                  <li key={model.id}>
+                  <li key={style.id}>
                     <button
                       type="button"
-                      onClick={() => handleModelChange(model.id)}
+                      onClick={() => handleStyleChange(style.id)}
                       disabled={isStreaming}
                       aria-pressed={isActive}
                       className={`smartchat-model-btn w-full rounded-xl border px-3 py-2.5 text-left ${
@@ -1182,7 +1373,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
                       }`}
                     >
                       <div className="flex items-center justify-between gap-2">
-                        <p className="text-sm font-semibold text-foreground">{model.label}</p>
+                        <p className="text-sm font-semibold text-foreground">{style.label}</p>
                         <span
                           className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase ${
                             isActive
@@ -1190,10 +1381,10 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
                               : "border-border text-muted"
                           }`}
                         >
-                          {model.badge}
+                          {style.badge}
                         </span>
                       </div>
-                      <p className="mt-1 text-xs leading-relaxed text-muted">{model.description}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-muted">{style.description}</p>
                     </button>
                   </li>
                 );
@@ -1244,7 +1435,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
             <div>
               <p className="text-sm font-semibold text-foreground">{activeThread.title}</p>
               <p className="mt-1 text-xs text-muted">
-                {activeModel?.label} · {activeModel?.badge}
+                {activeStyle?.label} · {activeStyle?.badge}
               </p>
             </div>
 
@@ -1331,7 +1522,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
           </div>
 
           <div className="mt-4 rounded-2xl border border-border bg-background/70 p-3 sm:p-4">
-            <p className="text-xs font-semibold tracking-[0.13em] text-primary uppercase">
+            <p className="font-mono text-[11px] font-semibold tracking-[0.13em] text-primary uppercase">
               {copy.quickPromptsTitle}
             </p>
             <ul className="mt-2 grid gap-2 sm:grid-cols-2">
@@ -1390,7 +1581,9 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
         </section>
       </div>
 
-      <p className="mt-5 text-xs leading-relaxed text-muted">{copy.footerNote}</p>
+      <p className="mt-5 text-xs leading-relaxed text-muted">
+        {engineMode === "live" ? copy.footerNoteLive : copy.footerNoteDemo}
+      </p>
     </main>
   );
 }

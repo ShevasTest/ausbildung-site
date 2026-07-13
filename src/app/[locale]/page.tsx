@@ -109,8 +109,7 @@ export default async function HomePage({ params }: HomePageProps) {
         id="hero"
         className="hero-section relative scroll-mt-32 overflow-hidden rounded-2xl border border-border bg-card sm:rounded-3xl"
       >
-        <div aria-hidden className="hero-orb hero-orb-primary" />
-        <div aria-hidden className="hero-orb hero-orb-accent" />
+        <div aria-hidden className="blueprint-grid" />
 
         <div className="relative grid gap-8 p-5 sm:gap-10 sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div className="space-y-6">
@@ -122,17 +121,18 @@ export default async function HomePage({ params }: HomePageProps) {
             </span>
 
             <p
-              className="hero-reveal text-xs font-semibold tracking-[0.16em] text-accent uppercase"
+              className="hero-reveal dim-line"
               style={{ animationDelay: "0.1s" }}
             >
-              {t("Hero.kicker")}
+              <span className="dim-line-rule" aria-hidden />
+              <span>{t("Hero.kicker")}</span>
             </p>
 
             <h1
-              className="hero-reveal text-[1.95rem] leading-[1.12] font-semibold tracking-tight text-balance sm:text-4xl sm:leading-tight lg:text-5xl"
+              className="hero-reveal font-display text-[2.05rem] leading-[1.1] font-semibold tracking-tight text-balance sm:text-4xl sm:leading-[1.12] lg:text-5xl"
               style={{ animationDelay: "0.16s" }}
             >
-              <span>{t("Hero.titleLead")}</span>{" "}
+              <span>{t("Hero.titleLead")}</span>
               <span className="hero-word-window" aria-hidden>
                 <span className="hero-word-track">
                   {heroWords.map((word) => (
@@ -144,7 +144,7 @@ export default async function HomePage({ params }: HomePageProps) {
                 </span>
               </span>
               <span className="sr-only">{heroWords.join(", ")}</span>
-              <span className="mt-2 block">{t("Hero.titleEnd")}</span>
+              <span className="block">{t("Hero.titleEnd")}</span>
             </h1>
 
             <p
@@ -191,10 +191,10 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
 
           <aside
-            className="hero-reveal rounded-2xl border border-border bg-background/80 p-5 shadow-[0_14px_35px_rgba(10,10,15,0.16)] sm:p-6"
+            className="hero-reveal tick-card rounded-2xl border border-border bg-background/80 p-5 shadow-[0_14px_35px_rgba(10,10,15,0.16)] sm:p-6"
             style={{ animationDelay: "0.22s" }}
           >
-            <p className="text-xs font-semibold tracking-[0.16em] text-primary uppercase">
+            <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-primary uppercase">
               {t("Hero.panelEyebrow")}
             </p>
             <h2 className="mt-2 text-xl leading-tight font-semibold tracking-tight text-balance sm:text-2xl">
@@ -205,7 +205,7 @@ export default async function HomePage({ params }: HomePageProps) {
             <dl className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {heroStats.map((stat) => (
                 <div key={stat.label} className="rounded-xl border border-border/90 bg-card/85 p-3">
-                  <dt className="text-xs font-medium tracking-wide text-muted uppercase">
+                  <dt className="font-mono text-[10px] font-medium tracking-[0.12em] text-muted uppercase">
                     {stat.label}
                   </dt>
                   <dd className="mt-1 text-sm font-semibold text-foreground">{stat.value}</dd>
@@ -232,6 +232,7 @@ export default async function HomePage({ params }: HomePageProps) {
       />
 
       <ProjectsSection
+        eyebrow={t("Projects.eyebrow")}
         title={t("Projects.title")}
         intro={t("Projects.intro")}
         openProjectLabel={t("Projects.openProject")}
@@ -239,6 +240,7 @@ export default async function HomePage({ params }: HomePageProps) {
       />
 
       <SkillsSection
+        eyebrow={t("Skills.eyebrow")}
         title={t("Skills.title")}
         intro={t("Skills.intro")}
         legend={t("Skills.legend")}

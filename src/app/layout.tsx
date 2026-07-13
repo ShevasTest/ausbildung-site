@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { PwaRegister } from "@/components/pwa-register";
 import { siteConfig } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const displayFace = Bricolage_Grotesque({
+  variable: "--font-display-face",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 const themeScript = `
@@ -108,7 +118,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`${inter.variable} ${jetBrainsMono.variable} bg-background text-foreground font-sans antialiased`}
+        className={`${plexSans.variable} ${plexMono.variable} ${displayFace.variable} bg-background text-foreground font-sans antialiased`}
       >
         <PwaRegister />
         {children}

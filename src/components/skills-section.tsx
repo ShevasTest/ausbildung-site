@@ -1,6 +1,5 @@
-"use client";
-
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import { SectionHeader } from "@/components/section-header";
 
 export type SkillGroup = {
   name: string;
@@ -11,20 +10,14 @@ export type SkillGroup = {
 };
 
 type SkillsSectionProps = {
+  eyebrow?: string;
   title: string;
   intro: string;
   legend: string;
   groups: SkillGroup[];
 };
 
-type MeterStyle = CSSProperties & Record<"--skill-scale", string>;
-
-const CARD_ACCENTS = [
-  "from-primary/24 via-primary/10 to-transparent",
-  "from-accent/24 via-primary/8 to-transparent",
-  "from-primary/20 via-accent/12 to-transparent",
-  "from-accent/18 via-primary/10 to-transparent",
-] as const;
+type MeterStyle = CSSProperties & Record<"--meter-scale", string>;
 
 const CATEGORY_ICONS: ReactNode[] = [
   <svg key="frontend" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
@@ -48,110 +41,34 @@ const CATEGORY_ICONS: ReactNode[] = [
   </svg>,
 ];
 
-export function SkillsSection({ title, intro, legend, groups }: SkillsSectionProps) {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    const handleMotionChange = () => {
-      setPrefersReducedMotion(motionQuery.matches);
-    };
-
-    const attachMotionListener = () => {
-      if (typeof motionQuery.addEventListener === "function") {
-        motionQuery.addEventListener("change", handleMotionChange);
-      } else {
-        motionQuery.addListener(handleMotionChange);
-      }
-    };
-
-    const detachMotionListener = () => {
-      if (typeof motionQuery.removeEventListener === "function") {
-        motionQuery.removeEventListener("change", handleMotionChange);
-      } else {
-        motionQuery.removeListener(handleMotionChange);
-      }
-    };
-
-    handleMotionChange();
-    attachMotionListener();
-
-    if (motionQuery.matches) {
-      setIsVisible(true);
-      return () => {
-        detachMotionListener();
-      };
-    }
-
-    const node = sectionRef.current;
-    if (!node) {
-      return () => {
-        detachMotionListener();
-      };
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (!entry?.isIntersecting) {
-          return;
-        }
-
-        setIsVisible(true);
-        observer.unobserve(node);
-      },
-      {
-        threshold: 0.22,
-        rootMargin: "0px 0px -12% 0px",
-      },
-    );
-
-    observer.observe(node);
-
-    return () => {
-      observer.disconnect();
-      detachMotionListener();
-    };
-  }, []);
-
-  const shouldAnimateIn = isVisible || prefersReducedMotion;
-
+export function SkillsSection({ eyebrow, title, intro, legend, groups }: SkillsSectionProps) {
   return (
-    <section ref={sectionRef} id="skills" className="section-deferred scroll-mt-28 py-12 sm:py-20">
-      <div className="max-w-3xl">
-        <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
-        <p className="mt-4 text-[0.98rem] leading-relaxed text-muted sm:text-base">{intro}</p>
-      </div>
+    <section id="skills" className="section-deferred scroll-mt-28 py-12 sm:py-20">
+      <SectionHeader eyebrow={eyebrow} title={title} intro={intro} />
 
-      <p className="mt-4 max-w-3xl text-xs leading-relaxed font-medium tracking-wide text-muted uppercase">{legend}</p>
+      <p className="reveal mt-4 max-w-3xl font-mono text-[11px] leading-relaxed font-medium tracking-[0.12em] text-muted uppercase">
+        {legend}
+      </p>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {groups.map((group, index) => {
           const safeLevel = Number.isFinite(group.level)
             ? Math.min(100, Math.max(0, group.level))
             : 0;
-          const fillScale = safeLevel / 100;
-          const cardVisibleClass = shouldAnimateIn ? "is-visible" : "";
           const items = Array.isArray(group.items) ? group.items : [];
           const meterStyle: MeterStyle = {
-            transitionDelay: `${170 + index * 70}ms`,
-            "--skill-scale": fillScale.toString(),
+            "--meter-scale": (safeLevel / 100).toString(),
           };
+
+          const isLastOdd = groups.length % 2 === 1 && index === groups.length - 1;
 
           return (
             <article
               key={group.name}
-              className={`skills-reveal-item group relative overflow-hidden rounded-3xl border border-border bg-card p-4 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/35 sm:p-6 ${cardVisibleClass}`}
-              style={{ transitionDelay: `${70 + index * 70}ms` }}
+              className={`tick-card reveal group relative rounded-3xl border border-border bg-card p-4 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/35 sm:p-6 ${
+                isLastOdd ? "md:col-span-2" : ""
+              }`}
             >
-              <div
-                aria-hidden
-                className={`skills-card-orb absolute -top-14 -right-12 h-40 w-40 rounded-full bg-gradient-to-br ${CARD_ACCENTS[index % CARD_ACCENTS.length]} transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1`}
-              />
-
               <div className="relative flex h-full flex-col">
                 <div className="flex items-start justify-between gap-3">
                   <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
@@ -163,7 +80,9 @@ export function SkillsSection({ title, intro, legend, groups }: SkillsSectionPro
                   </span>
                 </div>
 
-                <h3 className="mt-5 text-lg leading-tight font-semibold tracking-tight text-balance text-foreground">{group.name}</h3>
+                <h3 className="mt-5 text-lg leading-tight font-semibold tracking-tight text-balance text-foreground">
+                  {group.name}
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{group.description}</p>
 
                 <div className="mt-5">
@@ -180,10 +99,7 @@ export function SkillsSection({ title, intro, legend, groups }: SkillsSectionPro
                     aria-label={`${group.name}: ${safeLevel}%`}
                     className="skills-meter-track mt-2"
                   >
-                    <span
-                      className={`skills-meter-fill ${cardVisibleClass}`}
-                      style={meterStyle}
-                    />
+                    <span className="skills-meter-fill" style={meterStyle} />
                   </div>
                 </div>
 

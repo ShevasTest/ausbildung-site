@@ -39,8 +39,11 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
           height: "100%",
           display: "flex",
           position: "relative",
-          background: "linear-gradient(135deg, #0A0A0F 0%, #111827 48%, #0A0A0F 100%)",
-          color: "#F8FAFC",
+          background: "#0B0E15",
+          backgroundImage:
+            "linear-gradient(rgba(147, 172, 255, 0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(147, 172, 255, 0.09) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          color: "#E8EAF0",
           fontFamily: "Inter, system-ui, sans-serif",
           padding: "64px",
         }}
@@ -48,26 +51,23 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
         <div
           style={{
             position: "absolute",
-            top: "48px",
-            right: "72px",
-            width: "220px",
-            height: "220px",
-            borderRadius: "999px",
-            border: "1px solid rgba(59, 130, 246, 0.35)",
-            background: "rgba(59, 130, 246, 0.14)",
+            top: "36px",
+            left: "36px",
+            width: "26px",
+            height: "26px",
+            borderTop: "3px solid #93ACFF",
+            borderLeft: "3px solid #93ACFF",
           }}
         />
-
         <div
           style={{
             position: "absolute",
-            bottom: "42px",
-            left: "58px",
-            width: "180px",
-            height: "180px",
-            borderRadius: "999px",
-            border: "1px solid rgba(16, 185, 129, 0.35)",
-            background: "rgba(16, 185, 129, 0.12)",
+            bottom: "36px",
+            right: "36px",
+            width: "26px",
+            height: "26px",
+            borderBottom: "3px solid #FF8B54",
+            borderRight: "3px solid #FF8B54",
           }}
         />
 
@@ -84,28 +84,31 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
             style={{
               display: "inline-flex",
               alignSelf: "flex-start",
-              padding: "8px 16px",
+              padding: "8px 18px",
               borderRadius: "999px",
-              border: "1px solid rgba(59, 130, 246, 0.5)",
-              color: "#93C5FD",
+              border: "1px solid rgba(147, 172, 255, 0.55)",
+              color: "#93ACFF",
               fontSize: "22px",
               fontWeight: 600,
-              letterSpacing: "0.03em",
+              letterSpacing: "0.06em",
             }}
           >
             {text.badge}
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <div style={{ fontSize: "82px", fontWeight: 700, lineHeight: 1 }}>{text.title}</div>
-            <div style={{ fontSize: "42px", fontWeight: 500, maxWidth: "950px", lineHeight: 1.15 }}>
+            <div style={{ fontSize: "86px", fontWeight: 700, lineHeight: 1 }}>{text.title}</div>
+            <div style={{ fontSize: "40px", fontWeight: 500, maxWidth: "950px", lineHeight: 1.18, color: "#C9CEDA" }}>
               {text.subtitle}
             </div>
-            <div style={{ color: "#34D399", fontSize: "28px", fontWeight: 500 }}>{text.points}</div>
+            <div style={{ display: "flex", fontSize: "28px", fontWeight: 500 }}>
+              <span style={{ color: "#FF8B54", marginRight: "14px" }}>{">"}</span>
+              <span style={{ color: "#93ACFF" }}>{text.points}</span>
+            </div>
           </div>
 
-          <div style={{ fontSize: "24px", color: "#CBD5E1", fontWeight: 500 }}>
-            ausbildung-site.vercel.app
+          <div style={{ fontSize: "24px", color: "#9AA2AE", fontWeight: 500 }}>
+            oleksandr-shevchenko.de
           </div>
         </div>
       </div>

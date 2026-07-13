@@ -1,36 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
-  --foreground: #111827;
+  --background: #f5f6f8;
+  --foreground: #161a22;
   --card: #ffffff;
-  --muted: #4b5563;
-  --border: #e5e7eb;
-  --primary: #2563eb;
-  --primary-solid: #1d4ed8;
-  --accent: #047857;
+  --muted: #4e5563;
+  --border: #e2e5eb;
+  --primary: #2b49cf;
+  --primary-solid: #2338a8;
+  --accent: #c2410c;
+  --grid-line: color-mix(in oklab, #2b49cf 8%, transparent);
 }
 
 :root[data-theme="dark"] {
-  --background: #0a0a0f;
-  --foreground: #f3f4f6;
-  --card: #11131a;
-  --muted: #9ca3af;
-  --border: #222838;
-  --primary: #60a5fa;
-  --primary-solid: #2563eb;
-  --accent: #34d399;
+  --background: #0b0e15;
+  --foreground: #e8eaf0;
+  --card: #131722;
+  --muted: #98a0ae;
+  --border: #252b39;
+  --primary: #93acff;
+  --primary-solid: #3d5be0;
+  --accent: #ff8b54;
+  --grid-line: color-mix(in oklab, #93acff 10%, transparent);
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  --font-display: var(--font-display-face);
 
   --color-primary: var(--primary);
   --color-primary-solid: var(--primary-solid);
   --color-accent: var(--accent);
-  --color-bg-dark: #0a0a0f;
-  --color-bg-light: #fafafa;
+  --color-bg-dark: #0b0e15;
+  --color-bg-light: #f5f6f8;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -47,6 +50,10 @@ html {
 
 body {
   min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
 }
 
 .skip-link {
@@ -89,6 +96,62 @@ body {
   animation: page-enter 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -5px;
+  height: 1.5px;
+  background: var(--color-primary);
+  transition: right 0.22s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  right: 0;
+}
+
+.scroll-progress {
+  pointer-events: none;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    color-mix(in oklab, var(--color-primary) 60%, var(--color-accent)) 100%
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation-name: scroll-progress-grow;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+@keyframes scroll-progress-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .section-deferred {
   content-visibility: auto;
   contain-intrinsic-size: 1px 760px;
@@ -98,39 +161,148 @@ body {
   background-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
 }
 
-.hero-orb {
+/* ---------------------------------------------------------------------------
+   Blueprint motifs — the technical-drawing signature of the site
+--------------------------------------------------------------------------- */
+
+.blueprint-grid {
   pointer-events: none;
   position: absolute;
-  border-radius: 9999px;
-  opacity: 0.8;
-  will-change: transform;
-  animation: hero-orb-float 8s ease-in-out infinite;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 95% 85% at 72% 0%, black 26%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 72% 0%, black 26%, transparent 80%);
 }
 
-.hero-orb-primary {
-  top: -7rem;
-  right: -5rem;
-  width: clamp(12rem, 30vw, 18rem);
-  height: clamp(12rem, 30vw, 18rem);
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgb(59 130 246 / 0.33) 0%,
-    rgb(59 130 246 / 0) 72%
-  );
+.dim-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary);
 }
 
-.hero-orb-accent {
-  bottom: -8rem;
-  left: -6rem;
-  width: clamp(11rem, 27vw, 16rem);
-  height: clamp(11rem, 27vw, 16rem);
-  background: radial-gradient(
-    circle at 60% 40%,
-    rgb(16 185 129 / 0.26) 0%,
-    rgb(16 185 129 / 0) 72%
-  );
-  animation-delay: -3.2s;
+.dim-line-rule {
+  position: relative;
+  display: inline-block;
+  height: 1px;
+  width: 2.4rem;
+  background: color-mix(in oklab, var(--color-primary) 55%, transparent);
 }
+
+.dim-line-rule::before,
+.dim-line-rule::after {
+  content: "";
+  position: absolute;
+  top: -0.24rem;
+  height: 0.55rem;
+  width: 1px;
+  background: color-mix(in oklab, var(--color-primary) 55%, transparent);
+}
+
+.dim-line-rule::before {
+  left: 0;
+}
+
+.dim-line-rule::after {
+  right: 0;
+}
+
+.tick-card {
+  position: relative;
+}
+
+.tick-card::before,
+.tick-card::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-style: solid;
+  border-color: color-mix(in oklab, var(--color-primary) 45%, transparent);
+  transition:
+    border-color 0.22s ease,
+    width 0.22s ease,
+    height 0.22s ease;
+}
+
+.tick-card::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1.5px 0 0 1.5px;
+  border-top-left-radius: 2px;
+}
+
+.tick-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1.5px 1.5px 0;
+  border-bottom-right-radius: 2px;
+}
+
+.tick-card:hover::before,
+.tick-card:hover::after {
+  width: 1rem;
+  height: 1rem;
+  border-color: var(--color-accent);
+}
+
+/* ---------------------------------------------------------------------------
+   Reveal system — CSS scroll-driven, content always visible without support
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation-name: reveal-rise;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+      animation-timeline: view();
+      animation-range: entry 5% entry 40%;
+    }
+
+    .skills-meter-fill,
+    .rent-bar-fill {
+      animation-name: meter-fill;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+      animation-timeline: view();
+      animation-range: entry 10% entry 60%;
+    }
+  }
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes meter-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(var(--meter-scale, 1));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Hero
+--------------------------------------------------------------------------- */
 
 .hero-reveal {
   opacity: 0;
@@ -140,10 +312,15 @@ body {
 
 .hero-word-window {
   position: relative;
-  display: inline-flex;
-  height: 1.18em;
+  display: block;
+  height: 1.7em;
   overflow: hidden;
-  vertical-align: bottom;
+  margin-top: 0.45rem;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: clamp(0.92rem, 3.2vw, 1.3rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .hero-word-track {
@@ -155,56 +332,29 @@ body {
 
 .hero-word {
   display: block;
-  line-height: 1.18;
-  background: linear-gradient(130deg, #3b82f6 5%, #10b981 55%, #3b82f6 100%);
-  background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text;
+  height: 1.7em;
+  line-height: 1.7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--color-primary);
 }
 
-.about-reveal-item {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition:
-    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
+.hero-word::before {
+  content: "> ";
+  color: color-mix(in oklab, var(--color-muted) 75%, transparent);
 }
 
-.about-reveal-item.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
+.hero-word::after {
+  content: "_";
+  color: var(--color-accent);
+  font-weight: 600;
+  animation: ki-caret-blink 0.95s steps(1, end) infinite;
 }
 
-.about-profile-orb {
-  pointer-events: none;
-  position: absolute;
-  top: -5.5rem;
-  right: -4rem;
-  width: clamp(9rem, 22vw, 13rem);
-  height: clamp(9rem, 22vw, 13rem);
-  border-radius: 9999px;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgb(59 130 246 / 0.24) 0%,
-    rgb(59 130 246 / 0) 72%
-  );
-  animation: hero-orb-float 7.2s ease-in-out infinite;
-}
-
-.skills-reveal-item {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition:
-    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.skills-reveal-item.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
+/* ---------------------------------------------------------------------------
+   Shared meters and chips
+--------------------------------------------------------------------------- */
 
 .skills-meter-track {
   position: relative;
@@ -220,16 +370,12 @@ body {
   width: 100%;
   height: 100%;
   transform-origin: left center;
-  transform: scaleX(0);
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-  background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+  transform: scaleX(var(--meter-scale, 1));
+  background: var(--color-primary);
 }
 
-.skills-meter-fill.is-visible {
-  transform: scaleX(var(--skill-scale));
-}
-
-.skills-chip {
+.skills-chip,
+.resume-chip {
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
@@ -237,12 +383,17 @@ body {
     background-color 0.2s ease;
 }
 
-.skills-chip:hover {
+.skills-chip:hover,
+.resume-chip:hover {
   transform: translate3d(0, -2px, 0);
   border-color: color-mix(in oklab, var(--color-primary) 44%, var(--color-border));
   color: var(--color-foreground);
   background-color: color-mix(in oklab, var(--color-primary) 12%, var(--color-card));
 }
+
+/* ---------------------------------------------------------------------------
+   Resume timeline
+--------------------------------------------------------------------------- */
 
 .resume-timeline-wrapper {
   position: relative;
@@ -256,26 +407,14 @@ body {
   width: 1px;
   background: linear-gradient(
     to bottom,
-    rgb(59 130 246 / 0.25) 0%,
-    rgb(59 130 246 / 0.46) 32%,
-    rgb(16 185 129 / 0.42) 68%,
-    rgb(16 185 129 / 0.18) 100%
+    color-mix(in oklab, var(--color-primary) 24%, transparent) 0%,
+    color-mix(in oklab, var(--color-primary) 46%, transparent) 50%,
+    color-mix(in oklab, var(--color-primary) 16%, transparent) 100%
   );
 }
 
 .resume-item {
   position: relative;
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition:
-    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.resume-item.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
 }
 
 .resume-item-marker {
@@ -297,51 +436,12 @@ body {
   height: 0.45rem;
   width: 0.45rem;
   border-radius: 9999px;
-  background: linear-gradient(130deg, #3b82f6 0%, #10b981 100%);
+  background: var(--color-primary);
 }
 
-.resume-summary {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition:
-    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.resume-summary.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-.resume-chip {
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.resume-chip:hover {
-  transform: translate3d(0, -2px, 0);
-  border-color: color-mix(in oklab, var(--color-primary) 44%, var(--color-border));
-  color: var(--color-foreground);
-  background-color: color-mix(in oklab, var(--color-primary) 12%, var(--color-card));
-}
-
-.contact-reveal-item {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition:
-    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.contact-reveal-item.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
+/* ---------------------------------------------------------------------------
+   Contact
+--------------------------------------------------------------------------- */
 
 .contact-link-card {
   transition:
@@ -411,6 +511,10 @@ body {
   pointer-events: auto;
 }
 
+/* ---------------------------------------------------------------------------
+   KI-Bewerbungshelfer demo
+--------------------------------------------------------------------------- */
+
 .ki-option-card {
   transition:
     transform 0.2s ease,
@@ -430,6 +534,10 @@ body {
   color: var(--color-primary);
   animation: ki-caret-blink 0.95s steps(1, end) infinite;
 }
+
+/* ---------------------------------------------------------------------------
+   Mietpreise tracker demo
+--------------------------------------------------------------------------- */
 
 .rent-city-button {
   transition:
@@ -476,13 +584,8 @@ body {
   height: 100%;
   width: 100%;
   transform-origin: left center;
-  transform: scaleX(0);
-  transition: transform 0.62s cubic-bezier(0.2, 0.8, 0.2, 1);
-  background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
-}
-
-.rent-bar-fill.is-visible {
-  transform: scaleX(var(--rent-bar-scale));
+  transform: scaleX(var(--meter-scale, 1));
+  background: var(--color-primary);
 }
 
 .rent-trend-point {
@@ -492,6 +595,10 @@ body {
   animation: rent-point-in 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   animation-delay: var(--rent-point-delay, 0ms);
 }
+
+/* ---------------------------------------------------------------------------
+   SmartChat demo
+--------------------------------------------------------------------------- */
 
 .smartchat-ghost-btn {
   transition:
@@ -647,15 +754,15 @@ body {
 }
 
 .smartchat-token-keyword {
-  color: rgb(96 165 250 / 0.95);
+  color: rgb(147 172 255 / 0.95);
 }
 
 .smartchat-token-string {
-  color: rgb(52 211 153 / 0.95);
+  color: rgb(134 239 172 / 0.9);
 }
 
 .smartchat-token-number {
-  color: rgb(250 204 21 / 0.95);
+  color: rgb(253 186 116 / 0.95);
 }
 
 .smartchat-token-comment {
@@ -682,6 +789,10 @@ body {
 .smartchat-dot:nth-child(3) {
   animation-delay: 0.24s;
 }
+
+/* ---------------------------------------------------------------------------
+   DevDash demo
+--------------------------------------------------------------------------- */
 
 .devdash-widget {
   transition:
@@ -743,7 +854,11 @@ body {
   transform-origin: center bottom;
   transform: scaleY(0);
   transition: transform 0.52s cubic-bezier(0.2, 0.8, 0.2, 1);
-  background: linear-gradient(180deg, #3b82f6 0%, #10b981 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    color-mix(in oklab, var(--color-primary) 55%, var(--color-card)) 100%
+  );
 }
 
 .devdash-forecast-fill.is-visible {
@@ -764,16 +879,20 @@ body {
 }
 
 .devdash-heat-cell.level-2 {
-  background: color-mix(in oklab, var(--color-primary) 42%, var(--color-card));
+  background: color-mix(in oklab, var(--color-primary) 44%, var(--color-card));
 }
 
 .devdash-heat-cell.level-3 {
-  background: color-mix(in oklab, var(--color-primary) 60%, var(--color-card));
+  background: color-mix(in oklab, var(--color-primary) 66%, var(--color-card));
 }
 
 .devdash-heat-cell.level-4 {
-  background: linear-gradient(130deg, #3b82f6 0%, #10b981 100%);
+  background: var(--color-primary);
 }
+
+/* ---------------------------------------------------------------------------
+   Keyframes
+--------------------------------------------------------------------------- */
 
 @keyframes page-enter {
   from {
@@ -797,37 +916,27 @@ body {
   }
 }
 
-@keyframes hero-orb-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -12px, 0) scale(1.04);
-  }
-}
-
 @keyframes hero-word-cycle {
   0%,
   16% {
-    transform: translate3d(0, 0%, 0);
+    transform: translate3d(0, 0, 0);
   }
   20%,
   36% {
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -1.7em, 0);
   }
   40%,
   56% {
-    transform: translate3d(0, -200%, 0);
+    transform: translate3d(0, -3.4em, 0);
   }
   60%,
   76% {
-    transform: translate3d(0, -300%, 0);
+    transform: translate3d(0, -5.1em, 0);
   }
   80%,
   96%,
   100% {
-    transform: translate3d(0, -400%, 0);
+    transform: translate3d(0, -6.8em, 0);
   }
 }
 
@@ -865,6 +974,10 @@ body {
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Small-screen adjustments
+--------------------------------------------------------------------------- */
+
 @media (max-width: 430px) {
   .about-motivation-card {
     padding: 1rem;
@@ -894,6 +1007,10 @@ body {
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Reduced motion
+--------------------------------------------------------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -901,27 +1018,10 @@ body {
 
   .page-transition-shell,
   .hero-reveal,
-  .hero-word-track,
-  .hero-orb,
-  .about-profile-orb {
+  .hero-word-track {
     animation: none;
     opacity: 1;
     transform: none;
-  }
-
-  .about-reveal-item,
-  .skills-reveal-item,
-  .resume-item,
-  .resume-summary,
-  .contact-reveal-item {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .skills-meter-fill {
-    transform: scaleX(var(--skill-scale));
-    transition: none;
   }
 
   .skills-chip,
@@ -932,7 +1032,6 @@ body {
   .ki-option-card,
   .rent-city-button,
   .rent-pill,
-  .rent-bar-fill,
   .smartchat-ghost-btn,
   .smartchat-thread-btn,
   .smartchat-model-btn,
@@ -943,7 +1042,9 @@ body {
   .devdash-drag-handle,
   .devdash-news-item,
   .devdash-ring-progress,
-  .devdash-forecast-fill {
+  .devdash-forecast-fill,
+  .tick-card::before,
+  .tick-card::after {
     transition: none;
   }
 

@@ -1,5 +1,5 @@
 export const siteConfig = {
-  baseUrl: "https://ausbildung-site.vercel.app",
+  baseUrl: "https://oleksandr-shevchenko.de",
   siteName: "Oleksandr Portfolio",
   authorName: "Oleksandr Shevchenko",
   githubUrl: "https://github.com/ShevasTest",

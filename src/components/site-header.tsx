@@ -23,22 +23,23 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/92">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
+      <div aria-hidden className="scroll-progress" />
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6">
         <a
           href={homeHref}
           aria-label={homeLabel}
-          className="max-w-[8.75rem] truncate text-base font-semibold tracking-tight text-primary sm:max-w-none sm:text-lg"
+          className="font-display max-w-[8.75rem] truncate text-base font-semibold tracking-tight text-primary sm:max-w-none sm:text-lg"
         >
           {t("brand")}
         </a>
 
-        <nav aria-label={navLabel} className="hidden items-center gap-4 text-sm text-muted md:flex">
+        <nav aria-label={navLabel} className="hidden items-center gap-5 text-sm text-muted md:flex">
           {sections.map((section) => (
             <a
               key={section.id}
               href={`${homeHref}#${section.id}`}
-              className="transition hover:text-foreground"
+              className="nav-link transition hover:text-foreground"
             >
               {section.label}
             </a>

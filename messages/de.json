@@ -105,37 +105,39 @@
   },
   "Projects": {
     "title": "Projekte",
+    "eyebrow": "Ausgewählte Arbeiten",
     "intro": "Vier praxisnahe Projekte, die reale Alltagsthemen aufgreifen und meine aktuelle Arbeitsweise zeigen.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
         "title": "KI-Bewerbungshelfer",
         "summary": "Analysiert Stellenanzeigen und erstellt personalisierte Anschreiben mit editierbarem Export.",
-        "stack": "Next.js · Server Actions · KI-API"
+        "stack": "Next.js · LLM-Streaming · API-Routen"
       },
       {
         "slug": "mietpreise-tracker",
         "title": "Mietpreise-Tracker",
         "summary": "Vergleicht Mietkosten deutscher Städte mit Trends und Einkommens-Rechner.",
-        "stack": "Next.js · Open Data APIs · Charts"
+        "stack": "Next.js · Marktdaten Q4 2025 · SVG-Charts"
       },
       {
         "slug": "smartchat",
         "title": "SmartChat",
         "summary": "Moderner KI-Chat mit Streaming, Verlauf, Markdown und Code-Highlighting.",
-        "stack": "Next.js · Streaming · IndexedDB"
+        "stack": "Next.js · LLM-Streaming · LocalStorage"
       },
       {
         "slug": "devdash",
         "title": "DevDash",
         "summary": "Anpassbares Entwickler-Dashboard mit Widgets, Pomodoro und GitHub-Aktivität.",
-        "stack": "Next.js · Modular UI · PWA"
+        "stack": "Next.js · Live-APIs · PWA"
       }
     ],
     "openProject": "Projekt öffnen"
   },
   "Skills": {
     "title": "Kenntnisse",
+    "eyebrow": "Werkzeuge & Wissen",
     "intro": "Technologien und Werkzeuge, mit denen ich aktuell lerne und erste Projekte umsetze.",
     "legend": "Selbsteinschätzung auf Basis meiner aktuellen Praxis im Selbststudium",
     "groups": [
@@ -296,10 +298,14 @@
       "messagePlaceholder": "Worum geht es? (Rolle, Zeitraum, Team, nächste Schritte)"
     },
     "submit": {
-      "idle": "Nachricht vorbereiten",
-      "sending": "Wird vorbereitet ...",
+      "idle": "Nachricht senden",
+      "sending": "Wird gesendet ...",
       "successTitle": "Danke für Ihre Nachricht",
-      "successText": "Ihr E-Mail-Programm wurde mit einer vorformulierten Nachricht geöffnet."
+      "successText": "Ihre Nachricht ist angekommen. Ich melde mich in der Regel innerhalb von 24 Stunden.",
+      "mailtoTitle": "Fast geschafft",
+      "mailtoText": "Ihr E-Mail-Programm wurde mit einer vorformulierten Nachricht geöffnet — einfach absenden.",
+      "errorTitle": "Senden fehlgeschlagen",
+      "errorText": "Bitte versuchen Sie es später erneut oder schreiben Sie mir direkt per E-Mail."
     },
     "validation": {
       "nameRequired": "Bitte geben Sie Ihren Namen ein.",
