@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { calculateRentBudget } from "@/lib/rent-calculator";
 
 type LocaleKey = "de" | "en";
 type SortMode = "high" | "low";
@@ -59,11 +60,13 @@ type DemoCopy = {
     budgetDecrease: string;
     budgetIncrease: string;
     netPerIncome: string;
+    availableNetPerIncome: string;
     warmRent: string;
     coldRent: string;
     grossIncome: string;
     localMedian: string;
     affordability: string;
+    budgetPressure: string;
     statusRelaxed: string;
     statusBalanced: string;
     statusTight: string;
@@ -71,6 +74,7 @@ type DemoCopy = {
   };
   chartFooter: string;
   dataNote: string;
+  sourcesLabel: string;
 };
 
 type MietpreiseTrackerDemoProps = {
@@ -198,7 +202,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     calculator: {
       title: "Wie viel Einkommen benötigen Sie?",
       subtitle:
-        "Faustregel-Rechner für Ausbildung/Junior-Level: Warmmiete sollte je nach Sicherheitsniveau 30–40% des Nettohaushaltseinkommens ausmachen.",
+        "Faustregel-Rechner für Ausbildung/Junior-Level: Warmmiete sollte je nach Sicherheitsniveau 30–40 % des Nettohaushaltseinkommens ausmachen.",
       cityLabel: "Stadt",
       apartmentSize: "Wohnungsgröße",
       householdLabel: "Haushalt",
@@ -208,15 +212,17 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       budgetModePercent: "%",
       budgetModeEuro: "€",
       budgetControlPercent: "Budget in % vom Nettohaushalt",
-      budgetControlEuro: "Fixes Budget in €",
+      budgetControlEuro: "Nettohaushaltseinkommen in €",
       budgetDecrease: "Budget verringern",
       budgetIncrease: "Budget erhöhen",
       netPerIncome: "Empfohlenes Netto je Einkommen",
+      availableNetPerIncome: "Verfügbares Netto je Einkommen",
       warmRent: "Geschätzte Warmmiete",
       coldRent: "Kaltmiete",
       grossIncome: "Grob geschätztes Brutto gesamt",
       localMedian: "Vergleich mit lokalem Median-Netto",
       affordability: "Marktlage",
+      budgetPressure: "Belastung des Haushaltsbudgets",
       statusRelaxed: "Entspannt",
       statusBalanced: "Anspruchsvoll, aber realistisch",
       statusTight: "Angespannt",
@@ -224,7 +230,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     chartFooter: "Linie: ausgewählte Stadt · gestrichelte Linie: Durchschnitt über alle Städte",
     dataNote:
-      "Datenbasis: Median-Angebotsmieten (Kaltmiete, Neuvermietung) aus öffentlich verfügbaren Marktberichten, u. a. empirica-Preisdatenbank, IW Köln und ImmoScout24-Auswertungen · Stand: Q4 2025 · kuratierter statischer Datensatz, gerundet auf 0,1 €/m².",
+      "Demonstrationsdatensatz: gerundete Median-Angebotsmieten (Kaltmiete, Neuvermietung), orientiert an öffentlich verfügbaren Marktberichten von empirica, IW Köln und ImmoScout24 · Stand: Q4 2025 · keine amtliche Statistik oder Entscheidungsgrundlage.",
+    sourcesLabel: "Quellen & Methodik",
   },
   en: {
     badge: "Live demo · Germany rental data",
@@ -266,15 +273,17 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       budgetModePercent: "%",
       budgetModeEuro: "€",
       budgetControlPercent: "Budget as % of net household income",
-      budgetControlEuro: "Fixed budget in €",
+      budgetControlEuro: "Net household income in €",
       budgetDecrease: "Decrease budget",
       budgetIncrease: "Increase budget",
       netPerIncome: "Recommended net income per earner",
+      availableNetPerIncome: "Available net income per earner",
       warmRent: "Estimated warm rent",
       coldRent: "Cold rent",
       grossIncome: "Estimated gross household income",
       localMedian: "Compared to local median net income",
       affordability: "Market pressure",
+      budgetPressure: "Household budget pressure",
       statusRelaxed: "Comfortable",
       statusBalanced: "Demanding but realistic",
       statusTight: "Tight",
@@ -283,6 +292,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     chartFooter: "Solid line: selected city · dashed line: average of all cities",
     dataNote:
       "Dataset: median asking rents (cold rent, new lets) from publicly available market reports, incl. the empirica price database, IW Köln and ImmoScout24 analyses · as of Q4 2025 · curated static dataset, rounded to €0.10/sqm.",
+    sourcesLabel: "Sources & methodology",
   },
 };
 
@@ -342,6 +352,7 @@ function formatNumber(value: number, localeTag: string, maximumFractionDigits = 
 export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
   const localeKey: LocaleKey = locale === "de" ? "de" : "en";
   const localeTag = localeKey === "de" ? "de-DE" : "en-US";
+  const percentSuffix = localeKey === "de" ? "\u00a0%" : "%";
   const copy = COPY[localeKey];
 
   const [selectedCityId, setSelectedCityId] = useState<string>("berlin");
@@ -349,7 +360,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
   const [apartmentSize, setApartmentSize] = useState<number>(55);
   const [budgetMode, setBudgetMode] = useState<BudgetMode>("percent");
   const [budgetPercent, setBudgetPercent] = useState<number>(35);
-  const [customBudgetEuro, setCustomBudgetEuro] = useState<number>(1200);
+  const [customBudgetEuro, setCustomBudgetEuro] = useState<number>(3000);
   const [householdMode, setHouseholdMode] = useState<HouseholdMode>("single");
 
   const selectedCity =
@@ -453,7 +464,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
     }
 
     const stepped = Math.round(nextValue / 50) * 50;
-    setCustomBudgetEuro(clampValue(stepped, 500, 3000));
+    setCustomBudgetEuro(clampValue(stepped, 1000, 8000));
   };
 
   const adjustBudget = (direction: -1 | 1) => {
@@ -462,31 +473,46 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
       return;
     }
 
-    setCustomBudgetEuro((previous) => clampValue(previous + direction * 50, 500, 3000));
+    setCustomBudgetEuro((previous) => clampValue(previous + direction * 50, 1000, 8000));
   };
 
   const currentBudgetDisplay =
     budgetMode === "percent"
-      ? `${formatNumber(budgetPercent, localeTag, 0)}%`
+      ? `${formatNumber(budgetPercent, localeTag, 0)}${percentSuffix}`
       : `${formatNumber(customBudgetEuro, localeTag, 0)} €`;
 
-  const coldRent = selectedCurrentRent * apartmentSize;
-  const warmRent = coldRent + apartmentSize * INCIDENTAL_COST_PER_SQM;
-  const requiredNetIncome =
-    budgetMode === "percent" ? warmRent / (budgetPercent / 100) : customBudgetEuro;
-  const requiredGrossIncome = requiredNetIncome * 1.45;
-
   const incomesCount = householdMode === "single" ? 1 : 2;
-  const netIncomePerSource = requiredNetIncome / incomesCount;
-  const localMedianPerSource = selectedCity.medianNetIncome / incomesCount;
-  const affordabilityFactor = localMedianPerSource > 0 ? netIncomePerSource / localMedianPerSource : 0;
+  const {
+    coldRent,
+    warmRent,
+    requiredGrossIncome,
+    netIncomePerSource,
+    localMedianPerSource,
+    affordabilityFactor,
+    rentShare,
+  } = calculateRentBudget({
+    rentPerSquareMeter: selectedCurrentRent,
+    apartmentSize,
+    incidentalCostPerSquareMeter: INCIDENTAL_COST_PER_SQM,
+    budgetMode,
+    budgetPercent,
+    customBudgetEuro,
+    householdIncomes: incomesCount,
+    localMedianNetIncome: selectedCity.medianNetIncome,
+  });
 
   const affordabilityStatus =
-    affordabilityFactor <= 0.85
-      ? copy.calculator.statusRelaxed
-      : affordabilityFactor <= 1.05
-        ? copy.calculator.statusBalanced
-        : copy.calculator.statusTight;
+    budgetMode === "euro"
+      ? rentShare <= 0.35
+        ? copy.calculator.statusRelaxed
+        : rentShare <= 0.4
+          ? copy.calculator.statusBalanced
+          : copy.calculator.statusTight
+      : affordabilityFactor <= 0.85
+        ? copy.calculator.statusRelaxed
+        : affordabilityFactor <= 1.05
+          ? copy.calculator.statusBalanced
+          : copy.calculator.statusTight;
 
   const medianComparisonHint =
     localeKey === "de"
@@ -595,7 +621,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                         <p className="text-sm font-semibold text-foreground">
                           {formatEuro(currentRent, localeTag, 1)}/m²
                         </p>
-                        <p className="text-xs text-muted">{formatPercent(cityDelta, localeTag)}%</p>
+                        <p className="text-xs text-muted">{formatPercent(cityDelta, localeTag)}{percentSuffix}</p>
                       </div>
                     </div>
 
@@ -631,7 +657,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                   {copy.trend.fiveYearChange}
                 </dt>
                 <dd className="mt-1 text-sm font-semibold text-foreground">
-                  {formatPercent(selectedDelta, localeTag)}%
+                  {formatPercent(selectedDelta, localeTag)}{percentSuffix}
                 </dd>
               </div>
 
@@ -640,7 +666,7 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                   {copy.trend.vsAverage}
                 </dt>
                 <dd className="mt-1 text-sm font-semibold text-foreground">
-                  {formatPercent(differenceToAverage, localeTag)}%
+                  {formatPercent(differenceToAverage, localeTag)}{percentSuffix}
                 </dd>
               </div>
             </dl>
@@ -892,13 +918,13 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                   <input
                     id="budget-slider"
                     type="range"
-                    min={budgetMode === "percent" ? 20 : 500}
-                    max={budgetMode === "percent" ? 60 : 3000}
+                    min={budgetMode === "percent" ? 20 : 1000}
+                    max={budgetMode === "percent" ? 60 : 8000}
                     step={budgetMode === "percent" ? 1 : 50}
                     value={budgetMode === "percent" ? budgetPercent : customBudgetEuro}
                     onInput={(event) => updateBudgetFromSlider(event.currentTarget.value)}
                     onChange={(event) => updateBudgetFromSlider(event.currentTarget.value)}
-                    className="rent-slider h-2 w-full cursor-pointer"
+                    className="rent-slider h-6 w-full cursor-pointer"
                   />
                   <button
                     type="button"
@@ -914,14 +940,14 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                   {(budgetMode === "percent"
                     ? [35, 40, 45, 50].map((preset) => ({
                         key: `pct-${preset}`,
-                        label: `${preset}%`,
+                        label: `${preset}${percentSuffix}`,
                         active: budgetPercent === preset,
                         onClick: () => setBudgetPercent(preset),
                       }))
                     : [35, 40, 45, 50]
                         .map((preset) => {
                           const euroPreset = Math.round((warmRent / (preset / 100)) / 50) * 50;
-                          const clampedEuroPreset = clampValue(euroPreset, 500, 3000);
+                          const clampedEuroPreset = clampValue(euroPreset, 1000, 8000);
                           return {
                             key: `eur-${preset}`,
                             value: clampedEuroPreset,
@@ -954,7 +980,9 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
           <article className="grid gap-3 sm:grid-cols-2">
             <div className="rounded-2xl border border-border bg-background/75 p-4">
               <p className="text-[11px] font-semibold tracking-[0.13em] text-muted uppercase">
-                {copy.calculator.netPerIncome}
+                {budgetMode === "percent"
+                  ? copy.calculator.netPerIncome
+                  : copy.calculator.availableNetPerIncome}
               </p>
               <p className="mt-1.5 text-lg font-semibold text-foreground">
                 {formatEuro(netIncomePerSource, localeTag)}
@@ -996,22 +1024,67 @@ export function MietpreiseTrackerDemo({ locale }: MietpreiseTrackerDemoProps) {
                 {formatEuro(netIncomePerSource, localeTag)} / {formatEuro(localMedianPerSource, localeTag)}
               </p>
               <p className="mt-1 text-xs text-muted">
-                {formatNumber(affordabilityFactor * 100, localeTag, 1)}% {medianComparisonHint}
+                {formatNumber(affordabilityFactor * 100, localeTag, 1)}{percentSuffix} {medianComparisonHint}
               </p>
             </div>
 
             <div className="rounded-2xl border border-primary/28 bg-primary/10 p-4 sm:col-span-2">
               <p className="text-[11px] font-semibold tracking-[0.13em] text-primary uppercase">
-                {copy.calculator.affordability}
+                {budgetMode === "percent"
+                  ? copy.calculator.affordability
+                  : copy.calculator.budgetPressure}
               </p>
               <p className="mt-1.5 text-sm font-semibold text-foreground">{affordabilityStatus}</p>
+              {budgetMode === "euro" ? (
+                <p className="mt-1 text-xs text-muted">
+                  {localeKey === "de" ? "Warmmiete" : "Warm rent"}: {formatNumber(rentShare * 100, localeTag, 1)}
+                  {percentSuffix} {localeKey === "de" ? "des Nettohaushalts" : "of net household income"}
+                </p>
+              ) : null}
               <p className="mt-1 text-xs text-muted">{copy.calculator.note}</p>
             </div>
           </article>
         </div>
       </section>
 
-      <p className="mt-5 text-xs leading-relaxed text-muted">{copy.dataNote}</p>
+      <div className="mt-5 rounded-2xl border border-border bg-card p-4 text-xs leading-relaxed text-muted">
+        <p>{copy.dataNote}</p>
+        <p className="mt-3 font-semibold tracking-[0.1em] text-foreground uppercase">
+          {copy.sourcesLabel}
+        </p>
+        <ul className="mt-2 flex flex-wrap gap-2">
+          <li>
+            <a
+              href="https://www.empirica-institut.de/assets/content/typo3/Redaktion/Publikationen_Referenzen/PDFs/Immobilienpreisindex_Q42025.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border bg-background px-3 py-1.5 transition hover:border-primary hover:text-primary"
+            >
+              empirica ↗
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.iwkoeln.de/fileadmin/user_upload/Studien/Report/PDF/2026/IW-Report_2026-WohnindexQ42025.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border bg-background px-3 py-1.5 transition hover:border-primary hover:text-primary"
+            >
+              IW-Wohnindex Q4/2025 ↗
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.immobilienscout24.de/wohnbarometer/"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border bg-background px-3 py-1.5 transition hover:border-primary hover:text-primary"
+            >
+              ImmoScout24 WohnBarometer ↗
+            </a>
+          </li>
+        </ul>
+      </div>
     </main>
   );
 }

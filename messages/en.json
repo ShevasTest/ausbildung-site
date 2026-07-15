@@ -3,7 +3,7 @@
     "title": "Ausbildung Portfolio",
     "description": "Portfolio of Oleksandr — aspiring software developer for a German Ausbildung program.",
     "ogTitle": "Oleksandr | Ausbildung Portfolio",
-    "ogDescription": "Modern web projects focused on performance, accessibility and clean architecture.",
+    "ogDescription": "Functional web projects focused on AI-assisted development, automation and verifiable quality.",
     "projectTitle": "Project: {slug}",
     "projectDescription": "Detailed project page with goals, stack and implementation notes."
   },
@@ -20,63 +20,63 @@
   },
   "Hero": {
     "badge": "Aspiring Fachinformatiker (Application Development, AE)",
-    "kicker": "Ausbildung 2026 · Junior frontend track",
+    "kicker": "Ausbildung 2026 · Application development",
     "titleLead": "I learn",
     "rotatingWords": [
-      "web development step by step",
-      "responsive interfaces with HTML/CSS",
-      "React and Next.js basics",
-      "practical projects with AI support"
+      "software with AI and agents",
+      "automations and scripts",
+      "web projects from idea to demo",
+      "technical fundamentals through self-study"
     ],
     "titleEnd": "and prepare for an Ausbildung team in 2026.",
-    "subtitle": "Through self-study and AI-assisted practice, I build solid fundamentals, implement small to medium features and improve my skills continuously.",
+    "subtitle": "For around four years, I have programmed with AI every day, broken complex tasks into actionable steps and taken personal projects through to functional, tested results.",
     "points": [
-      "Mobile-first implementation for recruiters on smartphones",
-      "Clear information structure over visual noise",
-      "First experience with React, Next.js and API integration",
-      "Learning with feedback, documentation and AI tools"
+      "More than 20 personal projects and over 100 scripts and automations",
+      "Confident use of AI agents, prompts, context and tool workflows",
+      "HTML, CSS, JavaScript and React foundations from structured self-study",
+      "Honest quality control through tests, reviews and traceable iteration"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "From self-study to Ausbildung",
-    "panelText": "I am looking for an Ausbildung position where I can contribute as a junior, learn from experienced developers and grow step by step.",
+    "panelTitle": "Strong AI practice. Ready for professional foundations.",
+    "panelText": "I can translate ideas into working solutions quickly. During an Ausbildung, I want to deepen my fundamentals, learn clean code in a team and take responsibility within professional development processes.",
     "stats": [
       {
         "label": "Project focus",
-        "value": "4 practical demos"
+        "value": "20+ personal projects"
       },
       {
-        "label": "Quality target",
-        "value": "Solid foundations in performance & accessibility"
+        "label": "Automation",
+        "value": "100+ scripts & workflows"
       },
       {
         "label": "Work style",
-        "value": "Initiative · Learning mindset · Reliability"
+        "value": "Agent orchestration · Testing · Iteration"
       }
     ]
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Self-learning with clear direction",
-    "lead": "I bring initiative, learning mindset and first project practice — a solid base for starting an Ausbildung.",
+    "eyebrow": "Four years of daily project practice",
+    "lead": "My strength is not one specific framework, but structured problem-solving with AI, agents and automation — from the first idea to a verified result.",
     "paragraphs": [
-      "My path into development started with curiosity: I wanted to understand how strong digital products are built and why some interfaces feel intuitive from the first second.",
-      "To improve consistently, I built a structured learning routine with regular coding sessions, small learning goals and trackable progress.",
-      "Right now I work on smaller frontend tasks and actively use AI tools to research, test and implement solutions faster. For 2026, I am looking for an Ausbildung team where I can grow this foundation professionally."
+      "Around four years ago, I completed roughly 80 percent of the classical frontend roadmap on roadmap.sh. This gave me foundations in HTML, CSS, JavaScript and React, without presenting myself as a finished framework specialist.",
+      "Since then, I have programmed with AI every day. This work has produced more than 20 personal projects and over 100 scripts, integrations and automations. I clarify requirements, break down tasks, orchestrate agents, test results and improve them iteratively.",
+      "My particular strength is advanced work with AI agents and large development workflows. For 2026, I am looking for an Ausbildung where I can combine this delivery ability with solid technical foundations, code reviews, teamwork and professional processes."
     ],
     "highlights": [
       {
         "label": "Initiative",
-        "value": "I learn continuously in self-study and apply new knowledge directly in small projects."
+        "value": "I have worked on personal software and automation tasks every day for around four years."
       },
       {
-        "label": "Learning focus",
-        "value": "I work step by step on fundamentals in HTML, CSS, JavaScript and React."
+        "label": "Technical foundation",
+        "value": "HTML, CSS, JavaScript and React foundations from structured self-study."
       },
       {
-        "label": "AI-assisted workflow",
-        "value": "I use Claude and ChatGPT for research, prototyping and debugging."
+        "label": "AI & agent workflows",
+        "value": "I plan multi-step agent tasks, manage context and tools, and verify results systematically."
       },
       {
         "label": "2026 goal",
@@ -85,9 +85,9 @@
     ],
     "motivationTitle": "What I bring into an Ausbildung role",
     "motivationPoints": [
-      "I learn quickly and translate feedback into better technical solutions immediately.",
-      "I work reliably within clear structures while staying focused on user impact.",
-      "I am looking for a team where I can learn from experienced engineers and contribute productively early."
+      "I turn unclear requirements into concrete work packages and functioning prototypes.",
+      "I do not treat AI as a black box: results are tested, questioned and improved iteratively.",
+      "I communicate knowledge gaps honestly and want to learn sound technical foundations from experienced developers."
     ],
     "profile": {
       "badge": "Profile",
@@ -95,11 +95,11 @@
       "role": "Aspiring Fachinformatiker (Application Development, AE)",
       "initials": "OS",
       "placeholder": "Photo placeholder",
-      "caption": "I combine disciplined self-learning with AI-assisted practice and build my technical foundation step by step.",
+      "caption": "Four years of daily delivery with AI and agents, combined with a clear goal to deepen technical foundations professionally within a team.",
       "facts": [
         "Location: Germany · Ausbildung target 2026",
         "Languages: German B1 (actively improving to B2) · English A2 (actively improving)",
-        "Focus: HTML/CSS, JavaScript fundamentals, first projects with React and Next.js"
+        "Focus: AI agents · Automation · Web development · Technical foundations"
       ]
     }
   },
@@ -138,63 +138,64 @@
   "Skills": {
     "title": "Skills",
     "eyebrow": "Tools & knowledge",
-    "intro": "Technologies and tools I currently use while learning and building first projects.",
-    "legend": "Self-assessment based on my current hands-on practice",
+    "intro": "My profile combines strong AI and automation practice with deliberately honest web fundamentals.",
+    "legend": "Self-assessment based on my actual daily practice",
     "groups": [
       {
         "name": "Frontend",
-        "description": "Basic HTML, CSS knowledge and first experience with React and Next.js",
-        "level": 45,
-        "levelLabel": "Foundations in place, currently improving",
+        "description": "Foundations from the frontend roadmap; I build modern framework projects mainly with AI assistance",
+        "level": 38,
+        "levelLabel": "Foundations in place, framework knowledge improving",
         "items": [
           "HTML & CSS",
-          "JavaScript (basics)",
+          "JavaScript (foundation)",
           "React (basics)",
           "Next.js (first projects)",
           "Tailwind CSS"
         ]
       },
       {
-        "name": "Backend",
-        "description": "First steps with Python and API integration",
-        "level": 25,
-        "levelLabel": "Early practical experience",
+        "name": "Automation & APIs",
+        "description": "Hands-on practice with scripts, data flows, integrations and repeatable workflows",
+        "level": 68,
+        "levelLabel": "Extensive independent project practice",
         "items": [
-          "Python (basics)",
-          "REST APIs (basics)",
+          "Scripting & workflow automation",
+          "REST APIs & integrations",
           "JSON",
-          "Server Actions (Next.js)"
+          "Data processing",
+          "Error analysis & repeatability"
         ]
       },
       {
-        "name": "Tools",
-        "description": "Git, VS Code, npm — essential development tools",
-        "level": 55,
-        "levelLabel": "Confident with essential tools",
+        "name": "Delivery & quality",
+        "description": "From requirements and task decomposition through to a tested solution",
+        "level": 74,
+        "levelLabel": "Confident in independent, iterative workflows",
         "items": [
-          "Git & GitHub",
-          "VS Code",
-          "npm",
-          "AI tools (Claude, ChatGPT)",
-          "Lighthouse"
-        ]
-      },
-      {
-        "name": "AI-assisted work",
-        "description": "Structured use of AI tools for research, debugging and prototyping",
-        "level": 72,
-        "levelLabel": "Confident practical usage with clear quality checks",
-        "items": [
-          "Claude / ChatGPT",
-          "Prompt engineering",
-          "AI-assisted debugging",
+          "Requirement analysis",
+          "Task decomposition",
           "Rapid prototyping",
-          "AI-assisted code review"
+          "Testing & verification",
+          "Documentation"
+        ]
+      },
+      {
+        "name": "AI & agents",
+        "description": "Advanced orchestration of models, agents, context, tools and parallel tasks",
+        "level": 92,
+        "levelLabel": "Core strength from four years of daily practice",
+        "items": [
+          "Multi-agent workflows",
+          "Prompt & context engineering",
+          "Tool and API use",
+          "Agentic debugging",
+          "Quality control"
         ]
       },
       {
         "name": "Soft Skills",
-        "description": "Team qualities that matter in Ausbildung: reliability, learning mindset and communication.",
+        "description": "Team qualities that matter in Ausbildung: honesty, initiative and willingness to learn.",
         "level": 80,
         "levelLabel": "Reliable, collaborative and eager to learn",
         "items": [
@@ -210,28 +211,28 @@
   "Resume": {
     "eyebrow": "Resume & Growth Path",
     "title": "Resume",
-    "intro": "My path into software development is practical and clearly structured: disciplined self-learning with AI support, real projects and a concrete Ausbildung target for 2026.",
+    "intro": "My path combines classical frontend self-study with four years of daily AI-assisted project and automation practice.",
     "timeline": [
       {
-        "period": "2024 — present",
-        "title": "Structured Self-Learning in Frontend with AI Support",
-        "text": "Regular coding sessions, documented learning goals and continuous learning with support from AI tools.",
-        "focus": "Focus: HTML/CSS · JavaScript · React basics",
+        "period": "2022 — 2023",
+        "title": "Structured Frontend Self-Study",
+        "text": "Completed roughly 80 percent of the roadmap.sh frontend roadmap and built foundations in HTML, CSS, JavaScript and React.",
+        "focus": "Foundation: HTML · CSS · JavaScript · React basics",
         "chips": [
           "Initiative",
-          "Daily practice",
-          "AI-assisted"
+          "roadmap.sh",
+          "Technical fundamentals"
         ]
       },
       {
-        "period": "2025",
-        "title": "Project Delivery with AI Support",
-        "text": "Planned and built multiple demo projects with AI support instead of tutorial-only clones. Focus on understandable UI and functional prototypes.",
-        "focus": "Focus: UI fundamentals · Prototyping",
+        "period": "2022 — present",
+        "title": "Daily AI-Assisted Project Practice",
+        "text": "Delivered more than 20 personal projects and over 100 scripts and automations. Focus: clarifying requirements, orchestrating agents, connecting interfaces, testing and iteration.",
+        "focus": "Focus: AI agents · Automation · Functional results",
         "chips": [
-          "4 demo concepts",
-          "Mobile-first",
-          "AI-assisted"
+          "20+ projects",
+          "100+ scripts",
+          "Daily practice"
         ]
       },
       {
@@ -247,7 +248,7 @@
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I work in a structured way, learn quickly and speak openly about my current level. My goal is to contribute reliably in a team and keep improving.",
+    "closingText": "I bring high delivery speed with AI and agents, while communicating openly about my current level in JavaScript, React and modern frameworks. My goal is to contribute reliably in a team and become technically more grounded.",
     "closingBadges": [
       "Initiative",
       "Clear communication",
@@ -288,8 +289,8 @@
       ]
     },
     "form": {
-      "title": "Send a short message",
-      "intro": "Share the role, team or project context in a few lines. I reply quickly and with clear structure.",
+      "title": "Prepare an email",
+      "intro": "Share the role, team or project context in a few lines. Submitting opens your email app with a ready-to-send draft — no form data is stored on this website.",
       "nameLabel": "Name",
       "namePlaceholder": "Your name",
       "emailLabel": "Email",
@@ -298,7 +299,7 @@
       "messagePlaceholder": "What is this about? (role, timeline, team, next steps)"
     },
     "submit": {
-      "idle": "Send message",
+      "idle": "Open email draft",
       "sending": "Sending ...",
       "successTitle": "Thanks for your message",
       "successText": "Your message has been delivered. I usually reply within 24 hours.",

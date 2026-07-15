@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { ProjectCaseStudy } from "@/components/project-case-study";
 import {
   absoluteUrl,
   localeToLanguageTag,
@@ -221,6 +222,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
         <KIBewerbungshelferDemo locale={safeLocale} />
+        <ProjectCaseStudy locale={safeLocale} slug="ki-bewerbungshelfer" />
       </>
     );
   }
@@ -230,6 +232,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
         <MietpreiseTrackerDemo locale={safeLocale} />
+        <ProjectCaseStudy locale={safeLocale} slug="mietpreise-tracker" />
       </>
     );
   }
@@ -239,6 +242,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
         <SmartChatDemo locale={safeLocale} />
+        <ProjectCaseStudy locale={safeLocale} slug="smartchat" />
       </>
     );
   }
@@ -248,6 +252,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
         <DevDashDemo locale={safeLocale} />
+        <ProjectCaseStudy locale={safeLocale} slug="devdash" />
       </>
     );
   }

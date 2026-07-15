@@ -12,13 +12,13 @@ const copy = {
     badge: "Ausbildung Portfolio 2026",
     title: "Oleksandr",
     subtitle: "Angehender Fachinformatiker für Anwendungsentwicklung",
-    points: "Next.js · TypeScript · Performance · Accessibility",
+    points: "KI-Agenten · Automatisierung · Webentwicklung",
   },
   en: {
     badge: "Ausbildung Portfolio 2026",
     title: "Oleksandr",
     subtitle: "Aspiring Fachinformatiker (Application Development, AE)",
-    points: "Next.js · TypeScript · Performance · Accessibility",
+    points: "AI agents · Automation · Web development",
   },
 } as const;
 

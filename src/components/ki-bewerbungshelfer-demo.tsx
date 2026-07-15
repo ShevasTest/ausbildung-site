@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { decodeLlmLabel } from "@/lib/llm-label";
+import { extractCompany, extractRole } from "@/lib/vacancy-analysis";
 
 type LocaleKey = "de" | "en";
 type FocusKey = "frontend" | "fullstack" | "teamfit" | "ai";
@@ -45,6 +47,8 @@ type DemoCopy = {
     toneLabel: string;
     modelLabel: string;
     modelHint: string;
+    modelLoading: string;
+    modelUnavailable: string;
     strengthsLabel: string;
     strengthsHint: string;
     generate: string;
@@ -76,8 +80,10 @@ type DemoCopy = {
     noKeywords: string;
   };
   footerNote: string;
+  footerNoteAvailable: string;
   footerNoteLive: string;
   aiModeNote: string;
+  aiModeNoteAvailable: string;
   aiModeNoteLive: string;
   statusLive: string;
   statusDemo: string;
@@ -113,7 +119,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     subtitle:
       "Stellenanzeige einfügen, Fokus setzen, Anschreiben generieren. Die Ausgabe kommt als Streaming-Text von einem echten Sprachmodell über eine eigene Server-Route — ohne konfigurierten API-Key läuft automatisch ein lokaler Demo-Modus.",
     back: "Zurück zur Startseite",
-    chips: ["Streaming Output", "HR-taugliche Formulierungen", "Echte KI · Demo-Fallback"],
+    chips: ["Streaming-Ausgabe", "HR-taugliche Formulierungen", "Echte KI · Demo-Fallback"],
     input: {
       title: "Stellenanzeige einfügen",
       hint: "Verwenden Sie den Originaltext der Ausschreibung. Der Helfer extrahiert Rolle, Keywords und passende Argumentation.",
@@ -125,6 +131,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       toneLabel: "Ton",
       modelLabel: "KI-Modell",
       modelHint: "Kostenlose Modelle — die Liste passt sich automatisch an die aktuell verfügbaren Modelle an.",
+      modelLoading: "Verfügbare KI-Modelle werden geladen …",
+      modelUnavailable: "Lokaler Demo-Modus · Groq/OpenRouter nicht konfiguriert",
       strengthsLabel: "Persönliche Stärken hervorheben",
       strengthsHint: "Maximal 3 auswählen",
       nameLabel: "Ihr Name",
@@ -162,19 +170,22 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     footerNote:
       "Hinweis: Aktuell läuft der lokale Demo-Modus (kein API-Key auf dem Server konfiguriert). Aufbau, Streaming und Analyse funktionieren identisch — mit API-Key schreibt ein echtes Sprachmodell.",
+    footerNoteAvailable:
+      "Hinweis: Live-Modelle sind verfügbar. Bei der Generierung wird das ausgewählte Modell über eine Server-Route mit Rate-Limit verwendet. Bitte prüfen Sie den Text vor dem Versand und geben Sie keine sensiblen Daten ein.",
     footerNoteLive:
       "Hinweis: Das Anschreiben wird von einem echten Sprachmodell über eine Server-Route mit Rate-Limit generiert. Bitte prüfen Sie den Text vor dem Versand und geben Sie keine sensiblen Daten ein.",
     aiModeNote: "KI-Modus: Lokaler Demo-Generator (kein externes LLM)",
+    aiModeNoteAvailable: "KI-Modus: Live-Modelle verfügbar",
     aiModeNoteLive: "KI-Modus: Live — echtes Sprachmodell über Server-Route",
     statusLive: "Live-KI",
     statusDemo: "Demo-Modus",
     presets: [
       {
         id: "preset-startup-frontend",
-        label: "Startup Frontend (Berlin)",
+        label: "Start-up Frontend (Berlin)",
         focus: "frontend",
         text:
-          "Ein Berliner SaaS-Startup sucht zum 01.08.2026 eine/n Auszubildende/n Fachinformatiker/in für Anwendungsentwicklung (m/w/d). Du entwickelst im Frontend-Team Features mit React, Next.js und TypeScript, arbeitest eng mit Product/Design zusammen und verbesserst UX sowie Ladezeiten.",
+          "Ein Berliner SaaS-Start-up sucht zum 01.08.2026 Auszubildende (m/w/d) zum Fachinformatiker für Anwendungsentwicklung. Du entwickelst im Frontend-Team Features mit React, Next.js und TypeScript, arbeitest eng mit Product und Design zusammen und verbesserst UX sowie Ladezeiten.",
       },
       {
         id: "preset-corporate-it",
@@ -220,17 +231,17 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
       {
         value: "fullstack",
-        label: "Full-Stack Orientierung",
+        label: "Full-Stack-Orientierung",
         hint: "API-Denken, Datenfluss, saubere Schnittstellen",
       },
       {
         value: "teamfit",
-        label: "Teamfit & Ausbildung",
+        label: "Team-Fit & Ausbildung",
         hint: "Lernkurve, Zuverlässigkeit, Zusammenarbeit",
       },
       {
         value: "ai",
-        label: "AI-Produktivität",
+        label: "KI-Produktivität",
         hint: "Automatisierung, strukturierte Prompt-Workflows",
       },
     ],
@@ -260,13 +271,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     ],
     focusParagraphs: {
       frontend:
-        "Ich sammle aktuell praktische Erfahrung in der Umsetzung responsiver Frontend-Lösungen mit Next.js und TypeScript. Dabei achte ich auf Accessibility, Performance und eine klare Informationsarchitektur.",
+        "Ich bringe Grundlagen in HTML, CSS, JavaScript und React aus strukturiertem Selbststudium mit. Moderne Next.js- und TypeScript-Projekte setze ich überwiegend KI-gestützt um und überprüfe das Ergebnis mit Tests, Build-Checks und manueller Qualitätskontrolle.",
       fullstack:
-        "Neben der UI-Umsetzung denke ich Schnittstellen und Datenfluss mit. In Projekten habe ich API-Integrationen, Validierung und wartbare Strukturierung von Frontend- und Backend-Logik kombiniert.",
+        "Meine praktische Stärke liegt in Automatisierung, API-Integrationen und klaren Datenflüssen. Ich kann Anforderungen zerlegen, passende Tools verbinden und eine Lösung iterativ bis zu einem funktionierenden Ergebnis führen.",
       teamfit:
         "Ich suche bewusst ein Ausbildungsteam, bei dem ich strukturiert Verantwortung übernehme, Feedback schnell in bessere Lösungen übersetze und mich fachlich wie menschlich weiterentwickle.",
       ai:
-        "Ich nutze KI-Tools produktiv und verantwortungsvoll: für Recherche, Strukturierung und schnellere Iteration — immer mit klarer Qualitätskontrolle im finalen Code.",
+        "Seit rund vier Jahren arbeite ich täglich mit KI und Agenten. Ich plane mehrstufige Workflows, steuere Kontext und Tools und behandle die Ausgabe nicht als Blackbox: Ergebnisse werden getestet, hinterfragt und iterativ verbessert.",
     },
     toneOpeners: {
       professional:
@@ -278,7 +289,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     strengthSentences: {
       initiative:
-        "Eigeninitiative zeige ich durch konsequentes Selbststudium und die eigenständige Umsetzung kompletter Projektmodule.",
+        "Eigeninitiative zeige ich durch vier Jahre tägliche Projektpraxis sowie mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen.",
       learning:
         "Neue Technologien und Arbeitsweisen eigne ich mir schnell an und setze Feedback direkt in konkrete Verbesserungen um.",
       structure:
@@ -307,6 +318,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       toneLabel: "Tone",
       modelLabel: "AI model",
       modelHint: "Free models — the list adapts automatically to what is currently available.",
+      modelLoading: "Loading available AI models …",
+      modelUnavailable: "Local demo mode · Groq/OpenRouter not configured",
       strengthsLabel: "Highlight strengths",
       strengthsHint: "Select up to 3",
       nameLabel: "Your name",
@@ -344,9 +357,12 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     footerNote:
       "Note: the local demo mode is active (no API key configured on the server). Structure, streaming and analysis behave identically — with an API key a real language model writes the letter.",
+    footerNoteAvailable:
+      "Note: live models are available. Generation uses the selected model through a rate-limited server route. Review the result before sending and do not enter sensitive data.",
     footerNoteLive:
       "Note: the cover letter is generated by a real language model through a rate-limited server route. Please review the text before sending and do not enter sensitive data.",
     aiModeNote: "AI mode: local demo generator (no external LLM)",
+    aiModeNoteAvailable: "AI mode: live models available",
     aiModeNoteLive: "AI mode: live — real language model via server route",
     statusLive: "Live AI",
     statusDemo: "Demo mode",
@@ -442,13 +458,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     ],
     focusParagraphs: {
       frontend:
-        "I am currently building practical experience in responsive frontend solutions with Next.js and TypeScript, with clear attention to accessibility, performance and hierarchy.",
+        "I have foundations in HTML, CSS, JavaScript and React from structured self-study. I build modern Next.js and TypeScript projects mainly with AI assistance and verify the result through tests, build checks and manual quality control.",
       fullstack:
-        "Beyond UI delivery, I think in APIs and data flow. In projects, I combine integration work, validation and maintainable frontend/backend structures.",
+        "My practical strength lies in automation, API integrations and clear data flows. I can break down requirements, connect suitable tools and guide a solution iteratively to a functional result.",
       teamfit:
         "I am intentionally looking for an Ausbildung team where I can take ownership early, turn feedback into better solutions quickly and grow in a structured environment.",
       ai:
-        "I use AI tools productively and responsibly for research, structuring and faster iteration, always with strict quality checks before final delivery.",
+        "I have worked with AI and agents every day for around four years. I plan multi-step workflows, manage context and tools, and do not treat output as a black box: results are tested, questioned and improved iteratively.",
     },
     toneOpeners: {
       professional:
@@ -459,7 +475,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     strengthSentences: {
       initiative:
-        "I show initiative through disciplined self-learning and independent delivery of complete project modules.",
+        "I demonstrate initiative through four years of daily project practice, more than 20 personal projects and over 100 scripts and automations.",
       learning:
         "I learn new technologies quickly and turn feedback into concrete improvements without delay.",
       structure:
@@ -501,62 +517,6 @@ const KEYWORD_LIBRARY: KeywordEntry[] = [
   { match: "python", labelDe: "Python", labelEn: "Python" },
   { match: "node", labelDe: "Node.js", labelEn: "Node.js" },
 ];
-
-function normalizeCompany(rawValue: string) {
-  return rawValue
-    .replace(/[|,;:\n]/g, " ")
-    .replace(/\s+/g, " ")
-    .replace(/[.!?]$/, "")
-    .trim();
-}
-
-function extractCompany(vacancyText: string) {
-  const patterns = [
-    /(?:bei|für)\s+([A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9&.\- ]{2,42})/i,
-    /(?:unternehmen|arbeitgeber)\s*[:\-]\s*([A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9&.\- ]{2,42})/i,
-    /([A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9&.\- ]{2,42})\s+(?:sucht|stellt ein|sucht zum)/i,
-  ];
-
-  for (const pattern of patterns) {
-    const match = vacancyText.match(pattern);
-    if (!match?.[1]) {
-      continue;
-    }
-
-    const normalized = normalizeCompany(match[1]);
-    if (normalized.length > 1) {
-      return normalized;
-    }
-  }
-
-  return "";
-}
-
-function extractRole(vacancyText: string, fallbackRole: string) {
-  const text = vacancyText.toLowerCase();
-
-  if (text.includes("fachinformatiker") && text.includes("anwendungsentwicklung")) {
-    return "Fachinformatiker/in für Anwendungsentwicklung (m/w/d)";
-  }
-
-  if (text.includes("frontend")) {
-    return "Frontend Developer / Frontend-Ausbildung (m/w/d)";
-  }
-
-  if (text.includes("fullstack") || text.includes("full-stack")) {
-    return "Full-Stack Developer (m/w/d)";
-  }
-
-  if (text.includes("ausbildung") && text.includes("software")) {
-    return "Ausbildung im Bereich Softwareentwicklung (m/w/d)";
-  }
-
-  if (text.includes("softwareentwickler") || text.includes("software developer")) {
-    return "Software Developer (m/w/d)";
-  }
-
-  return fallbackRole;
-}
 
 function extractKeywords(vacancyText: string, localeKey: LocaleKey) {
   const lowered = vacancyText.toLowerCase();
@@ -633,7 +593,7 @@ function buildGermanLetter(params: {
     "Mit freundlichen Grüßen",
     applicantName,
     "",
-    "Anlagen: Lebenslauf, Zeugnisse",
+    "Anlage: Lebenslauf",
   ].join("\n");
 }
 
@@ -695,7 +655,7 @@ function buildEnglishLetter(params: {
 
 function createAnalysis(copy: DemoCopy, vacancyText: string, focus: FocusKey, localeKey: LocaleKey): VacancyAnalysis {
   const company = extractCompany(vacancyText) || copy.analysis.unknownCompany;
-  const role = extractRole(vacancyText, copy.analysis.fallbackRole);
+  const role = extractRole(vacancyText, copy.analysis.fallbackRole, localeKey);
   const keywords = extractKeywords(vacancyText, localeKey);
 
   const argumentLabel =
@@ -734,6 +694,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   const [isLiveRun, setIsLiveRun] = useState(false);
   const [models, setModels] = useState<AvailableModel[]>([]);
   const [selectedModel, setSelectedModel] = useState("");
+  const [modelsLoading, setModelsLoading] = useState(true);
 
   const streamTimerRef = useRef<number | null>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -750,7 +711,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/models")
+    fetch("/api/models", { cache: "no-store" })
       .then((response) => (response.ok ? response.json() : null))
       .then((data: { models?: AvailableModel[] } | null) => {
         if (cancelled || !data?.models || data.models.length === 0) {
@@ -761,6 +722,11 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
       })
       .catch(() => {
         // Without a model list the demo silently stays in local mode.
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setModelsLoading(false);
+        }
       });
 
     return () => {
@@ -935,7 +901,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
       }
 
       setEngineMode("live");
-      setEngineLabel(response.headers.get("X-Llm-Label") ?? "");
+      setEngineLabel(decodeLlmLabel(response.headers.get("X-Llm-Label")));
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
@@ -1100,7 +1066,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
                 >
                   <p className="text-sm font-semibold text-foreground">{preset.label}</p>
                   <p className="mt-1 break-words text-xs leading-relaxed text-muted">
-                    {preset.text.slice(0, 120)}...
+                    {preset.text}
                   </p>
                 </button>
               ))}
@@ -1139,25 +1105,30 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             </label>
           </div>
 
-          {models.length > 0 ? (
-            <div className="mt-5">
-              <label className="text-sm font-semibold text-foreground">
-                {copy.input.modelLabel}
-                <select
-                  value={selectedModel}
-                  onChange={(event) => setSelectedModel(event.target.value)}
-                  className="contact-field mt-2 w-full rounded-2xl px-3 py-2.5 text-sm"
-                >
-                  {models.map((model) => (
+          <div className="mt-5">
+            <label className="text-sm font-semibold text-foreground">
+              {copy.input.modelLabel}
+              <select
+                value={models.length > 0 ? selectedModel : modelsLoading ? "loading" : "demo"}
+                onChange={(event) => setSelectedModel(event.target.value)}
+                disabled={models.length === 0}
+                className="contact-field mt-2 w-full rounded-2xl px-3 py-2.5 text-sm disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {models.length > 0 ? (
+                  models.map((model) => (
                     <option key={model.id} value={model.id}>
                       {model.label}
                     </option>
-                  ))}
-                </select>
-              </label>
-              <p className="mt-1.5 text-xs text-muted">{copy.input.modelHint}</p>
-            </div>
-          ) : null}
+                  ))
+                ) : (
+                  <option value={modelsLoading ? "loading" : "demo"}>
+                    {modelsLoading ? copy.input.modelLoading : copy.input.modelUnavailable}
+                  </option>
+                )}
+              </select>
+            </label>
+            <p className="mt-1.5 text-xs text-muted">{copy.input.modelHint}</p>
+          </div>
 
           <div className="mt-5">
             <p className="text-sm font-semibold text-foreground">{copy.input.strengthsLabel}</p>
@@ -1307,10 +1278,22 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
 
       <div className="mt-5 space-y-1.5">
         <p className="text-xs leading-relaxed text-muted">
-          {engineMode === "live" ? copy.footerNoteLive : copy.footerNote}
+          {engineMode === "live"
+            ? copy.footerNoteLive
+            : modelsLoading
+              ? copy.input.modelLoading
+            : engineMode === "demo" || (!modelsLoading && models.length === 0)
+              ? copy.footerNote
+              : copy.footerNoteAvailable}
         </p>
         <p className="text-xs font-semibold text-primary">
-          {engineMode === "live" ? copy.aiModeNoteLive : copy.aiModeNote}
+          {engineMode === "live"
+            ? copy.aiModeNoteLive
+            : modelsLoading
+              ? copy.input.modelLoading
+            : engineMode === "demo" || (!modelsLoading && models.length === 0)
+              ? copy.aiModeNote
+              : copy.aiModeNoteAvailable}
         </p>
       </div>
     </main>

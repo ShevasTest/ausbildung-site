@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { resolveModelChain, streamWithFallback } from "@/lib/llm";
+import { encodeLlmLabel } from "@/lib/llm-label";
 import { clientIpFrom, isRateLimited } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
@@ -59,8 +60,8 @@ function buildSystemPrompt(locale: "de" | "en"): string {
     return [
       "Du bist ein erfahrener Bewerbungscoach für den deutschen Ausbildungsmarkt.",
       "Du schreibst Anschreiben für Oleksandr (angehender Fachinformatiker für Anwendungsentwicklung):",
-      "Quereinsteiger mit diszipliniertem Selbststudium, praktischer Erfahrung mit HTML/CSS, JavaScript/TypeScript, React und Next.js, eigenem Portfolio mit lauffähigen Projekten, produktivem Umgang mit KI-Tools, Deutsch B1 (aktiv Richtung B2).",
-      "Regeln: Erfinde keine Abschlüsse, Zeugnisse oder Berufserfahrung. Bleibe bei diesem Profil.",
+      "Quereinsteiger mit Frontend-Grundlagen aus strukturiertem Selbststudium (HTML/CSS, JavaScript und React-Basics) und rund vier Jahren täglicher KI-gestützter Projektpraxis. Mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen; besondere Stärke in KI-Agenten, Aufgabenzerlegung, API-/Tool-Workflows, Testen und Iteration. Moderne TypeScript-/Next.js-Projekte wurden überwiegend mit KI-Unterstützung umgesetzt. Deutsch B1 (aktiv Richtung B2).",
+      "Regeln: Erfinde keine Abschlüsse, Zeugnisse, Berufserfahrung oder selbstständige Framework-Expertise. Stelle KI-Kompetenz konkret und verantwortungsvoll dar und bleibe bei diesem Profil.",
       "Struktur: Betreffzeile, Anrede, Einstieg mit Bezug zur Stelle, 2–3 Absätze Passung/Motivation, Abschluss mit Gesprächswunsch, Grußformel.",
       "Länge: 220–320 Wörter. Sprache: Deutsch. Keine Markdown-Formatierung, nur reiner Brieftext.",
     ].join(" ");
@@ -69,8 +70,8 @@ function buildSystemPrompt(locale: "de" | "en"): string {
   return [
     "You are an experienced application coach for the German apprenticeship market.",
     "You write cover letters for Oleksandr (aspiring Fachinformatiker für Anwendungsentwicklung):",
-    "career changer with disciplined self-study, hands-on experience in HTML/CSS, JavaScript/TypeScript, React and Next.js, a portfolio of working projects, productive use of AI tools, German level B1 (working towards B2).",
-    "Rules: never invent degrees, certificates or work experience. Stay within this profile.",
+    "career changer with frontend foundations from structured self-study (HTML/CSS, JavaScript and React basics) and around four years of daily AI-assisted project practice. More than 20 personal projects and over 100 scripts and automations; particular strength in AI agents, task decomposition, API/tool workflows, testing and iteration. Modern TypeScript/Next.js projects were built mainly with AI assistance. German level B1 (working towards B2).",
+    "Rules: never invent degrees, certificates, work experience or independent framework expertise. Present AI ability concretely and responsibly, and stay within this profile.",
     "Structure: subject line, salutation, opening tied to the vacancy, 2–3 paragraphs on fit/motivation, closing with interview interest, sign-off.",
     "Length: 220–320 words. Language: English. No markdown formatting, plain letter text only.",
   ].join(" ");
@@ -158,7 +159,7 @@ export async function POST(request: Request) {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "no-store",
       "X-Accel-Buffering": "no",
-      "X-Llm-Label": result.model.label,
+      "X-Llm-Label": encodeLlmLabel(result.model.label),
       "X-Llm-Model": result.model.id,
     },
   });

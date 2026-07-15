@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
+import { decodeLlmLabel } from "@/lib/llm-label";
 
 type LocaleKey = "de" | "en";
 type StyleKey = "direkt" | "strukturiert" | "kompakt";
@@ -110,7 +111,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       assistantLabel: "SmartChat",
       userLabel: "Sie",
       welcomeMessage:
-        "Hallo! Ich bin **SmartChat** — der Assistent in diesem Portfolio.\n\n- Stellen Sie eine Frage zu Webentwicklung, TypeScript oder Bewerbung.\n- Ich antworte mit **Streaming-Ausgabe** und `Markdown` inklusive Codeblöcken.\n- Ihr Verlauf bleibt lokal in Ihrem Browser.\n\nTipp: Fragen Sie z. B. nach einer Next.js-Komponente oder einer kurzen Architektur-Idee.",
+        "Hallo! Ich bin **SmartChat** — der KI-Assistent in diesem Portfolio.\n\n- Fragen Sie in Ihrer bevorzugten Sprache nach Oleksandr, den Projekten, Entwicklung, Bewerbung oder allgemeinen Themen.\n- Ich antworte mit **Streaming-Ausgabe** und `Markdown` inklusive Codeblöcken.\n- Ihr Verlauf bleibt lokal in Ihrem Browser.\n\nHinweis: Ich habe keinen Live-Zugriff auf Websuche, Wetter, Nachrichten oder Kurse und kennzeichne solche Grenzen offen.",
       typing: "Antwort wird gestreamt ...",
       emptyTitle: "Noch keine Nachrichten",
       emptyText: "Starten Sie links eine neue Unterhaltung und schicken Sie rechts Ihre erste Nachricht.",
@@ -124,7 +125,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     composer: {
       placeholder:
-        "Fragen Sie etwas Konkretes: z. B. \"Wie baue ich Streaming-UI in Next.js?\"",
+        "Fragen Sie etwas — gern auch in einer anderen Sprache ...",
       send: "Senden",
       sending: "Streaming ...",
       stop: "Stoppen",
@@ -132,9 +133,9 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     quickPromptsTitle: "Schnellstarts",
     quickPrompts: [
-      "Gib mir ein TypeScript-Beispiel für einen Streaming-Chat in React.",
+      "Was ist Oleksandrs stärkste technische Kompetenz?",
       "Wie erkläre ich Eigeninitiative im Vorstellungsgespräch auf Deutsch?",
-      "Entwirf eine klare Architektur für Chat-Verlauf + Antwortstile.",
+      "Wie funktioniert das Streaming technisch in diesem Chat?",
       "Welche 3 UX-Details machen einen Chat wie ChatGPT professionell?",
     ],
     footerNoteLive:
@@ -186,7 +187,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       assistantLabel: "SmartChat",
       userLabel: "You",
       welcomeMessage:
-        "Hi! I am **SmartChat** — the assistant inside this portfolio.\n\n- Ask a question about web development, TypeScript or job applications.\n- I answer with **streaming output** and `Markdown` including code blocks.\n- Your history stays local in your browser.\n\nTip: ask for a Next.js component or a short architecture proposal.",
+        "Hi! I am **SmartChat** — the AI assistant inside this portfolio.\n\n- Ask in your preferred language about Oleksandr, the projects, development, applications or general topics.\n- I answer with **streaming output** and `Markdown` including code blocks.\n- Your history stays local in your browser.\n\nNote: I have no live access to web search, weather, news or prices and will state those limits clearly.",
       typing: "Streaming response ...",
       emptyTitle: "No messages yet",
       emptyText: "Create a thread on the left and send your first message.",
@@ -199,7 +200,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
         "**Short break:** the request limit was just reached. Please try again in a minute.",
     },
     composer: {
-      placeholder: "Ask something specific, e.g. \"How do I build streaming UI in Next.js?\"",
+      placeholder: "Ask anything — in your preferred language ...",
       send: "Send",
       sending: "Streaming ...",
       stop: "Stop",
@@ -207,9 +208,9 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     quickPromptsTitle: "Quick starters",
     quickPrompts: [
-      "Show me a TypeScript example for a streaming chat in React.",
+      "What is Oleksandr's strongest technical skill?",
       "How can I explain initiative in a German Ausbildung interview?",
-      "Design a clean architecture for history + answer styles.",
+      "How exactly does streaming work in this chat?",
       "Which 3 UX details make a chat app feel professional?",
     ],
     footerNoteLive:
@@ -291,11 +292,7 @@ function createId(prefix: string) {
 
 function createThreadTitle(prompt: string, fallback: string) {
   const normalized = prompt.replace(/\s+/g, " ").trim();
-  if (!normalized) {
-    return fallback;
-  }
-
-  return normalized.length > 44 ? `${normalized.slice(0, 43)}…` : normalized;
+  return normalized || fallback;
 }
 
 function createInitialThread(copy: DemoCopy): ChatThread {
@@ -659,7 +656,7 @@ function summarizePrompt(prompt: string) {
     return "";
   }
 
-  return normalized.length > 95 ? `${normalized.slice(0, 94)}…` : normalized;
+  return normalized;
 }
 
 function buildGermanReply(params: { prompt: string; style: StyleOption }) {
@@ -749,7 +746,7 @@ ${style.voice}
 - **Teamwert:** zeigen, wie deine Arbeitsweise einem Ausbildungsteam hilft.
 
 ### Beispiel-Formulierung
-"Ich habe mir Frontend-Entwicklung im Selbststudium aufgebaut und kleinere bis mittlere Projektmodule umgesetzt — inklusive responsiver UI, sauberem TypeScript und Performance-Checks. Damit bringe ich nicht nur Lernbereitschaft, sondern erste praxisnahe Erfahrung in ein Ausbildungsteam mit."
+"Ich habe mir die Frontend-Grundlagen im Selbststudium aufgebaut und arbeite seit rund vier Jahren täglich an KI-gestützten Software- und Automatisierungsprojekten. Meine besondere Stärke ist, komplexe Aufgaben zu zerlegen, Agenten gezielt zu steuern und Ergebnisse systematisch zu testen. In der Ausbildung möchte ich diese Umsetzungspraxis mit fundierter Softwareentwicklung im Team verbinden."
 
 ### Nächster Schritt
 - Verbinde diese Aussage mit 1–2 konkreten Portfolio-Projekten.
@@ -857,7 +854,7 @@ ${style.voice}
 - **Team value:** show how your workflow helps an Ausbildung team.
 
 ### Example phrasing
-"I built my frontend foundation through structured self-learning and delivered small to medium project modules with responsive UI, clean TypeScript and performance checks. This means I bring not only motivation, but also first practical implementation experience to an Ausbildung team."
+"I built my frontend foundations through structured self-study and have worked on AI-assisted software and automation projects every day for around four years. My particular strength is breaking down complex tasks, orchestrating agents deliberately and testing results systematically. During an Ausbildung, I want to combine this delivery practice with sound software development in a team."
 
 ### Next step
 - Link this statement to 1–2 portfolio projects.
@@ -882,6 +879,14 @@ ${style.voice}
 }
 
 function buildMockReply(params: { localeKey: LocaleKey; prompt: string; style: StyleOption }) {
+  if (/[іїєґ]/iu.test(params.prompt)) {
+    return "**Локальний демо-режим**\n\nСерверна ШІ-модель зараз недоступна, тому змістовна відповідь обмежена. Інтерфейс, історія та потокове відображення продовжують працювати. Спробуйте ще раз трохи пізніше.";
+  }
+
+  if (/[\u0400-\u04ff]/u.test(params.prompt)) {
+    return "**Локальный демо-режим**\n\nСерверная ИИ-модель сейчас недоступна, поэтому содержательный ответ ограничен. Интерфейс, история и потоковое отображение продолжают работать. Попробуйте ещё раз немного позже.";
+  }
+
   if (params.localeKey === "de") {
     return buildGermanReply({ prompt: params.prompt, style: params.style });
   }
@@ -964,14 +969,25 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
         const storedThreads = Array.isArray(parsed.threads)
           ? parsed.threads.filter(isStoredThread)
           : [];
+        const restoredThreads = storedThreads.map((thread) => {
+          const firstUserMessage = thread.messages.find((message) => message.role === "user");
+          if (!thread.title.endsWith("…") || !firstUserMessage) {
+            return thread;
+          }
 
-        if (storedThreads.length > 0) {
-          setThreads(storedThreads);
+          return {
+            ...thread,
+            title: createThreadTitle(firstUserMessage.content, copy.sidebar.untitled),
+          };
+        });
+
+        if (restoredThreads.length > 0) {
+          setThreads(restoredThreads);
           const storedActive =
             typeof parsed.activeThreadId === "string" &&
-            storedThreads.some((thread) => thread.id === parsed.activeThreadId)
+            restoredThreads.some((thread) => thread.id === parsed.activeThreadId)
               ? parsed.activeThreadId
-              : storedThreads[0].id;
+              : restoredThreads[0].id;
           setActiveThreadId(storedActive);
         }
       }
@@ -980,7 +996,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
     }
 
     setIsHydrated(true);
-  }, [storageKey]);
+  }, [storageKey, copy.sidebar.untitled]);
 
   useEffect(() => {
     if (!isHydrated) {
@@ -1018,6 +1034,11 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
   const latestMessage = activeThread?.messages[activeThread.messages.length - 1] ?? null;
   const latestLength = latestMessage?.content.length ?? 0;
   const messagesCount = activeThread?.messages.length ?? 0;
+  const userPromptCount = activeThread?.messages.filter((message) => message.role === "user").length ?? 0;
+  const userPromptCountLabel =
+    localeKey === "de"
+      ? `${userPromptCount} ${userPromptCount === 1 ? "Eingabe" : "Eingaben"}`
+      : `${userPromptCount} ${userPromptCount === 1 ? "prompt" : "prompts"}`;
 
   useEffect(() => {
     const container = messagesRef.current;
@@ -1040,7 +1061,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/models")
+    fetch("/api/models", { cache: "no-store" })
       .then((response) => (response.ok ? response.json() : null))
       .then((data: { models?: Array<{ id: string; label: string }> } | null) => {
         if (cancelled || !data?.models || data.models.length === 0) {
@@ -1171,7 +1192,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
       }
 
       setEngineMode("live");
-      setEngineLabel(response.headers.get("X-Llm-Label") ?? "");
+      setEngineLabel(decodeLlmLabel(response.headers.get("X-Llm-Label")));
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
@@ -1454,8 +1475,11 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
             {sortedThreads.map((thread) => {
               const isActive = thread.id === activeThread.id;
               const lastMessage = thread.messages[thread.messages.length - 1];
-              const preview =
-                lastMessage?.content.trim() || (lastMessage?.isStreaming ? copy.chat.typing : "...");
+              const threadStatus = lastMessage?.isStreaming
+                ? copy.chat.typing
+                : localeKey === "de"
+                  ? `${thread.messages.length} ${thread.messages.length === 1 ? "Nachricht" : "Nachrichten"}`
+                  : `${thread.messages.length} ${thread.messages.length === 1 ? "message" : "messages"}`;
 
               return (
                 <li key={thread.id}>
@@ -1474,13 +1498,15 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
                         : "border-border bg-background/75"
                     }`}
                   >
-                    <div className="flex items-center justify-between gap-2">
-                      <p className="line-clamp-1 text-sm font-semibold text-foreground">{thread.title}</p>
-                      <span className="text-[11px] text-muted">
+                    <div className="flex items-start justify-between gap-2">
+                      <p className="min-w-0 text-sm font-semibold leading-snug text-foreground">
+                        {thread.title}
+                      </p>
+                      <span className="shrink-0 text-[11px] text-muted">
                         {relativeUpdatedLabel(thread.updatedAt, localeKey)}
                       </span>
                     </div>
-                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">{preview}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-muted">{threadStatus}</p>
                   </button>
                 </li>
               );
@@ -1508,7 +1534,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
                 </button>
               ) : null}
               <span className="rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-medium text-muted">
-                {activeThread.messages.filter((message) => message.role === "user").length} prompts
+                {userPromptCountLabel}
               </span>
             </div>
           </div>
@@ -1640,7 +1666,9 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
       </div>
 
       <p className="mt-5 text-xs leading-relaxed text-muted">
-        {engineMode === "live" ? copy.footerNoteLive : copy.footerNoteDemo}
+        {engineMode === "live" || (engineMode === "unknown" && models.length > 0)
+          ? copy.footerNoteLive
+          : copy.footerNoteDemo}
       </p>
     </main>
   );
