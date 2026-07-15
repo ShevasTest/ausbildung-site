@@ -24,7 +24,7 @@ export type LlmModel = {
   model: string;
 };
 
-const MODEL_CACHE_TTL_MS = 15 * 60 * 1000;
+const MODEL_CACHE_TTL_MS = 5 * 60 * 1000;
 const MAX_LISTED_MODELS = 10;
 
 let modelCache: { models: LlmModel[]; fetchedAt: number } | null = null;
@@ -105,13 +105,6 @@ function toModel(provider: ProviderKind, nativeId: string, name?: string): LlmMo
   };
 }
 
-const GROQ_STATIC_FALLBACK = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
-const OPENROUTER_STATIC_FALLBACK = [
-  "meta-llama/llama-3.3-70b-instruct:free",
-  "qwen/qwen3-next-80b-a3b-instruct:free",
-  "openai/gpt-oss-20b:free",
-];
-
 async function fetchGroqModels(): Promise<LlmModel[]> {
   const key = process.env.GROQ_API_KEY;
   if (!key) {
@@ -121,6 +114,7 @@ async function fetchGroqModels(): Promise<LlmModel[]> {
   try {
     const response = await fetch("https://api.groq.com/openai/v1/models", {
       headers: { Authorization: `Bearer ${key}` },
+      cache: "no-store",
       signal: AbortSignal.timeout(6_000),
     });
 
@@ -145,7 +139,7 @@ async function fetchGroqModels(): Promise<LlmModel[]> {
 
     return ids.map((id) => toModel("groq", id));
   } catch {
-    return GROQ_STATIC_FALLBACK.map((id) => toModel("groq", id));
+    return [];
   }
 }
 
@@ -164,6 +158,7 @@ async function fetchOpenRouterModels(): Promise<LlmModel[]> {
 
   try {
     const response = await fetch("https://openrouter.ai/api/v1/models", {
+      cache: "no-store",
       signal: AbortSignal.timeout(6_000),
     });
 
@@ -195,7 +190,7 @@ async function fetchOpenRouterModels(): Promise<LlmModel[]> {
         return toModel("openrouter", entry.id ?? "", cleanName);
       });
   } catch {
-    return OPENROUTER_STATIC_FALLBACK.map((id) => toModel("openrouter", id));
+    return [];
   }
 }
 

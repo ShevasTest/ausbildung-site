@@ -1,9 +1,9 @@
 {
   "Meta": {
     "title": "Developer Portfolio",
-    "description": "Portfolio of Oleksandr Shevchenko — Junior Web Developer focused on web development and AI-augmented workflow.",
-    "ogTitle": "Oleksandr Shevchenko | Junior Developer Portfolio",
-    "ogDescription": "Web apps, automations and AI-powered tools — built fast, shipped production-ready.",
+    "description": "Portfolio of Oleksandr — junior developer focused on AI agents, automation and verifiable web projects.",
+    "ogTitle": "Oleksandr | Junior Developer Portfolio",
+    "ogDescription": "Functional web projects focused on AI-assisted development, automation and verifiable quality.",
     "projectTitle": "Project: {slug}",
     "projectDescription": "Project details: goals, tech stack and implementation."
   },
@@ -19,64 +19,64 @@
     "theme": "Theme"
   },
   "Hero": {
-    "badge": "Junior Web Developer · AI-augmented workflow",
-    "kicker": "Open to work · Remote or on-site · Germany",
+    "badge": "Junior Developer · AI-assisted workflow",
+    "kicker": "Open to junior and entry-level roles",
     "titleLead": "I build",
     "rotatingWords": [
-      "web applications with AI assistance",
-      "automations and Telegram bots",
-      "AI-powered tools and APIs",
-      "fast prototypes that actually ship"
+      "software with AI and agents",
+      "automations and scripts",
+      "web projects from idea to demo",
+      "technical fundamentals through self-study"
     ],
-    "titleEnd": "and deliver working solutions — quickly and reliably.",
-    "subtitle": "Two years of hands-on AI-augmented development: from idea to build to deployment. I work across frontend, automation and APIs — with AI as a tool, not a crutch.",
+    "titleEnd": "and take ideas through to functional, verified results.",
+    "subtitle": "For around four years, I have programmed with AI every day, broken complex tasks into actionable steps and taken personal projects through to functional, tested results.",
     "points": [
-      "1st place among ~12,000 participants in the RS School / EPAM prep course",
-      "Frontend self-study via roadmap.sh (~80% complete, 2023–2024)",
-      "Real systems built: AI agents, Telegram bots, REST APIs, automation scripts",
-      "Deployed on own hardware (Orange Pi) and Vercel"
+      "More than 20 personal projects and over 100 scripts and automations",
+      "Confident use of AI agents, prompts, context and tool workflows",
+      "HTML, CSS, JavaScript and React foundations from structured self-study",
+      "Honest quality control through tests, reviews and traceable iteration"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "Shipped with AI",
-    "panelText": "Looking for a junior position where I can build real features, learn in a team and take on responsibility early.",
+    "panelTitle": "Strong AI practice. Ready for professional foundations.",
+    "panelText": "I can translate ideas into working solutions quickly. In a junior role, I want to bring this delivery ability into a professional team, learn clean development processes and take responsibility.",
     "stats": [
       {
-        "label": "Strength",
-        "value": "AI-augmented delivery"
+        "label": "Project focus",
+        "value": "20+ personal projects"
       },
       {
-        "label": "Languages",
-        "value": "German B1 · Ukrainian native · English basics"
+        "label": "Automation",
+        "value": "100+ scripts & workflows"
       },
       {
-        "label": "Availability",
-        "value": "Immediately · Remote or on-site"
+        "label": "Work style",
+        "value": "Agent orchestration · Testing · Iteration"
       }
     ]
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Self-taught · real projects · clear results",
-    "lead": "Career changer with a real track record: RS School top 1 among ~12,000, two years of hands-on AI-assisted development and a set of built and deployed systems.",
+    "eyebrow": "Four years of daily project practice",
+    "lead": "My strength is not one specific framework, but structured problem-solving with AI, agents and automation — from the first idea to a verified result.",
     "paragraphs": [
-      "My path into development started with a strong signal: after finishing my degree in Economic Cybernetics (ZAB-recognized bachelor), I placed 1st among roughly 12,000 participants in the RS School / EPAM prep course.",
-      "Instead of enrolling in the follow-up bootcamp, I chose self-directed learning — roadmap.sh (2023–2024) and from 2024 onwards an intensive AI-augmented workflow.",
-      "Today I build web apps, Telegram bots, REST APIs and automation systems — with AI as a tool. I understand what I build and can maintain and explain it."
+      "Around four years ago, I completed roughly 80 percent of the classical frontend roadmap on roadmap.sh. This gave me foundations in HTML, CSS, JavaScript and React, without presenting myself as a finished framework specialist.",
+      "Since then, I have programmed with AI every day. This work has produced more than 20 personal projects and over 100 scripts, integrations and automations. I clarify requirements, break down tasks, orchestrate agents, test results and improve them iteratively.",
+      "My particular strength is advanced work with AI agents and large development workflows. I am looking for a junior or entry-level role where I can combine this delivery ability with code reviews, teamwork and professional processes."
     ],
     "highlights": [
       {
-        "label": "Top performer",
-        "value": "1st place among ~12,000 participants in the RS School / EPAM prep course (2023)."
+        "label": "Initiative",
+        "value": "I have worked on personal software and automation tasks every day for around four years."
       },
       {
-        "label": "AI-augmented delivery",
-        "value": "Frontend, APIs, bots, automations — I take projects from idea to deployment."
+        "label": "Technical foundation",
+        "value": "HTML, CSS, JavaScript and React foundations from structured self-study."
       },
       {
-        "label": "AI as a tool",
-        "value": "I use Claude Code and ChatGPT as productivity multipliers — not as a replacement for understanding."
+        "label": "AI & agent workflows",
+        "value": "I plan multi-step agent tasks, manage context and tools, and verify results systematically."
       },
       {
         "label": "Available now",
@@ -85,21 +85,21 @@
     ],
     "motivationTitle": "What a team gets from me",
     "motivationPoints": [
-      "I deliver working solutions — no perfectionism at the expense of shipping.",
-      "I learn fast, ask when I'm stuck, and communicate clearly about my current level.",
-      "AI-augmented workflow is my default: I ship faster than a classic junior and I'm honest about what I know and don't know."
+      "I turn unclear requirements into concrete work packages and functioning prototypes.",
+      "I do not treat AI as a black box: results are tested, questioned and improved iteratively.",
+      "I communicate knowledge gaps honestly and want to learn sound technical foundations from experienced developers."
     ],
     "profile": {
       "badge": "Profile",
       "name": "Oleksandr Shevchenko",
       "role": "Junior Web Developer",
       "initials": "OS",
-      "placeholder": "Photo coming soon",
-      "caption": "Career changer with proven learning speed, real shipped projects and an AI-augmented workflow.",
+      "placeholder": "Photo placeholder",
+      "caption": "Four years of daily delivery with AI and agents, combined with a clear goal to deepen technical foundations professionally within a team.",
       "facts": [
-        "Location: Germany · Remote or on-site",
-        "Languages: German B1 · Ukrainian native · English basics",
-        "Stack: HTML/CSS · JavaScript · Python · REST APIs · Telegram Bot API"
+        "Location: Germany · open to junior and entry-level roles",
+        "Languages: German B1 (actively improving to B2) · English A2 (actively improving)",
+        "Focus: AI agents · Automation · Web development · Technical foundations"
       ]
     }
   },
@@ -138,61 +138,72 @@
   "Skills": {
     "title": "Skills",
     "eyebrow": "Tools & knowledge",
-    "intro": "Technologies and tools I currently use while learning and building first projects.",
-    "legend": "Self-assessment based on my current hands-on practice",
+    "intro": "My profile combines strong AI and automation practice with deliberately honest web fundamentals.",
+    "legend": "Self-assessment based on my actual daily practice",
     "groups": [
       {
         "name": "Frontend",
-        "description": "HTML, CSS, JavaScript, React — self-taught and used in real projects",
-        "level": 60,
-        "levelLabel": "Solid foundations, production-ready",
+        "description": "Foundations from the frontend roadmap; I build modern framework projects mainly with AI assistance",
+        "level": 38,
+        "levelLabel": "Foundations in place, framework knowledge improving",
         "items": [
           "HTML & CSS",
-          "JavaScript (ES6+)",
-          "TypeScript (basics)",
-          "React",
+          "JavaScript (foundation)",
+          "React (basics)",
+          "Next.js (first projects)",
           "Tailwind CSS"
         ]
       },
       {
-        "name": "Backend & APIs",
-        "description": "REST APIs, Telegram bots, Python scripts — built and deployed",
-        "level": 45,
-        "levelLabel": "Functional, real projects shipped",
+        "name": "Automation & APIs",
+        "description": "Hands-on practice with scripts, data flows, integrations and repeatable workflows",
+        "level": 68,
+        "levelLabel": "Extensive independent project practice",
         "items": [
-          "REST APIs",
-          "Python (scripting)",
-          "Telegram Bot API",
-          "Shell scripting",
-          "JSON & Webhooks"
+          "Scripting & workflow automation",
+          "REST APIs & integrations",
+          "JSON",
+          "Data processing",
+          "Error analysis & repeatability"
         ]
       },
       {
-        "name": "Tools & DevOps",
-        "description": "Git, Vercel, npm, SSH, Docker basics — daily practice",
-        "level": 65,
-        "levelLabel": "Reliable in daily use",
+        "name": "Delivery & quality",
+        "description": "From requirements and task decomposition through to a tested solution",
+        "level": 74,
+        "levelLabel": "Confident in independent, iterative workflows",
         "items": [
-          "Git & GitHub",
-          "Vercel",
-          "npm / Bun",
-          "Docker (basics)",
-          "SSH & Linux CLI",
-          "Claude Code (CLI)"
+          "Requirement analysis",
+          "Task decomposition",
+          "Rapid prototyping",
+          "Testing & verification",
+          "Documentation"
         ]
       },
       {
-        "name": "AI & Automation",
-        "description": "Claude Code, ChatGPT, Prompt Engineering — daily workflow multiplier",
-        "level": 85,
-        "levelLabel": "Highly productive — clear competitive edge",
+        "name": "AI & agents",
+        "description": "Advanced orchestration of models, agents, context, tools and parallel tasks",
+        "level": 92,
+        "levelLabel": "Core strength from four years of daily practice",
         "items": [
-          "Claude Code (CLI)",
-          "ChatGPT / GPT API",
-          "Prompt engineering",
-          "AI agent systems",
-          "Automation scripting",
-          "Rapid prototyping"
+          "Multi-agent workflows",
+          "Prompt & context engineering",
+          "Tool and API use",
+          "Agentic debugging",
+          "Quality control"
+        ]
+      },
+      {
+        "name": "Soft Skills",
+        "description": "Professional team qualities: honesty, initiative and willingness to learn.",
+        "level": 80,
+        "levelLabel": "Reliable, collaborative and eager to learn",
+        "items": [
+          "Initiative",
+          "Structured problem solving",
+          "Documentation",
+          "Fast feedback integration",
+          "Continuous learning"
         ]
       }
     ]
@@ -200,55 +211,44 @@
   "Resume": {
     "eyebrow": "Background & Projects",
     "title": "Resume",
-    "intro": "From an Economic Cybernetics degree to a top finish in the RS School prep course to two years of independent practice with AI tools.",
+    "intro": "My path combines classical frontend self-study with four years of daily AI-assisted project and automation practice.",
     "timeline": [
       {
-        "period": "2022",
-        "title": "Bachelor's in Economic Cybernetics — ZAB recognized",
-        "text": "Graduated from the State University of Trade and Economics (Kyiv). Recognized by the German ZAB as a full equivalent bachelor's degree.",
-        "focus": "Field: Economic Cybernetics · ZAB-recognized",
+        "period": "2022 — 2023",
+        "title": "Structured Frontend Self-Study",
+        "text": "Completed roughly 80 percent of the roadmap.sh frontend roadmap and built foundations in HTML, CSS, JavaScript and React.",
+        "focus": "Foundation: HTML · CSS · JavaScript · React basics",
         "chips": [
-          "Bachelor's degree",
-          "ZAB-recognized",
-          "Ukraine"
+          "Initiative",
+          "roadmap.sh",
+          "Technical fundamentals"
         ]
       },
       {
-        "period": "2023",
-        "title": "1st place among ~12,000 in the RS School / EPAM prep course",
-        "text": "Top result in the nationwide prep course — among roughly 12,000 participants. Chose self-directed learning over the follow-up bootcamp.",
-        "focus": "Focus: Algorithms · JavaScript · Problem solving",
+        "period": "2022 — present",
+        "title": "Daily AI-Assisted Project Practice",
+        "text": "Delivered more than 20 personal projects and over 100 scripts and automations. Focus: clarifying requirements, orchestrating agents, connecting interfaces, testing and iteration.",
+        "focus": "Focus: AI agents · Automation · Functional results",
         "chips": [
-          "Top 1 / ~12,000",
-          "RS School",
-          "EPAM"
+          "20+ projects",
+          "100+ scripts",
+          "Daily practice"
         ]
       },
       {
-        "period": "2023 — 2024",
-        "title": "Frontend self-study via roadmap.sh",
-        "text": "Systematic study of the frontend roadmap: HTML, CSS, JavaScript (ES6+), React — approximately 80% complete. Built and deployed first own projects alongside.",
-        "focus": "Stack: HTML · CSS · JavaScript · React",
+        "period": "Next step",
+        "title": "Junior or entry-level role in a development team",
+        "text": "Join a professional team and combine my delivery practice with code reviews, maintainable code, collaboration and responsibility in day-to-day product work.",
+        "focus": "Goal: contribute productively and deepen technical foundations",
         "chips": [
-          "Roadmap ~80%",
-          "Self-directed",
-          "First deployments"
-        ]
-      },
-      {
-        "period": "2024 — 2026",
-        "title": "Real systems built with AI-augmented workflow",
-        "text": "Built and deployed AI agent systems, Telegram bots, REST APIs, automation scripts and web applications. Running on own server (Orange Pi) and Vercel.",
-        "focus": "Stack: Python · REST APIs · Telegram API · Claude API",
-        "chips": [
-          "AI agents",
-          "Telegram bots",
-          "Own server"
+          "Willingness to learn",
+          "Teamwork",
+          "Reliability"
         ]
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I ship results. AI amplifies my workflow significantly — I understand what I build, can maintain it and explain it. I'm transparent about my level and keep learning every day.",
+    "closingText": "I bring high delivery speed with AI and agents, while communicating openly about my current level in JavaScript, React and modern frameworks. My goal is to contribute reliably in a team and become technically more grounded.",
     "closingBadges": [
       "Available immediately",
       "Remote-ready",
@@ -289,8 +289,8 @@
       ]
     },
     "form": {
-      "title": "Send a short message",
-      "intro": "Share the role, team or project in a few lines. I reply quickly and with clear structure.",
+      "title": "Prepare an email",
+      "intro": "Share the role, team or project context in a few lines. Submitting opens your email app with a ready-to-send draft — no form data is stored on this website.",
       "nameLabel": "Name",
       "namePlaceholder": "Your name",
       "emailLabel": "Email",
@@ -299,7 +299,7 @@
       "messagePlaceholder": "What is this about? (role, timeline, team, next steps)"
     },
     "submit": {
-      "idle": "Send message",
+      "idle": "Open email draft",
       "sending": "Sending ...",
       "successTitle": "Thanks for your message",
       "successText": "Your message has been delivered. I usually reply within 24 hours.",

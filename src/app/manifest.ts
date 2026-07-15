@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Oleksandr Ausbildung Portfolio",
-    short_name: "OleksandrPortfolio",
+    name: "Oleksandr Developer Portfolio",
+    short_name: "OleksandrDev",
     description:
-      "Portfolio von Oleksandr — angehender Fachinformatiker für Anwendungsentwicklung mit praxisnahen Produkt-Demos.",
+      "Portfolio von Oleksandr — Junior Developer mit KI-gestütztem Workflow und praxisnahen Produkt-Demos.",
     start_url: "/de",
     display: "standalone",
     background_color: "#101213",

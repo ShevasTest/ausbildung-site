@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { resolveModelChain, streamWithFallback } from "@/lib/llm";
+import { encodeLlmLabel } from "@/lib/llm-label";
 import { clientIpFrom, isRateLimited } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
@@ -30,8 +31,8 @@ const FOCUS_HINTS: Record<string, { de: string; en: string }> = {
     en: "Focus: full-stack orientation (APIs, data flow, clean interfaces).",
   },
   teamfit: {
-    de: "Schwerpunkt: Teamfit und Ausbildung (Lernkurve, Zuverlässigkeit, Zusammenarbeit).",
-    en: "Focus: team fit and apprenticeship (learning curve, reliability, collaboration).",
+    de: "Schwerpunkt: Teamfit und Junior-Rolle (Lernkurve, Zuverlässigkeit, Zusammenarbeit).",
+    en: "Focus: team fit and a junior role (learning curve, reliability, collaboration).",
   },
   ai: {
     de: "Schwerpunkt: produktiver, verantwortungsvoller Einsatz von KI-Tools im Entwicklungsalltag.",
@@ -57,20 +58,20 @@ const TONE_HINTS: Record<string, { de: string; en: string }> = {
 function buildSystemPrompt(locale: "de" | "en"): string {
   if (locale === "de") {
     return [
-      "Du bist ein erfahrener Bewerbungscoach für den deutschen Ausbildungsmarkt.",
-      "Du schreibst Anschreiben für Oleksandr (angehender Fachinformatiker für Anwendungsentwicklung):",
-      "Quereinsteiger mit diszipliniertem Selbststudium, praktischer Erfahrung mit HTML/CSS, JavaScript/TypeScript, React und Next.js, eigenem Portfolio mit lauffähigen Projekten, produktivem Umgang mit KI-Tools, Deutsch B1 (aktiv Richtung B2).",
-      "Regeln: Erfinde keine Abschlüsse, Zeugnisse oder Berufserfahrung. Bleibe bei diesem Profil.",
+      "Du bist ein erfahrener Bewerbungscoach für den deutschen Junior- und Entry-Level-Arbeitsmarkt.",
+      "Du schreibst Anschreiben für Oleksandr (Junior Developer mit KI-gestütztem Workflow):",
+      "Quereinsteiger mit Frontend-Grundlagen aus strukturiertem Selbststudium (HTML/CSS, JavaScript und React-Basics) und rund vier Jahren täglicher KI-gestützter Projektpraxis. Mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen; besondere Stärke in KI-Agenten, Aufgabenzerlegung, API-/Tool-Workflows, Testen und Iteration. Moderne TypeScript-/Next.js-Projekte wurden überwiegend mit KI-Unterstützung umgesetzt. Deutsch B1 (aktiv Richtung B2).",
+      "Regeln: Erfinde keine Abschlüsse, Zeugnisse, Berufserfahrung oder selbstständige Framework-Expertise. Bezeichne die vier Jahre ausdrücklich als tägliche eigene Projektpraxis, nicht als Berufserfahrung. Vermeide übertriebene Aussagen wie 'idealer Kandidat'. Stelle KI-Kompetenz konkret und verantwortungsvoll dar und bleibe bei diesem Profil.",
       "Struktur: Betreffzeile, Anrede, Einstieg mit Bezug zur Stelle, 2–3 Absätze Passung/Motivation, Abschluss mit Gesprächswunsch, Grußformel.",
       "Länge: 220–320 Wörter. Sprache: Deutsch. Keine Markdown-Formatierung, nur reiner Brieftext.",
     ].join(" ");
   }
 
   return [
-    "You are an experienced application coach for the German apprenticeship market.",
-    "You write cover letters for Oleksandr (aspiring Fachinformatiker für Anwendungsentwicklung):",
-    "career changer with disciplined self-study, hands-on experience in HTML/CSS, JavaScript/TypeScript, React and Next.js, a portfolio of working projects, productive use of AI tools, German level B1 (working towards B2).",
-    "Rules: never invent degrees, certificates or work experience. Stay within this profile.",
+    "You are an experienced application coach for the German junior and entry-level job market.",
+    "You write cover letters for Oleksandr (junior developer with an AI-assisted workflow):",
+    "career changer with frontend foundations from structured self-study (HTML/CSS, JavaScript and React basics) and around four years of daily AI-assisted project practice. More than 20 personal projects and over 100 scripts and automations; particular strength in AI agents, task decomposition, API/tool workflows, testing and iteration. Modern TypeScript/Next.js projects were built mainly with AI assistance. German level B1 (working towards B2).",
+    "Rules: never invent degrees, certificates, work experience or independent framework expertise. Describe the four years specifically as daily personal project practice, not professional experience. Avoid inflated claims such as 'ideal candidate'. Present AI ability concretely and responsibly, and stay within this profile.",
     "Structure: subject line, salutation, opening tied to the vacancy, 2–3 paragraphs on fit/motivation, closing with interview interest, sign-off.",
     "Length: 220–320 words. Language: English. No markdown formatting, plain letter text only.",
   ].join(" ");
@@ -111,7 +112,7 @@ export async function POST(request: Request) {
   const applicantName =
     typeof payload.applicantName === "string" && payload.applicantName.trim()
       ? payload.applicantName.trim().slice(0, MAX_NAME_CHARS)
-      : "Oleksandr";
+      : "Oleksandr Shevchenko";
   const applicantCity =
     typeof payload.applicantCity === "string" ? payload.applicantCity.trim().slice(0, MAX_CITY_CHARS) : "";
 
@@ -158,7 +159,7 @@ export async function POST(request: Request) {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "no-store",
       "X-Accel-Buffering": "no",
-      "X-Llm-Label": result.model.label,
+      "X-Llm-Label": encodeLlmLabel(result.model.label),
       "X-Llm-Model": result.model.id,
     },
   });

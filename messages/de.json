@@ -1,9 +1,9 @@
 {
   "Meta": {
     "title": "Developer Portfolio",
-    "description": "Portfolio von Oleksandr Shevchenko — Junior Web Developer mit Fokus auf Full-Stack-Entwicklung und KI-gestütztem Workflow.",
-    "ogTitle": "Oleksandr Shevchenko | Junior Developer Portfolio",
-    "ogDescription": "Webanwendungen, Automationen und KI-Tools — schnell entwickelt, produktionsnah geliefert.",
+    "description": "Portfolio von Oleksandr — Junior Developer mit Fokus auf KI-Agenten, Automatisierung und überprüfbare Webprojekte.",
+    "ogTitle": "Oleksandr | Junior Developer Portfolio",
+    "ogDescription": "Funktionale Webprojekte mit Fokus auf KI-gestützte Entwicklung, Automatisierung und nachvollziehbare Qualität.",
     "projectTitle": "Projekt: {slug}",
     "projectDescription": "Projektdetails: Ziele, Tech Stack und Umsetzung."
   },
@@ -19,64 +19,64 @@
     "theme": "Designmodus"
   },
   "Hero": {
-    "badge": "Junior Web Developer · AI-augmented Workflow",
-    "kicker": "Offen für Stellen · Remote oder vor Ort · Deutschland",
-    "titleLead": "Ich baue",
+    "badge": "Junior Developer · KI-gestützter Workflow",
+    "kicker": "Offen für Junior- und Entry-Level-Stellen",
+    "titleLead": "Ich entwickle",
     "rotatingWords": [
-      "Webanwendungen mit KI-Unterstützung",
-      "Automationen und Telegram-Bots",
-      "KI-gestützte Tools und APIs",
-      "schnelle Prototypen die funktionieren"
+      "Software mit KI und Agenten",
+      "Automatisierungen und Skripte",
+      "Webprojekte von der Idee bis zur Demo",
+      "technische Grundlagen im Selbststudium"
     ],
-    "titleEnd": "und liefere funktionierende Lösungen — schnell und zuverlässig.",
-    "subtitle": "Zwei Jahre Praxis mit KI-gestützter Entwicklung: von der Idee über den Build bis zum Deployment. Ich entwickle Frontend, Automationen und APIs — mit KI als Werkzeug, nicht als Krücke.",
+    "titleEnd": "und bringe Ideen bis zu einem funktionierenden, überprüften Ergebnis.",
+    "subtitle": "Seit rund vier Jahren programmiere ich täglich mit KI-Unterstützung, zerlege komplexe Aufgaben in umsetzbare Schritte und bringe eigene Projekte bis zu einem funktionierenden, getesteten Ergebnis.",
     "points": [
-      "1. Platz unter ~12.000 Teilnehmern beim RS School / EPAM Vorbereitungskurs",
-      "Frontend-Selbststudium nach roadmap.sh (~80 % abgeschlossen, 2023–2024)",
-      "Reale Systeme gebaut: AI-Agenten, Telegram-Bots, REST-APIs, Automationen",
-      "Deployment auf eigenem Server (Orange Pi) und Vercel"
+      "Mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen",
+      "Sicherer Umgang mit KI-Agenten, Prompts, Kontext und Tool-Workflows",
+      "Grundlagen in HTML, CSS, JavaScript und React aus strukturiertem Selbststudium",
+      "Ehrliche Qualitätskontrolle durch Tests, Reviews und nachvollziehbare Iterationen"
     ],
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
-    "panelTitle": "Liefern mit KI-Unterstützung",
-    "panelText": "Ich suche eine Junior-Stelle, bei der ich reale Features entwickle, im Team lerne und früh Verantwortung übernehmen kann.",
+    "panelTitle": "Praxisstark mit KI. Bereit für professionelle Grundlagen.",
+    "panelText": "Ich kann Ideen schnell in funktionierende Lösungen übersetzen. In einer Junior-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen, saubere Entwicklungsprozesse lernen und Verantwortung übernehmen.",
     "stats": [
       {
-        "label": "Stärke",
-        "value": "AI-augmented Delivery"
+        "label": "Projektfokus",
+        "value": "20+ eigene Projekte"
       },
       {
-        "label": "Sprachen",
-        "value": "Deutsch B1 · Ukrainisch nativ · Englisch Grundkenntnisse"
+        "label": "Automatisierung",
+        "value": "100+ Skripte & Workflows"
       },
       {
-        "label": "Verfügbarkeit",
-        "value": "Ab sofort · Remote oder vor Ort"
+        "label": "Arbeitsweise",
+        "value": "Agentensteuerung · Testen · Iterieren"
       }
     ]
   },
   "About": {
     "title": "Über mich",
-    "eyebrow": "Selbststudium · reale Projekte · klare Ergebnisse",
-    "lead": "Quereinsteiger mit echtem Track Record: RS School Top 1 unter ~12.000, zwei Jahre Praxis mit KI-Tools und eine Reihe gebauter und deployeter Systeme.",
+    "eyebrow": "Vier Jahre tägliche Projektpraxis",
+    "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern das strukturierte Lösen von Problemen mit KI, Agenten und Automatisierung — von der Idee bis zum überprüften Ergebnis.",
     "paragraphs": [
-      "Mein Weg in die Entwicklung startete konsequent: Nach dem Studium (Wirtschaftskybernetik, ZAB-anerkannter Bachelor) legte ich beim RS School / EPAM Vorbereitungskurs den 1. Platz unter rund 12.000 Teilnehmern ab.",
-      "Statt in die klassische Kursstruktur zu gehen, lernte ich selbstständig — mit roadmap.sh (2023–2024) und ab 2024 intensiv mit KI-Tools als Entwicklungspartner.",
-      "Heute baue ich eigenständig Webanwendungen, Telegram-Bots, REST-APIs und Automationen — mit KI als Werkzeug. Ich verstehe was ich baue und kann es erklären und warten."
+      "Vor rund vier Jahren habe ich mir mit roadmap.sh etwa 80 Prozent einer klassischen Frontend-Roadmap erarbeitet. Dadurch kenne ich die Grundlagen von HTML, CSS, JavaScript und React, ohne mich als fertigen Framework-Spezialisten darzustellen.",
+      "Seitdem programmiere ich täglich mit KI-Unterstützung. Dabei sind mehr als 20 eigene Projekte und über 100 Skripte, Integrationen und Automatisierungen entstanden. Ich kläre Anforderungen, zerlege Aufgaben, steuere Agenten, teste Ergebnisse und verbessere sie iterativ.",
+      "Meine besondere Stärke ist der fortgeschrittene Umgang mit KI-Agenten und großen Entwicklungs-Workflows. Ich suche eine Junior- oder Entry-Level-Stelle, in der ich diese Umsetzungskraft mit Code Reviews, Teamarbeit und professionellen Prozessen verbinde."
     ],
     "highlights": [
       {
-        "label": "Top-Performer",
-        "value": "1. Platz unter ~12.000 Teilnehmern beim RS School / EPAM Prep-Kurs (2023)."
+        "label": "Eigeninitiative",
+        "value": "Ich arbeite seit rund vier Jahren täglich an eigenen Software- und Automatisierungsaufgaben."
       },
       {
-        "label": "Delivery mit KI",
-        "value": "Frontend, APIs, Bots, Automationen — ich bringe Projekte von der Idee bis zum Deployment."
+        "label": "Technische Basis",
+        "value": "HTML, CSS, JavaScript und React-Grundlagen aus strukturiertem Selbststudium."
       },
       {
-        "label": "KI als Werkzeug",
-        "value": "Ich setze Claude Code und ChatGPT produktiv ein — als Multiplier, nicht als Ersatz für Verständnis."
+        "label": "KI- & Agenten-Workflows",
+        "value": "Ich plane mehrstufige Agentenaufgaben, steuere Kontext und Tools und überprüfe die Resultate systematisch."
       },
       {
         "label": "Sofort verfügbar",
@@ -85,9 +85,9 @@
     ],
     "motivationTitle": "Was ein Team von mir bekommt",
     "motivationPoints": [
-      "Ich liefere funktionierende Lösungen — kein Perfektionismus auf Kosten des Ergebnisses.",
-      "Ich lerne schnell, frage wenn ich nicht weiterkomme, und kommuniziere klar über meinen aktuellen Stand.",
-      "KI-Workflow ist für mich Standard: Ich entwickle schneller als klassische Juniors und bin dabei ehrlich über das was ich selbst verstehe."
+      "Ich kann unklare Anforderungen in konkrete Arbeitsschritte und funktionierende Prototypen übersetzen.",
+      "Ich nutze KI nicht als Blackbox: Ergebnisse werden getestet, hinterfragt und iterativ verbessert.",
+      "Ich spreche offen über Wissenslücken und möchte von erfahrenen Entwickler:innen saubere technische Grundlagen lernen."
     ],
     "profile": {
       "badge": "Profil",
@@ -95,11 +95,11 @@
       "role": "Junior Web Developer",
       "initials": "OS",
       "placeholder": "Foto folgt",
-      "caption": "Quereinsteiger mit nachgewiesener Lerngeschwindigkeit, realen Projekten und KI-gestütztem Workflow.",
+      "caption": "Vier Jahre tägliche Umsetzungspraxis mit KI und Agenten — kombiniert mit dem klaren Ziel, technische Grundlagen im Team professionell zu vertiefen.",
       "facts": [
-        "Standort: Deutschland · Remote oder vor Ort",
-        "Sprachen: Deutsch B1 · Ukrainisch nativ · Englisch Grundkenntnisse",
-        "Stack: HTML/CSS · JavaScript · Python · REST APIs · Telegram Bot API"
+        "Standort: Deutschland · offen für Junior- und Entry-Level-Stellen",
+        "Sprachen: Deutsch B1 (aktiv Richtung B2) · Englisch A2 (im Aufbau)",
+        "Fokus: KI-Agenten · Automatisierung · Webentwicklung · technische Grundlagen"
       ]
     }
   },
@@ -117,7 +117,7 @@
       {
         "slug": "mietpreise-tracker",
         "title": "Mietpreise-Tracker",
-        "summary": "Vergleicht Mietkosten deutscher Städte mit Trends und Einkommens-Rechner.",
+        "summary": "Vergleicht Mietkosten deutscher Städte mit Trends und einem Einkommensrechner.",
         "stack": "Next.js · Marktdaten Q4 2025 · SVG-Charts"
       },
       {
@@ -138,61 +138,72 @@
   "Skills": {
     "title": "Kenntnisse",
     "eyebrow": "Werkzeuge & Wissen",
-    "intro": "Technologien und Werkzeuge, mit denen ich aktuell lerne und erste Projekte umsetze.",
-    "legend": "Selbsteinschätzung auf Basis meiner aktuellen Praxis im Selbststudium",
+    "intro": "Mein Profil verbindet starke KI- und Automatisierungspraxis mit bewusst ehrlich eingeordneten Web-Grundlagen.",
+    "legend": "Selbsteinschätzung auf Basis meiner tatsächlichen täglichen Praxis",
     "groups": [
       {
         "name": "Frontend",
-        "description": "HTML, CSS, JavaScript, React — selbst erarbeitet und in Projekten eingesetzt",
-        "level": 60,
-        "levelLabel": "Solide Grundlagen, produktiv einsetzbar",
+        "description": "Grundlagen aus der Frontend-Roadmap; moderne Framework-Projekte setze ich überwiegend KI-gestützt um",
+        "level": 38,
+        "levelLabel": "Grundlagen vorhanden, Framework-Wissen im Ausbau",
         "items": [
           "HTML & CSS",
-          "JavaScript (ES6+)",
-          "TypeScript (Grundlagen)",
-          "React",
+          "JavaScript (Basis)",
+          "React (Basics)",
+          "Next.js (erste Projekte)",
           "Tailwind CSS"
         ]
       },
       {
-        "name": "Backend & APIs",
-        "description": "REST APIs, Telegram Bots, Python-Skripte — gebaut und deployed",
-        "level": 45,
-        "levelLabel": "Funktional, reale Projekte ausgeliefert",
+        "name": "Automatisierung & APIs",
+        "description": "Praxis mit Skripten, Datenflüssen, Schnittstellen und wiederholbaren Workflows",
+        "level": 68,
+        "levelLabel": "Umfangreiche eigenständige Projektpraxis",
         "items": [
-          "REST APIs",
-          "Python (Scripting)",
-          "Telegram Bot API",
-          "Shell Scripting",
-          "JSON & Webhooks"
+          "Skripting & Workflow-Automatisierung",
+          "REST APIs & Integrationen",
+          "JSON",
+          "Datenverarbeitung",
+          "Fehleranalyse & Wiederholbarkeit"
         ]
       },
       {
-        "name": "Tools & DevOps",
-        "description": "Git, Vercel, npm, SSH, Docker Basics — tägliche Praxis",
-        "level": 65,
-        "levelLabel": "Zuverlässig in der täglichen Nutzung",
+        "name": "Umsetzung & Qualität",
+        "description": "Von der Anforderung über die Aufgabenzerlegung bis zur getesteten Lösung",
+        "level": 74,
+        "levelLabel": "Sicher in eigenständigen, iterativen Workflows",
         "items": [
-          "Git & GitHub",
-          "Vercel",
-          "npm / Bun",
-          "Docker (Grundlagen)",
-          "SSH & Linux CLI",
-          "Claude Code (CLI)"
+          "Anforderungsanalyse",
+          "Aufgabenzerlegung",
+          "Rapid Prototyping",
+          "Testen & Verifizieren",
+          "Dokumentation"
         ]
       },
       {
-        "name": "KI & Automation",
-        "description": "Claude Code, ChatGPT, Prompt Engineering — täglicher Workflow-Multiplier",
-        "level": 85,
-        "levelLabel": "Hochproduktiv — klarer Kompetenzvorsprung",
+        "name": "KI & Agenten",
+        "description": "Fortgeschrittene Steuerung von Modellen, Agenten, Kontext, Tools und parallelen Aufgaben",
+        "level": 92,
+        "levelLabel": "Zentrale Stärke aus vier Jahren täglicher Praxis",
         "items": [
-          "Claude Code (CLI)",
-          "ChatGPT / GPT-API",
-          "Prompt Engineering",
-          "AI-Agenten-Systeme",
-          "Automation Scripting",
-          "Rapid Prototyping"
+          "Multi-Agent-Workflows",
+          "Prompt- & Kontext-Engineering",
+          "Tool- und API-Nutzung",
+          "Agentisches Debugging",
+          "Qualitätskontrolle"
+        ]
+      },
+      {
+        "name": "Soft Skills",
+        "description": "Arbeitsweise für ein professionelles Team: Ehrlichkeit, Eigeninitiative und Lernbereitschaft.",
+        "level": 80,
+        "levelLabel": "Zuverlässig, lernbereit und strukturiert",
+        "items": [
+          "Eigeninitiative",
+          "Strukturierte Problemlösung",
+          "Dokumentation",
+          "Feedback-Umsetzung",
+          "Kontinuierliches Lernen"
         ]
       }
     ]
@@ -200,55 +211,44 @@
   "Resume": {
     "eyebrow": "Werdegang & Projekte",
     "title": "Lebenslauf",
-    "intro": "Vom Wirtschaftskybernetik-Studium über einen Top-Platz beim RS School Prep-Kurs bis hin zu zwei Jahren eigenständiger Praxis mit KI-Tools.",
+    "intro": "Mein Weg verbindet klassisches Frontend-Selbststudium mit vier Jahren täglicher KI-gestützter Projekt- und Automatisierungspraxis.",
     "timeline": [
       {
-        "period": "2022",
-        "title": "Bachelor Wirtschaftskybernetik — ZAB-anerkannt",
-        "text": "Abschluss an der Staatlichen Universität für Handel und Wirtschaft (Kyjiw). Von der deutschen ZAB als vollwertiger Hochschulabschluss (Bachelor) anerkannt.",
-        "focus": "Fachrichtung: Wirtschaftskybernetik · ZAB-anerkannt",
-        "chips": [
-          "Hochschulabschluss",
-          "ZAB-anerkannt",
-          "Ukraine"
-        ]
-      },
-      {
-        "period": "2023",
-        "title": "1. Platz unter ~12.000 beim RS School / EPAM Prep-Kurs",
-        "text": "Bestes Ergebnis im landesweiten Vorbereitungskurs — unter rund 12.000 Teilnehmern. Entschied mich danach für eigenständiges Lernen statt des Folgekurses.",
-        "focus": "Fokus: Algorithmen · JavaScript · Problemlösung",
-        "chips": [
-          "Top 1 / ~12.000",
-          "RS School",
-          "EPAM"
-        ]
-      },
-      {
-        "period": "2023 — 2024",
-        "title": "Selbststudium Frontend nach roadmap.sh",
-        "text": "Systematisches Durcharbeiten der Frontend-Roadmap: HTML, CSS, JavaScript (ES6+), React — rund 80 % abgeschlossen. Parallel erste eigene Projekte gebaut und deployed.",
-        "focus": "Stack: HTML · CSS · JavaScript · React",
+        "period": "2022 — 2023",
+        "title": "Strukturiertes Frontend-Selbststudium",
+        "text": "Rund 80 Prozent der Frontend-Roadmap von roadmap.sh bearbeitet und Grundlagen in HTML, CSS, JavaScript und React aufgebaut.",
+        "focus": "Basis: HTML · CSS · JavaScript · React-Grundlagen",
         "chips": [
           "Roadmap ~80%",
           "Eigeninitiative",
-          "Erste Deployments"
+          "Technische Grundlagen"
         ]
       },
       {
-        "period": "2024 — 2026",
-        "title": "Reale Systeme mit KI-gestütztem Workflow",
-        "text": "Entwicklung und Deployment von AI-Agenten-Systemen, Telegram-Bots, REST-APIs, Automationen und Webanwendungen. Betrieb auf eigenem Server (Orange Pi) und Vercel.",
-        "focus": "Stack: Python · REST APIs · Telegram API · Claude API",
+        "period": "2022 — heute",
+        "title": "Tägliche KI-gestützte Projektpraxis",
+        "text": "Mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen umgesetzt. Schwerpunkt: Anforderungen klären, Agenten steuern, Schnittstellen verbinden, testen und iterieren.",
+        "focus": "Fokus: KI-Agenten · Automatisierung · funktionierende Ergebnisse",
         "chips": [
-          "AI-Agenten",
-          "Telegram Bots",
-          "Eigener Server"
+          "20+ Projekte",
+          "100+ Skripte",
+          "Tägliche Praxis"
+        ]
+      },
+      {
+        "period": "Nächster Schritt",
+        "title": "Junior- oder Entry-Level-Rolle im Entwicklungsteam",
+        "text": "Einstieg in ein professionelles Team, um meine Umsetzungspraxis mit Code Reviews, wartbarem Code, Zusammenarbeit und Verantwortung im Produktalltag zu verbinden.",
+        "focus": "Ziel: produktiv beitragen und technisch fundierter werden",
+        "chips": [
+          "Lernbereitschaft",
+          "Teamfähigkeit",
+          "Verlässlichkeit"
         ]
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich liefere Ergebnisse. KI beschleunigt meinen Workflow erheblich — ich verstehe was entsteht, kann es warten und erklären. Ich bin ehrlich über meinen Level und lerne konstant.",
+    "closingText": "Ich bringe hohe Umsetzungsgeschwindigkeit mit KI und Agenten mit, spreche aber offen über meinen aktuellen Kenntnisstand in JavaScript, React und modernen Frameworks. Mein Ziel ist, im Team zuverlässig mitzuwirken und technisch fundierter zu werden.",
     "closingBadges": [
       "Ab sofort verfügbar",
       "Remote-fähig",
@@ -289,8 +289,8 @@
       ]
     },
     "form": {
-      "title": "Kurze Nachricht senden",
-      "intro": "Schildern Sie kurz Rolle, Team oder Projekt. Ich antworte strukturiert und zeitnah.",
+      "title": "E-Mail vorbereiten",
+      "intro": "Schildern Sie kurz Rolle, Team oder Projekt. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer fertig vorbereiteten Nachricht — es werden keine Formulardaten auf dieser Website gespeichert.",
       "nameLabel": "Name",
       "namePlaceholder": "Ihr Name",
       "emailLabel": "E-Mail",
@@ -299,7 +299,7 @@
       "messagePlaceholder": "Worum geht es? (Rolle, Zeitraum, Team, nächste Schritte)"
     },
     "submit": {
-      "idle": "Nachricht senden",
+      "idle": "E-Mail-Entwurf öffnen",
       "sending": "Wird gesendet ...",
       "successTitle": "Danke für Ihre Nachricht",
       "successText": "Ihre Nachricht ist angekommen. Ich melde mich in der Regel innerhalb von 24 Stunden.",

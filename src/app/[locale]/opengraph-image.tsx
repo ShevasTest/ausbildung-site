@@ -11,14 +11,14 @@ const copy = {
   de: {
     badge: "Junior Web Developer · AI-augmented",
     title: "Oleksandr",
-    subtitle: "Full-Stack · Automation · AI-powered Tools",
-    points: "Next.js · Node.js · TypeScript · Claude API",
+    subtitle: "Junior Developer mit KI-gestütztem Workflow",
+    points: "KI-Agenten · Automatisierung · Webentwicklung",
   },
   en: {
     badge: "Junior Web Developer · AI-augmented",
     title: "Oleksandr",
-    subtitle: "Full-Stack · Automation · AI-powered Tools",
-    points: "Next.js · Node.js · TypeScript · Claude API",
+    subtitle: "Junior Developer with an AI-assisted workflow",
+    points: "AI agents · Automation · Web development",
   },
 } as const;
 
@@ -108,7 +108,7 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
           </div>
 
           <div style={{ fontSize: "24px", color: "#9AA19E", fontWeight: 500 }}>
-            oleksandr-shevchenko.de
+            work.oleksandr-shevchenko.de
           </div>
         </div>
       </div>

@@ -11,14 +11,14 @@ type ImpressumPageProps = {
 const COPY = {
   de: {
     title: "Impressum",
-    metaDescription: "Impressum und Anbieterkennzeichnung von oleksandr-shevchenko.de gemäß § 5 DDG.",
+    metaDescription: "Impressum und Anbieterkennzeichnung von work.oleksandr-shevchenko.de gemäß § 5 DDG.",
     providerTitle: "Angaben gemäß § 5 DDG",
     contactTitle: "Kontakt",
     emailLabel: "E-Mail:",
     responsibleTitle: "Verantwortlich für den Inhalt",
     purposeTitle: "Hinweis zum Angebot",
     purposeText:
-      "Diese Website ist ein privates, nicht-kommerzielles Portfolio. Sie dient ausschließlich der persönlichen Vorstellung im Rahmen der Suche nach einem Ausbildungsplatz als Fachinformatiker für Anwendungsentwicklung.",
+      "Diese Website ist ein privates, nicht-kommerzielles Portfolio. Sie dient ausschließlich der persönlichen Vorstellung im Rahmen der Suche nach einer Junior- oder Entry-Level-Stelle in der Softwareentwicklung.",
     linksTitle: "Haftung für Links",
     linksText:
       "Diese Website enthält Links zu externen Websites Dritter (z. B. GitHub, LinkedIn), auf deren Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Zum Zeitpunkt der Verlinkung waren keine rechtswidrigen Inhalte erkennbar.",
@@ -29,14 +29,14 @@ const COPY = {
   en: {
     title: "Legal Notice (Impressum)",
     metaDescription:
-      "Legal notice and provider identification for oleksandr-shevchenko.de according to Section 5 DDG (German Digital Services Act).",
+      "Legal notice and provider identification for work.oleksandr-shevchenko.de according to Section 5 DDG (German Digital Services Act).",
     providerTitle: "Information according to § 5 DDG (German Digital Services Act)",
     contactTitle: "Contact",
     emailLabel: "Email:",
     responsibleTitle: "Responsible for the content",
     purposeTitle: "About this website",
     purposeText:
-      "This website is a private, non-commercial portfolio. Its sole purpose is my personal presentation while applying for an apprenticeship (Ausbildung) as Fachinformatiker für Anwendungsentwicklung.",
+      "This website is a private, non-commercial portfolio. Its sole purpose is my personal presentation while applying for junior or entry-level software development roles.",
     linksTitle: "Liability for links",
     linksText:
       "This website contains links to external third-party websites (e.g. GitHub, LinkedIn) whose content I cannot control. The respective provider or operator of the linked pages is always responsible for their content. No unlawful content was identifiable at the time of linking.",
