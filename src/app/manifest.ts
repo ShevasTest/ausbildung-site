@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Portfolio von Oleksandr — angehender Fachinformatiker für Anwendungsentwicklung mit praxisnahen Produkt-Demos.",
     start_url: "/de",
     display: "standalone",
-    background_color: "#0b0e15",
-    theme_color: "#0b0e15",
+    background_color: "#101213",
+    theme_color: "#101213",
     lang: "de-DE",
     icons: [
       {

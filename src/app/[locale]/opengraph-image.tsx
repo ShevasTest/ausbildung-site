@@ -39,11 +39,11 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
           height: "100%",
           display: "flex",
           position: "relative",
-          background: "#0B0E15",
+          background: "#101213",
           backgroundImage:
-            "linear-gradient(rgba(147, 172, 255, 0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(147, 172, 255, 0.09) 1px, transparent 1px)",
-          backgroundSize: "44px 44px",
-          color: "#E8EAF0",
+            "radial-gradient(rgba(94, 207, 154, 0.16) 1.6px, transparent 1.6px)",
+          backgroundSize: "22px 22px",
+          color: "#ECEDED",
           fontFamily: "Inter, system-ui, sans-serif",
           padding: "64px",
         }}
@@ -55,8 +55,8 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
             left: "36px",
             width: "26px",
             height: "26px",
-            borderTop: "3px solid #93ACFF",
-            borderLeft: "3px solid #93ACFF",
+            borderTop: "3px solid #5ECF9A",
+            borderLeft: "3px solid #5ECF9A",
           }}
         />
         <div
@@ -66,8 +66,8 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
             right: "36px",
             width: "26px",
             height: "26px",
-            borderBottom: "3px solid #FF8B54",
-            borderRight: "3px solid #FF8B54",
+            borderBottom: "3px solid #E3B04B",
+            borderRight: "3px solid #E3B04B",
           }}
         />
 
@@ -86,8 +86,8 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
               alignSelf: "flex-start",
               padding: "8px 18px",
               borderRadius: "999px",
-              border: "1px solid rgba(147, 172, 255, 0.55)",
-              color: "#93ACFF",
+              border: "1px solid rgba(94, 207, 154, 0.55)",
+              color: "#5ECF9A",
               fontSize: "22px",
               fontWeight: 600,
               letterSpacing: "0.06em",
@@ -98,16 +98,16 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <div style={{ fontSize: "86px", fontWeight: 700, lineHeight: 1 }}>{text.title}</div>
-            <div style={{ fontSize: "40px", fontWeight: 500, maxWidth: "950px", lineHeight: 1.18, color: "#C9CEDA" }}>
+            <div style={{ fontSize: "40px", fontWeight: 500, maxWidth: "950px", lineHeight: 1.18, color: "#C9CFCB" }}>
               {text.subtitle}
             </div>
             <div style={{ display: "flex", fontSize: "28px", fontWeight: 500 }}>
-              <span style={{ color: "#FF8B54", marginRight: "14px" }}>{">"}</span>
-              <span style={{ color: "#93ACFF" }}>{text.points}</span>
+              <span style={{ color: "#E3B04B", marginRight: "14px" }}>{">"}</span>
+              <span style={{ color: "#5ECF9A" }}>{text.points}</span>
             </div>
           </div>
 
-          <div style={{ fontSize: "24px", color: "#9AA2AE", fontWeight: 500 }}>
+          <div style={{ fontSize: "24px", color: "#9AA19E", fontWeight: 500 }}>
             oleksandr-shevchenko.de
           </div>
         </div>

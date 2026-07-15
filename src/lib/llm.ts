@@ -124,6 +124,11 @@ async function fetchGroqModels(): Promise<LlmModel[]> {
       signal: AbortSignal.timeout(6_000),
     });
 
+    // An invalid key means the provider is unusable — don't advertise its models.
+    if (response.status === 401 || response.status === 403) {
+      return [];
+    }
+
     if (!response.ok) {
       throw new Error(`groq models ${response.status}`);
     }
