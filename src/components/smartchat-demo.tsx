@@ -45,6 +45,8 @@ type DemoCopy = {
     newChat: string;
     styleTitle: string;
     styleHint: string;
+    modelTitle: string;
+    modelHint: string;
     untitled: string;
   };
   chat: {
@@ -100,6 +102,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       newChat: "Neue Unterhaltung",
       styleTitle: "Antwortstil",
       styleHint: "Jeder Thread kann mit einem eigenen Antwortstil laufen.",
+      modelTitle: "KI-Modell",
+      modelHint: "Kostenlose Modelle — die Liste passt sich automatisch an die verfügbaren Modelle an.",
       untitled: "Neue Unterhaltung",
     },
     chat: {
@@ -174,6 +178,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       newChat: "New conversation",
       styleTitle: "Answer style",
       styleHint: "Each thread can run with its own answer style.",
+      modelTitle: "AI model",
+      modelHint: "Free models — the list adapts automatically to what is currently available.",
       untitled: "New conversation",
     },
     chat: {
@@ -942,6 +948,8 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
   const [engineMode, setEngineMode] = useState<EngineMode>("unknown");
   const [engineLabel, setEngineLabel] = useState<string>("");
   const [isHydrated, setIsHydrated] = useState(false);
+  const [models, setModels] = useState<Array<{ id: string; label: string }>>([]);
+  const [selectedModel, setSelectedModel] = useState("");
 
   const streamTimerRef = useRef<number | null>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -1026,6 +1034,27 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
         window.clearTimeout(streamTimerRef.current);
       }
       abortRef.current?.abort();
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/models")
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data: { models?: Array<{ id: string; label: string }> } | null) => {
+        if (cancelled || !data?.models || data.models.length === 0) {
+          return;
+        }
+        setModels(data.models);
+        setSelectedModel((current) => current || data.models![0].id);
+      })
+      .catch(() => {
+        // Without a model list the demo silently stays in local mode.
+      });
+
+    return () => {
+      cancelled = true;
     };
   }, []);
 
@@ -1118,7 +1147,12 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history, style: style.id, locale: localeKey }),
+        body: JSON.stringify({
+          messages: history,
+          style: style.id,
+          locale: localeKey,
+          model: selectedModel || undefined,
+        }),
         signal: controller.signal,
       });
 
@@ -1391,6 +1425,30 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
               })}
             </ul>
           </div>
+
+          {models.length > 0 ? (
+            <div className="rounded-2xl border border-border bg-background/70 p-3">
+              <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
+                {copy.sidebar.modelTitle}
+              </p>
+              <label className="mt-2 block">
+                <span className="sr-only">{copy.sidebar.modelTitle}</span>
+                <select
+                  value={selectedModel}
+                  onChange={(event) => setSelectedModel(event.target.value)}
+                  disabled={isStreaming}
+                  className="contact-field w-full rounded-xl px-3 py-2 text-sm"
+                >
+                  {models.map((model) => (
+                    <option key={model.id} value={model.id}>
+                      {model.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <p className="mt-1.5 text-xs leading-relaxed text-muted">{copy.sidebar.modelHint}</p>
+            </div>
+          ) : null}
 
           <ul className="max-h-[360px] space-y-2 overflow-y-auto pr-1">
             {sortedThreads.map((thread) => {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { resolveProvider, streamCompletion } from "@/lib/llm";
+import { resolveModelChain, streamWithFallback } from "@/lib/llm";
 import { clientIpFrom, isRateLimited } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
@@ -17,6 +17,7 @@ type AnschreibenPayload = {
   applicantName?: unknown;
   applicantCity?: unknown;
   locale?: unknown;
+  model?: unknown;
 };
 
 const FOCUS_HINTS: Record<string, { de: string; en: string }> = {
@@ -86,11 +87,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "rate_limited" }, { status: 429 });
   }
 
-  const provider = resolveProvider();
-  if (!provider) {
-    return NextResponse.json({ error: "not_configured" }, { status: 503 });
-  }
-
   const payload = (await request.json().catch(() => null)) as AnschreibenPayload | null;
   if (!payload || typeof payload.vacancyText !== "string") {
     return NextResponse.json({ error: "invalid_payload" }, { status: 400 });
@@ -141,23 +137,29 @@ export async function POST(request: Request) {
     .filter(Boolean)
     .join("\n");
 
-  const stream = await streamCompletion(provider, {
+  const chain = await resolveModelChain(typeof payload.model === "string" ? payload.model : undefined);
+  if (chain.length === 0) {
+    return NextResponse.json({ error: "not_configured" }, { status: 503 });
+  }
+
+  const result = await streamWithFallback(chain, {
     system: buildSystemPrompt(locale),
     messages: [{ role: "user", content: userPrompt }],
     maxTokens: 1_000,
     temperature: 0.6,
   });
 
-  if (!stream) {
+  if (!result) {
     return NextResponse.json({ error: "upstream_failed" }, { status: 502 });
   }
 
-  return new Response(stream, {
+  return new Response(result.stream, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "no-store",
       "X-Accel-Buffering": "no",
-      "X-Llm-Label": provider.label,
+      "X-Llm-Label": result.model.label,
+      "X-Llm-Model": result.model.id,
     },
   });
 }

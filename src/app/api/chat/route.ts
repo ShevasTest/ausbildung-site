@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { resolveProvider, streamCompletion, type LlmMessage } from "@/lib/llm";
+import { resolveModelChain, streamWithFallback, type LlmMessage } from "@/lib/llm";
 import { clientIpFrom, isRateLimited } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
@@ -14,6 +14,7 @@ type ChatPayload = {
   messages?: unknown;
   style?: unknown;
   locale?: unknown;
+  model?: unknown;
 };
 
 const STYLE_HINTS: Record<ChatStyle, { de: string; en: string }> = {
@@ -104,11 +105,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "rate_limited" }, { status: 429 });
   }
 
-  const provider = resolveProvider();
-  if (!provider) {
-    return NextResponse.json({ error: "not_configured" }, { status: 503 });
-  }
-
   const payload = (await request.json().catch(() => null)) as ChatPayload | null;
   if (!payload) {
     return NextResponse.json({ error: "invalid_payload" }, { status: 400 });
@@ -123,23 +119,29 @@ export async function POST(request: Request) {
     payload.style === "strukturiert" || payload.style === "kompakt" ? payload.style : "direkt";
   const locale = payload.locale === "en" ? "en" : "de";
 
-  const stream = await streamCompletion(provider, {
+  const chain = await resolveModelChain(typeof payload.model === "string" ? payload.model : undefined);
+  if (chain.length === 0) {
+    return NextResponse.json({ error: "not_configured" }, { status: 503 });
+  }
+
+  const result = await streamWithFallback(chain, {
     system: buildSystemPrompt(style, locale),
     messages,
     maxTokens: 900,
     temperature: 0.7,
   });
 
-  if (!stream) {
+  if (!result) {
     return NextResponse.json({ error: "upstream_failed" }, { status: 502 });
   }
 
-  return new Response(stream, {
+  return new Response(result.stream, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "no-store",
       "X-Accel-Buffering": "no",
-      "X-Llm-Label": provider.label,
+      "X-Llm-Label": result.model.label,
+      "X-Llm-Model": result.model.id,
     },
   });
 }

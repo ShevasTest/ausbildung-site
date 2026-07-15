@@ -63,7 +63,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "5. KI-Demos (KI-Bewerbungshelfer, SmartChat)",
         paragraphs: [
-          "Texteingaben in den KI-Demos werden über eine eigene Server-Route an den jeweils konfigurierten KI-Anbieter (Anthropic, Groq oder Google) weitergeleitet — ausschließlich zur Generierung der Antwort. Ihre IP-Adresse wird dabei nicht an den KI-Anbieter übermittelt, da die Anfragen über den Server dieser Website laufen. Die Website speichert Ihre Eingaben nicht dauerhaft.",
+          "Texteingaben in den KI-Demos werden über eine eigene Server-Route an den jeweils konfigurierten KI-Anbieter (z. B. Groq, OpenRouter, Anthropic oder Google; OpenRouter leitet Anfragen an wechselnde Modellanbieter weiter) übermittelt — ausschließlich zur Generierung der Antwort. Ihre IP-Adresse wird dabei nicht an den KI-Anbieter übermittelt, da die Anfragen über den Server dieser Website laufen. Die Website speichert Ihre Eingaben nicht dauerhaft.",
           "Bitte geben Sie in die KI-Demos keine personenbezogenen oder vertraulichen Daten ein. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Demo-Funktionalität). Ist kein KI-Anbieter konfiguriert, läuft ein lokaler Demo-Modus ohne Datenübermittlung an Dritte.",
           "Zur Missbrauchsvermeidung gilt auch hier ein Rate-Limiting mit kurzzeitiger Verarbeitung der IP-Adresse im Arbeitsspeicher.",
         ],
@@ -144,7 +144,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "5. AI demos (AI Application Assistant, SmartChat)",
         paragraphs: [
-          "Text you enter in the AI demos is forwarded through this website's own server route to the configured AI provider (Anthropic, Groq or Google) — exclusively to generate the response. Your IP address is not transmitted to the AI provider, since the requests are proxied through this website's server. The website does not store your inputs permanently.",
+          "Text you enter in the AI demos is forwarded through this website's own server route to the configured AI provider (e.g. Groq, OpenRouter, Anthropic or Google; OpenRouter routes requests to changing model providers) — exclusively to generate the response. Your IP address is not transmitted to the AI provider, since the requests are proxied through this website's server. The website does not store your inputs permanently.",
           "Please do not enter any personal or confidential data into the AI demos. The legal basis is Art. 6(1)(f) GDPR (provision of the demo functionality). If no AI provider is configured, a local demo mode runs without any data transfer to third parties.",
           "To prevent abuse, rate limiting applies here as well, with brief in-memory processing of the IP address.",
         ],
