@@ -14,16 +14,20 @@ type InstallPromptEventLike = Event & {
   userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
 };
 
-type ForecastPoint = {
-  dayDe: string;
-  dayEn: string;
+type WeatherLocation = {
+  id: string;
+  name: string;
+  latitude: number;
+  longitude: number;
+};
+
+type LiveForecastPoint = {
+  day: string;
   icon: string;
   temperature: number;
 };
 
-type WeatherCity = {
-  id: string;
-  name: string;
+type LiveWeather = {
   conditionDe: string;
   conditionEn: string;
   current: number;
@@ -31,19 +35,25 @@ type WeatherCity = {
   low: number;
   humidity: number;
   wind: number;
-  forecast: ForecastPoint[];
+  forecast: LiveForecastPoint[];
 };
 
-type NewsEntry = {
-  id: string;
-  source: string;
-  category: Exclude<NewsCategory, "all">;
-  time: string;
+type LiveNewsEntry = {
+  id: number;
+  title: string;
   url: string;
-  titleDe: string;
-  titleEn: string;
-  summaryDe: string;
-  summaryEn: string;
+  source: string;
+  time: string;
+  category: Exclude<NewsCategory, "all">;
+  score: number;
+};
+
+type GithubActivityResponse = {
+  user: string;
+  days: Array<{ date: string; count: number }>;
+  followers: number;
+  publicRepos: number;
+  recentRepos: Array<{ name: string; url: string; pushedAt: string }>;
 };
 
 type DemoCopy = {
@@ -148,136 +158,198 @@ const WIDGET_GRID_CLASSES: Record<WidgetId, string> = {
   news: "md:col-span-12 xl:col-span-4",
 };
 
-const WEATHER_CITIES: WeatherCity[] = [
-  {
-    id: "berlin",
-    name: "Berlin",
-    conditionDe: "Leicht bewölkt",
-    conditionEn: "Partly cloudy",
-    current: 5,
-    high: 8,
-    low: 1,
-    humidity: 74,
-    wind: 16,
-    forecast: [
-      { dayDe: "Di", dayEn: "Tue", icon: "⛅", temperature: 7 },
-      { dayDe: "Mi", dayEn: "Wed", icon: "🌤️", temperature: 8 },
-      { dayDe: "Do", dayEn: "Thu", icon: "🌧️", temperature: 6 },
-      { dayDe: "Fr", dayEn: "Fri", icon: "🌤️", temperature: 9 },
-    ],
-  },
-  {
-    id: "hamburg",
-    name: "Hamburg",
-    conditionDe: "Windig",
-    conditionEn: "Windy",
-    current: 4,
-    high: 7,
-    low: 0,
-    humidity: 81,
-    wind: 24,
-    forecast: [
-      { dayDe: "Di", dayEn: "Tue", icon: "🌧️", temperature: 5 },
-      { dayDe: "Mi", dayEn: "Wed", icon: "🌥️", temperature: 6 },
-      { dayDe: "Do", dayEn: "Thu", icon: "🌧️", temperature: 5 },
-      { dayDe: "Fr", dayEn: "Fri", icon: "⛅", temperature: 7 },
-    ],
-  },
-  {
-    id: "muenchen",
-    name: "München",
-    conditionDe: "Klar",
-    conditionEn: "Clear",
-    current: 3,
-    high: 7,
-    low: -1,
-    humidity: 62,
-    wind: 12,
-    forecast: [
-      { dayDe: "Di", dayEn: "Tue", icon: "🌤️", temperature: 6 },
-      { dayDe: "Mi", dayEn: "Wed", icon: "☀️", temperature: 8 },
-      { dayDe: "Do", dayEn: "Thu", icon: "⛅", temperature: 7 },
-      { dayDe: "Fr", dayEn: "Fri", icon: "☀️", temperature: 9 },
-    ],
-  },
+const WEATHER_LOCATIONS: WeatherLocation[] = [
+  { id: "berlin", name: "Berlin", latitude: 52.52, longitude: 13.405 },
+  { id: "hamburg", name: "Hamburg", latitude: 53.5511, longitude: 9.9937 },
+  { id: "muenchen", name: "München", latitude: 48.1351, longitude: 11.582 },
 ];
 
-const NEWS_FEED: NewsEntry[] = [
-  {
-    id: "n1",
-    source: "Vercel",
-    category: "frontend",
-    time: "2h",
-    url: "https://nextjs.org/blog",
-    titleDe: "Next.js verbessert Build-Analysen für große App-Router-Projekte",
-    titleEn: "Next.js improves build insights for large App Router projects",
-    summaryDe:
-      "Neue Analyse-Hinweise helfen, schwere Komponenten schneller zu finden und den Bundle-Impact pro Route klarer zu messen.",
-    summaryEn:
-      "New analysis hints make it easier to spot heavy components and understand route-level bundle impact.",
-  },
-  {
-    id: "n2",
-    source: "GitHub Changelog",
-    category: "career",
-    time: "5h",
-    url: "https://github.blog/changelog/",
-    titleDe: "GitHub erweitert Lernpfade für Junior-Entwickler:innen",
-    titleEn: "GitHub expands learning paths for junior developers",
-    summaryDe:
-      "Mehr praxisnahe Übungen zu Pull-Requests, Code-Review und Team-Workflows erleichtern den Einstieg in professionelle Prozesse.",
-    summaryEn:
-      "More practical drills on pull requests, code review and team workflows support a faster path into professional delivery.",
-  },
-  {
-    id: "n3",
-    source: "OpenAI",
-    category: "ai",
-    time: "7h",
-    url: "https://openai.com/news",
-    titleDe: "Neue API-Tools fokussieren auf schnellere produktive Integrationen",
-    titleEn: "New API tools focus on faster production integrations",
-    summaryDe:
-      "Der Fokus liegt auf stabilen Entwickler-Flows, besserem Monitoring und klarerer Kostenkontrolle im Produktivbetrieb.",
-    summaryEn:
-      "The update focuses on stable developer workflows, improved monitoring and clearer cost control in production.",
-  },
-  {
-    id: "n4",
-    source: "Web.dev",
-    category: "frontend",
-    time: "9h",
-    url: "https://web.dev/",
-    titleDe: "Neue Leitlinien für performante Interaktionen ohne Layout-Jank",
-    titleEn: "New guidance for smooth interactions without layout jank",
-    summaryDe:
-      "Empfohlen werden transform-basierte Motion Patterns und eine frühe Messung von INP in der Entwicklungsphase.",
-    summaryEn:
-      "Recommendations emphasize transform-based motion patterns and early INP checks during development.",
-  },
-  {
-    id: "n5",
-    source: "LinkedIn Learning",
-    category: "career",
-    time: "12h",
-    url: "https://www.linkedin.com/learning/",
-    titleDe: "Recruiter achten stärker auf dokumentierte Projektentscheidungen",
-    titleEn: "Recruiters focus more on documented project decisions",
-    summaryDe:
-      "Neben dem UI zählt zunehmend, ob Architektur-Trade-offs und technische Entscheidungen nachvollziehbar erklärt werden.",
-    summaryEn:
-      "Beyond UI polish, recruiters increasingly value clear explanations of architecture trade-offs and decisions.",
-  },
+const WMO_CONDITIONS: Array<{
+  codes: number[];
+  icon: string;
+  de: string;
+  en: string;
+}> = [
+  { codes: [0], icon: "☀️", de: "Klar", en: "Clear" },
+  { codes: [1, 2], icon: "🌤️", de: "Leicht bewölkt", en: "Partly cloudy" },
+  { codes: [3], icon: "🌥️", de: "Bedeckt", en: "Overcast" },
+  { codes: [45, 48], icon: "🌫️", de: "Nebel", en: "Fog" },
+  { codes: [51, 53, 55, 56, 57], icon: "🌦️", de: "Nieselregen", en: "Drizzle" },
+  { codes: [61, 63, 65, 66, 67, 80, 81, 82], icon: "🌧️", de: "Regen", en: "Rain" },
+  { codes: [71, 73, 75, 77, 85, 86], icon: "🌨️", de: "Schnee", en: "Snow" },
+  { codes: [95, 96, 99], icon: "⛈️", de: "Gewitter", en: "Thunderstorm" },
 ];
+
+function describeWeatherCode(code: number) {
+  return (
+    WMO_CONDITIONS.find((entry) => entry.codes.includes(code)) ?? {
+      icon: "🌡️",
+      de: "Wechselhaft",
+      en: "Mixed",
+    }
+  );
+}
+
+async function fetchLiveWeather(
+  location: WeatherLocation,
+  intlLocale: string,
+): Promise<LiveWeather> {
+  const url =
+    `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}` +
+    "&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code" +
+    "&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin&forecast_days=6";
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("weather_unavailable");
+  }
+
+  const data = (await response.json()) as {
+    current?: {
+      temperature_2m?: number;
+      relative_humidity_2m?: number;
+      wind_speed_10m?: number;
+      weather_code?: number;
+    };
+    daily?: {
+      time?: string[];
+      weather_code?: number[];
+      temperature_2m_max?: number[];
+      temperature_2m_min?: number[];
+    };
+  };
+
+  const condition = describeWeatherCode(data.current?.weather_code ?? -1);
+  const dayFormatter = new Intl.DateTimeFormat(intlLocale, { weekday: "short" });
+
+  const forecast: LiveForecastPoint[] = (data.daily?.time ?? [])
+    .map((iso, index) => ({
+      day: dayFormatter.format(new Date(`${iso}T12:00:00`)),
+      icon: describeWeatherCode(data.daily?.weather_code?.[index] ?? -1).icon,
+      temperature: Math.round(data.daily?.temperature_2m_max?.[index] ?? 0),
+    }))
+    .slice(1, 5);
+
+  return {
+    conditionDe: condition.de,
+    conditionEn: condition.en,
+    current: Math.round(data.current?.temperature_2m ?? 0),
+    high: Math.round(data.daily?.temperature_2m_max?.[0] ?? 0),
+    low: Math.round(data.daily?.temperature_2m_min?.[0] ?? 0),
+    humidity: Math.round(data.current?.relative_humidity_2m ?? 0),
+    wind: Math.round(data.current?.wind_speed_10m ?? 0),
+    forecast,
+  };
+}
+
+const NEWS_CACHE_KEY = "devdash-news-v1";
+const NEWS_CACHE_TTL_MS = 10 * 60 * 1000;
+
+function classifyNews(title: string): Exclude<NewsCategory, "all"> {
+  if (/\b(ai|gpt|llm|claude|gemini|model|openai|anthropic|ml)\b/i.test(title)) {
+    return "ai";
+  }
+
+  if (/(hiring|job|career|interview|salary|resume|work)/i.test(title)) {
+    return "career";
+  }
+
+  return "frontend";
+}
+
+function relativeHours(unixSeconds: number, localeKey: LocaleKey) {
+  const diffHours = Math.max(0, Math.round((Date.now() / 1000 - unixSeconds) / 3600));
+  if (diffHours < 1) {
+    return "<1h";
+  }
+
+  if (diffHours >= 48) {
+    const days = Math.round(diffHours / 24);
+    return localeKey === "de" ? `vor ${days} Tagen` : `${days}d ago`;
+  }
+
+  return `${diffHours}h`;
+}
+
+async function fetchHackerNews(localeKey: LocaleKey): Promise<LiveNewsEntry[]> {
+  try {
+    const cachedRaw = window.sessionStorage.getItem(NEWS_CACHE_KEY);
+    if (cachedRaw) {
+      const cached = JSON.parse(cachedRaw) as { at: number; items: LiveNewsEntry[] };
+      if (Date.now() - cached.at < NEWS_CACHE_TTL_MS && Array.isArray(cached.items)) {
+        return cached.items;
+      }
+    }
+  } catch {
+    // Ignore cache issues and fetch fresh data.
+  }
+
+  const idsResponse = await fetch("https://hacker-news.firebaseio.com/v0/topstories.json");
+  if (!idsResponse.ok) {
+    throw new Error("news_unavailable");
+  }
+
+  const ids = ((await idsResponse.json()) as number[]).slice(0, 30);
+  const items = await Promise.all(
+    ids.map(async (id) => {
+      const itemResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+      if (!itemResponse.ok) {
+        return null;
+      }
+
+      return (await itemResponse.json()) as {
+        id?: number;
+        title?: string;
+        url?: string;
+        score?: number;
+        time?: number;
+        type?: string;
+      } | null;
+    }),
+  );
+
+  const entries: LiveNewsEntry[] = items
+    .filter(
+      (item): item is { id: number; title: string; url: string; score?: number; time?: number; type?: string } =>
+        Boolean(item && item.type === "story" && item.id && item.title && item.url),
+    )
+    .map((item) => {
+      let source = "news.ycombinator.com";
+      try {
+        source = new URL(item.url).hostname.replace(/^www\./, "");
+      } catch {
+        // Keep fallback source label.
+      }
+
+      return {
+        id: item.id,
+        title: item.title,
+        url: item.url,
+        source,
+        time: relativeHours(item.time ?? Date.now() / 1000, localeKey),
+        category: classifyNews(item.title),
+        score: item.score ?? 0,
+      };
+    })
+    .slice(0, 12);
+
+  try {
+    window.sessionStorage.setItem(NEWS_CACHE_KEY, JSON.stringify({ at: Date.now(), items: entries }));
+  } catch {
+    // Storage unavailable: skip caching.
+  }
+
+  return entries;
+}
 
 const COPY: Record<LocaleKey, DemoCopy> = {
   de: {
     badge: "Live-Demo · Modulares Entwickler-Dashboard",
     title: "DevDash",
     subtitle:
-      "Persönliches Start-Dashboard mit Drag-and-Drop-Widgets für Wetter, GitHub-Aktivität, Pomodoro-Fokus, Notizen und Tech-News. Die Konfiguration bleibt lokal gespeichert.",
+      "Persönliches Start-Dashboard mit Drag-and-Drop-Widgets: Live-Wetter (Open-Meteo), echte GitHub-Aktivität, Pomodoro-Fokus, Notizen und ein Live-Feed von Hacker News. Layout und Notizen bleiben lokal gespeichert.",
     back: "Zurück zur Startseite",
-    chips: ["Drag & Drop Layout", "Pomodoro Timer", "GitHub Heatmap", "PWA-ready"],
+    chips: ["Live-APIs", "Drag & Drop Layout", "Pomodoro Timer", "PWA-ready"],
     controls: {
       time: "Lokale Zeit",
       connectivity: "Verbindung",
@@ -302,11 +374,11 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     widgetMeta: {
       weather: {
         title: "Wetter",
-        subtitle: "Tagesüberblick für Fokusplanung",
+        subtitle: "Live-Daten von Open-Meteo",
       },
       github: {
         title: "GitHub Heatmap",
-        subtitle: "Aktivität und Streak auf einen Blick",
+        subtitle: "Öffentliche Aktivität von @ShevasTest (live)",
       },
       pomodoro: {
         title: "Pomodoro",
@@ -318,7 +390,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
       news: {
         title: "Tech-News",
-        subtitle: "Kuratiertes Feed-Widget",
+        subtitle: "Live-Feed von Hacker News",
       },
     },
     widgetActions: {
@@ -336,7 +408,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       forecast: "4-Tage-Ausblick",
     },
     github: {
-      total: "Contributions (16 Wochen)",
+      total: "Events (13 Wochen)",
       activeDays: "Aktive Tage",
       streak: "Aktuelle Streak",
       legend: "Intensität",
@@ -380,15 +452,15 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
     },
     footerNote:
-      "Hinweis: Wetter-, GitHub- und News-Daten sind realistische Mock-Daten für die Demo. Fokus liegt auf Architektur, UX und interaktiver Produktlogik.",
+      "Hinweis: Wetter (Open-Meteo), GitHub-Aktivität und Tech-News (Hacker News) sind Live-Daten aus echten APIs. Bei Ausfall einer Quelle zeigt das Widget einen klaren Fehler- oder Beispielzustand.",
   },
   en: {
     badge: "Live demo · Modular developer dashboard",
     title: "DevDash",
     subtitle:
-      "Personal start dashboard with drag-and-drop widgets for weather, GitHub activity, Pomodoro focus, notes and tech news. Layout and notes are stored locally.",
+      "Personal start dashboard with drag-and-drop widgets: live weather (Open-Meteo), real GitHub activity, Pomodoro focus, notes and a live Hacker News feed. Layout and notes are stored locally.",
     back: "Back to homepage",
-    chips: ["Drag & drop layout", "Pomodoro timer", "GitHub heatmap", "PWA-ready"],
+    chips: ["Live APIs", "Drag & drop layout", "Pomodoro timer", "PWA-ready"],
     controls: {
       time: "Local time",
       connectivity: "Connectivity",
@@ -413,11 +485,11 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     widgetMeta: {
       weather: {
         title: "Weather",
-        subtitle: "Daily snapshot for focus planning",
+        subtitle: "Live data from Open-Meteo",
       },
       github: {
         title: "GitHub heatmap",
-        subtitle: "Activity and streak overview",
+        subtitle: "Public activity of @ShevasTest (live)",
       },
       pomodoro: {
         title: "Pomodoro",
@@ -429,7 +501,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
       news: {
         title: "Tech news",
-        subtitle: "Curated feed widget",
+        subtitle: "Live feed from Hacker News",
       },
     },
     widgetActions: {
@@ -447,7 +519,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       forecast: "4-day outlook",
     },
     github: {
-      total: "Contributions (16 weeks)",
+      total: "Events (13 weeks)",
       activeDays: "Active days",
       streak: "Current streak",
       legend: "Intensity",
@@ -491,7 +563,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
     },
     footerNote:
-      "Note: weather, GitHub and news are realistic mock datasets for demo purposes. The focus is architecture, UX and interactive product behavior.",
+      "Note: weather (Open-Meteo), GitHub activity and tech news (Hacker News) are live data from real APIs. If a source is unavailable, the widget shows a clear error or sample state.",
   },
 };
 
@@ -575,7 +647,15 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
   const [draggedWidget, setDraggedWidget] = useState<WidgetId | null>(null);
   const [dropTargetWidget, setDropTargetWidget] = useState<WidgetId | null>(null);
 
-  const [activeCityId, setActiveCityId] = useState<string>(WEATHER_CITIES[0].id);
+  const [activeCityId, setActiveCityId] = useState<string>(WEATHER_LOCATIONS[0].id);
+  const [weatherByCity, setWeatherByCity] = useState<Record<string, LiveWeather>>({});
+  const [weatherStatus, setWeatherStatus] = useState<"loading" | "ready" | "error">("loading");
+
+  const [githubData, setGithubData] = useState<GithubActivityResponse | null>(null);
+  const [githubStatus, setGithubStatus] = useState<"loading" | "ready" | "error">("loading");
+
+  const [newsItems, setNewsItems] = useState<LiveNewsEntry[]>([]);
+  const [newsStatus, setNewsStatus] = useState<"loading" | "ready" | "error">("loading");
 
   const [focusMinutes, setFocusMinutes] = useState<number>(25);
   const [pomodoroMode, setPomodoroMode] = useState<PomodoroMode>("focus");
@@ -601,14 +681,111 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
   const [installPromptEvent, setInstallPromptEvent] = useState<InstallPromptEventLike | null>(null);
   const [installOutcome, setInstallOutcome] = useState<"idle" | "accepted" | "dismissed">("idle");
 
-  const heatmap = useMemo(() => createHeatmapMatrix(16), []);
+  useEffect(() => {
+    const location =
+      WEATHER_LOCATIONS.find((entry) => entry.id === activeCityId) ?? WEATHER_LOCATIONS[0];
 
-  const selectedCity =
-    WEATHER_CITIES.find((city) => city.id === activeCityId) ?? WEATHER_CITIES[0];
+    if (weatherByCity[location.id]) {
+      return;
+    }
+
+    let cancelled = false;
+    setWeatherStatus("loading");
+
+    fetchLiveWeather(location, intlLocale)
+      .then((weather) => {
+        if (cancelled) {
+          return;
+        }
+
+        setWeatherByCity((previous) => ({ ...previous, [location.id]: weather }));
+        setWeatherStatus("ready");
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setWeatherStatus("error");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activeCityId, intlLocale, weatherByCity]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/github")
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error("github_unavailable");
+        }
+
+        return (await response.json()) as GithubActivityResponse;
+      })
+      .then((data) => {
+        if (cancelled) {
+          return;
+        }
+
+        setGithubData(data);
+        setGithubStatus("ready");
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setGithubStatus("error");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchHackerNews(localeKey)
+      .then((items) => {
+        if (cancelled) {
+          return;
+        }
+
+        setNewsItems(items);
+        setNewsStatus("ready");
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setNewsStatus("error");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [localeKey]);
+
+  const heatmap = useMemo(() => {
+    if (githubData && githubData.days.length > 0) {
+      // Column-per-week matrix from real daily event counts (13 weeks).
+      const days = githubData.days;
+      const weeks: number[][] = [];
+      for (let index = 0; index < days.length; index += 7) {
+        weeks.push(days.slice(index, index + 7).map((day) => day.count));
+      }
+      return weeks;
+    }
+
+    return createHeatmapMatrix(13);
+  }, [githubData]);
+
+  const selectedLocation =
+    WEATHER_LOCATIONS.find((entry) => entry.id === activeCityId) ?? WEATHER_LOCATIONS[0];
+  const selectedWeather = weatherByCity[selectedLocation.id] ?? null;
 
   const weatherMaxTemp = useMemo(
-    () => Math.max(...selectedCity.forecast.map((item) => item.temperature), 1),
-    [selectedCity.forecast],
+    () => Math.max(...(selectedWeather?.forecast ?? []).map((item) => item.temperature), 1),
+    [selectedWeather],
   );
 
   const heatmapStats = useMemo(() => {
@@ -633,12 +810,9 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
   }, [heatmap]);
 
   const filteredNews = useMemo(() => {
-    if (newsCategory === "all") {
-      return NEWS_FEED;
-    }
-
-    return NEWS_FEED.filter((item) => item.category === newsCategory);
-  }, [newsCategory]);
+    const base = newsCategory === "all" ? newsItems : newsItems.filter((item) => item.category === newsCategory);
+    return base.slice(0, 6);
+  }, [newsCategory, newsItems]);
 
   const pomodoroBaseSeconds = pomodoroMode === "focus" ? focusMinutes * 60 : BREAK_SECONDS;
   const pomodoroProgress = pomodoroBaseSeconds > 0 ? (pomodoroBaseSeconds - secondsLeft) / pomodoroBaseSeconds : 0;
@@ -956,8 +1130,8 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
               {copy.weather.cityLabel}
             </p>
             <div className="flex flex-wrap gap-1.5">
-              {WEATHER_CITIES.map((city) => {
-                const isActive = city.id === selectedCity.id;
+              {WEATHER_LOCATIONS.map((city) => {
+                const isActive = city.id === selectedLocation.id;
                 return (
                   <button
                     key={city.id}
@@ -977,60 +1151,79 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-background/65 p-3.5">
-            <div className="flex items-end justify-between gap-2">
-              <div>
-                <p className="text-sm font-semibold text-foreground">{selectedCity.name}</p>
-                <p className="text-xs text-muted">
-                  {localeKey === "de" ? selectedCity.conditionDe : selectedCity.conditionEn}
-                </p>
-              </div>
-              <p className="text-3xl font-semibold text-foreground">{selectedCity.current}°</p>
+          {!selectedWeather ? (
+            <div className="rounded-2xl border border-border bg-background/65 p-3.5">
+              <p className="text-sm text-muted">
+                {weatherStatus === "error"
+                  ? localeKey === "de"
+                    ? "Wetterdaten sind gerade nicht erreichbar. Bitte später erneut versuchen."
+                    : "Weather data is currently unavailable. Please try again later."
+                  : localeKey === "de"
+                    ? "Lade Live-Wetterdaten (Open-Meteo) ..."
+                    : "Loading live weather data (Open-Meteo) ..."}
+              </p>
             </div>
+          ) : (
+            <>
+              <div className="rounded-2xl border border-border bg-background/65 p-3.5">
+                <div className="flex items-end justify-between gap-2">
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{selectedLocation.name}</p>
+                    <p className="text-xs text-muted">
+                      {localeKey === "de" ? selectedWeather.conditionDe : selectedWeather.conditionEn}
+                    </p>
+                  </div>
+                  <p className="text-3xl font-semibold text-foreground">{selectedWeather.current}°</p>
+                </div>
 
-            <dl className="mt-3 grid grid-cols-2 gap-2 text-xs">
-              <div className="rounded-xl border border-border bg-card px-2.5 py-2">
-                <dt className="text-muted">{copy.weather.high}</dt>
-                <dd className="mt-0.5 font-semibold text-foreground">{selectedCity.high}°</dd>
+                <dl className="mt-3 grid grid-cols-2 gap-2 text-xs">
+                  <div className="rounded-xl border border-border bg-card px-2.5 py-2">
+                    <dt className="text-muted">{copy.weather.high}</dt>
+                    <dd className="mt-0.5 font-semibold text-foreground">{selectedWeather.high}°</dd>
+                  </div>
+                  <div className="rounded-xl border border-border bg-card px-2.5 py-2">
+                    <dt className="text-muted">{copy.weather.low}</dt>
+                    <dd className="mt-0.5 font-semibold text-foreground">{selectedWeather.low}°</dd>
+                  </div>
+                  <div className="rounded-xl border border-border bg-card px-2.5 py-2">
+                    <dt className="text-muted">{copy.weather.humidity}</dt>
+                    <dd className="mt-0.5 font-semibold text-foreground">{selectedWeather.humidity}%</dd>
+                  </div>
+                  <div className="rounded-xl border border-border bg-card px-2.5 py-2">
+                    <dt className="text-muted">{copy.weather.wind}</dt>
+                    <dd className="mt-0.5 font-semibold text-foreground">{selectedWeather.wind} km/h</dd>
+                  </div>
+                </dl>
               </div>
-              <div className="rounded-xl border border-border bg-card px-2.5 py-2">
-                <dt className="text-muted">{copy.weather.low}</dt>
-                <dd className="mt-0.5 font-semibold text-foreground">{selectedCity.low}°</dd>
-              </div>
-              <div className="rounded-xl border border-border bg-card px-2.5 py-2">
-                <dt className="text-muted">{copy.weather.humidity}</dt>
-                <dd className="mt-0.5 font-semibold text-foreground">{selectedCity.humidity}%</dd>
-              </div>
-              <div className="rounded-xl border border-border bg-card px-2.5 py-2">
-                <dt className="text-muted">{copy.weather.wind}</dt>
-                <dd className="mt-0.5 font-semibold text-foreground">{selectedCity.wind} km/h</dd>
-              </div>
-            </dl>
-          </div>
 
-          <div>
-            <p className="text-xs font-semibold tracking-[0.12em] text-muted uppercase">
-              {copy.weather.forecast}
-            </p>
-            <ul className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {selectedCity.forecast.map((entry) => {
-                const barStyle = {
-                  "--devdash-forecast-scale": (entry.temperature / weatherMaxTemp).toFixed(3),
-                } as CSSProperties;
+              <div>
+                <p className="text-xs font-semibold tracking-[0.12em] text-muted uppercase">
+                  {copy.weather.forecast}
+                </p>
+                <ul className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  {selectedWeather.forecast.map((entry, entryIndex) => {
+                    const barStyle = {
+                      "--devdash-forecast-scale": (entry.temperature / weatherMaxTemp).toFixed(3),
+                    } as CSSProperties;
 
-                return (
-                  <li key={`${selectedCity.id}-${entry.dayDe}`} className="rounded-xl border border-border bg-background/70 p-2 text-center">
-                    <p className="text-[11px] text-muted">{localeKey === "de" ? entry.dayDe : entry.dayEn}</p>
-                    <p className="mt-1 text-sm">{entry.icon}</p>
-                    <div className="mx-auto mt-2 h-8 w-2 overflow-hidden rounded-full border border-border bg-primary/10">
-                      <span className="devdash-forecast-fill is-visible" style={barStyle} />
-                    </div>
-                    <p className="mt-1 text-xs font-semibold text-foreground">{entry.temperature}°</p>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+                    return (
+                      <li
+                        key={`${selectedLocation.id}-${entryIndex}`}
+                        className="rounded-xl border border-border bg-background/70 p-2 text-center"
+                      >
+                        <p className="text-[11px] text-muted">{entry.day}</p>
+                        <p className="mt-1 text-sm">{entry.icon}</p>
+                        <div className="mx-auto mt-2 h-8 w-2 overflow-hidden rounded-full border border-border bg-primary/10">
+                          <span className="devdash-forecast-fill is-visible" style={barStyle} />
+                        </div>
+                        <p className="mt-1 text-xs font-semibold text-foreground">{entry.temperature}°</p>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </>
+          )}
         </div>
       );
     }
@@ -1061,7 +1254,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
                     <span
                       key={`day-${weekIndex}-${dayIndex}`}
                       className={`devdash-heat-cell level-${heatLevel(value)}`}
-                      title={`${value} contributions`}
+                      title={`${value} Events`}
                     />
                   ))}
                 </div>
@@ -1079,6 +1272,51 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
               <span>{copy.github.intense}</span>
             </div>
           </div>
+
+          {githubStatus === "ready" && githubData ? (
+            <div className="rounded-2xl border border-border bg-background/65 p-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <a
+                  href={`https://github.com/${githubData.user}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-mono text-xs font-semibold text-primary transition hover:opacity-80"
+                >
+                  @{githubData.user} ↗
+                </a>
+                <p className="text-xs text-muted">
+                  {githubData.publicRepos} Repos · {githubData.followers} Follower
+                </p>
+              </div>
+
+              {githubData.recentRepos.length > 0 ? (
+                <ul className="mt-2 flex flex-wrap gap-1.5">
+                  {githubData.recentRepos.map((repo) => (
+                    <li key={repo.name}>
+                      <a
+                        href={repo.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="devdash-pill inline-flex rounded-full border border-border bg-card px-2.5 py-1 font-mono text-[11px] font-medium text-muted"
+                      >
+                        {repo.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ) : (
+            <p className="text-xs text-muted">
+              {githubStatus === "error"
+                ? localeKey === "de"
+                  ? "GitHub-Daten aktuell nicht erreichbar — Beispieldaten werden angezeigt."
+                  : "GitHub data currently unavailable — sample data is shown."
+                : localeKey === "de"
+                  ? "Lade öffentliche GitHub-Aktivität ..."
+                  : "Loading public GitHub activity ..."}
+            </p>
+          )}
         </div>
       );
     }
@@ -1279,33 +1517,49 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
           </div>
         </div>
 
-        <ul className="space-y-2">
-          {filteredNews.map((entry) => (
-            <li key={entry.id}>
-              <article className="devdash-news-item rounded-2xl border border-border bg-background/70 p-3">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <p className="text-xs font-semibold text-muted">
-                    {entry.source} · {entry.time}
+        {newsStatus !== "ready" ? (
+          <p className="rounded-2xl border border-border bg-background/70 p-3 text-xs text-muted">
+            {newsStatus === "error"
+              ? localeKey === "de"
+                ? "News-Feed aktuell nicht erreichbar. Bitte später erneut versuchen."
+                : "News feed currently unavailable. Please try again later."
+              : localeKey === "de"
+                ? "Lade Hacker-News-Feed ..."
+                : "Loading Hacker News feed ..."}
+          </p>
+        ) : filteredNews.length === 0 ? (
+          <p className="rounded-2xl border border-border bg-background/70 p-3 text-xs text-muted">
+            {localeKey === "de"
+              ? "In dieser Kategorie gibt es gerade keine Treffer."
+              : "No stories in this category right now."}
+          </p>
+        ) : (
+          <ul className="space-y-2">
+            {filteredNews.map((entry) => (
+              <li key={entry.id}>
+                <article className="devdash-news-item rounded-2xl border border-border bg-background/70 p-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="break-all text-xs font-semibold text-muted">
+                      {entry.source} · {entry.time}
+                    </p>
+                    <a
+                      href={entry.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs font-semibold text-primary transition hover:opacity-80"
+                    >
+                      {copy.news.open} ↗
+                    </a>
+                  </div>
+                  <h3 className="mt-1 break-words text-sm font-semibold text-foreground">{entry.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-muted">
+                    {entry.score} {localeKey === "de" ? "Punkte auf Hacker News" : "points on Hacker News"}
                   </p>
-                  <a
-                    href={entry.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-xs font-semibold text-primary transition hover:opacity-80"
-                  >
-                    {copy.news.open} ↗
-                  </a>
-                </div>
-                <h3 className="mt-1 break-words text-sm font-semibold text-foreground">
-                  {localeKey === "de" ? entry.titleDe : entry.titleEn}
-                </h3>
-                <p className="mt-1 text-xs leading-relaxed text-muted">
-                  {localeKey === "de" ? entry.summaryDe : entry.summaryEn}
-                </p>
-              </article>
-            </li>
-          ))}
-        </ul>
+                </article>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     );
   };
@@ -1314,7 +1568,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
       <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 lg:p-9">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="inline-flex rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+          <span className="inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
             {copy.badge}
           </span>
           <Link
@@ -1325,7 +1579,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
           </Link>
         </div>
 
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{copy.title}</h1>
+        <h1 className="font-display mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{copy.title}</h1>
         <p className="mt-3 max-w-4xl leading-relaxed text-muted">{copy.subtitle}</p>
 
         <ul className="mt-5 flex flex-wrap gap-2.5">

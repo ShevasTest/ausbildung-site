@@ -1,17 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Archivo, Instrument_Sans, Spline_Sans_Mono } from "next/font/google";
 import { PwaRegister } from "@/components/pwa-register";
 import { siteConfig } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const sansFace = Instrument_Sans({
+  variable: "--font-sans-face",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const monoFace = Spline_Sans_Mono({
+  variable: "--font-mono-face",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const displayFace = Archivo({
+  variable: "--font-display-face",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
 });
 
 const themeScript = `
@@ -108,7 +119,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`${inter.variable} ${jetBrainsMono.variable} bg-background text-foreground font-sans antialiased`}
+        className={`${sansFace.variable} ${monoFace.variable} ${displayFace.variable} bg-background text-foreground font-sans antialiased`}
       >
         <PwaRegister />
         {children}

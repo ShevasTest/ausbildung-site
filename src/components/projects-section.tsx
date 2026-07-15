@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
+import { SectionHeader } from "@/components/section-header";
 
 export type ProjectItem = {
   slug: string;
@@ -10,6 +11,7 @@ export type ProjectItem = {
 };
 
 type ProjectsSectionProps = {
+  eyebrow?: string;
   title: string;
   intro: string;
   openProjectLabel: string;
@@ -17,77 +19,129 @@ type ProjectsSectionProps = {
 };
 
 type ProjectVisual = {
-  layout: string;
-  orbClassName: string;
-  icon: ReactNode;
+  preview: ReactNode;
 };
 
+function ChatPreview() {
+  return (
+    <div className="flex h-full flex-col justify-center gap-2 px-5">
+      <div className="h-2.5 w-3/5 rounded-full bg-primary/25" />
+      <div className="h-2.5 w-2/5 rounded-full bg-primary/25" />
+      <div className="ml-auto h-2.5 w-1/2 rounded-full bg-primary/60" />
+      <div className="mt-2 flex items-center gap-2">
+        <div className="h-6 flex-1 rounded-lg border border-border bg-card/80" />
+        <div className="h-6 w-6 rounded-lg bg-primary/70" />
+      </div>
+    </div>
+  );
+}
+
+function BarsPreview() {
+  return (
+    <div className="flex h-full items-end justify-center gap-2.5 px-6 pb-4">
+      {[0.45, 0.7, 0.55, 0.9, 0.62, 0.78].map((height, index) => (
+        <div
+          key={index}
+          className={`w-4 rounded-t ${index === 3 ? "bg-accent/80" : "bg-primary/45"}`}
+          style={{ height: `${height * 100}%` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function DocumentPreview() {
+  return (
+    <div className="flex h-full items-center justify-center gap-4 px-5">
+      <div className="flex h-4/5 w-1/3 flex-col gap-1.5 rounded-lg border border-border bg-card/80 p-2.5">
+        <div className="h-1.5 w-full rounded-full bg-muted/30" />
+        <div className="h-1.5 w-4/5 rounded-full bg-muted/30" />
+        <div className="h-1.5 w-full rounded-full bg-muted/30" />
+        <div className="h-1.5 w-3/5 rounded-full bg-muted/30" />
+      </div>
+      <div className="text-primary" aria-hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5">
+          <path d="M4 12h14M13 6.5 18.5 12 13 17.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+      <div className="flex h-4/5 w-1/3 flex-col gap-1.5 rounded-lg border border-primary/30 bg-primary/10 p-2.5">
+        <div className="h-1.5 w-full rounded-full bg-primary/45" />
+        <div className="h-1.5 w-5/6 rounded-full bg-primary/45" />
+        <div className="h-1.5 w-full rounded-full bg-primary/45" />
+        <div className="h-1.5 w-2/3 rounded-full bg-primary/45" />
+      </div>
+    </div>
+  );
+}
+
+function WidgetsPreview() {
+  return (
+    <div className="grid h-full grid-cols-3 gap-2 px-6 py-4">
+      <div className="rounded-lg border border-border bg-card/80 p-2">
+        <div className="h-1.5 w-3/4 rounded-full bg-muted/35" />
+        <div className="mt-1.5 h-3 w-1/2 rounded bg-primary/45" />
+      </div>
+      <div className="rounded-lg border border-border bg-card/80 p-2">
+        <div className="mx-auto mt-0.5 h-6 w-6 rounded-full border-2 border-primary/50" />
+      </div>
+      <div className="rounded-lg border border-border bg-card/80 p-2">
+        <div className="flex h-full items-end gap-1">
+          <div className="h-2/5 w-2 rounded-t bg-primary/40" />
+          <div className="h-3/5 w-2 rounded-t bg-primary/55" />
+          <div className="h-4/5 w-2 rounded-t bg-accent/70" />
+        </div>
+      </div>
+      <div className="col-span-3 flex items-center gap-1.5 rounded-lg border border-border bg-card/80 px-2.5">
+        {Array.from({ length: 14 }).map((_, index) => (
+          <span
+            key={index}
+            className={`h-2 w-2 rounded-[3px] ${
+              [2, 5, 6, 9, 12].includes(index)
+                ? "bg-primary/70"
+                : [3, 10].includes(index)
+                  ? "bg-primary/35"
+                  : "bg-muted/20"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BrowserPreview() {
+  return (
+    <div className="flex h-full items-center justify-center px-6">
+      <div className="h-4/5 w-full max-w-sm overflow-hidden rounded-lg border border-border bg-card/80">
+        <div className="flex items-center gap-1 border-b border-border px-2.5 py-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-muted/40" />
+          <span className="h-1.5 w-1.5 rounded-full bg-muted/40" />
+          <span className="h-1.5 w-1.5 rounded-full bg-accent/70" />
+          <span className="ml-2 h-1.5 flex-1 rounded-full bg-muted/20" />
+        </div>
+        <div className="flex gap-2 p-2.5">
+          <div className="flex-1 space-y-1.5">
+            <div className="h-2 w-4/5 rounded-full bg-primary/50" />
+            <div className="h-1.5 w-full rounded-full bg-muted/25" />
+            <div className="h-1.5 w-3/4 rounded-full bg-muted/25" />
+          </div>
+          <div className="h-10 w-14 rounded border border-primary/25 bg-primary/10" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const DEFAULT_VISUAL: ProjectVisual = {
-  layout: "md:col-span-6",
-  orbClassName: "from-primary/24 via-primary/10 to-transparent",
-  icon: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
-      <path d="M4.75 6.75A2.75 2.75 0 0 1 7.5 4h9a2.75 2.75 0 0 1 2.75 2.75v10.5A2.75 2.75 0 0 1 16.5 20h-9a2.75 2.75 0 0 1-2.75-2.75z" />
-      <path d="M8.25 9.5h7.5M8.25 12h7.5M8.25 14.5h4.25" strokeLinecap="round" />
-    </svg>
-  ),
+  preview: <BrowserPreview />,
 };
 
 const PROJECT_VISUALS: Record<string, ProjectVisual> = {
-  "ki-bewerbungshelfer": {
-    layout: "md:col-span-7",
-    orbClassName: "from-primary/26 via-accent/12 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
-        <path d="M7.5 3.75h7.2l4.55 4.5v11A2.75 2.75 0 0 1 16.5 22h-9A2.75 2.75 0 0 1 4.75 19.25V6.5A2.75 2.75 0 0 1 7.5 3.75z" />
-        <path d="M14.75 3.75v3.5a1 1 0 0 0 1 1H19" />
-        <path d="M8.75 13h6.5M8.75 16h4.25" strokeLinecap="round" />
-        <path d="m8 9.4.6 1.2 1.3.2-.95.93.22 1.32L8 12.46l-1.17.59.22-1.32-.95-.93 1.31-.2Z" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  "mietpreise-tracker": {
-    layout: "md:col-span-5",
-    orbClassName: "from-accent/24 via-primary/10 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
-        <path d="M4.75 19.25h14.5M7.5 16.75v-5.5M12 16.75V8.25M16.5 16.75v-3.5" strokeLinecap="round" />
-        <path d="M5.75 9.75 9.6 6.9a1.1 1.1 0 0 1 1.2-.12l2.4 1.3a1.1 1.1 0 0 0 1.18-.08l3.87-2.95" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  smartchat: {
-    layout: "md:col-span-5",
-    orbClassName: "from-primary/24 via-accent/8 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
-        <path d="M4.75 7.75A2.75 2.75 0 0 1 7.5 5h9A2.75 2.75 0 0 1 19.25 7.75v5.5A2.75 2.75 0 0 1 16.5 16h-6.6l-3.65 2.9v-2.9A2.75 2.75 0 0 1 4.75 13.25z" strokeLinejoin="round" />
-        <path d="M8.25 9.5h7.5M8.25 12h5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  devdash: {
-    layout: "md:col-span-7",
-    orbClassName: "from-accent/22 via-primary/8 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
-        <rect x="4.75" y="4.75" width="6.75" height="6.75" rx="1.4" />
-        <rect x="12.5" y="4.75" width="6.75" height="4.5" rx="1.4" />
-        <rect x="12.5" y="10.25" width="6.75" height="8.5" rx="1.4" />
-        <rect x="4.75" y="12.5" width="6.75" height="6.25" rx="1.4" />
-      </svg>
-    ),
-  },
-  portfolio: {
-    layout: "md:col-span-12",
-    orbClassName: "from-primary/28 via-accent/10 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
-        <path d="M3.75 8.25A2.75 2.75 0 0 1 6.5 5.5h3.65a2 2 0 0 1 1.3.48l1.02.87a2 2 0 0 0 1.3.48h3.73a2.75 2.75 0 0 1 2.75 2.75v7.17A2.75 2.75 0 0 1 17.5 20h-11A2.75 2.75 0 0 1 3.75 17.25z" />
-        <path d="M8.25 12h7.5M8.25 14.8h4.75" strokeLinecap="round" />
-      </svg>
-    ),
-  },
+  "ki-bewerbungshelfer": { preview: <DocumentPreview /> },
+  "mietpreise-tracker": { preview: <BarsPreview /> },
+  smartchat: { preview: <ChatPreview /> },
+  devdash: { preview: <WidgetsPreview /> },
+  portfolio: { preview: <BrowserPreview /> },
 };
 
 function resolveTags(project: ProjectItem) {
@@ -105,15 +159,18 @@ function resolveTags(project: ProjectItem) {
     .filter((tag) => tag.length > 0);
 }
 
-export function ProjectsSection({ title, intro, openProjectLabel, projects }: ProjectsSectionProps) {
+export function ProjectsSection({
+  eyebrow,
+  title,
+  intro,
+  openProjectLabel,
+  projects,
+}: ProjectsSectionProps) {
   return (
-    <section id="projects" className="section-deferred scroll-mt-28 py-12 sm:py-20">
-      <div className="max-w-3xl">
-        <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
-        <p className="mt-4 text-[0.98rem] leading-relaxed text-muted sm:text-base">{intro}</p>
-      </div>
+    <section id="projects" className="section-deferred scroll-mt-28 py-14 sm:py-24">
+      <SectionHeader eyebrow={eyebrow} title={title} intro={intro} />
 
-      <div className="mt-8 grid gap-4 md:grid-cols-12">
+      <div className="mt-10 border-t border-border">
         {projects.map((project, index) => {
           const visual = PROJECT_VISUALS[project.slug] ?? DEFAULT_VISUAL;
           const tags = resolveTags(project);
@@ -121,35 +178,36 @@ export function ProjectsSection({ title, intro, openProjectLabel, projects }: Pr
           return (
             <article
               key={project.slug}
-              className={`group relative overflow-hidden rounded-3xl border border-border bg-card p-4 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/40 sm:p-6 ${visual.layout}`}
+              className="group relative grid gap-6 border-b border-border py-8 transition-colors hover:bg-card/60 sm:py-10 lg:grid-cols-[auto_1.1fr_0.9fr] lg:items-center lg:gap-10"
             >
-              <div
+              <span
                 aria-hidden
-                className={`pointer-events-none absolute -top-16 -right-14 h-44 w-44 rounded-full bg-gradient-to-br ${visual.orbClassName} transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1`}
-              />
+                className="font-display hidden text-4xl leading-none font-semibold text-border transition-colors group-hover:text-primary/50 lg:block lg:w-20"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
 
-              <div className="relative flex h-full flex-col">
-                <div className="flex items-start justify-between gap-4">
-                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
-                    <span className="h-5 w-5">{visual.icon}</span>
-                  </span>
-
-                  <span className="inline-flex rounded-full border border-border bg-background/75 px-2.5 py-1 font-mono text-[11px] font-medium tracking-wide text-muted">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                <h3 className="mt-5 text-lg leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-xl">
-                  {project.title}
+              <div>
+                <h3 className="font-display text-2xl leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-3xl">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    prefetch={false}
+                    className="after:absolute after:inset-0 focus-visible:outline-none"
+                  >
+                    {project.title}
+                  </Link>
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{project.summary}</p>
+
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
+                  {project.summary}
+                </p>
 
                 {tags.length > 0 ? (
                   <ul className="mt-5 flex flex-wrap gap-2">
                     {tags.map((tag) => (
                       <li
                         key={`${project.slug}-${tag}`}
-                        className="rounded-full border border-border bg-background/80 px-2.5 py-1 text-xs font-medium text-muted"
+                        className="rounded-full border border-border bg-background/80 px-2.5 py-1 font-mono text-[11px] font-medium text-muted"
                       >
                         {tag}
                       </li>
@@ -157,14 +215,20 @@ export function ProjectsSection({ title, intro, openProjectLabel, projects }: Pr
                   </ul>
                 ) : null}
 
-                <Link
-                  href={`/projects/${project.slug}`}
-                  prefetch={false}
-                  className="mt-auto pt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:translate-x-1"
+                <p
+                  aria-hidden
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-transform group-hover:translate-x-1"
                 >
                   <span>{openProjectLabel}</span>
-                  <span aria-hidden>→</span>
-                </Link>
+                  <span>→</span>
+                </p>
+              </div>
+
+              <div className="relative h-44 overflow-hidden rounded-2xl border border-border bg-card sm:h-52">
+                <div aria-hidden className="blueprint-grid" style={{ maskImage: "none", WebkitMaskImage: "none", opacity: 0.5 }} />
+                <div className="relative h-full transition-transform duration-300 group-hover:scale-[1.02]">
+                  {visual.preview}
+                </div>
               </div>
             </article>
           );

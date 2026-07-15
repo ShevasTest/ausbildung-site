@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useMemo, useState, type ChangeEvent, type FormEvent } from "react";
+import { SectionHeader } from "@/components/section-header";
 
 export type ContactQuickLink = {
   label: string;
@@ -24,6 +25,10 @@ export type ContactSubmitCopy = {
   sending: string;
   successTitle: string;
   successText: string;
+  mailtoTitle: string;
+  mailtoText: string;
+  errorTitle: string;
+  errorText: string;
 };
 
 export type ContactValidationCopy = {
@@ -59,6 +64,7 @@ type ContactFormValues = {
 
 type ContactField = keyof ContactFormValues;
 type ContactErrors = Partial<Record<ContactField, string>>;
+type SubmitState = "idle" | "sending" | "sent" | "mailto" | "error";
 
 const INITIAL_VALUES: ContactFormValues = {
   name: "",
@@ -177,82 +183,11 @@ export function ContactSection({
   mailSubject,
   emailAddress,
 }: ContactSectionProps) {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
   const [values, setValues] = useState<ContactFormValues>(INITIAL_VALUES);
   const [touched, setTouched] = useState<Record<ContactField, boolean>>(INITIAL_TOUCHED);
   const [errors, setErrors] = useState<ContactErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    const handleMotionChange = () => {
-      setPrefersReducedMotion(motionQuery.matches);
-    };
-
-    const attachMotionListener = () => {
-      if (typeof motionQuery.addEventListener === "function") {
-        motionQuery.addEventListener("change", handleMotionChange);
-      } else {
-        motionQuery.addListener(handleMotionChange);
-      }
-    };
-
-    const detachMotionListener = () => {
-      if (typeof motionQuery.removeEventListener === "function") {
-        motionQuery.removeEventListener("change", handleMotionChange);
-      } else {
-        motionQuery.removeListener(handleMotionChange);
-      }
-    };
-
-    handleMotionChange();
-    attachMotionListener();
-
-    if (motionQuery.matches) {
-      setIsVisible(true);
-
-      return () => {
-        detachMotionListener();
-      };
-    }
-
-    const node = sectionRef.current;
-    if (!node) {
-      return () => {
-        detachMotionListener();
-      };
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (!entry?.isIntersecting) {
-          return;
-        }
-
-        setIsVisible(true);
-        observer.unobserve(node);
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -12% 0px",
-      },
-    );
-
-    observer.observe(node);
-
-    return () => {
-      observer.disconnect();
-      detachMotionListener();
-    };
-  }, []);
-
-  const shouldReveal = isVisible || prefersReducedMotion;
+  const [honeypot, setHoneypot] = useState("");
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
 
   const contactEmail = useMemo(() => {
     const directMail = quickLinks.find((link) => link.href.startsWith("mailto:"));
@@ -269,7 +204,9 @@ export function ContactSection({
       const nextValues = { ...values, [field]: nextValue };
 
       setValues(nextValues);
-      setIsSubmitted(false);
+      if (submitState === "sent" || submitState === "mailto" || submitState === "error") {
+        setSubmitState("idle");
+      }
 
       if (!touched[field]) {
         return;
@@ -296,6 +233,19 @@ export function ContactSection({
     }));
   };
 
+  const openMailFallback = () => {
+    if (!contactEmail) {
+      return;
+    }
+
+    const subject = encodeURIComponent(mailSubject);
+    const body = encodeURIComponent(
+      `Name: ${values.name.trim()}\nE-Mail: ${values.email.trim()}\n\n${values.message.trim()}`,
+    );
+
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+  };
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -312,40 +262,57 @@ export function ContactSection({
       return;
     }
 
-    setIsSubmitting(true);
-    await new Promise((resolve) => {
-      window.setTimeout(resolve, 450);
-    });
+    setSubmitState("sending");
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.name.trim(),
+          email: values.email.trim(),
+          message: values.message.trim(),
+          website: honeypot,
+        }),
+      });
 
-    if (!contactEmail) {
-      return;
+      if (response.ok) {
+        setSubmitState("sent");
+        setValues(INITIAL_VALUES);
+        setTouched(INITIAL_TOUCHED);
+        return;
+      }
+
+      if (response.status === 503) {
+        openMailFallback();
+        setSubmitState("mailto");
+        return;
+      }
+
+      setSubmitState("error");
+    } catch {
+      setSubmitState("error");
     }
-
-    const subject = encodeURIComponent(mailSubject);
-    const body = encodeURIComponent(
-      `Name: ${values.name.trim()}\nE-Mail: ${values.email.trim()}\n\n${values.message.trim()}`,
-    );
-
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
   };
 
+  const statusCopy =
+    submitState === "sent"
+      ? { title: submitCopy.successTitle, text: submitCopy.successText }
+      : submitState === "mailto"
+        ? { title: submitCopy.mailtoTitle, text: submitCopy.mailtoText }
+        : submitState === "error"
+          ? { title: submitCopy.errorTitle, text: submitCopy.errorText }
+          : null;
+
   return (
-    <section ref={sectionRef} id="contact" className="section-deferred scroll-mt-28 py-12 sm:py-20">
-      <div className={`contact-reveal-item max-w-3xl ${shouldReveal ? "is-visible" : ""}`}>
-        <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">{eyebrow}</p>
-        <h2 className="mt-3 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
-        <p className="mt-4 text-[0.98rem] leading-relaxed text-muted sm:text-base">{intro}</p>
-      </div>
+    <section id="contact" className="section-deferred scroll-mt-28 py-12 sm:py-20">
+      <SectionHeader eyebrow={eyebrow} title={title} intro={intro} />
 
       <div className="mt-8 grid gap-4 lg:grid-cols-[0.94fr_1.06fr]">
-        <article
-          className={`contact-reveal-item rounded-3xl border border-border bg-card p-4 sm:p-6 ${shouldReveal ? "is-visible" : ""}`}
-          style={{ transitionDelay: "90ms" }}
-        >
-          <p className="text-xs font-semibold tracking-[0.14em] text-primary uppercase">{linksTitle}</p>
+        <article className="rounded-3xl border border-border bg-card p-4 sm:p-6">
+          <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
+            {linksTitle}
+          </p>
           <p className="mt-3 text-sm leading-relaxed text-muted">{linksIntro}</p>
 
           <ul className="mt-5 space-y-3">
@@ -399,11 +366,10 @@ export function ContactSection({
           </article>
         </article>
 
-        <article
-          className={`contact-reveal-item rounded-3xl border border-border bg-card p-4 sm:p-6 ${shouldReveal ? "is-visible" : ""}`}
-          style={{ transitionDelay: "160ms" }}
-        >
-          <p className="text-xs font-semibold tracking-[0.14em] text-primary uppercase">{formCopy.title}</p>
+        <article className="rounded-3xl border border-border bg-card p-4 sm:p-6">
+          <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
+            {formCopy.title}
+          </p>
           <p className="mt-3 text-sm leading-relaxed text-muted">{formCopy.intro}</p>
 
           <form className="mt-5 space-y-4" noValidate onSubmit={handleSubmit}>
@@ -457,6 +423,19 @@ export function ContactSection({
               ) : null}
             </div>
 
+            <div className="hidden" aria-hidden>
+              <label htmlFor="contact-website">Website</label>
+              <input
+                id="contact-website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(event) => setHoneypot(event.target.value)}
+              />
+            </div>
+
             <div>
               <label htmlFor="contact-message" className="text-sm font-semibold text-foreground">
                 {formCopy.messageLabel}
@@ -484,20 +463,32 @@ export function ContactSection({
 
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={submitState === "sending"}
               className="contact-submit inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-4 py-3 text-sm font-semibold text-white"
             >
-              {isSubmitting ? submitCopy.sending : submitCopy.idle}
+              {submitState === "sending" ? submitCopy.sending : submitCopy.idle}
             </button>
 
             <div
               aria-live="polite"
-              className={`contact-status rounded-2xl border border-primary/25 bg-primary/10 p-3 ${
-                isSubmitted ? "is-visible" : ""
-              }`}
+              className={`contact-status rounded-2xl border p-3 ${
+                submitState === "error"
+                  ? "border-rose-400/40 bg-rose-500/10"
+                  : "border-primary/25 bg-primary/10"
+              } ${statusCopy ? "is-visible" : ""}`}
             >
-              <p className="text-sm font-semibold text-primary">{submitCopy.successTitle}</p>
-              <p className="mt-1 text-xs leading-relaxed text-muted">{submitCopy.successText}</p>
+              {statusCopy ? (
+                <>
+                  <p
+                    className={`text-sm font-semibold ${
+                      submitState === "error" ? "text-rose-500" : "text-primary"
+                    }`}
+                  >
+                    {statusCopy.title}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted">{statusCopy.text}</p>
+                </>
+              ) : null}
             </div>
           </form>
         </article>

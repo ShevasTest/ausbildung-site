@@ -92,8 +92,11 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "linear-gradient(160deg, #0F172A 0%, #111827 54%, #0A0A0F 100%)",
-          color: "#F8FAFC",
+          background: "#101213",
+          backgroundImage:
+            "radial-gradient(rgba(94, 207, 154, 0.16) 1.6px, transparent 1.6px)",
+          backgroundSize: "22px 22px",
+          color: "#ECEDED",
           fontFamily: "Inter, system-ui, sans-serif",
           padding: "58px",
           position: "relative",
@@ -102,28 +105,23 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
         <div
           style={{
             position: "absolute",
-            right: "68px",
-            top: "52px",
-            width: "240px",
-            height: "240px",
-            borderRadius: "24px",
-            border: "1px solid rgba(59,130,246,0.32)",
-            background: "rgba(59,130,246,0.12)",
-            transform: "rotate(15deg)",
+            top: "34px",
+            left: "34px",
+            width: "24px",
+            height: "24px",
+            borderTop: "3px solid #5ECF9A",
+            borderLeft: "3px solid #5ECF9A",
           }}
         />
-
         <div
           style={{
             position: "absolute",
-            right: "124px",
-            bottom: "48px",
-            width: "168px",
-            height: "168px",
-            borderRadius: "20px",
-            border: "1px solid rgba(16,185,129,0.35)",
-            background: "rgba(16,185,129,0.12)",
-            transform: "rotate(-12deg)",
+            bottom: "34px",
+            right: "34px",
+            width: "24px",
+            height: "24px",
+            borderBottom: "3px solid #E3B04B",
+            borderRight: "3px solid #E3B04B",
           }}
         />
 
@@ -140,8 +138,8 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
             style={{
               display: "inline-flex",
               alignSelf: "flex-start",
-              border: "1px solid rgba(16, 185, 129, 0.5)",
-              color: "#6EE7B7",
+              border: "1px solid rgba(94, 207, 154, 0.55)",
+              color: "#5ECF9A",
               borderRadius: "999px",
               padding: "8px 16px",
               fontWeight: 600,
@@ -154,15 +152,15 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
 
           <div style={{ display: "flex", flexDirection: "column", gap: "18px", maxWidth: "850px" }}>
             <div style={{ fontSize: "74px", fontWeight: 700, lineHeight: 1.05 }}>{title}</div>
-            <div style={{ fontSize: "34px", color: "#E2E8F0", fontWeight: 500, lineHeight: 1.2 }}>
+            <div style={{ fontSize: "34px", color: "#C9CFCB", fontWeight: 500, lineHeight: 1.2 }}>
               {subtitle}
             </div>
           </div>
 
           <div style={{ display: "flex", gap: "14px", alignItems: "center", fontSize: "24px" }}>
-            <span style={{ color: "#60A5FA", fontWeight: 600 }}>Oleksandr Portfolio</span>
-            <span style={{ color: "#64748B" }}>•</span>
-            <span style={{ color: "#CBD5E1" }}>Next.js · TypeScript</span>
+            <span style={{ color: "#5ECF9A", fontWeight: 600 }}>oleksandr-shevchenko.de</span>
+            <span style={{ color: "#5B6260" }}>•</span>
+            <span style={{ color: "#9AA19E" }}>Next.js · TypeScript</span>
           </div>
         </div>
       </div>

@@ -43,6 +43,8 @@ type DemoCopy = {
     presetsLabel: string;
     focusLabel: string;
     toneLabel: string;
+    modelLabel: string;
+    modelHint: string;
     strengthsLabel: string;
     strengthsHint: string;
     generate: string;
@@ -74,7 +76,11 @@ type DemoCopy = {
     noKeywords: string;
   };
   footerNote: string;
+  footerNoteLive: string;
   aiModeNote: string;
+  aiModeNoteLive: string;
+  statusLive: string;
+  statusDemo: string;
   presets: VacancyPreset[];
   focusOptions: OptionItem<FocusKey>[];
   toneOptions: OptionItem<ToneKey>[];
@@ -88,6 +94,11 @@ type KIBewerbungshelferDemoProps = {
   locale: string;
 };
 
+type AvailableModel = {
+  id: string;
+  label: string;
+};
+
 type VacancyAnalysis = {
   company: string;
   role: string;
@@ -97,12 +108,12 @@ type VacancyAnalysis = {
 
 const COPY: Record<LocaleKey, DemoCopy> = {
   de: {
-    badge: "Live-Demo · Mock AI ohne API-Key",
+    badge: "Live-Demo · KI-Bewerbungshelfer",
     title: "KI-Bewerbungshelfer",
     subtitle:
-      "Stellenanzeige einfügen, Fokus setzen, Anschreiben generieren. Die Ausgabe wird wie bei einem echten LLM als Streaming-Text aufgebaut — inklusive strukturierter Formulierung für den deutschen Bewerbungsmarkt.",
+      "Stellenanzeige einfügen, Fokus setzen, Anschreiben generieren. Die Ausgabe kommt als Streaming-Text von einem echten Sprachmodell über eine eigene Server-Route — ohne konfigurierten API-Key läuft automatisch ein lokaler Demo-Modus.",
     back: "Zurück zur Startseite",
-    chips: ["Streaming Output", "HR-taugliche Formulierungen", "100% Mock-Daten lokal"],
+    chips: ["Streaming Output", "HR-taugliche Formulierungen", "Echte KI · Demo-Fallback"],
     input: {
       title: "Stellenanzeige einfügen",
       hint: "Verwenden Sie den Originaltext der Ausschreibung. Der Helfer extrahiert Rolle, Keywords und passende Argumentation.",
@@ -112,6 +123,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       presetsLabel: "Schnellstart-Vorlagen",
       focusLabel: "Fokus im Anschreiben",
       toneLabel: "Ton",
+      modelLabel: "KI-Modell",
+      modelHint: "Kostenlose Modelle — die Liste passt sich automatisch an die aktuell verfügbaren Modelle an.",
       strengthsLabel: "Persönliche Stärken hervorheben",
       strengthsHint: "Maximal 3 auswählen",
       nameLabel: "Ihr Name",
@@ -148,8 +161,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       noKeywords: "Noch keine klaren Keywords erkannt",
     },
     footerNote:
-      "Hinweis: Dies ist eine Demo mit lokal simulierten AI-Antworten (kein externes Modell, kein API-Key nötig).",
-    aiModeNote: "AI-Modus: Lokaler Demo-Generator (kein externes LLM)",
+      "Hinweis: Aktuell läuft der lokale Demo-Modus (kein API-Key auf dem Server konfiguriert). Aufbau, Streaming und Analyse funktionieren identisch — mit API-Key schreibt ein echtes Sprachmodell.",
+    footerNoteLive:
+      "Hinweis: Das Anschreiben wird von einem echten Sprachmodell über eine Server-Route mit Rate-Limit generiert. Bitte prüfen Sie den Text vor dem Versand und geben Sie keine sensiblen Daten ein.",
+    aiModeNote: "KI-Modus: Lokaler Demo-Generator (kein externes LLM)",
+    aiModeNoteLive: "KI-Modus: Live — echtes Sprachmodell über Server-Route",
+    statusLive: "Live-KI",
+    statusDemo: "Demo-Modus",
     presets: [
       {
         id: "preset-startup-frontend",
@@ -272,12 +290,12 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
   },
   en: {
-    badge: "Live demo · Mock AI without API key",
+    badge: "Live demo · AI Application Assistant",
     title: "AI Application Assistant",
     subtitle:
-      "Paste a job description, set your focus and generate a cover letter. The output streams like a real LLM response with structured wording tailored to application workflows.",
+      "Paste a job description, set your focus and generate a cover letter. The output streams from a real language model through a dedicated server route — without a configured API key the demo automatically falls back to a local mode.",
     back: "Back to homepage",
-    chips: ["Streaming output", "HR-ready wording", "100% local mock data"],
+    chips: ["Streaming output", "HR-ready wording", "Real AI · demo fallback"],
     input: {
       title: "Paste job description",
       hint: "Use the original vacancy text. The assistant extracts role, keywords and argument strategy.",
@@ -287,6 +305,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       presetsLabel: "Quick presets",
       focusLabel: "Cover letter focus",
       toneLabel: "Tone",
+      modelLabel: "AI model",
+      modelHint: "Free models — the list adapts automatically to what is currently available.",
       strengthsLabel: "Highlight strengths",
       strengthsHint: "Select up to 3",
       nameLabel: "Your name",
@@ -322,8 +342,14 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       fallbackRole: "the advertised role",
       noKeywords: "No clear keywords detected yet",
     },
-    footerNote: "Note: this is a local mock AI demo (no external model and no API key required).",
-    aiModeNote: "AI mode: Local demo generator (no external LLM)",
+    footerNote:
+      "Note: the local demo mode is active (no API key configured on the server). Structure, streaming and analysis behave identically — with an API key a real language model writes the letter.",
+    footerNoteLive:
+      "Note: the cover letter is generated by a real language model through a rate-limited server route. Please review the text before sending and do not enter sensitive data.",
+    aiModeNote: "AI mode: local demo generator (no external LLM)",
+    aiModeNoteLive: "AI mode: live — real language model via server route",
+    statusLive: "Live AI",
+    statusDemo: "Demo mode",
     presets: [
       {
         id: "preset-startup-frontend",
@@ -703,14 +729,42 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   const [isGenerating, setIsGenerating] = useState(false);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
   const [generatedAt, setGeneratedAt] = useState<Date | null>(null);
+  const [engineMode, setEngineMode] = useState<"unknown" | "live" | "demo">("unknown");
+  const [engineLabel, setEngineLabel] = useState("");
+  const [isLiveRun, setIsLiveRun] = useState(false);
+  const [models, setModels] = useState<AvailableModel[]>([]);
+  const [selectedModel, setSelectedModel] = useState("");
 
   const streamTimerRef = useRef<number | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     return () => {
       if (streamTimerRef.current !== null) {
         window.clearTimeout(streamTimerRef.current);
       }
+      abortRef.current?.abort();
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/models")
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data: { models?: AvailableModel[] } | null) => {
+        if (cancelled || !data?.models || data.models.length === 0) {
+          return;
+        }
+        setModels(data.models);
+        setSelectedModel((current) => current || data.models![0].id);
+      })
+      .catch(() => {
+        // Without a model list the demo silently stays in local mode.
+      });
+
+    return () => {
+      cancelled = true;
     };
   }, []);
 
@@ -719,9 +773,17 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
     [copy, focus, localeKey, vacancyText],
   );
 
-  const progress = targetText.length > 0 ? streamedText.length / targetText.length : 0;
+  const progress = isLiveRun
+    ? isGenerating
+      ? Math.min(0.92, streamedText.length / 1500)
+      : streamedText.length > 0
+        ? 1
+        : 0
+    : targetText.length > 0
+      ? streamedText.length / targetText.length
+      : 0;
   const statusText = useMemo(() => {
-    if (!targetText) {
+    if (!targetText && !streamedText && !isGenerating) {
       return copy.output.statusIdle;
     }
 
@@ -738,7 +800,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
     }
 
     return copy.output.statusPolishing;
-  }, [copy.output, isGenerating, progress, targetText]);
+  }, [copy.output, isGenerating, progress, targetText, streamedText]);
 
   const generatedAtValue = generatedAt
     ? new Intl.DateTimeFormat(localeKey === "de" ? "de-DE" : "en-US", {
@@ -796,15 +858,10 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
     tick();
   };
 
-  const handleGenerate = () => {
-    const trimmed = vacancyText.trim();
-    if (!trimmed) {
-      setInputError(copy.input.errorRequired);
-      return;
-    }
-
-    setInputError("");
-    setCopyState("idle");
+  const runLocalFallback = (trimmed: string) => {
+    setIsLiveRun(false);
+    setEngineMode("demo");
+    setEngineLabel("");
 
     const nextAnalysis = createAnalysis(copy, trimmed, focus, localeKey);
     const generated =
@@ -831,8 +888,91 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
     streamText(generated);
   };
 
+  const handleGenerate = async () => {
+    const trimmed = vacancyText.trim();
+    if (!trimmed) {
+      setInputError(copy.input.errorRequired);
+      return;
+    }
+
+    setInputError("");
+    setCopyState("idle");
+
+    // Live path: real language model via the server route, streaming into the panel.
+    setIsLiveRun(true);
+    setTargetText("");
+    setStreamedText("");
+    setGeneratedAt(null);
+    setIsGenerating(true);
+
+    const strengthLabels = selectedStrengths
+      .map((id) => copy.strengths.find((strength) => strength.id === id)?.label)
+      .filter((label): label is string => Boolean(label));
+
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    try {
+      const response = await fetch("/api/anschreiben", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          vacancyText: trimmed,
+          focus,
+          tone,
+          strengths: strengthLabels,
+          applicantName: applicantName.trim() || "Oleksandr",
+          applicantCity: applicantCity.trim(),
+          locale: localeKey,
+          model: selectedModel || undefined,
+        }),
+        signal: controller.signal,
+      });
+
+      if (!response.ok || !response.body) {
+        runLocalFallback(trimmed);
+        return;
+      }
+
+      setEngineMode("live");
+      setEngineLabel(response.headers.get("X-Llm-Label") ?? "");
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulated = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) {
+          break;
+        }
+
+        accumulated += decoder.decode(value, { stream: true });
+        setStreamedText(accumulated);
+      }
+
+      if (accumulated.trim().length === 0) {
+        runLocalFallback(trimmed);
+        return;
+      }
+
+      setTargetText(accumulated);
+      setIsGenerating(false);
+      setGeneratedAt(new Date());
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
+        setIsGenerating(false);
+        return;
+      }
+
+      runLocalFallback(trimmed);
+    } finally {
+      abortRef.current = null;
+    }
+  };
+
   const handleCopy = async () => {
-    const textToCopy = targetText || streamedText;
+    const textToCopy = streamedText || targetText;
     if (!textToCopy.trim()) {
       return;
     }
@@ -853,9 +993,21 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
     <main className="mx-auto w-full max-w-6xl px-4 py-7 sm:px-6 sm:py-12">
       <div className="rounded-3xl border border-border bg-card p-4 sm:p-7 lg:p-9">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="inline-flex rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+          <span className="inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
             {copy.badge}
           </span>
+          {engineMode === "live" ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/35 bg-accent/10 px-2.5 py-1 font-mono text-[10px] font-semibold tracking-[0.08em] text-accent uppercase">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+              {copy.statusLive}
+              {engineLabel ? ` · ${engineLabel}` : ""}
+            </span>
+          ) : engineMode === "demo" ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/80 px-2.5 py-1 font-mono text-[10px] font-semibold tracking-[0.08em] text-muted uppercase">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-muted" />
+              {copy.statusDemo}
+            </span>
+          ) : null}
           <Link
             href="/#projects"
             className="inline-flex rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"
@@ -864,7 +1016,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
           </Link>
         </div>
 
-        <h1 className="mt-4 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl">{copy.title}</h1>
+        <h1 className="font-display mt-4 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl">{copy.title}</h1>
         <p className="mt-3 max-w-4xl text-[0.98rem] leading-relaxed text-muted sm:text-base">{copy.subtitle}</p>
 
         <ul className="mt-5 flex flex-wrap gap-2.5">
@@ -987,6 +1139,26 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             </label>
           </div>
 
+          {models.length > 0 ? (
+            <div className="mt-5">
+              <label className="text-sm font-semibold text-foreground">
+                {copy.input.modelLabel}
+                <select
+                  value={selectedModel}
+                  onChange={(event) => setSelectedModel(event.target.value)}
+                  className="contact-field mt-2 w-full rounded-2xl px-3 py-2.5 text-sm"
+                >
+                  {models.map((model) => (
+                    <option key={model.id} value={model.id}>
+                      {model.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <p className="mt-1.5 text-xs text-muted">{copy.input.modelHint}</p>
+            </div>
+          ) : null}
+
           <div className="mt-5">
             <p className="text-sm font-semibold text-foreground">{copy.input.strengthsLabel}</p>
             <p className="mt-1 text-xs text-muted">{copy.input.strengthsHint}</p>
@@ -1060,7 +1232,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             </div>
 
             <div className="mt-4 min-h-[240px] rounded-2xl border border-border bg-background/65 p-3.5 sm:min-h-[360px] sm:p-4">
-              {!targetText ? (
+              {!streamedText && !isGenerating ? (
                 <div className="rounded-2xl border border-dashed border-border bg-card/70 p-4">
                   <p className="text-sm font-semibold text-foreground">{copy.output.emptyTitle}</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{copy.output.emptyText}</p>
@@ -1134,8 +1306,12 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
       </div>
 
       <div className="mt-5 space-y-1.5">
-        <p className="text-xs leading-relaxed text-muted">{copy.footerNote}</p>
-        <p className="text-xs font-semibold text-primary">{copy.aiModeNote}</p>
+        <p className="text-xs leading-relaxed text-muted">
+          {engineMode === "live" ? copy.footerNoteLive : copy.footerNote}
+        </p>
+        <p className="text-xs font-semibold text-primary">
+          {engineMode === "live" ? copy.aiModeNoteLive : copy.aiModeNote}
+        </p>
       </div>
     </main>
   );

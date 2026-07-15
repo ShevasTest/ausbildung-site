@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { AboutSection, type AboutHighlight } from "@/components/about-section";
 import { ProjectsSection, type ProjectItem } from "@/components/projects-section";
@@ -103,36 +104,21 @@ export default async function HomePage({ params }: HomePageProps) {
   ]);
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-14">
+    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-      <section
-        id="hero"
-        className="hero-section relative scroll-mt-32 overflow-hidden rounded-2xl border border-border bg-card sm:rounded-3xl"
-      >
-        <div aria-hidden className="hero-orb hero-orb-primary" />
-        <div aria-hidden className="hero-orb hero-orb-accent" />
+      <section id="hero" className="relative scroll-mt-32">
+        <p className="hero-reveal dim-line" style={{ animationDelay: "0.04s" }}>
+          <span className="status-dot" aria-hidden />
+          <span>{t("Hero.kicker")}</span>
+        </p>
 
-        <div className="relative grid gap-8 p-5 sm:gap-10 sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <div className="space-y-6">
-            <span
-              className="hero-reveal inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
-              style={{ animationDelay: "0.04s" }}
-            >
-              {t("Hero.badge")}
-            </span>
-
-            <p
-              className="hero-reveal text-xs font-semibold tracking-[0.16em] text-accent uppercase"
+        <div className="mt-6 grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-start lg:gap-12">
+          <div>
+            <h1
+              className="hero-reveal font-display text-[2.5rem] leading-[1.04] font-semibold tracking-tight text-balance sm:text-6xl lg:text-[4.4rem]"
               style={{ animationDelay: "0.1s" }}
             >
-              {t("Hero.kicker")}
-            </p>
-
-            <h1
-              className="hero-reveal text-[1.95rem] leading-[1.12] font-semibold tracking-tight text-balance sm:text-4xl sm:leading-tight lg:text-5xl"
-              style={{ animationDelay: "0.16s" }}
-            >
-              <span>{t("Hero.titleLead")}</span>{" "}
+              <span>{t("Hero.titleLead")}</span>
               <span className="hero-word-window" aria-hidden>
                 <span className="hero-word-track">
                   {heroWords.map((word) => (
@@ -144,74 +130,93 @@ export default async function HomePage({ params }: HomePageProps) {
                 </span>
               </span>
               <span className="sr-only">{heroWords.join(", ")}</span>
-              <span className="mt-2 block">{t("Hero.titleEnd")}</span>
+              <span className="block">{t("Hero.titleEnd")}</span>
             </h1>
 
             <p
-              className="hero-reveal max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg"
-              style={{ animationDelay: "0.22s" }}
+              className="hero-reveal mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+              style={{ animationDelay: "0.18s" }}
             >
               {t("Hero.subtitle")}
             </p>
 
-            <ul
-              className="hero-reveal grid max-w-2xl gap-2 sm:grid-cols-2"
-              style={{ animationDelay: "0.28s" }}
-            >
-              {heroPoints.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
-                  <span
-                    aria-hidden
-                    className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-xs font-bold text-accent"
-                  >
-                    ✓
-                  </span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-
             <div
-              className="hero-reveal flex flex-col gap-3 sm:flex-row"
-              style={{ animationDelay: "0.34s" }}
+              className="hero-reveal mt-8 flex flex-col gap-3 sm:flex-row"
+              style={{ animationDelay: "0.26s" }}
             >
               <a
                 href="#projects"
-                className="inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:opacity-95 sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:opacity-95 sm:w-auto"
               >
                 {t("Hero.ctaProjects")}
               </a>
               <a
                 href="#contact"
-                className="inline-flex w-full items-center justify-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:w-auto"
               >
                 {t("Hero.ctaContact")}
               </a>
             </div>
+
+            <ul
+              className="hero-reveal mt-10 grid max-w-2xl gap-x-8 gap-y-3 sm:grid-cols-2"
+              style={{ animationDelay: "0.34s" }}
+            >
+              {heroPoints.map((point) => (
+                <li
+                  key={point}
+                  className="flex items-start gap-2.5 border-t border-border pt-3 text-sm leading-relaxed text-muted"
+                >
+                  <span aria-hidden className="mt-[0.5em] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-primary" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <aside
-            className="hero-reveal rounded-2xl border border-border bg-background/80 p-5 shadow-[0_14px_35px_rgba(10,10,15,0.16)] sm:p-6"
-            style={{ animationDelay: "0.22s" }}
+            className="hero-reveal relative overflow-hidden rounded-3xl border border-border bg-card"
+            style={{ animationDelay: "0.18s" }}
           >
-            <p className="text-xs font-semibold tracking-[0.16em] text-primary uppercase">
-              {t("Hero.panelEyebrow")}
-            </p>
-            <h2 className="mt-2 text-xl leading-tight font-semibold tracking-tight text-balance sm:text-2xl">
-              {t("Hero.panelTitle")}
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{t("Hero.panelText")}</p>
+            <div aria-hidden className="blueprint-grid" style={{ maskImage: "none", WebkitMaskImage: "none", opacity: 0.5 }} />
 
-            <dl className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="rounded-xl border border-border/90 bg-card/85 p-3">
-                  <dt className="text-xs font-medium tracking-wide text-muted uppercase">
-                    {stat.label}
-                  </dt>
-                  <dd className="mt-1 text-sm font-semibold text-foreground">{stat.value}</dd>
+            <div className="relative p-5 sm:p-6">
+              <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-primary uppercase">
+                {t("Hero.panelEyebrow")}
+              </p>
+
+              <div className="mt-4 flex items-center gap-4">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-border bg-background">
+                  <Image
+                    src="/profile.jpg"
+                    alt={t("About.profile.name")}
+                    fill
+                    className="scale-[1.04] object-cover object-[50%_18%]"
+                    sizes="80px"
+                    priority
+                  />
                 </div>
-              ))}
-            </dl>
+                <div className="min-w-0">
+                  <p className="text-lg font-semibold tracking-tight text-foreground">
+                    {t("About.profile.name")}
+                  </p>
+                  <p className="mt-0.5 text-sm leading-snug text-muted">{t("Hero.badge")}</p>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-relaxed text-muted">{t("Hero.panelText")}</p>
+
+              <dl className="mt-5 space-y-3 border-t border-border pt-4">
+                {heroStats.map((stat) => (
+                  <div key={stat.label}>
+                    <dt className="font-mono text-[10px] font-medium tracking-[0.14em] text-muted uppercase">
+                      {stat.label}
+                    </dt>
+                    <dd className="mt-0.5 text-sm font-semibold text-foreground">{stat.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </aside>
         </div>
       </section>
@@ -232,6 +237,7 @@ export default async function HomePage({ params }: HomePageProps) {
       />
 
       <ProjectsSection
+        eyebrow={t("Projects.eyebrow")}
         title={t("Projects.title")}
         intro={t("Projects.intro")}
         openProjectLabel={t("Projects.openProject")}
@@ -239,6 +245,7 @@ export default async function HomePage({ params }: HomePageProps) {
       />
 
       <SkillsSection
+        eyebrow={t("Skills.eyebrow")}
         title={t("Skills.title")}
         intro={t("Skills.intro")}
         legend={t("Skills.legend")}

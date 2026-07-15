@@ -326,3 +326,32 @@
 
 #### Дизайн-ресёрч
 - Для задачи 4.5 дизайн-ресёрч не выполнялся: это инфраструктурная deploy/GitHub задача, не новая UI-секция и не новый демо-проект.
+
+## Phase 5 — Redesign + Real Data (2026-07-13)
+
+### 5.1 Критические фиксы
+- Исправлен баг «невидимых секций»: IntersectionObserver-reveal (threshold 0.2 + content-visibility) не срабатывал при быстром скролле — Skills/Resume/Contact оставались opacity:0. Reveal-система переписана на CSS scroll-driven animations (`animation-timeline: view()` под @supports + prefers-reduced-motion): контент всегда видим без JS, анимация — прогрессивное улучшение.
+- Исправлена ротация слов в hero: длинные фразы переносились на 2 строки внутри окна в 1 строку (track-сдвиги в % от высоты трека). Теперь отдельная mono-строка «терминала» (`> фраза_`) с em-шагами анимации и nowrap+ellipsis.
+- `siteConfig.baseUrl` → https://oleksandr-shevchenko.de (canonical/sitemap/OG указывали на vercel.app).
+
+### 5.2 Новая визуальная система «Technische Dokumentation / Blaupause»
+- Шрифты: IBM Plex Sans (body) + IBM Plex Mono (labels/code) + Bricolage Grotesque (display) через next/font.
+- Палитра: Tintenblau (#2b49cf / #93acff dark) + сигнальный оранжевый (#c2410c / #ff8b54) вместо blue+emerald градиентов; орбы удалены.
+- Сигнатура: blueprint-сетка в hero и превью карточек, section-eyebrow как размерная линия чертежа (SectionHeader), угловые «риски» (tick-card) на ключевых карточках.
+- Хедер: backdrop-blur, underline-slide у ссылок, scroll-progress на чистом CSS (`animation-timeline: scroll()`).
+- Карточки проектов: CSS-микропревью интерфейса каждого демо + stretched-link.
+- About/Skills/Resume конвертированы в серверные компоненты (удалён IO-boilerplate ~150 строк × 4).
+- OG-изображения и manifest перекрашены под новую айдентику, домен в OG исправлен.
+
+### 5.3 Реальные пет-проекты (mock → real)
+- Общая LLM-инфраструктура: `src/lib/llm.ts` (Anthropic/Groq/Gemini по env-ключу, приоритет A→G→G, SSE→text stream), `src/lib/rate-limit.ts` (in-memory per-IP), роуты `/api/chat` и `/api/anschreiben` (лимиты: 8/мин + 80/день чат; 4/мин + 40/день anschreiben; maxTokens, обрезка истории, системные промпты DE/EN).
+- SmartChat: реальный LLM-стриминг с AbortController; фейковые «GPT-4o/Claude/Llama» заменены честными Antwortstil-профилями (direkt/strukturiert/kompakt); треды в localStorage (v2, валидация); статус-чип Live-KI/Demo-Modus; при 503/ошибке — локальный демо-фолбэк с честной подписью.
+- KI-Bewerbungshelfer: реальная генерация Anschreiben через /api/anschreiben (стриминг, профиль кандидата зашит в системный промпт, без выдуманных фактов); демо-фолбэк + статус-чип.
+- DevDash: Open-Meteo (live погода, WMO-коды), /api/github (реальные публичные события @ShevasTest, 13 недель, кэш 15 мин, опц. GITHUB_TOKEN), Hacker News top stories (sessionStorage кэш 10 мин, категоризация по ключевым словам). Явные loading/error-состояния.
+- Mietpreise-Tracker: датасет заменён на реальные опубликованные медианные Angebotsmieten 2020–2025 (empirica/IW/ImmoScout-порядки), источники и дата среза указаны в UI.
+- Контакт-форма: POST /api/contact → Resend (env RESEND_API_KEY + CONTACT_TO_EMAIL/FROM), honeypot, rate-limit; при 503 — прежний mailto-фолбэк; новые тексты статусов в messages.
+- Все env-переменные опциональны и задокументированы в README; без ключей демо работают в честном Demo-Modus.
+
+### Проверки
+- `npm run build` ✅, `npm run lint` ✅, `tsc --noEmit` ✅
+- Браузерный прогон: главная (light+dark), все 4 демо (DevDash с живыми данными, SmartChat/KI — демо-фолбэк end-to-end), узкий вьюпорт.

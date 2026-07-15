@@ -1,7 +1,4 @@
-"use client";
-
-import Image from "next/image";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { SectionHeader } from "@/components/section-header";
 
 export type AboutHighlight = {
   label: string;
@@ -23,64 +20,16 @@ type AboutSectionProps = {
   profileFacts: string[];
 };
 
-type RevealBlockProps = {
-  children: ReactNode;
-  className?: string;
-  delayMs?: number;
-};
+function splitFact(fact: string): { label: string; value: string } | null {
+  const separator = fact.indexOf(":");
+  if (separator === -1) {
+    return null;
+  }
 
-function RevealBlock({ children, className = "", delayMs = 0 }: RevealBlockProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motionQuery.matches) {
-      setIsReducedMotion(true);
-      setIsVisible(true);
-      return;
-    }
-
-    const node = ref.current;
-    if (!node) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (!entry?.isIntersecting) {
-          return;
-        }
-
-        setIsVisible(true);
-        observer.unobserve(node);
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -10% 0px",
-      },
-    );
-
-    observer.observe(node);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  const visibilityClass = isVisible || isReducedMotion ? "is-visible" : "";
-
-  return (
-    <div
-      ref={ref}
-      className={`about-reveal-item ${visibilityClass} ${className}`.trim()}
-      style={{ transitionDelay: `${delayMs}ms` }}
-    >
-      {children}
-    </div>
-  );
+  return {
+    label: fact.slice(0, separator).trim(),
+    value: fact.slice(separator + 1).trim(),
+  };
 }
 
 export function AboutSection({
@@ -98,102 +47,101 @@ export function AboutSection({
   profileFacts,
 }: AboutSectionProps) {
   return (
-    <section id="about" className="section-deferred scroll-mt-28 py-12 sm:py-20">
-      <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-        <RevealBlock className="lg:sticky lg:top-24" delayMs={20}>
-          <article className="relative overflow-hidden rounded-3xl border border-border bg-card p-5 sm:p-8">
-            <div aria-hidden className="about-profile-orb" />
+    <section id="about" className="section-deferred scroll-mt-28 py-14 sm:py-24">
+      <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-12">
+        <div>
+          <SectionHeader eyebrow={eyebrow} title={title} />
 
-            <p className="relative text-xs font-semibold tracking-[0.16em] text-primary uppercase">
-              {profileBadge}
+          <p className="mt-6 max-w-3xl font-display text-xl leading-snug font-medium tracking-tight text-foreground sm:text-2xl">
+            {lead}
+          </p>
+
+          <div className="mt-6 max-w-3xl space-y-4">
+            {paragraphs.map((paragraph, index) => (
+              <p
+                key={`${index}-${paragraph.slice(0, 24)}`}
+                className="text-[0.98rem] leading-relaxed text-muted sm:text-base"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          <dl className="mt-10 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+            {highlights.map((highlight, index) => (
+              <div key={`${highlight.label}-${index}`} className="border-t border-border pt-4">
+                <dt className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
+                  {highlight.label}
+                </dt>
+                <dd className="mt-2 text-sm leading-relaxed text-foreground">{highlight.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div className="space-y-4 lg:sticky lg:top-24">
+          <article className="rounded-3xl border border-border bg-card p-5 sm:p-7">
+            <p className="dim-line">
+              <span className="dim-line-rule" aria-hidden />
+              <span>{profileBadge}</span>
             </p>
 
-            <div className="relative mt-5 flex items-center gap-4 max-[420px]:flex-col max-[420px]:items-start">
-              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-primary/25 bg-background shadow-sm">
-                <Image
-                  src="/profile.jpg"
-                  alt={profileName}
-                  fill
-                  className="object-cover object-[50%_18%] scale-[1.04]"
-                  sizes="96px"
-                  priority
-                />
-              </div>
+            <p className="mt-4 text-lg font-semibold tracking-tight text-foreground">{profileName}</p>
+            <p className="mt-0.5 text-sm leading-relaxed text-muted">{profileRole}</p>
 
-              <div className="min-w-0">
-                <p className="text-lg font-semibold tracking-tight text-foreground">{profileName}</p>
-                <p className="text-sm leading-relaxed text-muted">{profileRole}</p>
-              </div>
-            </div>
+            <dl className="mt-5 space-y-3 border-t border-border pt-5">
+              {profileFacts.map((fact) => {
+                const parts = splitFact(fact);
 
-            <p className="relative mt-5 text-sm leading-relaxed text-muted">{profileCaption}</p>
+                if (!parts) {
+                  return (
+                    <div key={fact} className="text-sm leading-relaxed text-muted">
+                      {fact}
+                    </div>
+                  );
+                }
 
-            <ul className="relative mt-6 space-y-2">
-              {profileFacts.map((fact) => (
-                <li key={fact} className="flex items-start gap-2.5 text-sm text-muted">
+                return (
+                  <div key={fact} className="spec-row text-sm">
+                    <dt className="shrink-0 font-mono text-[11px] font-medium tracking-[0.08em] text-muted uppercase">
+                      {parts.label}
+                    </dt>
+                    <span className="spec-dots" aria-hidden />
+                    <dd className="max-w-[60%] text-right leading-snug font-medium text-foreground">
+                      {parts.value}
+                    </dd>
+                  </div>
+                );
+              })}
+            </dl>
+
+            <p className="mt-5 border-t border-border pt-5 text-sm leading-relaxed text-muted">
+              {profileCaption}
+            </p>
+          </article>
+
+          <article className="about-motivation-card rounded-3xl border border-primary/20 bg-primary/5 p-5 sm:p-7">
+            <h3 className="about-motivation-title text-base font-semibold tracking-tight text-balance text-foreground sm:text-lg">
+              {motivationTitle}
+            </h3>
+
+            <ul className="about-motivation-list mt-4 space-y-3">
+              {motivationPoints.map((point) => (
+                <li
+                  key={point}
+                  className="about-motivation-item flex items-start gap-2.5 text-sm leading-relaxed text-muted"
+                >
                   <span
                     aria-hidden
-                    className="mt-1 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-accent/70"
-                  />
-                  <span>{fact}</span>
+                    className="about-motivation-icon mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary"
+                  >
+                    →
+                  </span>
+                  <span className="about-motivation-text">{point}</span>
                 </li>
               ))}
             </ul>
           </article>
-        </RevealBlock>
-
-        <div className="space-y-5">
-          <RevealBlock delayMs={60}>
-            <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">{eyebrow}</p>
-            <h2 className="mt-3 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{title}</h2>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-primary sm:text-lg">{lead}</p>
-          </RevealBlock>
-
-          <div className="space-y-4">
-            {paragraphs.map((paragraph, index) => (
-              <RevealBlock key={`${index}-${paragraph.slice(0, 24)}`} delayMs={110 + index * 70}>
-                <p className="max-w-3xl text-[0.98rem] leading-relaxed text-muted sm:text-base">{paragraph}</p>
-              </RevealBlock>
-            ))}
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {highlights.map((highlight, index) => (
-              <RevealBlock key={`${highlight.label}-${index}`} delayMs={260 + index * 60}>
-                <article className="rounded-2xl border border-border bg-card/85 p-4 transition hover:-translate-y-0.5 hover:border-primary/35">
-                  <p className="text-xs font-semibold tracking-wide text-accent uppercase">
-                    {highlight.label}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground">{highlight.value}</p>
-                </article>
-              </RevealBlock>
-            ))}
-          </div>
-
-          <RevealBlock delayMs={360}>
-            <article className="about-motivation-card rounded-2xl border border-border bg-card p-4 sm:p-6">
-              <h3 className="about-motivation-title text-base font-semibold tracking-tight text-balance text-foreground sm:text-lg">
-                {motivationTitle}
-              </h3>
-
-              <ul className="about-motivation-list mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
-                {motivationPoints.map((point) => (
-                  <li
-                    key={point}
-                    className="about-motivation-item flex items-start gap-2 text-sm leading-relaxed text-muted sm:gap-2.5"
-                  >
-                    <span
-                      aria-hidden
-                      className="about-motivation-icon mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary"
-                    >
-                      →
-                    </span>
-                    <span className="about-motivation-text">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </RevealBlock>
         </div>
       </div>
     </section>

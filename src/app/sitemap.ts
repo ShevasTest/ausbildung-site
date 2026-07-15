@@ -30,5 +30,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  for (const path of ["impressum", "datenschutz"]) {
+    for (const locale of locales) {
+      pages.push({
+        url: `${siteConfig.baseUrl}/${locale}/${path}`,
+        lastModified: new Date(),
+        changeFrequency: "yearly",
+        priority: 0.3,
+      });
+    }
+  }
+
   return pages;
 }
