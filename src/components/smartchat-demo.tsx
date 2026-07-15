@@ -899,6 +899,7 @@ function formatTime(timestamp: number, localeKey: LocaleKey) {
   return new Intl.DateTimeFormat(localeTag, {
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: "Europe/Berlin",
   }).format(new Date(timestamp));
 }
 
@@ -1503,7 +1504,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
                         {thread.title}
                       </p>
                       <span className="shrink-0 text-[11px] text-muted">
-                        {relativeUpdatedLabel(thread.updatedAt, localeKey)}
+                        {isHydrated ? relativeUpdatedLabel(thread.updatedAt, localeKey) : "—"}
                       </span>
                     </div>
                     <p className="mt-1 text-xs leading-relaxed text-muted">{threadStatus}</p>
@@ -1556,7 +1557,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
 
             {activeThread.messages.map((message) => {
               const isAssistant = message.role === "assistant";
-              const messageTime = formatTime(message.createdAt, localeKey);
+              const messageTime = isHydrated ? formatTime(message.createdAt, localeKey) : "—";
 
               return (
                 <article

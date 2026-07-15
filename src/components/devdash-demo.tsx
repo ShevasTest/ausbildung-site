@@ -1595,10 +1595,13 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
           <article className="rounded-2xl border border-border bg-background/70 p-3.5">
             <p className="text-[11px] font-semibold tracking-[0.13em] text-muted uppercase">{copy.controls.time}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
-              {new Intl.DateTimeFormat(intlLocale, {
-                hour: "2-digit",
-                minute: "2-digit",
-              }).format(new Date(now))}
+              {hasHydratedStorage
+                ? new Intl.DateTimeFormat(intlLocale, {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    timeZone: "Europe/Berlin",
+                  }).format(new Date(now))
+                : "—"}
             </p>
             <p className="mt-1 text-xs text-muted">
               {copy.controls.connectivity}: {isOnline ? copy.controls.online : copy.controls.offline}
