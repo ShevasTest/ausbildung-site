@@ -56,6 +56,12 @@ html {
 
 body {
   min-height: 100vh;
+  background-image: radial-gradient(
+    900px 480px at 88% -12%,
+    color-mix(in oklab, var(--primary) 8%, transparent),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
 }
 
 .font-display {
@@ -230,48 +236,72 @@ body {
 }
 
 /* ---------------------------------------------------------------------------
-   Reveal system — CSS scroll-driven, content always visible without support
+   Indicator motifs — status LEDs, spec rows, segmented meters
+   (No scroll-driven animations: they janked on macOS; content renders static.)
 --------------------------------------------------------------------------- */
 
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .reveal {
-      animation-name: reveal-rise;
-      animation-fill-mode: both;
-      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-      animation-timeline: view();
-      animation-range: entry 5% entry 40%;
-    }
-
-    .skills-meter-fill,
-    .rent-bar-fill {
-      animation-name: meter-fill;
-      animation-fill-mode: both;
-      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-      animation-timeline: view();
-      animation-range: entry 10% entry 60%;
-    }
-  }
+.status-dot {
+  position: relative;
+  display: inline-flex;
+  height: 0.5rem;
+  width: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: var(--color-primary);
 }
 
-@keyframes reveal-rise {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 22px, 0);
-  }
-  to {
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--color-primary) 45%, transparent);
+  animation: status-pulse 2.4s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  0% {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: scale(0.7);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
   }
 }
 
-@keyframes meter-fill {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(var(--meter-scale, 1));
-  }
+.spec-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.spec-dots {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 1.5px dotted color-mix(in oklab, var(--color-muted) 42%, transparent);
+  transform: translateY(-0.28em);
+}
+
+.led-meter {
+  display: flex;
+  gap: 0.28rem;
+}
+
+.led-seg {
+  height: 0.52rem;
+  flex: 1;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--color-border) 80%, var(--color-muted));
+}
+
+.led-seg.is-on {
+  background: var(--color-primary);
+}
+
+.led-seg.is-edge {
+  background: var(--color-accent);
 }
 
 /* ---------------------------------------------------------------------------
@@ -289,10 +319,10 @@ body {
   display: block;
   height: 1.7em;
   overflow: hidden;
-  margin-top: 0.45rem;
-  margin-bottom: 0.3rem;
+  margin-top: 0.55rem;
+  margin-bottom: 0.35rem;
   font-family: var(--font-mono);
-  font-size: clamp(0.92rem, 3.2vw, 1.3rem);
+  font-size: clamp(1rem, 2.6vw, 1.45rem);
   font-weight: 500;
   letter-spacing: 0.01em;
 }
@@ -329,24 +359,6 @@ body {
 /* ---------------------------------------------------------------------------
    Shared meters and chips
 --------------------------------------------------------------------------- */
-
-.skills-meter-track {
-  position: relative;
-  overflow: hidden;
-  height: 0.5rem;
-  border-radius: 9999px;
-  border: 1px solid color-mix(in oklab, var(--color-border) 88%, transparent);
-  background: color-mix(in oklab, var(--color-primary) 12%, transparent);
-}
-
-.skills-meter-fill {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform-origin: left center;
-  transform: scaleX(var(--meter-scale, 1));
-  background: var(--color-primary);
-}
 
 .skills-chip,
 .resume-chip {
@@ -1045,5 +1057,10 @@ body {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .status-dot::after {
+    animation: none;
+    opacity: 0;
   }
 }

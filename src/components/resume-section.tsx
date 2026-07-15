@@ -39,7 +39,7 @@ export function ResumeSection({
             const chips = Array.isArray(entry.chips) ? entry.chips : [];
 
             return (
-              <li key={`${entry.period}-${entry.title}`} className="resume-item reveal pl-5 sm:pl-7">
+              <li key={`${entry.period}-${entry.title}`} className="resume-item pl-5 sm:pl-7">
                 <span aria-hidden className="resume-item-marker">
                   <span className="resume-item-marker-core" />
                 </span>
@@ -80,7 +80,7 @@ export function ResumeSection({
         </ol>
       </div>
 
-      <article className="tick-card reveal mt-6 rounded-3xl border border-border bg-card p-4 sm:mt-7 sm:p-6">
+      <article className="mt-6 rounded-3xl border border-border bg-card p-4 sm:mt-7 sm:p-6">
         <h3 className="text-base font-semibold tracking-tight text-foreground">{closingTitle}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted">{closingText}</p>
 

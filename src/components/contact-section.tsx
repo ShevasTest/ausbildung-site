@@ -309,7 +309,7 @@ export function ContactSection({
       <SectionHeader eyebrow={eyebrow} title={title} intro={intro} />
 
       <div className="mt-8 grid gap-4 lg:grid-cols-[0.94fr_1.06fr]">
-        <article className="reveal rounded-3xl border border-border bg-card p-4 sm:p-6">
+        <article className="rounded-3xl border border-border bg-card p-4 sm:p-6">
           <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
             {linksTitle}
           </p>
@@ -366,7 +366,7 @@ export function ContactSection({
           </article>
         </article>
 
-        <article className="tick-card reveal rounded-3xl border border-border bg-card p-4 sm:p-6">
+        <article className="rounded-3xl border border-border bg-card p-4 sm:p-6">
           <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
             {formCopy.title}
           </p>

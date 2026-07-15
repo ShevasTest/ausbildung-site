@@ -19,7 +19,6 @@ type ProjectsSectionProps = {
 };
 
 type ProjectVisual = {
-  layout: string;
   preview: ReactNode;
 };
 
@@ -134,31 +133,15 @@ function BrowserPreview() {
 }
 
 const DEFAULT_VISUAL: ProjectVisual = {
-  layout: "md:col-span-6",
   preview: <BrowserPreview />,
 };
 
 const PROJECT_VISUALS: Record<string, ProjectVisual> = {
-  "ki-bewerbungshelfer": {
-    layout: "md:col-span-7",
-    preview: <DocumentPreview />,
-  },
-  "mietpreise-tracker": {
-    layout: "md:col-span-5",
-    preview: <BarsPreview />,
-  },
-  smartchat: {
-    layout: "md:col-span-5",
-    preview: <ChatPreview />,
-  },
-  devdash: {
-    layout: "md:col-span-7",
-    preview: <WidgetsPreview />,
-  },
-  portfolio: {
-    layout: "md:col-span-12",
-    preview: <BrowserPreview />,
-  },
+  "ki-bewerbungshelfer": { preview: <DocumentPreview /> },
+  "mietpreise-tracker": { preview: <BarsPreview /> },
+  smartchat: { preview: <ChatPreview /> },
+  devdash: { preview: <WidgetsPreview /> },
+  portfolio: { preview: <BrowserPreview /> },
 };
 
 function resolveTags(project: ProjectItem) {
@@ -184,10 +167,10 @@ export function ProjectsSection({
   projects,
 }: ProjectsSectionProps) {
   return (
-    <section id="projects" className="section-deferred scroll-mt-28 py-12 sm:py-20">
+    <section id="projects" className="section-deferred scroll-mt-28 py-14 sm:py-24">
       <SectionHeader eyebrow={eyebrow} title={title} intro={intro} />
 
-      <div className="mt-8 grid gap-4 md:grid-cols-12">
+      <div className="mt-10 border-t border-border">
         {projects.map((project, index) => {
           const visual = PROJECT_VISUALS[project.slug] ?? DEFAULT_VISUAL;
           const tags = resolveTags(project);
@@ -195,33 +178,29 @@ export function ProjectsSection({
           return (
             <article
               key={project.slug}
-              className={`tick-card reveal group relative flex flex-col rounded-3xl border border-border bg-card transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/40 ${visual.layout}`}
+              className="group relative grid gap-6 border-b border-border py-8 transition-colors hover:bg-card/60 sm:py-10 lg:grid-cols-[auto_1.1fr_0.9fr] lg:items-center lg:gap-10"
             >
-              <div className="relative m-2 h-36 overflow-hidden rounded-2xl border border-border/70 bg-background/60 sm:m-2.5">
-                <div aria-hidden className="blueprint-grid" style={{ maskImage: "none" }} />
-                <div className="relative h-full transition-transform duration-300 group-hover:scale-[1.02]">
-                  {visual.preview}
-                </div>
-              </div>
+              <span
+                aria-hidden
+                className="font-display hidden text-4xl leading-none font-semibold text-border transition-colors group-hover:text-primary/50 lg:block lg:w-20"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
 
-              <div className="flex flex-1 flex-col p-4 pt-2 sm:p-6 sm:pt-3">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-lg leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-xl">
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      prefetch={false}
-                      className="after:absolute after:inset-0 after:rounded-3xl focus-visible:outline-none"
-                    >
-                      {project.title}
-                    </Link>
-                  </h3>
+              <div>
+                <h3 className="font-display text-2xl leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-3xl">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    prefetch={false}
+                    className="after:absolute after:inset-0 focus-visible:outline-none"
+                  >
+                    {project.title}
+                  </Link>
+                </h3>
 
-                  <span className="inline-flex shrink-0 rounded-full border border-border bg-background/75 px-2.5 py-1 font-mono text-[11px] font-medium tracking-wide text-muted">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                <p className="mt-3 text-sm leading-relaxed text-muted">{project.summary}</p>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
+                  {project.summary}
+                </p>
 
                 {tags.length > 0 ? (
                   <ul className="mt-5 flex flex-wrap gap-2">
@@ -238,11 +217,18 @@ export function ProjectsSection({
 
                 <p
                   aria-hidden
-                  className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-primary transition group-hover:translate-x-1"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-transform group-hover:translate-x-1"
                 >
                   <span>{openProjectLabel}</span>
                   <span>→</span>
                 </p>
+              </div>
+
+              <div className="relative h-44 overflow-hidden rounded-2xl border border-border bg-card sm:h-52">
+                <div aria-hidden className="blueprint-grid" style={{ maskImage: "none", WebkitMaskImage: "none", opacity: 0.5 }} />
+                <div className="relative h-full transition-transform duration-300 group-hover:scale-[1.02]">
+                  {visual.preview}
+                </div>
               </div>
             </article>
           );

@@ -1338,7 +1338,7 @@ export function SmartChatDemo({ locale }: SmartChatDemoProps) {
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
-      <div className="tick-card rounded-3xl border border-border bg-card p-5 sm:p-7 lg:p-9">
+      <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 lg:p-9">
         <div className="flex flex-wrap items-center gap-3">
           <span className="inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
             {copy.badge}

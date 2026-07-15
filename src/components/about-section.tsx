@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SectionHeader } from "@/components/section-header";
 
 export type AboutHighlight = {
@@ -21,6 +20,18 @@ type AboutSectionProps = {
   profileFacts: string[];
 };
 
+function splitFact(fact: string): { label: string; value: string } | null {
+  const separator = fact.indexOf(":");
+  if (separator === -1) {
+    return null;
+  }
+
+  return {
+    label: fact.slice(0, separator).trim(),
+    value: fact.slice(separator + 1).trim(),
+  };
+}
+
 export function AboutSection({
   eyebrow,
   title,
@@ -36,92 +47,89 @@ export function AboutSection({
   profileFacts,
 }: AboutSectionProps) {
   return (
-    <section id="about" className="section-deferred scroll-mt-28 py-12 sm:py-20">
-      <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-        <div className="reveal lg:sticky lg:top-24">
-          <article className="tick-card relative rounded-3xl border border-border bg-card p-5 sm:p-8">
-            <p className="dim-line">
-              <span className="dim-line-rule" aria-hidden />
-              <span>{profileBadge}</span>
-            </p>
+    <section id="about" className="section-deferred scroll-mt-28 py-14 sm:py-24">
+      <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-12">
+        <div>
+          <SectionHeader eyebrow={eyebrow} title={title} />
 
-            <div className="relative mt-5 flex items-center gap-4 max-[420px]:flex-col max-[420px]:items-start">
-              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-primary/25 bg-background shadow-sm">
-                <Image
-                  src="/profile.jpg"
-                  alt={profileName}
-                  fill
-                  className="scale-[1.04] object-cover object-[50%_18%]"
-                  sizes="96px"
-                  priority
-                />
-              </div>
+          <p className="mt-6 max-w-3xl font-display text-xl leading-snug font-medium tracking-tight text-foreground sm:text-2xl">
+            {lead}
+          </p>
 
-              <div className="min-w-0">
-                <p className="text-lg font-semibold tracking-tight text-foreground">{profileName}</p>
-                <p className="text-sm leading-relaxed text-muted">{profileRole}</p>
-              </div>
-            </div>
-
-            <p className="relative mt-5 text-sm leading-relaxed text-muted">{profileCaption}</p>
-
-            <ul className="relative mt-6 space-y-2">
-              {profileFacts.map((fact) => (
-                <li key={fact} className="flex items-start gap-2.5 text-sm text-muted">
-                  <span
-                    aria-hidden
-                    className="mt-[0.42rem] inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
-                  />
-                  <span>{fact}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        </div>
-
-        <div className="space-y-5">
-          <div>
-            <SectionHeader eyebrow={eyebrow} title={title} />
-            <p className="reveal mt-4 max-w-3xl text-base leading-relaxed text-primary sm:text-lg">
-              {lead}
-            </p>
-          </div>
-
-          <div className="reveal space-y-4">
+          <div className="mt-6 max-w-3xl space-y-4">
             {paragraphs.map((paragraph, index) => (
               <p
                 key={`${index}-${paragraph.slice(0, 24)}`}
-                className="max-w-3xl text-[0.98rem] leading-relaxed text-muted sm:text-base"
+                className="text-[0.98rem] leading-relaxed text-muted sm:text-base"
               >
                 {paragraph}
               </p>
             ))}
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <dl className="mt-10 grid gap-x-8 gap-y-4 sm:grid-cols-2">
             {highlights.map((highlight, index) => (
-              <article
-                key={`${highlight.label}-${index}`}
-                className="reveal rounded-2xl border border-border bg-card/85 p-4 transition hover:-translate-y-0.5 hover:border-primary/35"
-              >
-                <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
+              <div key={`${highlight.label}-${index}`} className="border-t border-border pt-4">
+                <dt className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
                   {highlight.label}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-foreground">{highlight.value}</p>
-              </article>
+                </dt>
+                <dd className="mt-2 text-sm leading-relaxed text-foreground">{highlight.value}</dd>
+              </div>
             ))}
-          </div>
+          </dl>
+        </div>
 
-          <article className="about-motivation-card reveal rounded-2xl border border-border bg-card p-4 sm:p-6">
+        <div className="space-y-4 lg:sticky lg:top-24">
+          <article className="rounded-3xl border border-border bg-card p-5 sm:p-7">
+            <p className="dim-line">
+              <span className="dim-line-rule" aria-hidden />
+              <span>{profileBadge}</span>
+            </p>
+
+            <p className="mt-4 text-lg font-semibold tracking-tight text-foreground">{profileName}</p>
+            <p className="mt-0.5 text-sm leading-relaxed text-muted">{profileRole}</p>
+
+            <dl className="mt-5 space-y-3 border-t border-border pt-5">
+              {profileFacts.map((fact) => {
+                const parts = splitFact(fact);
+
+                if (!parts) {
+                  return (
+                    <div key={fact} className="text-sm leading-relaxed text-muted">
+                      {fact}
+                    </div>
+                  );
+                }
+
+                return (
+                  <div key={fact} className="spec-row text-sm">
+                    <dt className="shrink-0 font-mono text-[11px] font-medium tracking-[0.08em] text-muted uppercase">
+                      {parts.label}
+                    </dt>
+                    <span className="spec-dots" aria-hidden />
+                    <dd className="max-w-[60%] text-right leading-snug font-medium text-foreground">
+                      {parts.value}
+                    </dd>
+                  </div>
+                );
+              })}
+            </dl>
+
+            <p className="mt-5 border-t border-border pt-5 text-sm leading-relaxed text-muted">
+              {profileCaption}
+            </p>
+          </article>
+
+          <article className="about-motivation-card rounded-3xl border border-primary/20 bg-primary/5 p-5 sm:p-7">
             <h3 className="about-motivation-title text-base font-semibold tracking-tight text-balance text-foreground sm:text-lg">
               {motivationTitle}
             </h3>
 
-            <ul className="about-motivation-list mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
+            <ul className="about-motivation-list mt-4 space-y-3">
               {motivationPoints.map((point) => (
                 <li
                   key={point}
-                  className="about-motivation-item flex items-start gap-2 text-sm leading-relaxed text-muted sm:gap-2.5"
+                  className="about-motivation-item flex items-start gap-2.5 text-sm leading-relaxed text-muted"
                 >
                   <span
                     aria-hidden
