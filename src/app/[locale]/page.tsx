@@ -138,8 +138,8 @@ export default async function HomePage({ params }: HomePageProps) {
           <h2>{isDe ? "Praktische Projekte. Klarer Fokus." : "Practical projects. Clear focus."}</h2>
           <p>
             {isDe
-              ? "Das Kernprojekt: eine öffentliche Playwright-Testsuite, die genau diese Website in der CI prüft — 46 Checks auf Desktop und Mobile. Dazu vier Produkt-Demos aus mehr als 20 eigenen Projekten; jede Demo kann direkt im Browser ausprobiert werden."
-              : "The flagship: a public Playwright test suite that checks this very website in CI — 46 checks across desktop and mobile. Alongside it, four product demos from more than 20 personal projects; every demo can be tried directly in the browser."}
+              ? "Das Kernprojekt: eine öffentliche Playwright-Testsuite, die genau diese Website in der CI prüft — 54 Checks auf Desktop und Mobile. Dazu vier Produkt-Demos aus mehr als 20 eigenen Projekten; jede Demo kann direkt im Browser ausprobiert werden."
+              : "The flagship: a public Playwright test suite that checks this very website in CI — 54 checks across desktop and mobile. Alongside it, four product demos from more than 20 personal projects; every demo can be tried directly in the browser."}
           </p>
           <a
             href="https://github.com/ShevasTest/portfolio-e2e-tests"
