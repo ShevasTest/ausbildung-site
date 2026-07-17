@@ -1,4 +1,4 @@
-const CACHE_NAME = "oleksandr-portfolio-shell-v2";
+const CACHE_NAME = "oleksandr-portfolio-shell-v3";
 const OFFLINE_FALLBACKS = ["/de", "/en", "/icon.svg"];
 
 self.addEventListener("install", (event) => {

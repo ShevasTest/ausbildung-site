@@ -57,8 +57,8 @@ export default async function HomePage({ params }: HomePageProps) {
       email: `mailto:${siteConfig.email}`,
       sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl],
       jobTitle: isDe
-        ? "Test Automation Engineer · Playwright & Automatisierung"
-        : "Test Automation Engineer · Playwright & Automation",
+        ? "Browser- & Testautomatisierung (KI-gestützt)"
+        : "Browser & Test Automation (AI-assisted)",
       knowsAbout: [
         "Web test automation",
         "Playwright",
@@ -95,18 +95,18 @@ export default async function HomePage({ params }: HomePageProps) {
           <h1 className="hero-name">Oleksandr Shevchenko</h1>
           <p className="hero-role">
             {isDe
-              ? "Test Automation Engineer — Playwright & TypeScript"
-              : "Test Automation Engineer — Playwright & TypeScript"}
+              ? "Browser-Automatisierung · Testautomatisierung · KI-gestützte Entwicklung"
+              : "Browser Automation · Test Automation · AI-assisted Development"}
           </p>
           <p className="hero-specialty">
             {isDe
-              ? "E2E-Testing · Browser-Automatisierung · CI/CD"
-              : "E2E testing · Browser automation · CI/CD"}
+              ? "Playwright · E2E · DevTools & API-Analyse · CI/CD"
+              : "Playwright · E2E · DevTools & API analysis · CI/CD"}
           </p>
           <p className="hero-lead">
             {isDe
-              ? "Seit rund vier Jahren baue ich täglich Browser-Automatisierung mit Playwright — in einem Maßstab, in dem ein instabiles Skript direkt Geld kostet. Dieses Zuverlässigkeitsdenken bringe ich jetzt in die professionelle Web-Testautomatisierung: Meine öffentliche E2E-Suite testet genau diese Website in der CI."
-              : "For around four years, I have built browser automation with Playwright every day — at a scale where an unstable script directly costs money. Now I bring that reliability mindset into professional web test automation: my public e2e suite tests this very website in CI."}
+              ? "Seit rund drei Jahren baue und betreibe ich täglich Browser-Automatisierung — KI-gestützt, über mehr als 10.000 isolierte Browserprofile mit eigener Netzwerk-, Identitäts- und Session-Konfiguration. Diese Erfahrung übertrage ich jetzt in zuverlässige Web-Testautomatisierung mit Playwright: Meine öffentliche E2E-Suite testet genau diese Website in der CI."
+              : "For around three years, I have built and operated browser automation every day — AI-assisted, across more than 10,000 isolated browser profiles with their own network, identity and session configuration. I am now transferring this experience into reliable web test automation with Playwright: my public e2e suite tests this very website in CI."}
           </p>
 
           <div className="hero-actions">
@@ -122,7 +122,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="hero-portrait-wrap hero-enter hero-enter-late">
           <div className="hero-portrait-accent" aria-hidden />
           <Image
-            src="/profile-hero.png"
+            src="/profile-hero.jpg"
             alt={isDe ? "Porträt von Oleksandr Shevchenko" : "Portrait of Oleksandr Shevchenko"}
             fill
             priority
@@ -138,8 +138,8 @@ export default async function HomePage({ params }: HomePageProps) {
           <h2>{isDe ? "Praktische Projekte. Klarer Fokus." : "Practical projects. Clear focus."}</h2>
           <p>
             {isDe
-              ? "Vier öffentlich zugängliche Demos aus mehr als 20 eigenen Projekten — und eine öffentliche Playwright-Testsuite auf GitHub, die genau diese Website mit über 45 automatisierten Checks in der CI prüft, auf Desktop und Mobile. Jede Demo kann direkt im Browser ausprobiert werden."
-              : "Four public demos selected from more than 20 personal projects — plus a public Playwright test suite on GitHub that runs 45+ automated checks against this very website in CI, on desktop and mobile. Every demo can be tried directly in the browser."}
+              ? "Das Kernprojekt: eine öffentliche Playwright-Testsuite, die genau diese Website in der CI prüft — 46 Checks auf Desktop und Mobile. Dazu vier Produkt-Demos aus mehr als 20 eigenen Projekten; jede Demo kann direkt im Browser ausprobiert werden."
+              : "The flagship: a public Playwright test suite that checks this very website in CI — 46 checks across desktop and mobile. Alongside it, four product demos from more than 20 personal projects; every demo can be tried directly in the browser."}
           </p>
           <a
             href="https://github.com/ShevasTest/portfolio-e2e-tests"
@@ -159,7 +159,7 @@ export default async function HomePage({ params }: HomePageProps) {
             prefetch={false}
           >
             <Image
-              src="/projects/ki-bewerbungshelfer.png"
+              src={`/projects/${featuredProject.slug}.png`}
               alt={`${featuredProject.title} – ${isDe ? "Projektansicht" : "project preview"}`}
               fill
               className="project-screenshot"
@@ -167,7 +167,7 @@ export default async function HomePage({ params }: HomePageProps) {
             />
           </Link>
           <div className="featured-project-copy">
-            <p className="project-index">01 / 04</p>
+            <p className="project-index">01 / 05</p>
             <h3>{featuredProject.title}</h3>
             <p>{featuredProject.summary}</p>
             <ul className="tag-list" aria-label={isDe ? "Technologien" : "Technologies"}>
@@ -205,8 +205,8 @@ export default async function HomePage({ params }: HomePageProps) {
             <h2>{isDe ? "Vom Selbststudium zu produktiven Systemen." : "From self-study to working systems."}</h2>
             <p>
               {isDe
-              ? "Vier Jahre tägliche Automatisierungspraxis — mehr als 20 Projekte, über 100 Skripte und seit 2026 eine öffentliche E2E-Suite in der CI. Mit einem ehrlichen Blick auf Stärken und Wissensgrenzen."
-              : "Four years of daily automation practice — more than 20 projects, over 100 scripts and, since 2026, a public e2e suite in CI. With an honest view of strengths and knowledge boundaries."}
+              ? "Drei Jahre tägliche Automatisierungspraxis — mehr als 20 Projekte, über 100 Skripte und seit 2026 eine öffentliche E2E-Suite in der CI. Mit einem ehrlichen Blick auf Stärken und Wissensgrenzen."
+              : "Three years of daily automation practice — more than 20 projects, over 100 scripts and, since 2026, a public e2e suite in CI. With an honest view of strengths and knowledge boundaries."}
             </p>
           </div>
 

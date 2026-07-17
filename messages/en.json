@@ -1,9 +1,9 @@
 {
   "Meta": {
     "title": "Test Automation Portfolio",
-    "description": "Portfolio of Oleksandr — web test automation with Playwright and TypeScript, built on four years of daily browser automation.",
+    "description": "Portfolio of Oleksandr — browser automation and web test automation with Playwright, built on three years of daily AI-assisted automation practice.",
     "ogTitle": "Oleksandr | Test Automation Portfolio",
-    "ogDescription": "Web test automation: Playwright + TypeScript, a public e2e suite with CI against production, and honest quality practice.",
+    "ogDescription": "Browser automation and web test automation: a public Playwright e2e suite with CI against production, and honest AI-assisted engineering.",
     "projectTitle": "Project: {slug}",
     "projectDescription": "Project details: goals, tech stack and implementation."
   },
@@ -19,28 +19,28 @@
     "theme": "Theme"
   },
   "Hero": {
-    "badge": "Test Automation · Playwright · AI-assisted workflow",
+    "badge": "Browser Automation · Test Automation · AI-assisted",
     "kicker": "Open to QA / test automation roles · Munich area or remote",
     "titleLead": "I build",
     "rotatingWords": [
       "end-to-end tests for real web apps",
-      "browser automation and scripts",
+      "browser automation and workflows",
       "API and accessibility checks",
       "CI pipelines that catch regressions"
     ],
     "titleEnd": "and take ideas through to functional, verified results.",
-    "subtitle": "For around four years, I have built browser automation with Playwright every day — thousands of parallel sessions, where an unstable script directly costs money. Now I bring that reliability mindset into professional web test automation.",
+    "subtitle": "For around three years, I have built and operated browser automation every day — AI-assisted, across more than 10,000 isolated browser profiles with their own network, identity and session configuration. I now bring that verification mindset into web test automation with Playwright.",
     "points": [
       "Public e2e suite for this very website: Playwright + TypeScript, Page Object Model, API and accessibility tests",
       "GitHub Actions CI — runs on every push and weekly against production",
       "More than 20 personal projects and over 100 scripts and automations",
-      "1st place among ~12,000 participants in the RS School / EPAM preparation course"
+      "1st place among ~6,000 participants in the RS School / EPAM preparation course"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
     "panelTitle": "Strong automation practice. Ready for professional testing.",
-    "panelText": "I can turn a testing idea into a working, maintainable suite quickly. In a QA role, I want to bring this delivery ability into a professional team, learn clean testing processes and take responsibility.",
+    "panelText": "I can turn a testing idea into a working, maintainable suite quickly — AI-assisted, with verification and debugging in my own hands. In a QA role, I want to bring this delivery ability into a professional team and take responsibility.",
     "stats": [
       {
         "label": "Core project",
@@ -58,17 +58,17 @@
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Four years of daily automation practice",
-    "lead": "My strength is not one specific framework, but structured problem-solving with automation, AI and testing — from the first idea to a verified result.",
+    "eyebrow": "Three years of daily automation practice",
+    "lead": "My strength is not one specific framework, but structured problem-solving with automation, AI and verification — from the first idea to a checked result.",
     "paragraphs": [
-      "My path started with a strong signal: after my degree in Economic Cybernetics (a ZAB-recognized bachelor's), I took 1st place among about 12,000 participants in the RS School / EPAM preparation course — solid foundations in HTML, CSS and JavaScript, proven in competition.",
-      "Since then, I have worked with browser automation every day: self-employed, I built and operated Playwright-based systems with thousands of parallel sessions — selector engineering, wait strategies, proxy and fingerprint management, failure recovery. When unstable automation directly costs money, reliability becomes a habit.",
-      "Today I focus that experience on web test automation. My public e2e suite (Playwright + TypeScript, Page Object Model, API contract tests, accessibility gate) tests this very website in CI — on every push and weekly against production. I am looking for a QA / test automation role in a professional team."
+      "My path started with a strong signal: after my degree in Economic Cybernetics (a ZAB-recognized bachelor's), I took 1st place among about 6,000 participants in the RS School / EPAM preparation course — with pixel-perfect HTML/CSS work as my strongest discipline.",
+      "Since then, I have worked on browser automation every day for around three years — AI-assisted: I define the workflows, direct coding agents, verify behaviour in the real browser and debug through DevTools and network traffic analysis. The systems span more than 10,000 isolated browser profiles with their own network, identity and session configuration, with up to 10 sessions running concurrently. When an unstable workflow directly costs money, verification becomes a habit.",
+      "Today I focus that experience on web test automation. My public e2e suite (Playwright + TypeScript, Page Object Model, API contract tests, accessibility gate) tests this very website in CI — AI-assisted implementation, with scope, verification and debugging in my hands. I am looking for a QA / test automation role in a professional team."
     ],
     "highlights": [
       {
         "label": "Initiative",
-        "value": "I have worked on personal software and automation tasks every day for around four years."
+        "value": "I have worked on personal software and automation tasks every day for around three years."
       },
       {
         "label": "Test automation",
@@ -92,22 +92,28 @@
     "profile": {
       "badge": "Profile",
       "name": "Oleksandr Shevchenko",
-      "role": "Test Automation (Playwright)",
+      "role": "Browser & Test Automation (AI-assisted)",
       "initials": "OS",
       "placeholder": "Photo placeholder",
-      "caption": "Four years of daily automation delivery — now focused on reliable, maintainable web test automation in a professional team.",
+      "caption": "Three years of daily automation practice — now focused on reliable, maintainable web test automation in a professional team.",
       "facts": [
         "Location: Bavaria (Landshut / Munich area) · on-site or remote",
         "Languages: Ukrainian & Russian (native) · German B1 · English A2 (improving)",
-        "Focus: Playwright · Test automation · CI/CD · Web fundamentals"
+        "Focus: Playwright · Test automation · Browser workflows · CI/CD"
       ]
     }
   },
   "Projects": {
     "title": "Projects",
     "eyebrow": "Selected work",
-    "intro": "The flagship project is public: an e2e test suite that checks this very website in CI. The four demos below are the system under test.",
+    "intro": "The flagship project is public: an e2e test suite that checks this very website in CI. The demos below are the system under test.",
     "items": [
+      {
+        "slug": "e2e-suite",
+        "title": "Portfolio E2E Test Suite",
+        "summary": "Playwright + TypeScript suite testing this website in CI: UI, API and accessibility — desktop and mobile.",
+        "stack": "Playwright · TypeScript · GitHub Actions"
+      },
       {
         "slug": "ki-bewerbungshelfer",
         "title": "AI Application Assistant",
@@ -143,35 +149,35 @@
     "groups": [
       {
         "name": "Test automation",
-        "description": "Playwright end-to-end practice: my public suite runs UI, API and accessibility tests in CI",
-        "level": 70,
+        "description": "Public Playwright e2e suite — AI-assisted implementation; scope, verification and debugging are mine",
+        "level": 60,
         "levelLabel": "Core focus — daily practice",
         "items": [
-          "Playwright",
+          "Playwright (public e2e suite)",
           "Page Object Model & fixtures",
           "API contract tests",
           "axe accessibility checks",
-          "Flaky-test debugging"
+          "Trace-based debugging"
         ]
       },
       {
-        "name": "Automation & APIs",
-        "description": "Browser automation at scale, scripts, data flows and repeatable workflows",
+        "name": "Browser automation & analysis",
+        "description": "Three years of daily practice across 10,000+ isolated browser profiles",
         "level": 76,
         "levelLabel": "Extensive independent project practice",
         "items": [
-          "Browser automation (Playwright)",
-          "REST APIs & integrations",
-          "Proxy & session management",
+          "Multi-account browser workflows",
+          "Session & profile state management",
           "DevTools network analysis",
-          "Error analysis & repeatability"
+          "mitmproxy traffic capture",
+          "Error analysis & recovery"
         ]
       },
       {
         "name": "AI & agents",
         "description": "Advanced orchestration of models, agents, context, tools and parallel tasks",
         "level": 92,
-        "levelLabel": "Core strength from four years of daily practice",
+        "levelLabel": "Core strength from three years of daily practice",
         "items": [
           "Multi-agent workflows",
           "Prompt & context engineering",
@@ -181,16 +187,16 @@
         ]
       },
       {
-        "name": "Frontend",
-        "description": "Solid HTML, CSS and JavaScript foundations; modern framework projects built mainly with AI assistance",
+        "name": "Web fundamentals",
+        "description": "Earlier intensive training with pixel-perfect HTML/CSS; currently refreshing, modern projects built mainly AI-assisted",
         "level": 38,
-        "levelLabel": "Foundations in place, framework knowledge improving",
+        "levelLabel": "Foundations in place, actively refreshing",
         "items": [
-          "HTML & CSS",
-          "JavaScript (foundation)",
+          "HTML & CSS (pixel-perfect layouts)",
+          "JavaScript / TypeScript (foundations, refreshing)",
           "React (basics)",
-          "Next.js (first projects)",
-          "Tailwind CSS"
+          "Python (basics)",
+          "Next.js (AI-assisted projects)"
         ]
       },
       {
@@ -211,26 +217,26 @@
   "Resume": {
     "eyebrow": "Background & Projects",
     "title": "Resume",
-    "intro": "My path combines a recognized degree, a top course finish and four years of daily automation practice — now aimed at web test automation.",
+    "intro": "My path combines a recognized degree, a top course finish and three years of daily automation practice — now aimed at web test automation.",
     "timeline": [
       {
         "period": "2018 — 2022",
         "title": "Bachelor, Economic Cybernetics — ZAB-recognized",
-        "text": "Degree at the State University of Trade and Economics (Kyiv), recognized by the German ZAB as equivalent to a bachelor's degree (03/2025). Followed by 1st place among ~12,000 participants in the RS School / EPAM preparation course.",
-        "focus": "Foundation: Degree · EPAM RS School Top 1 · HTML/CSS/JS",
+        "text": "Degree at the State University of Trade and Economics (Kyiv), recognized by the German ZAB as equivalent to a bachelor's degree (03/2025). Followed by 1st place among ~6,000 participants in the RS School / EPAM preparation course — strongest discipline: pixel-perfect HTML/CSS.",
+        "focus": "Foundation: Degree · EPAM RS School Top 1 · HTML/CSS",
         "chips": [
           "Bachelor + ZAB",
-          "Top 1 / ~12,000",
-          "JavaScript foundations"
+          "Top 1 / ~6,000",
+          "Pixel-perfect HTML/CSS"
         ]
       },
       {
-        "period": "2022 — present",
-        "title": "Self-employed: browser automation with Playwright at scale",
-        "text": "Built and operated browser automation with thousands of parallel sessions: selector engineering, wait strategies, proxy and fingerprint management, failure recovery and custom mitmproxy traffic analysis — plus 20+ personal projects and 100+ scripts.",
-        "focus": "Focus: Playwright · Automation · Reliability",
+        "period": "2023 — present",
+        "title": "Independent browser automation projects — AI-assisted",
+        "text": "Built and operated multi-account browser workflows daily: more than 10,000 isolated browser profiles with their own network, identity and session configuration, up to 10 concurrent sessions. Verification in the real browser, DevTools and custom mitmproxy traffic analysis — 20+ projects, 100+ scripts.",
+        "focus": "Focus: Browser automation · Verification · Reliability",
         "chips": [
-          "Playwright at scale",
+          "10,000+ profiles",
           "100+ scripts",
           "Daily practice"
         ]
@@ -238,7 +244,7 @@
       {
         "period": "2026",
         "title": "Focus: professional web test automation",
-        "text": "Built and open-sourced an e2e/API/a11y suite (Playwright + TypeScript, POM, fixtures, axe, GitHub Actions) that tests this very website in CI. Looking for a QA / test automation role in a professional team.",
+        "text": "Built and open-sourced an e2e/API/a11y suite (Playwright + TypeScript, POM, fixtures, axe, GitHub Actions) that tests this very website in CI — AI-assisted implementation; scope, verification and debugging are mine. Looking for a QA / test automation role in a professional team.",
         "focus": "Goal: reliable tests, root-cause debugging, teamwork",
         "chips": [
           "Public e2e suite",
@@ -248,7 +254,7 @@
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I bring four years of automation practice and high delivery speed with AI, while communicating openly about my current level in JavaScript and modern frameworks. My goal: reliable, maintainable test automation in a team.",
+    "closingText": "I bring three years of daily automation practice and professional command of AI-assisted development, and I speak openly about my current hand-coding level — I am actively rebuilding JavaScript, TypeScript and Playwright fundamentals. My goal: reliable, maintainable test automation in a team.",
     "closingBadges": [
       "Available immediately",
       "Munich area or remote",

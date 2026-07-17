@@ -24,8 +24,11 @@ describe("buildChatSystemPrompt", () => {
 
     expect(prompt).toContain("20+ personal projects");
     expect(prompt).toContain("100+ scripts/automations");
-    expect(prompt).toContain("open to junior and entry-level developer roles");
+    expect(prompt).toContain("open to QA / test automation roles");
+    expect(prompt).toContain("up to 10 sessions run concurrently");
+    expect(prompt).toContain("about 6,000 participants");
     expect(prompt).toContain("Do not present him as an independent TypeScript, React or Next.js expert");
+    expect(prompt).toContain("never claim years of hand-written Playwright code");
   });
 
   it("contains the actual streaming architecture", () => {

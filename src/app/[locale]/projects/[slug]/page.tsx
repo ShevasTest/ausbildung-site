@@ -15,6 +15,7 @@ import {
 } from "@/lib/seo";
 
 const projectSlugs = [
+  "e2e-suite",
   "ki-bewerbungshelfer",
   "mietpreise-tracker",
   "smartchat",
@@ -216,6 +217,49 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   };
 
   const structuredData = toJsonLd([projectStructuredData, breadcrumbStructuredData]);
+
+  if (slug === "e2e-suite") {
+    const isDe = safeLocale === "de";
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
+        <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
+          <section className="overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8">
+            <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              {isDe ? "Öffentliches Repository · CI aktiv" : "Public repository · CI active"}
+            </span>
+            <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h1>
+            <p className="mt-4 max-w-3xl leading-relaxed text-muted">{summary}</p>
+            <ul className="mt-6 grid max-w-3xl gap-2 text-sm leading-relaxed text-muted sm:grid-cols-2">
+              <li>— {isDe ? "Smoke-, Navigations- und i18n-Flows (DE/EN)" : "Smoke, navigation and i18n flows (DE/EN)"}</li>
+              <li>— {isDe ? "API-Contract-Tests für /api-Routen" : "API contract tests for the /api routes"}</li>
+              <li>— {isDe ? "SEO: Sitemap, robots, Canonical, Open Graph" : "SEO: sitemap, robots, canonical, Open Graph"}</li>
+              <li>— {isDe ? "axe-Accessibility-Gate auf beiden Sprachen" : "axe accessibility gate on both locales"}</li>
+            </ul>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://github.com/ShevasTest/portfolio-e2e-tests"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-primary-solid px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:opacity-95"
+              >
+                {isDe ? "Repository auf GitHub" : "Repository on GitHub"} ↗
+              </a>
+              <a
+                href="https://github.com/ShevasTest/portfolio-e2e-tests/actions/workflows/e2e.yml"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+              >
+                {isDe ? "CI-Läufe ansehen" : "View CI runs"} ↗
+              </a>
+            </div>
+          </section>
+        </main>
+        <ProjectCaseStudy locale={safeLocale} slug="e2e-suite" />
+      </>
+    );
+  }
 
   if (slug === "ki-bewerbungshelfer") {
     return (

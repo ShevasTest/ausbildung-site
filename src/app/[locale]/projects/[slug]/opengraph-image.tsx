@@ -8,6 +8,16 @@ export const size = {
 export const contentType = "image/png";
 
 const projectCopy = {
+  "e2e-suite": {
+    de: {
+      title: "Portfolio E2E-Testsuite",
+      subtitle: "Playwright + TypeScript · CI gegen Produktion · UI, API & A11y",
+    },
+    en: {
+      title: "Portfolio E2E Test Suite",
+      subtitle: "Playwright + TypeScript · CI against production · UI, API & a11y",
+    },
+  },
   "ki-bewerbungshelfer": {
     de: {
       title: "KI-Bewerbungshelfer",

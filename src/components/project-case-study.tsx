@@ -12,7 +12,15 @@ type CaseStudy = {
 
 type ProjectCaseStudyProps = {
   locale: string;
-  slug: "ki-bewerbungshelfer" | "mietpreise-tracker" | "smartchat" | "devdash";
+  slug: "e2e-suite" | "ki-bewerbungshelfer" | "mietpreise-tracker" | "smartchat" | "devdash";
+};
+
+const CODE_URLS: Record<ProjectCaseStudyProps["slug"], string> = {
+  "e2e-suite": "https://github.com/ShevasTest/portfolio-e2e-tests",
+  "ki-bewerbungshelfer": "https://github.com/ShevasTest/ausbildung-site",
+  "mietpreise-tracker": "https://github.com/ShevasTest/ausbildung-site",
+  smartchat: "https://github.com/ShevasTest/ausbildung-site",
+  devdash: "https://github.com/ShevasTest/ausbildung-site",
 };
 
 const COPY = {
@@ -34,6 +42,25 @@ const COPY = {
 
 const CASE_STUDIES: Record<LocaleKey, Record<ProjectCaseStudyProps["slug"], CaseStudy>> = {
   de: {
+    "e2e-suite": {
+      eyebrow: "Case Study · Testautomatisierung",
+      title: "Eine öffentliche E2E-Suite als überprüfbarer Qualitätsnachweis",
+      intro:
+        "Die Suite testet genau diese Website in GitHub Actions — bei jedem Push und wöchentlich gegen Produktion: UI-Flows, API-Contracts, SEO-Infrastruktur und Accessibility, auf Desktop- und Mobile-Profilen.",
+      role: "Anforderungen, Teststrategie und Abdeckung stammen von mir; die Implementierung ist KI-gestützt — Verifikation, Debugging und der CI-Betrieb liegen in meiner Hand.",
+      decisions: [
+        "Deterministisch per Konstruktion: keine LLM-Antworten in Assertions; API-Tests prüfen den Contract statt volatiler Payloads.",
+        "Page Object Model und Fixtures halten die Specs deklarativ und wartbar.",
+        "Accessibility als Gate: ernste axe-Verstöße lassen den Build fehlschlagen.",
+      ],
+      proof: [
+        "46 Checks auf Desktop Chrome und Pixel 7 (Mobile)",
+        "CI bei jedem Push plus wöchentlicher Lauf gegen Produktion",
+        "Traces und Screenshots bei Fehlschlägen als Build-Artefakte",
+      ],
+      learning:
+        "Als Nächstes ergänze ich einen Positioning-Contract gegen veraltete Inhalte und tiefere deterministische Workflow-Szenarien für die Produkt-Demos.",
+    },
     "ki-bewerbungshelfer": {
       eyebrow: "Case Study · AI mit überprüfbarem Nutzen",
       title: "Von einer Stellenanzeige zu einem strukturierten Entwurf",
@@ -112,6 +139,25 @@ const CASE_STUDIES: Record<LocaleKey, Record<ProjectCaseStudyProps["slug"], Case
     },
   },
   en: {
+    "e2e-suite": {
+      eyebrow: "Case study · Test automation",
+      title: "A public e2e suite as verifiable proof of quality",
+      intro:
+        "The suite tests this very website in GitHub Actions — on every push and weekly against production: UI flows, API contracts, SEO infrastructure and accessibility, on desktop and mobile profiles.",
+      role: "Requirements, test strategy and coverage are mine; the implementation is AI-assisted — verification, debugging and CI operation stay in my hands.",
+      decisions: [
+        "Deterministic by construction: no LLM responses in assertions; API tests pin the contract, not volatile payloads.",
+        "Page Object Model and fixtures keep the specs declarative and maintainable.",
+        "Accessibility as a gate: serious axe violations fail the build.",
+      ],
+      proof: [
+        "46 checks on Desktop Chrome and Pixel 7 (mobile)",
+        "CI on every push plus a weekly run against production",
+        "Traces and screenshots on failure as build artifacts",
+      ],
+      learning:
+        "Next up: a positioning contract against outdated content and deeper deterministic workflow scenarios for the product demos.",
+    },
     "ki-bewerbungshelfer": {
       eyebrow: "Case study · Verifiable AI value",
       title: "From a vacancy to a structured application draft",
@@ -210,7 +256,7 @@ export function ProjectCaseStudy({ locale, slug }: ProjectCaseStudyProps) {
             <p className="mt-1 max-w-4xl text-sm leading-relaxed text-muted">{study.learning}</p>
           </div>
           <a
-            href="https://github.com/ShevasTest/ausbildung-site"
+            href={CODE_URLS[slug]}
             target="_blank"
             rel="noreferrer"
             className="inline-flex shrink-0 items-center justify-center rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"

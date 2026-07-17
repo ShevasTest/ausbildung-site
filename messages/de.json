@@ -1,9 +1,9 @@
 {
   "Meta": {
     "title": "Testautomatisierungs-Portfolio",
-    "description": "Portfolio von Oleksandr — Web-Testautomatisierung mit Playwright und TypeScript, aufgebaut auf vier Jahren täglicher Browser-Automatisierung.",
+    "description": "Portfolio von Oleksandr — Browser-Automatisierung und Web-Testautomatisierung mit Playwright, aufgebaut auf drei Jahren täglicher KI-gestützter Automatisierungspraxis.",
     "ogTitle": "Oleksandr | Testautomatisierungs-Portfolio",
-    "ogDescription": "Web-Testautomatisierung: Playwright + TypeScript, eine öffentliche E2E-Suite mit CI gegen Produktion und ehrliche Qualitätspraxis.",
+    "ogDescription": "Browser-Automatisierung und Web-Testautomatisierung: eine öffentliche Playwright-E2E-Suite mit CI gegen Produktion und ehrliches KI-gestütztes Engineering.",
     "projectTitle": "Projekt: {slug}",
     "projectDescription": "Projektdetails: Ziele, Tech Stack und Umsetzung."
   },
@@ -19,28 +19,28 @@
     "theme": "Designmodus"
   },
   "Hero": {
-    "badge": "Testautomatisierung · Playwright · KI-gestützter Workflow",
+    "badge": "Browser-Automatisierung · Testautomatisierung · KI-gestützt",
     "kicker": "Offen für QA-/Testautomatisierungs-Stellen · Raum München oder remote",
     "titleLead": "Ich entwickle",
     "rotatingWords": [
       "End-to-End-Tests für echte Web-Apps",
-      "Browser-Automatisierung und Skripte",
+      "Browser-Automatisierung und Workflows",
       "API- und Accessibility-Checks",
       "CI-Pipelines, die Regressionen fangen"
     ],
     "titleEnd": "und bringe Ideen bis zu einem funktionierenden, überprüften Ergebnis.",
-    "subtitle": "Seit rund vier Jahren baue ich täglich Browser-Automatisierung mit Playwright — Tausende parallele Sessions, in denen ein instabiles Skript direkt Geld kostet. Dieses Zuverlässigkeitsdenken bringe ich jetzt in die professionelle Web-Testautomatisierung.",
+    "subtitle": "Seit rund drei Jahren baue und betreibe ich täglich Browser-Automatisierung — KI-gestützt, über mehr als 10.000 isolierte Browserprofile mit eigener Netzwerk-, Identitäts- und Session-Konfiguration. Dieses Verifikationsdenken bringe ich jetzt in die Web-Testautomatisierung mit Playwright.",
     "points": [
       "Öffentliche E2E-Suite für genau diese Website: Playwright + TypeScript, Page Object Model, API- und Accessibility-Tests",
       "GitHub Actions CI — läuft bei jedem Push und wöchentlich gegen Produktion",
       "Mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen",
-      "1. Platz unter ~12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs"
+      "1. Platz unter ~6.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs"
     ],
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
     "panelTitle": "Starke Automatisierungspraxis. Bereit für professionelles Testing.",
-    "panelText": "Ich kann eine Testing-Idee schnell in eine funktionierende, wartbare Suite übersetzen. In einer QA-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen, saubere Testprozesse lernen und Verantwortung übernehmen.",
+    "panelText": "Ich kann eine Testing-Idee schnell in eine funktionierende, wartbare Suite übersetzen — KI-gestützt, mit Verifikation und Debugging in meiner Hand. In einer QA-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen und Verantwortung übernehmen.",
     "stats": [
       {
         "label": "Kernprojekt",
@@ -58,17 +58,17 @@
   },
   "About": {
     "title": "Über mich",
-    "eyebrow": "Vier Jahre tägliche Automatisierungspraxis",
-    "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern strukturiertes Problemlösen mit Automatisierung, KI und Testing — von der Idee bis zum überprüften Ergebnis.",
+    "eyebrow": "Drei Jahre tägliche Automatisierungspraxis",
+    "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern strukturiertes Problemlösen mit Automatisierung, KI und Verifikation — von der Idee bis zum überprüften Ergebnis.",
     "paragraphs": [
-      "Mein Weg begann mit einem starken Signal: Nach meinem Studium der Wirtschaftskybernetik (ZAB-anerkannter Bachelor) erreichte ich den 1. Platz unter rund 12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs — solide Grundlagen in HTML, CSS und JavaScript, unter Wettbewerbsbedingungen bewiesen.",
-      "Seitdem arbeite ich täglich mit Browser-Automatisierung: Selbstständig habe ich Playwright-basierte Systeme mit Tausenden parallelen Sessions aufgebaut und betrieben — Selector-Engineering, Wait-Strategien, Proxy- und Fingerprint-Management, Failure-Recovery. Wenn instabile Automatisierung direkt Geld kostet, wird Zuverlässigkeit zur Gewohnheit.",
-      "Heute fokussiere ich diese Erfahrung auf Web-Testautomatisierung. Meine öffentliche E2E-Suite (Playwright + TypeScript, Page Object Model, API-Contract-Tests, Accessibility-Gate) testet genau diese Website in der CI — bei jedem Push und wöchentlich gegen Produktion. Ich suche eine QA-/Testautomatisierungs-Rolle in einem professionellen Team."
+      "Mein Weg begann mit einem starken Signal: Nach meinem Studium der Wirtschaftskybernetik (ZAB-anerkannter Bachelor) erreichte ich den 1. Platz unter rund 6.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs — meine stärkste Disziplin: pixelgenaue HTML/CSS-Umsetzung.",
+      "Seitdem arbeite ich seit rund drei Jahren täglich an Browser-Automatisierung — KI-gestützt: Ich definiere die Workflows, steuere Coding-Agenten, verifiziere das Verhalten im echten Browser und debugge über DevTools und Netzwerk-Traffic-Analyse. Die Systeme umfassen mehr als 10.000 isolierte Browserprofile mit eigener Netzwerk-, Identitäts- und Session-Konfiguration, mit bis zu 10 gleichzeitig laufenden Sessions. Wenn ein instabiler Workflow direkt Geld kostet, wird Verifikation zur Gewohnheit.",
+      "Heute fokussiere ich diese Erfahrung auf Web-Testautomatisierung. Meine öffentliche E2E-Suite (Playwright + TypeScript, Page Object Model, API-Contract-Tests, Accessibility-Gate) testet genau diese Website in der CI — KI-gestützte Implementierung, mit Anforderungen, Verifikation und Debugging in meiner Hand. Ich suche eine QA-/Testautomatisierungs-Rolle in einem professionellen Team."
     ],
     "highlights": [
       {
         "label": "Eigeninitiative",
-        "value": "Ich arbeite seit rund vier Jahren täglich an eigenen Software- und Automatisierungsaufgaben."
+        "value": "Ich arbeite seit rund drei Jahren täglich an eigenen Software- und Automatisierungsaufgaben."
       },
       {
         "label": "Testautomatisierung",
@@ -92,22 +92,28 @@
     "profile": {
       "badge": "Profil",
       "name": "Oleksandr Shevchenko",
-      "role": "Test Automation (Playwright)",
+      "role": "Browser- & Testautomatisierung (KI-gestützt)",
       "initials": "OS",
       "placeholder": "Foto folgt",
-      "caption": "Vier Jahre tägliche Automatisierungspraxis — jetzt fokussiert auf zuverlässige, wartbare Web-Testautomatisierung in einem professionellen Team.",
+      "caption": "Drei Jahre tägliche Automatisierungspraxis — jetzt fokussiert auf zuverlässige, wartbare Web-Testautomatisierung in einem professionellen Team.",
       "facts": [
         "Standort: Bayern (Landshut / Raum München) · vor Ort oder remote",
         "Sprachen: Ukrainisch & Russisch (Muttersprache) · Deutsch B1 · Englisch A2 (im Aufbau)",
-        "Fokus: Playwright · Testautomatisierung · CI/CD · Web-Grundlagen"
+        "Fokus: Playwright · Testautomatisierung · Browser-Workflows · CI/CD"
       ]
     }
   },
   "Projects": {
     "title": "Projekte",
     "eyebrow": "Ausgewählte Arbeiten",
-    "intro": "Das Kernprojekt ist öffentlich: eine E2E-Testsuite, die genau diese Website in der CI prüft. Die vier Demos unten sind das „System under Test“.",
+    "intro": "Das Kernprojekt ist öffentlich: eine E2E-Testsuite, die genau diese Website in der CI prüft. Die Demos unten sind das „System under Test“.",
     "items": [
+      {
+        "slug": "e2e-suite",
+        "title": "Portfolio E2E-Testsuite",
+        "summary": "Playwright + TypeScript Suite, die diese Website in der CI testet: UI, API und Accessibility — Desktop und Mobile.",
+        "stack": "Playwright · TypeScript · GitHub Actions"
+      },
       {
         "slug": "ki-bewerbungshelfer",
         "title": "KI-Bewerbungshelfer",
@@ -143,35 +149,35 @@
     "groups": [
       {
         "name": "Testautomatisierung",
-        "description": "Playwright-End-to-End-Praxis: Meine öffentliche Suite führt UI-, API- und Accessibility-Tests in der CI aus",
-        "level": 70,
+        "description": "Öffentliche Playwright-E2E-Suite — KI-gestützte Implementierung; Anforderungen, Verifikation und Debugging liegen bei mir",
+        "level": 60,
         "levelLabel": "Kernfokus — tägliche Praxis",
         "items": [
-          "Playwright",
+          "Playwright (öffentliche E2E-Suite)",
           "Page Object Model & Fixtures",
           "API-Contract-Tests",
           "axe Accessibility-Checks",
-          "Flaky-Test-Debugging"
+          "Trace-basiertes Debugging"
         ]
       },
       {
-        "name": "Automatisierung & APIs",
-        "description": "Browser-Automatisierung im großen Maßstab, Skripte, Datenflüsse und wiederholbare Workflows",
+        "name": "Browser-Automatisierung & Analyse",
+        "description": "Drei Jahre tägliche Praxis über 10.000+ isolierte Browserprofile",
         "level": 76,
         "levelLabel": "Umfangreiche eigenständige Projektpraxis",
         "items": [
-          "Browser-Automatisierung (Playwright)",
-          "REST APIs & Integrationen",
-          "Proxy- & Session-Management",
+          "Multi-Account-Browser-Workflows",
+          "Session- & Profil-State-Management",
           "DevTools-Netzwerkanalyse",
-          "Fehleranalyse & Wiederholbarkeit"
+          "mitmproxy-Traffic-Aufzeichnung",
+          "Fehleranalyse & Recovery"
         ]
       },
       {
         "name": "KI & Agenten",
         "description": "Fortgeschrittene Steuerung von Modellen, Agenten, Kontext, Tools und parallelen Aufgaben",
         "level": 92,
-        "levelLabel": "Zentrale Stärke aus vier Jahren täglicher Praxis",
+        "levelLabel": "Zentrale Stärke aus drei Jahren täglicher Praxis",
         "items": [
           "Multi-Agent-Workflows",
           "Prompt- & Kontext-Engineering",
@@ -181,16 +187,16 @@
         ]
       },
       {
-        "name": "Frontend",
-        "description": "Solide Grundlagen in HTML, CSS und JavaScript; moderne Framework-Projekte entstehen überwiegend KI-gestützt",
+        "name": "Web-Grundlagen",
+        "description": "Frühere intensive Ausbildung mit pixelgenauem HTML/CSS; aktuell in Auffrischung, moderne Projekte entstehen überwiegend KI-gestützt",
         "level": 38,
-        "levelLabel": "Grundlagen vorhanden, Framework-Wissen im Ausbau",
+        "levelLabel": "Grundlagen vorhanden, aktive Auffrischung",
         "items": [
-          "HTML & CSS",
-          "JavaScript (Basis)",
+          "HTML & CSS (pixelgenaue Layouts)",
+          "JavaScript / TypeScript (Grundlagen, in Auffrischung)",
           "React (Basics)",
-          "Next.js (erste Projekte)",
-          "Tailwind CSS"
+          "Python (Basics)",
+          "Next.js (KI-gestützte Projekte)"
         ]
       },
       {
@@ -211,26 +217,26 @@
   "Resume": {
     "eyebrow": "Werdegang & Projekte",
     "title": "Lebenslauf",
-    "intro": "Mein Weg verbindet einen anerkannten Abschluss, ein Top-Kursergebnis und vier Jahre tägliche Automatisierungspraxis — jetzt ausgerichtet auf Web-Testautomatisierung.",
+    "intro": "Mein Weg verbindet einen anerkannten Abschluss, ein Top-Kursergebnis und drei Jahre tägliche Automatisierungspraxis — jetzt ausgerichtet auf Web-Testautomatisierung.",
     "timeline": [
       {
         "period": "2018 — 2022",
         "title": "Bachelor Wirtschaftskybernetik — ZAB-anerkannt",
-        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw), von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter ~12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs.",
-        "focus": "Basis: Abschluss · EPAM RS School Top 1 · HTML/CSS/JS",
+        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw), von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter ~6.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs — stärkste Disziplin: pixelgenaue HTML/CSS-Umsetzung.",
+        "focus": "Basis: Abschluss · EPAM RS School Top 1 · HTML/CSS",
         "chips": [
           "Bachelor + ZAB",
-          "Top 1 / ~12.000",
-          "JavaScript-Grundlagen"
+          "Top 1 / ~6.000",
+          "Pixelgenaues HTML/CSS"
         ]
       },
       {
-        "period": "2022 — heute",
-        "title": "Selbstständig: Browser-Automatisierung mit Playwright im Maßstab",
-        "text": "Browser-Automatisierung mit Tausenden parallelen Sessions aufgebaut und betrieben: Selector-Engineering, Wait-Strategien, Proxy- und Fingerprint-Management, Failure-Recovery und eigene mitmproxy-Traffic-Analyse — dazu 20+ eigene Projekte und 100+ Skripte.",
-        "focus": "Fokus: Playwright · Automatisierung · Zuverlässigkeit",
+        "period": "2023 — heute",
+        "title": "Eigene Browser-Automatisierungsprojekte — KI-gestützt",
+        "text": "Täglich Multi-Account-Browser-Workflows aufgebaut und betrieben: mehr als 10.000 isolierte Browserprofile mit eigener Netzwerk-, Identitäts- und Session-Konfiguration, bis zu 10 gleichzeitige Sessions. Verifikation im echten Browser, DevTools und eigene mitmproxy-Traffic-Analyse — 20+ Projekte, 100+ Skripte.",
+        "focus": "Fokus: Browser-Automatisierung · Verifikation · Zuverlässigkeit",
         "chips": [
-          "Playwright im Maßstab",
+          "10.000+ Profile",
           "100+ Skripte",
           "Tägliche Praxis"
         ]
@@ -238,7 +244,7 @@
       {
         "period": "2026",
         "title": "Fokus: professionelle Web-Testautomatisierung",
-        "text": "Eine E2E/API/A11y-Suite (Playwright + TypeScript, POM, Fixtures, axe, GitHub Actions) gebaut und veröffentlicht, die genau diese Website in der CI testet. Ich suche eine QA-/Testautomatisierungs-Rolle in einem professionellen Team.",
+        "text": "Eine E2E/API/A11y-Suite (Playwright + TypeScript, POM, Fixtures, axe, GitHub Actions) gebaut und veröffentlicht, die genau diese Website in der CI testet — KI-gestützte Implementierung; Anforderungen, Verifikation und Debugging liegen bei mir. Ich suche eine QA-/Testautomatisierungs-Rolle in einem professionellen Team.",
         "focus": "Ziel: zuverlässige Tests, Ursachenanalyse, Teamarbeit",
         "chips": [
           "Öffentliche E2E-Suite",
@@ -248,7 +254,7 @@
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich bringe vier Jahre Automatisierungspraxis und hohe Umsetzungsgeschwindigkeit mit KI mit, spreche aber offen über meinen aktuellen Kenntnisstand in JavaScript und modernen Frameworks. Mein Ziel: zuverlässige, wartbare Testautomatisierung im Team.",
+    "closingText": "Ich bringe drei Jahre tägliche Automatisierungspraxis und professionelles KI-gestütztes Arbeiten mit und spreche offen über mein aktuelles Niveau beim eigenständigen Codeschreiben — JavaScript, TypeScript und Playwright frische ich gerade aktiv auf. Mein Ziel: zuverlässige, wartbare Testautomatisierung im Team.",
     "closingBadges": [
       "Ab sofort verfügbar",
       "Raum München oder remote",

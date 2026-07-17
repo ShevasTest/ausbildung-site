@@ -11,14 +11,14 @@ const copy = {
   de: {
     badge: "Test Automation · Playwright",
     title: "Oleksandr",
-    subtitle: "Test Automation Engineer — Playwright & TypeScript",
-    points: "E2E-Testing · Browser-Automatisierung · CI/CD",
+    subtitle: "Browser-Automatisierung · Testautomatisierung · KI-gestützt",
+    points: "Playwright · E2E · API-Analyse · CI/CD",
   },
   en: {
     badge: "Test Automation · Playwright",
     title: "Oleksandr",
-    subtitle: "Test Automation Engineer — Playwright & TypeScript",
-    points: "E2E testing · Browser automation · CI/CD",
+    subtitle: "Browser Automation · Test Automation · AI-assisted",
+    points: "Playwright · E2E · API analysis · CI/CD",
   },
 } as const;
 

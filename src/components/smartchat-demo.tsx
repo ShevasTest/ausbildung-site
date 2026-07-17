@@ -209,7 +209,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     quickPromptsTitle: "Quick starters",
     quickPrompts: [
       "What is Oleksandr's strongest technical skill?",
-      "How can I explain initiative in a German junior developer interview?",
+      "How can I explain initiative in a German QA / test automation interview?",
       "How exactly does streaming work in this chat?",
       "Which 3 UX details make a chat app feel professional?",
     ],
@@ -746,7 +746,7 @@ ${style.voice}
 - **Teamwert:** zeigen, wie deine Arbeitsweise einem professionellen Entwicklungsteam hilft.
 
 ### Beispiel-Formulierung
-"Ich habe mir die Frontend-Grundlagen im Selbststudium aufgebaut und arbeite seit rund vier Jahren täglich an KI-gestützten Software- und Automatisierungsprojekten. Meine besondere Stärke ist, komplexe Aufgaben zu zerlegen, Agenten gezielt zu steuern und Ergebnisse systematisch zu testen. In einer Junior-Rolle möchte ich diese Umsetzungspraxis in ein professionelles Entwicklungsteam einbringen und meine technischen Grundlagen weiter vertiefen."
+"Ich arbeite seit rund drei Jahren täglich KI-gestützt an Browser-Automatisierung — mit mehr als 10.000 isolierten Browserprofilen. Meine besondere Stärke ist, komplexe Workflows zu zerlegen, Agenten gezielt zu steuern und Ergebnisse im echten Browser zu verifizieren. In einer QA-Rolle möchte ich diese Praxis in ein professionelles Team einbringen und meine Grundlagen weiter vertiefen."
 
 ### Nächster Schritt
 - Verbinde diese Aussage mit 1–2 konkreten Portfolio-Projekten.
@@ -854,7 +854,7 @@ ${style.voice}
 - **Team value:** show how your workflow helps a professional development team.
 
 ### Example phrasing
-"I built my frontend foundations through structured self-study and have worked on AI-assisted software and automation projects every day for around four years. My particular strength is breaking down complex tasks, orchestrating agents deliberately and testing results systematically. In a junior role, I want to bring this delivery practice into a professional development team and deepen my technical foundations."
+"For around three years I have worked on AI-assisted browser automation every day — across more than 10,000 isolated browser profiles. My particular strength is breaking down complex workflows, orchestrating agents deliberately and verifying results in the real browser. In a QA role, I want to bring this practice into a professional team and keep deepening my foundations."
 
 ### Next step
 - Link this statement to 1–2 portfolio projects.

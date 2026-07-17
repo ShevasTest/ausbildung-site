@@ -388,7 +388,7 @@ async function callUpstream(model: LlmModel, request: LlmRequest): Promise<Respo
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY ?? ""}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "https://oleksandr-shevchenko.de",
+          "HTTP-Referer": "https://work.oleksandr-shevchenko.de",
           "X-Title": "Oleksandr Shevchenko Portfolio",
         },
         body: openAiCompatibleBody(model, request),

@@ -30,7 +30,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
   de: {
     title: "Datenschutzerklärung",
     metaDescription:
-      "Datenschutzerklärung von oleksandr-shevchenko.de: Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
+      "Datenschutzerklärung von work.oleksandr-shevchenko.de: Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
     responsibleTitle: "1. Verantwortlicher",
     responsibleIntro: "Verantwortlich für die Datenverarbeitung auf dieser Website ist:",
     emailLabel: "E-Mail:",
@@ -110,7 +110,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
   en: {
     title: "Privacy Policy",
     metaDescription:
-      "Privacy policy of oleksandr-shevchenko.de: information about the processing of personal data according to the GDPR.",
+      "Privacy policy of work.oleksandr-shevchenko.de: information about the processing of personal data according to the GDPR.",
     responsibleTitle: "1. Controller",
     responsibleIntro: "The controller responsible for data processing on this website is:",
     emailLabel: "Email:",
