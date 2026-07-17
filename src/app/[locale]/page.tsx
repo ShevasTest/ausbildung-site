@@ -105,7 +105,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </p>
           <p className="hero-lead">
             {isDe
-              ? "Seit rund vier Jahren baue ich täglich Browser-Automatisierung mit Playwright — in einem Maßstab, in dem ein instabiles Skript direkt Geld kostet. Diese Zuverlässigkeits-Denkweise bringe ich jetzt in die professionelle Web-Testautomatisierung: Meine öffentliche E2E-Suite testet genau diese Website in der CI."
+              ? "Seit rund vier Jahren baue ich täglich Browser-Automatisierung mit Playwright — in einem Maßstab, in dem ein instabiles Skript direkt Geld kostet. Dieses Zuverlässigkeitsdenken bringe ich jetzt in die professionelle Web-Testautomatisierung: Meine öffentliche E2E-Suite testet genau diese Website in der CI."
               : "For around four years, I have built browser automation with Playwright every day — at a scale where an unstable script directly costs money. Now I bring that reliability mindset into professional web test automation: my public e2e suite tests this very website in CI."}
           </p>
 
@@ -138,9 +138,17 @@ export default async function HomePage({ params }: HomePageProps) {
           <h2>{isDe ? "Praktische Projekte. Klarer Fokus." : "Practical projects. Clear focus."}</h2>
           <p>
             {isDe
-              ? "Vier öffentlich zugängliche Demos aus mehr als 20 eigenen Projekten — und eine öffentliche Playwright-Testsuite auf GitHub, die genau diese Website in der CI prüft. Jede Demo kann direkt im Browser ausprobiert werden."
-              : "Four public demos selected from more than 20 personal projects — plus a public Playwright test suite on GitHub that checks this very website in CI. Every demo can be tried directly in the browser."}
+              ? "Vier öffentlich zugängliche Demos aus mehr als 20 eigenen Projekten — und eine öffentliche Playwright-Testsuite auf GitHub, die genau diese Website mit über 45 automatisierten Checks in der CI prüft, auf Desktop und Mobile. Jede Demo kann direkt im Browser ausprobiert werden."
+              : "Four public demos selected from more than 20 personal projects — plus a public Playwright test suite on GitHub that runs 45+ automated checks against this very website in CI, on desktop and mobile. Every demo can be tried directly in the browser."}
           </p>
+          <a
+            href="https://github.com/ShevasTest/portfolio-e2e-tests"
+            target="_blank"
+            rel="noreferrer"
+            className="text-link"
+          >
+            {isDe ? "Test-Suite auf GitHub ansehen" : "View the test suite on GitHub"}
+          </a>
         </div>
 
         <article className="featured-project" data-reveal>
@@ -227,6 +235,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
           <div className="about-copy" data-reveal>
             <p>{aboutParagraphs[0]}</p>
+            <p>{aboutParagraphs[1]}</p>
             <p>{aboutParagraphs[2]}</p>
           </div>
         </div>

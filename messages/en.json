@@ -34,7 +34,7 @@
       "Public e2e suite for this very website: Playwright + TypeScript, Page Object Model, API and accessibility tests",
       "GitHub Actions CI — runs on every push and weekly against production",
       "More than 20 personal projects and over 100 scripts and automations",
-      "1st place among ~12,000 participants in the RS School / EPAM prep course"
+      "1st place among ~12,000 participants in the RS School / EPAM preparation course"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
@@ -61,7 +61,7 @@
     "eyebrow": "Four years of daily automation practice",
     "lead": "My strength is not one specific framework, but structured problem-solving with automation, AI and testing — from the first idea to a verified result.",
     "paragraphs": [
-      "My path started with structured self-study: roughly 80 percent of the frontend roadmap on roadmap.sh, and 1st place among about 12,000 participants in the RS School / EPAM prep course. That gave me honest foundations in HTML, CSS and JavaScript.",
+      "My path started with a strong signal: after my degree in Economic Cybernetics (a ZAB-recognized bachelor's), I took 1st place among about 12,000 participants in the RS School / EPAM preparation course — solid foundations in HTML, CSS and JavaScript, proven in competition.",
       "Since then, I have worked with browser automation every day: self-employed, I built and operated Playwright-based systems with thousands of parallel sessions — selector engineering, wait strategies, proxy and fingerprint management, failure recovery. When unstable automation directly costs money, reliability becomes a habit.",
       "Today I focus that experience on web test automation. My public e2e suite (Playwright + TypeScript, Page Object Model, API contract tests, accessibility gate) tests this very website in CI — on every push and weekly against production. I am looking for a QA / test automation role in a professional team."
     ],
@@ -117,7 +117,7 @@
       {
         "slug": "mietpreise-tracker",
         "title": "Rent Price Tracker",
-        "summary": "Compares rent costs across German cities with trend charts and income calculator.",
+        "summary": "Compares rent costs across German cities with trend charts and an income calculator.",
         "stack": "Next.js · Market data Q4 2025 · SVG charts"
       },
       {
@@ -182,7 +182,7 @@
       },
       {
         "name": "Frontend",
-        "description": "Foundations from the frontend roadmap; I build modern framework projects mainly with AI assistance",
+        "description": "Solid HTML, CSS and JavaScript foundations; modern framework projects built mainly with AI assistance",
         "level": 38,
         "levelLabel": "Foundations in place, framework knowledge improving",
         "items": [
@@ -216,12 +216,12 @@
       {
         "period": "2018 — 2022",
         "title": "Bachelor, Economic Cybernetics — ZAB-recognized",
-        "text": "Degree at the State University of Trade and Economics (Kyiv), recognized by the German ZAB as equivalent to a bachelor's degree (03/2025). Followed by 1st place among ~12,000 participants in the RS School / EPAM prep course and structured frontend self-study.",
+        "text": "Degree at the State University of Trade and Economics (Kyiv), recognized by the German ZAB as equivalent to a bachelor's degree (03/2025). Followed by 1st place among ~12,000 participants in the RS School / EPAM preparation course.",
         "focus": "Foundation: Degree · EPAM RS School Top 1 · HTML/CSS/JS",
         "chips": [
           "Bachelor + ZAB",
           "Top 1 / ~12,000",
-          "Self-study"
+          "JavaScript foundations"
         ]
       },
       {

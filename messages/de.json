@@ -1,8 +1,8 @@
 {
   "Meta": {
-    "title": "Testautomatisierung Portfolio",
+    "title": "Testautomatisierungs-Portfolio",
     "description": "Portfolio von Oleksandr — Web-Testautomatisierung mit Playwright und TypeScript, aufgebaut auf vier Jahren täglicher Browser-Automatisierung.",
-    "ogTitle": "Oleksandr | Testautomatisierung Portfolio",
+    "ogTitle": "Oleksandr | Testautomatisierungs-Portfolio",
     "ogDescription": "Web-Testautomatisierung: Playwright + TypeScript, eine öffentliche E2E-Suite mit CI gegen Produktion und ehrliche Qualitätspraxis.",
     "projectTitle": "Projekt: {slug}",
     "projectDescription": "Projektdetails: Ziele, Tech Stack und Umsetzung."
@@ -20,7 +20,7 @@
   },
   "Hero": {
     "badge": "Testautomatisierung · Playwright · KI-gestützter Workflow",
-    "kicker": "Offen für QA- / Testautomatisierungs-Stellen · Raum München oder remote",
+    "kicker": "Offen für QA-/Testautomatisierungs-Stellen · Raum München oder remote",
     "titleLead": "Ich entwickle",
     "rotatingWords": [
       "End-to-End-Tests für echte Web-Apps",
@@ -29,7 +29,7 @@
       "CI-Pipelines, die Regressionen fangen"
     ],
     "titleEnd": "und bringe Ideen bis zu einem funktionierenden, überprüften Ergebnis.",
-    "subtitle": "Seit rund vier Jahren baue ich täglich Browser-Automatisierung mit Playwright — Tausende parallele Sessions, in denen ein instabiles Skript direkt Geld kostet. Diese Zuverlässigkeits-Denkweise bringe ich jetzt in die professionelle Web-Testautomatisierung.",
+    "subtitle": "Seit rund vier Jahren baue ich täglich Browser-Automatisierung mit Playwright — Tausende parallele Sessions, in denen ein instabiles Skript direkt Geld kostet. Dieses Zuverlässigkeitsdenken bringe ich jetzt in die professionelle Web-Testautomatisierung.",
     "points": [
       "Öffentliche E2E-Suite für genau diese Website: Playwright + TypeScript, Page Object Model, API- und Accessibility-Tests",
       "GitHub Actions CI — läuft bei jedem Push und wöchentlich gegen Produktion",
@@ -61,7 +61,7 @@
     "eyebrow": "Vier Jahre tägliche Automatisierungspraxis",
     "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern strukturiertes Problemlösen mit Automatisierung, KI und Testing — von der Idee bis zum überprüften Ergebnis.",
     "paragraphs": [
-      "Mein Weg begann mit strukturiertem Selbststudium: rund 80 Prozent der Frontend-Roadmap von roadmap.sh — und der 1. Platz unter etwa 12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs. Das gab mir ehrliche Grundlagen in HTML, CSS und JavaScript.",
+      "Mein Weg begann mit einem starken Signal: Nach meinem Studium der Wirtschaftskybernetik (ZAB-anerkannter Bachelor) erreichte ich den 1. Platz unter rund 12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs — solide Grundlagen in HTML, CSS und JavaScript, unter Wettbewerbsbedingungen bewiesen.",
       "Seitdem arbeite ich täglich mit Browser-Automatisierung: Selbstständig habe ich Playwright-basierte Systeme mit Tausenden parallelen Sessions aufgebaut und betrieben — Selector-Engineering, Wait-Strategien, Proxy- und Fingerprint-Management, Failure-Recovery. Wenn instabile Automatisierung direkt Geld kostet, wird Zuverlässigkeit zur Gewohnheit.",
       "Heute fokussiere ich diese Erfahrung auf Web-Testautomatisierung. Meine öffentliche E2E-Suite (Playwright + TypeScript, Page Object Model, API-Contract-Tests, Accessibility-Gate) testet genau diese Website in der CI — bei jedem Push und wöchentlich gegen Produktion. Ich suche eine QA-/Testautomatisierungs-Rolle in einem professionellen Team."
     ],
@@ -72,7 +72,7 @@
       },
       {
         "label": "Testautomatisierung",
-        "value": "Öffentliche Playwright + TypeScript E2E-Suite mit POM, Fixtures, API- und Accessibility-Tests — läuft in GitHub Actions."
+        "value": "Öffentliche E2E-Suite (Playwright + TypeScript) mit POM, Fixtures, API- und Accessibility-Tests — läuft in GitHub Actions."
       },
       {
         "label": "KI- & Agenten-Workflows",
@@ -87,7 +87,7 @@
     "motivationPoints": [
       "Ich übersetze unklare Anforderungen in konkrete Arbeitsschritte und funktionierende, getestete Lösungen.",
       "Ich nutze KI nicht als Blackbox: Ergebnisse werden getestet, hinterfragt und iterativ verbessert.",
-      "Ich spreche offen über Wissenslücken und möchte von erfahrenen Engineers saubere Testpraktiken lernen."
+      "Ich spreche offen über Wissenslücken und möchte von erfahrenen Entwickler:innen saubere Testpraktiken lernen."
     ],
     "profile": {
       "badge": "Profil",
@@ -106,7 +106,7 @@
   "Projects": {
     "title": "Projekte",
     "eyebrow": "Ausgewählte Arbeiten",
-    "intro": "Das Kernprojekt ist öffentlich: eine E2E-Testsuite, die genau diese Website in der CI prüft. Die vier Demos unten sind das System under Test.",
+    "intro": "Das Kernprojekt ist öffentlich: eine E2E-Testsuite, die genau diese Website in der CI prüft. Die vier Demos unten sind das „System under Test“.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
@@ -182,7 +182,7 @@
       },
       {
         "name": "Frontend",
-        "description": "Grundlagen aus der Frontend-Roadmap; moderne Framework-Projekte setze ich überwiegend KI-gestützt um",
+        "description": "Solide Grundlagen in HTML, CSS und JavaScript; moderne Framework-Projekte entstehen überwiegend KI-gestützt",
         "level": 38,
         "levelLabel": "Grundlagen vorhanden, Framework-Wissen im Ausbau",
         "items": [
@@ -216,12 +216,12 @@
       {
         "period": "2018 — 2022",
         "title": "Bachelor Wirtschaftskybernetik — ZAB-anerkannt",
-        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw), von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter ~12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs und strukturiertes Frontend-Selbststudium.",
+        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw), von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter ~12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs.",
         "focus": "Basis: Abschluss · EPAM RS School Top 1 · HTML/CSS/JS",
         "chips": [
           "Bachelor + ZAB",
           "Top 1 / ~12.000",
-          "Selbststudium"
+          "JavaScript-Grundlagen"
         ]
       },
       {
@@ -253,7 +253,7 @@
       "Ab sofort verfügbar",
       "Raum München oder remote",
       "Schnelle Lernkurve",
-      "Zuverlässigkeits-Mindset"
+      "Zuverlässigkeit im Fokus"
     ]
   },
   "Contact": {
