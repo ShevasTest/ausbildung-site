@@ -51,11 +51,11 @@ const projectCopy = {
   portfolio: {
     de: {
       title: "Portfolio-Website",
-      subtitle: "Mehrsprachig, responsiv und auf Junior-Stellen ausgerichtet",
+      subtitle: "Mehrsprachig, responsiv und durch eine öffentliche E2E-Suite getestet",
     },
     en: {
       title: "Portfolio Website",
-      subtitle: "Multilingual, responsive and tailored for junior applications",
+      subtitle: "Multilingual, responsive and covered by a public e2e test suite",
     },
   },
 } as const;
@@ -158,7 +158,7 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
           </div>
 
           <div style={{ display: "flex", gap: "14px", alignItems: "center", fontSize: "24px" }}>
-            <span style={{ color: "#5ECF9A", fontWeight: 600 }}>oleksandr-shevchenko.de</span>
+            <span style={{ color: "#5ECF9A", fontWeight: 600 }}>work.oleksandr-shevchenko.de</span>
             <span style={{ color: "#5B6260" }}>•</span>
             <span style={{ color: "#9AA19E" }}>Next.js · TypeScript</span>
           </div>

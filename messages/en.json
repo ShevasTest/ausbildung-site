@@ -1,9 +1,9 @@
 {
   "Meta": {
-    "title": "Developer Portfolio",
-    "description": "Portfolio of Oleksandr — junior developer focused on AI agents, automation and verifiable web projects.",
-    "ogTitle": "Oleksandr | Junior Developer Portfolio",
-    "ogDescription": "Functional web projects focused on AI-assisted development, automation and verifiable quality.",
+    "title": "Test Automation Portfolio",
+    "description": "Portfolio of Oleksandr — web test automation with Playwright and TypeScript, built on four years of daily browser automation.",
+    "ogTitle": "Oleksandr | Test Automation Portfolio",
+    "ogDescription": "Web test automation: Playwright + TypeScript, a public e2e suite with CI against production, and honest quality practice.",
     "projectTitle": "Project: {slug}",
     "projectDescription": "Project details: goals, tech stack and implementation."
   },
@@ -19,32 +19,32 @@
     "theme": "Theme"
   },
   "Hero": {
-    "badge": "Junior Developer · AI-assisted workflow",
-    "kicker": "Open to junior and entry-level roles",
+    "badge": "Test Automation · Playwright · AI-assisted workflow",
+    "kicker": "Open to QA / test automation roles · Munich area or remote",
     "titleLead": "I build",
     "rotatingWords": [
-      "software with AI and agents",
-      "automations and scripts",
-      "web projects from idea to demo",
-      "technical fundamentals through self-study"
+      "end-to-end tests for real web apps",
+      "browser automation and scripts",
+      "API and accessibility checks",
+      "CI pipelines that catch regressions"
     ],
     "titleEnd": "and take ideas through to functional, verified results.",
-    "subtitle": "For around four years, I have programmed with AI every day, broken complex tasks into actionable steps and taken personal projects through to functional, tested results.",
+    "subtitle": "For around four years, I have built browser automation with Playwright every day — thousands of parallel sessions, where an unstable script directly costs money. Now I bring that reliability mindset into professional web test automation.",
     "points": [
+      "Public e2e suite for this very website: Playwright + TypeScript, Page Object Model, API and accessibility tests",
+      "GitHub Actions CI — runs on every push and weekly against production",
       "More than 20 personal projects and over 100 scripts and automations",
-      "Confident use of AI agents, prompts, context and tool workflows",
-      "HTML, CSS, JavaScript and React foundations from structured self-study",
-      "Honest quality control through tests, reviews and traceable iteration"
+      "1st place among ~12,000 participants in the RS School / EPAM prep course"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "Strong AI practice. Ready for professional foundations.",
-    "panelText": "I can translate ideas into working solutions quickly. In a junior role, I want to bring this delivery ability into a professional team, learn clean development processes and take responsibility.",
+    "panelTitle": "Strong automation practice. Ready for professional testing.",
+    "panelText": "I can turn a testing idea into a working, maintainable suite quickly. In a QA role, I want to bring this delivery ability into a professional team, learn clean testing processes and take responsibility.",
     "stats": [
       {
-        "label": "Project focus",
-        "value": "20+ personal projects"
+        "label": "Core project",
+        "value": "Public e2e test suite in CI"
       },
       {
         "label": "Automation",
@@ -52,18 +52,18 @@
       },
       {
         "label": "Work style",
-        "value": "Agent orchestration · Testing · Iteration"
+        "value": "Deterministic tests · Root-cause debugging · Iteration"
       }
     ]
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Four years of daily project practice",
-    "lead": "My strength is not one specific framework, but structured problem-solving with AI, agents and automation — from the first idea to a verified result.",
+    "eyebrow": "Four years of daily automation practice",
+    "lead": "My strength is not one specific framework, but structured problem-solving with automation, AI and testing — from the first idea to a verified result.",
     "paragraphs": [
-      "Around four years ago, I completed roughly 80 percent of the classical frontend roadmap on roadmap.sh. This gave me foundations in HTML, CSS, JavaScript and React, without presenting myself as a finished framework specialist.",
-      "Since then, I have programmed with AI every day. This work has produced more than 20 personal projects and over 100 scripts, integrations and automations. I clarify requirements, break down tasks, orchestrate agents, test results and improve them iteratively.",
-      "My particular strength is advanced work with AI agents and large development workflows. I am looking for a junior or entry-level role where I can combine this delivery ability with code reviews, teamwork and professional processes."
+      "My path started with structured self-study: roughly 80 percent of the frontend roadmap on roadmap.sh, and 1st place among about 12,000 participants in the RS School / EPAM prep course. That gave me honest foundations in HTML, CSS and JavaScript.",
+      "Since then, I have worked with browser automation every day: self-employed, I built and operated Playwright-based systems with thousands of parallel sessions — selector engineering, wait strategies, proxy and fingerprint management, failure recovery. When unstable automation directly costs money, reliability becomes a habit.",
+      "Today I focus that experience on web test automation. My public e2e suite (Playwright + TypeScript, Page Object Model, API contract tests, accessibility gate) tests this very website in CI — on every push and weekly against production. I am looking for a QA / test automation role in a professional team."
     ],
     "highlights": [
       {
@@ -71,8 +71,8 @@
         "value": "I have worked on personal software and automation tasks every day for around four years."
       },
       {
-        "label": "Technical foundation",
-        "value": "HTML, CSS, JavaScript and React foundations from structured self-study."
+        "label": "Test automation",
+        "value": "Public Playwright + TypeScript e2e suite with POM, fixtures, API and accessibility tests — running in GitHub Actions."
       },
       {
         "label": "AI & agent workflows",
@@ -80,33 +80,33 @@
       },
       {
         "label": "Available now",
-        "value": "Based in Germany, open to remote or on-site junior positions."
+        "value": "Based in Bavaria (Landshut / Munich area), open to on-site or remote QA roles."
       }
     ],
     "motivationTitle": "What a team gets from me",
     "motivationPoints": [
-      "I turn unclear requirements into concrete work packages and functioning prototypes.",
+      "I turn unclear requirements into concrete work packages and functioning, tested solutions.",
       "I do not treat AI as a black box: results are tested, questioned and improved iteratively.",
-      "I communicate knowledge gaps honestly and want to learn sound technical foundations from experienced developers."
+      "I communicate knowledge gaps honestly and want to learn sound testing practices from experienced engineers."
     ],
     "profile": {
       "badge": "Profile",
       "name": "Oleksandr Shevchenko",
-      "role": "Junior Web Developer",
+      "role": "Test Automation (Playwright)",
       "initials": "OS",
       "placeholder": "Photo placeholder",
-      "caption": "Four years of daily delivery with AI and agents, combined with a clear goal to deepen technical foundations professionally within a team.",
+      "caption": "Four years of daily automation delivery — now focused on reliable, maintainable web test automation in a professional team.",
       "facts": [
-        "Location: Germany · open to junior and entry-level roles",
-        "Languages: German B1 (actively improving to B2) · English A2 (actively improving)",
-        "Focus: AI agents · Automation · Web development · Technical foundations"
+        "Location: Bavaria (Landshut / Munich area) · on-site or remote",
+        "Languages: Ukrainian & Russian (native) · German B1 · English A2 (improving)",
+        "Focus: Playwright · Test automation · CI/CD · Web fundamentals"
       ]
     }
   },
   "Projects": {
     "title": "Projects",
     "eyebrow": "Selected work",
-    "intro": "Four practical projects that address real everyday needs and show my current working style.",
+    "intro": "The flagship project is public: an e2e test suite that checks this very website in CI. The four demos below are the system under test.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
@@ -138,46 +138,33 @@
   "Skills": {
     "title": "Skills",
     "eyebrow": "Tools & knowledge",
-    "intro": "My profile combines strong AI and automation practice with deliberately honest web fundamentals.",
+    "intro": "My profile combines strong automation practice with deliberately honest web fundamentals.",
     "legend": "Self-assessment based on my actual daily practice",
     "groups": [
       {
-        "name": "Frontend",
-        "description": "Foundations from the frontend roadmap; I build modern framework projects mainly with AI assistance",
-        "level": 38,
-        "levelLabel": "Foundations in place, framework knowledge improving",
+        "name": "Test automation",
+        "description": "Playwright end-to-end practice: my public suite runs UI, API and accessibility tests in CI",
+        "level": 70,
+        "levelLabel": "Core focus — daily practice",
         "items": [
-          "HTML & CSS",
-          "JavaScript (foundation)",
-          "React (basics)",
-          "Next.js (first projects)",
-          "Tailwind CSS"
+          "Playwright",
+          "Page Object Model & fixtures",
+          "API contract tests",
+          "axe accessibility checks",
+          "Flaky-test debugging"
         ]
       },
       {
         "name": "Automation & APIs",
-        "description": "Hands-on practice with scripts, data flows, integrations and repeatable workflows",
-        "level": 68,
+        "description": "Browser automation at scale, scripts, data flows and repeatable workflows",
+        "level": 76,
         "levelLabel": "Extensive independent project practice",
         "items": [
-          "Scripting & workflow automation",
+          "Browser automation (Playwright)",
           "REST APIs & integrations",
-          "JSON",
-          "Data processing",
+          "Proxy & session management",
+          "DevTools network analysis",
           "Error analysis & repeatability"
-        ]
-      },
-      {
-        "name": "Delivery & quality",
-        "description": "From requirements and task decomposition through to a tested solution",
-        "level": 74,
-        "levelLabel": "Confident in independent, iterative workflows",
-        "items": [
-          "Requirement analysis",
-          "Task decomposition",
-          "Rapid prototyping",
-          "Testing & verification",
-          "Documentation"
         ]
       },
       {
@@ -191,6 +178,19 @@
           "Tool and API use",
           "Agentic debugging",
           "Quality control"
+        ]
+      },
+      {
+        "name": "Frontend",
+        "description": "Foundations from the frontend roadmap; I build modern framework projects mainly with AI assistance",
+        "level": 38,
+        "levelLabel": "Foundations in place, framework knowledge improving",
+        "items": [
+          "HTML & CSS",
+          "JavaScript (foundation)",
+          "React (basics)",
+          "Next.js (first projects)",
+          "Tailwind CSS"
         ]
       },
       {
@@ -211,55 +211,55 @@
   "Resume": {
     "eyebrow": "Background & Projects",
     "title": "Resume",
-    "intro": "My path combines classical frontend self-study with four years of daily AI-assisted project and automation practice.",
+    "intro": "My path combines a recognized degree, a top course finish and four years of daily automation practice — now aimed at web test automation.",
     "timeline": [
       {
-        "period": "2022 — 2023",
-        "title": "Structured Frontend Self-Study",
-        "text": "Completed roughly 80 percent of the roadmap.sh frontend roadmap and built foundations in HTML, CSS, JavaScript and React.",
-        "focus": "Foundation: HTML · CSS · JavaScript · React basics",
+        "period": "2018 — 2022",
+        "title": "Bachelor, Economic Cybernetics — ZAB-recognized",
+        "text": "Degree at the State University of Trade and Economics (Kyiv), recognized by the German ZAB as equivalent to a bachelor's degree (03/2025). Followed by 1st place among ~12,000 participants in the RS School / EPAM prep course and structured frontend self-study.",
+        "focus": "Foundation: Degree · EPAM RS School Top 1 · HTML/CSS/JS",
         "chips": [
-          "Initiative",
-          "roadmap.sh",
-          "Technical fundamentals"
+          "Bachelor + ZAB",
+          "Top 1 / ~12,000",
+          "Self-study"
         ]
       },
       {
         "period": "2022 — present",
-        "title": "Daily AI-Assisted Project Practice",
-        "text": "Delivered more than 20 personal projects and over 100 scripts and automations. Focus: clarifying requirements, orchestrating agents, connecting interfaces, testing and iteration.",
-        "focus": "Focus: AI agents · Automation · Functional results",
+        "title": "Self-employed: browser automation with Playwright at scale",
+        "text": "Built and operated browser automation with thousands of parallel sessions: selector engineering, wait strategies, proxy and fingerprint management, failure recovery and custom mitmproxy traffic analysis — plus 20+ personal projects and 100+ scripts.",
+        "focus": "Focus: Playwright · Automation · Reliability",
         "chips": [
-          "20+ projects",
+          "Playwright at scale",
           "100+ scripts",
           "Daily practice"
         ]
       },
       {
-        "period": "Next step",
-        "title": "Junior or entry-level role in a development team",
-        "text": "Join a professional team and combine my delivery practice with code reviews, maintainable code, collaboration and responsibility in day-to-day product work.",
-        "focus": "Goal: contribute productively and deepen technical foundations",
+        "period": "2026",
+        "title": "Focus: professional web test automation",
+        "text": "Built and open-sourced an e2e/API/a11y suite (Playwright + TypeScript, POM, fixtures, axe, GitHub Actions) that tests this very website in CI. Looking for a QA / test automation role in a professional team.",
+        "focus": "Goal: reliable tests, root-cause debugging, teamwork",
         "chips": [
-          "Willingness to learn",
-          "Teamwork",
-          "Reliability"
+          "Public e2e suite",
+          "CI against production",
+          "QA focus"
         ]
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I bring high delivery speed with AI and agents, while communicating openly about my current level in JavaScript, React and modern frameworks. My goal is to contribute reliably in a team and become technically more grounded.",
+    "closingText": "I bring four years of automation practice and high delivery speed with AI, while communicating openly about my current level in JavaScript and modern frameworks. My goal: reliable, maintainable test automation in a team.",
     "closingBadges": [
       "Available immediately",
-      "Remote-ready",
+      "Munich area or remote",
       "Fast learner",
-      "AI workflow"
+      "Reliability mindset"
     ]
   },
   "Contact": {
     "eyebrow": "Contact & next step",
     "title": "Contact",
-    "intro": "Open to conversations about junior developer roles — frontend, full-stack or backend. Remote or on-site in Germany.",
+    "intro": "Open to conversations about QA and test automation roles — Munich area, elsewhere in Germany or remote.",
     "linksTitle": "Direct channels",
     "linksIntro": "For a fast response, reach out via email or my public profiles.",
     "quickLinks": [
@@ -281,7 +281,7 @@
     ],
     "availability": {
       "title": "Availability",
-      "text": "Actively looking for work. Open to junior developer roles, traineeships and trial days — remote or on-site in Germany.",
+      "text": "Actively looking for work. Open to QA / test automation roles and trial days — on-site or remote.",
       "badges": [
         "Available now",
         "Remote or on-site",
@@ -315,7 +315,7 @@
       "messageRequired": "Please add a short message.",
       "messageMin": "Please write at least 24 characters so I can understand the context."
     },
-    "mailSubject": "Portfolio contact — Junior Web Developer",
+    "mailSubject": "Portfolio contact — Test Automation",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {

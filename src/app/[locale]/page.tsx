@@ -57,14 +57,14 @@ export default async function HomePage({ params }: HomePageProps) {
       email: `mailto:${siteConfig.email}`,
       sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl],
       jobTitle: isDe
-        ? "Junior Developer · KI-Agenten & Automatisierung"
-        : "Junior Developer · AI Agents & Automation",
+        ? "Test Automation Engineer · Playwright & Automatisierung"
+        : "Test Automation Engineer · Playwright & Automation",
       knowsAbout: [
-        "AI-assisted software development",
-        "AI agent orchestration",
-        "Workflow automation",
-        "API integration",
-        "Frontend fundamentals",
+        "Web test automation",
+        "Playwright",
+        "Browser automation",
+        "API testing",
+        "CI/CD",
       ],
     },
     {
@@ -88,23 +88,25 @@ export default async function HomePage({ params }: HomePageProps) {
       <section id="hero" className="portfolio-shell hero-section scroll-mt-24">
         <div className="hero-copy hero-enter">
           <p className="portfolio-eyebrow">
-            {isDe ? "Offen für Junior-Stellen · deutschlandweit" : "Open to junior roles · Germany-wide"}
+            {isDe
+              ? "Offen für QA- & Testautomatisierungs-Stellen · Raum München"
+              : "Open to QA & test automation roles · Munich area"}
           </p>
           <h1 className="hero-name">Oleksandr Shevchenko</h1>
           <p className="hero-role">
             {isDe
-              ? "Junior Developer mit KI-gestütztem Workflow"
-              : "Junior Developer with an AI-assisted workflow"}
+              ? "Test Automation Engineer — Playwright & TypeScript"
+              : "Test Automation Engineer — Playwright & TypeScript"}
           </p>
           <p className="hero-specialty">
             {isDe
-              ? "KI-Agenten · Automatisierung · Webentwicklung"
-              : "AI agents · Automation · Web development"}
+              ? "E2E-Testing · Browser-Automatisierung · CI/CD"
+              : "E2E testing · Browser automation · CI/CD"}
           </p>
           <p className="hero-lead">
             {isDe
-              ? "Seit rund vier Jahren setze ich täglich eigene Software-, Skript- und Automatisierungsprojekte mit KI um. Ich suche eine Junior- oder Entry-Level-Stelle, in der ich diese Umsetzungskraft in ein professionelles Team einbringe und meine technischen Grundlagen systematisch vertiefe."
-              : "For around four years, I have built personal software, scripting and automation projects with AI every day. I am looking for a junior or entry-level role where I can bring this delivery ability into a professional team and deepen my technical foundations systematically."}
+              ? "Seit rund vier Jahren baue ich täglich Browser-Automatisierung mit Playwright — in einem Maßstab, in dem ein instabiles Skript direkt Geld kostet. Diese Zuverlässigkeits-Denkweise bringe ich jetzt in die professionelle Web-Testautomatisierung: Meine öffentliche E2E-Suite testet genau diese Website in der CI."
+              : "For around four years, I have built browser automation with Playwright every day — at a scale where an unstable script directly costs money. Now I bring that reliability mindset into professional web test automation: my public e2e suite tests this very website in CI."}
           </p>
 
           <div className="hero-actions">
@@ -136,8 +138,8 @@ export default async function HomePage({ params }: HomePageProps) {
           <h2>{isDe ? "Praktische Projekte. Klarer Fokus." : "Practical projects. Clear focus."}</h2>
           <p>
             {isDe
-              ? "Vier öffentlich zugängliche Demos aus mehr als 20 eigenen Projekten. Keine Konzeptbilder: Jede Demo kann direkt im Browser ausprobiert werden."
-              : "Four public demos selected from more than 20 personal projects. No concept-only visuals: every demo can be tried directly in the browser."}
+              ? "Vier öffentlich zugängliche Demos aus mehr als 20 eigenen Projekten — und eine öffentliche Playwright-Testsuite auf GitHub, die genau diese Website in der CI prüft. Jede Demo kann direkt im Browser ausprobiert werden."
+              : "Four public demos selected from more than 20 personal projects — plus a public Playwright test suite on GitHub that checks this very website in CI. Every demo can be tried directly in the browser."}
           </p>
         </div>
 
@@ -195,8 +197,8 @@ export default async function HomePage({ params }: HomePageProps) {
             <h2>{isDe ? "Vom Selbststudium zu produktiven Systemen." : "From self-study to working systems."}</h2>
             <p>
               {isDe
-              ? "Vier Jahre tägliche Umsetzungspraxis — mit mehr als 20 Projekten, über 100 Skripten und einem ehrlichen Blick auf Stärken und Wissensgrenzen."
-              : "Four years of daily delivery practice — with more than 20 projects, over 100 scripts and an honest view of strengths and knowledge boundaries."}
+              ? "Vier Jahre tägliche Automatisierungspraxis — mehr als 20 Projekte, über 100 Skripte und seit 2026 eine öffentliche E2E-Suite in der CI. Mit einem ehrlichen Blick auf Stärken und Wissensgrenzen."
+              : "Four years of daily automation practice — more than 20 projects, over 100 scripts and, since 2026, a public e2e suite in CI. With an honest view of strengths and knowledge boundaries."}
             </p>
           </div>
 
@@ -244,8 +246,8 @@ export default async function HomePage({ params }: HomePageProps) {
         <h2>{isDe ? "Lernen wir uns kennen." : "Let’s get to know each other."}</h2>
         <p>
           {isDe
-            ? "Ich bin offen für Junior- und Entry-Level-Stellen, Praktika, Probearbeit oder ein erstes technisches Kennenlerngespräch."
-            : "I am open to junior and entry-level roles, internships, trial work or an initial technical conversation."}
+            ? "Ich bin offen für QA- und Testautomatisierungs-Stellen, Probearbeit oder ein erstes technisches Kennenlerngespräch."
+            : "I am open to QA and test automation roles, trial work or an initial technical conversation."}
         </p>
         <a className="contact-email" href={`mailto:${siteConfig.email}`}>
           {siteConfig.email}

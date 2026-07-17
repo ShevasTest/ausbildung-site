@@ -9,16 +9,16 @@ export const contentType = "image/png";
 
 const copy = {
   de: {
-    badge: "Junior Web Developer · AI-augmented",
+    badge: "Test Automation · Playwright",
     title: "Oleksandr",
-    subtitle: "Junior Developer mit KI-gestütztem Workflow",
-    points: "KI-Agenten · Automatisierung · Webentwicklung",
+    subtitle: "Test Automation Engineer — Playwright & TypeScript",
+    points: "E2E-Testing · Browser-Automatisierung · CI/CD",
   },
   en: {
-    badge: "Junior Web Developer · AI-augmented",
+    badge: "Test Automation · Playwright",
     title: "Oleksandr",
-    subtitle: "Junior Developer with an AI-assisted workflow",
-    points: "AI agents · Automation · Web development",
+    subtitle: "Test Automation Engineer — Playwright & TypeScript",
+    points: "E2E testing · Browser automation · CI/CD",
   },
 } as const;
 

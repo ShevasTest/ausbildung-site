@@ -1,9 +1,9 @@
 {
   "Meta": {
-    "title": "Developer Portfolio",
-    "description": "Portfolio von Oleksandr — Junior Developer mit Fokus auf KI-Agenten, Automatisierung und überprüfbare Webprojekte.",
-    "ogTitle": "Oleksandr | Junior Developer Portfolio",
-    "ogDescription": "Funktionale Webprojekte mit Fokus auf KI-gestützte Entwicklung, Automatisierung und nachvollziehbare Qualität.",
+    "title": "Testautomatisierung Portfolio",
+    "description": "Portfolio von Oleksandr — Web-Testautomatisierung mit Playwright und TypeScript, aufgebaut auf vier Jahren täglicher Browser-Automatisierung.",
+    "ogTitle": "Oleksandr | Testautomatisierung Portfolio",
+    "ogDescription": "Web-Testautomatisierung: Playwright + TypeScript, eine öffentliche E2E-Suite mit CI gegen Produktion und ehrliche Qualitätspraxis.",
     "projectTitle": "Projekt: {slug}",
     "projectDescription": "Projektdetails: Ziele, Tech Stack und Umsetzung."
   },
@@ -19,32 +19,32 @@
     "theme": "Designmodus"
   },
   "Hero": {
-    "badge": "Junior Developer · KI-gestützter Workflow",
-    "kicker": "Offen für Junior- und Entry-Level-Stellen",
+    "badge": "Testautomatisierung · Playwright · KI-gestützter Workflow",
+    "kicker": "Offen für QA- / Testautomatisierungs-Stellen · Raum München oder remote",
     "titleLead": "Ich entwickle",
     "rotatingWords": [
-      "Software mit KI und Agenten",
-      "Automatisierungen und Skripte",
-      "Webprojekte von der Idee bis zur Demo",
-      "technische Grundlagen im Selbststudium"
+      "End-to-End-Tests für echte Web-Apps",
+      "Browser-Automatisierung und Skripte",
+      "API- und Accessibility-Checks",
+      "CI-Pipelines, die Regressionen fangen"
     ],
     "titleEnd": "und bringe Ideen bis zu einem funktionierenden, überprüften Ergebnis.",
-    "subtitle": "Seit rund vier Jahren programmiere ich täglich mit KI-Unterstützung, zerlege komplexe Aufgaben in umsetzbare Schritte und bringe eigene Projekte bis zu einem funktionierenden, getesteten Ergebnis.",
+    "subtitle": "Seit rund vier Jahren baue ich täglich Browser-Automatisierung mit Playwright — Tausende parallele Sessions, in denen ein instabiles Skript direkt Geld kostet. Diese Zuverlässigkeits-Denkweise bringe ich jetzt in die professionelle Web-Testautomatisierung.",
     "points": [
+      "Öffentliche E2E-Suite für genau diese Website: Playwright + TypeScript, Page Object Model, API- und Accessibility-Tests",
+      "GitHub Actions CI — läuft bei jedem Push und wöchentlich gegen Produktion",
       "Mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen",
-      "Sicherer Umgang mit KI-Agenten, Prompts, Kontext und Tool-Workflows",
-      "Grundlagen in HTML, CSS, JavaScript und React aus strukturiertem Selbststudium",
-      "Ehrliche Qualitätskontrolle durch Tests, Reviews und nachvollziehbare Iterationen"
+      "1. Platz unter ~12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs"
     ],
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
-    "panelTitle": "Praxisstark mit KI. Bereit für professionelle Grundlagen.",
-    "panelText": "Ich kann Ideen schnell in funktionierende Lösungen übersetzen. In einer Junior-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen, saubere Entwicklungsprozesse lernen und Verantwortung übernehmen.",
+    "panelTitle": "Starke Automatisierungspraxis. Bereit für professionelles Testing.",
+    "panelText": "Ich kann eine Testing-Idee schnell in eine funktionierende, wartbare Suite übersetzen. In einer QA-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen, saubere Testprozesse lernen und Verantwortung übernehmen.",
     "stats": [
       {
-        "label": "Projektfokus",
-        "value": "20+ eigene Projekte"
+        "label": "Kernprojekt",
+        "value": "Öffentliche E2E-Suite in der CI"
       },
       {
         "label": "Automatisierung",
@@ -52,18 +52,18 @@
       },
       {
         "label": "Arbeitsweise",
-        "value": "Agentensteuerung · Testen · Iterieren"
+        "value": "Deterministische Tests · Ursachenanalyse · Iteration"
       }
     ]
   },
   "About": {
     "title": "Über mich",
-    "eyebrow": "Vier Jahre tägliche Projektpraxis",
-    "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern das strukturierte Lösen von Problemen mit KI, Agenten und Automatisierung — von der Idee bis zum überprüften Ergebnis.",
+    "eyebrow": "Vier Jahre tägliche Automatisierungspraxis",
+    "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern strukturiertes Problemlösen mit Automatisierung, KI und Testing — von der Idee bis zum überprüften Ergebnis.",
     "paragraphs": [
-      "Vor rund vier Jahren habe ich mir mit roadmap.sh etwa 80 Prozent einer klassischen Frontend-Roadmap erarbeitet. Dadurch kenne ich die Grundlagen von HTML, CSS, JavaScript und React, ohne mich als fertigen Framework-Spezialisten darzustellen.",
-      "Seitdem programmiere ich täglich mit KI-Unterstützung. Dabei sind mehr als 20 eigene Projekte und über 100 Skripte, Integrationen und Automatisierungen entstanden. Ich kläre Anforderungen, zerlege Aufgaben, steuere Agenten, teste Ergebnisse und verbessere sie iterativ.",
-      "Meine besondere Stärke ist der fortgeschrittene Umgang mit KI-Agenten und großen Entwicklungs-Workflows. Ich suche eine Junior- oder Entry-Level-Stelle, in der ich diese Umsetzungskraft mit Code Reviews, Teamarbeit und professionellen Prozessen verbinde."
+      "Mein Weg begann mit strukturiertem Selbststudium: rund 80 Prozent der Frontend-Roadmap von roadmap.sh — und der 1. Platz unter etwa 12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs. Das gab mir ehrliche Grundlagen in HTML, CSS und JavaScript.",
+      "Seitdem arbeite ich täglich mit Browser-Automatisierung: Selbstständig habe ich Playwright-basierte Systeme mit Tausenden parallelen Sessions aufgebaut und betrieben — Selector-Engineering, Wait-Strategien, Proxy- und Fingerprint-Management, Failure-Recovery. Wenn instabile Automatisierung direkt Geld kostet, wird Zuverlässigkeit zur Gewohnheit.",
+      "Heute fokussiere ich diese Erfahrung auf Web-Testautomatisierung. Meine öffentliche E2E-Suite (Playwright + TypeScript, Page Object Model, API-Contract-Tests, Accessibility-Gate) testet genau diese Website in der CI — bei jedem Push und wöchentlich gegen Produktion. Ich suche eine QA-/Testautomatisierungs-Rolle in einem professionellen Team."
     ],
     "highlights": [
       {
@@ -71,8 +71,8 @@
         "value": "Ich arbeite seit rund vier Jahren täglich an eigenen Software- und Automatisierungsaufgaben."
       },
       {
-        "label": "Technische Basis",
-        "value": "HTML, CSS, JavaScript und React-Grundlagen aus strukturiertem Selbststudium."
+        "label": "Testautomatisierung",
+        "value": "Öffentliche Playwright + TypeScript E2E-Suite mit POM, Fixtures, API- und Accessibility-Tests — läuft in GitHub Actions."
       },
       {
         "label": "KI- & Agenten-Workflows",
@@ -80,33 +80,33 @@
       },
       {
         "label": "Sofort verfügbar",
-        "value": "Wohnhaft in Deutschland, offen für Remote- oder Vor-Ort-Stellen."
+        "value": "Wohnhaft in Bayern (Landshut / Raum München), offen für QA-Stellen vor Ort oder remote."
       }
     ],
     "motivationTitle": "Was ein Team von mir bekommt",
     "motivationPoints": [
-      "Ich kann unklare Anforderungen in konkrete Arbeitsschritte und funktionierende Prototypen übersetzen.",
+      "Ich übersetze unklare Anforderungen in konkrete Arbeitsschritte und funktionierende, getestete Lösungen.",
       "Ich nutze KI nicht als Blackbox: Ergebnisse werden getestet, hinterfragt und iterativ verbessert.",
-      "Ich spreche offen über Wissenslücken und möchte von erfahrenen Entwickler:innen saubere technische Grundlagen lernen."
+      "Ich spreche offen über Wissenslücken und möchte von erfahrenen Engineers saubere Testpraktiken lernen."
     ],
     "profile": {
       "badge": "Profil",
       "name": "Oleksandr Shevchenko",
-      "role": "Junior Web Developer",
+      "role": "Test Automation (Playwright)",
       "initials": "OS",
       "placeholder": "Foto folgt",
-      "caption": "Vier Jahre tägliche Umsetzungspraxis mit KI und Agenten — kombiniert mit dem klaren Ziel, technische Grundlagen im Team professionell zu vertiefen.",
+      "caption": "Vier Jahre tägliche Automatisierungspraxis — jetzt fokussiert auf zuverlässige, wartbare Web-Testautomatisierung in einem professionellen Team.",
       "facts": [
-        "Standort: Deutschland · offen für Junior- und Entry-Level-Stellen",
-        "Sprachen: Deutsch B1 (aktiv Richtung B2) · Englisch A2 (im Aufbau)",
-        "Fokus: KI-Agenten · Automatisierung · Webentwicklung · technische Grundlagen"
+        "Standort: Bayern (Landshut / Raum München) · vor Ort oder remote",
+        "Sprachen: Ukrainisch & Russisch (Muttersprache) · Deutsch B1 · Englisch A2 (im Aufbau)",
+        "Fokus: Playwright · Testautomatisierung · CI/CD · Web-Grundlagen"
       ]
     }
   },
   "Projects": {
     "title": "Projekte",
     "eyebrow": "Ausgewählte Arbeiten",
-    "intro": "Vier praxisnahe Projekte, die reale Alltagsthemen aufgreifen und meine aktuelle Arbeitsweise zeigen.",
+    "intro": "Das Kernprojekt ist öffentlich: eine E2E-Testsuite, die genau diese Website in der CI prüft. Die vier Demos unten sind das System under Test.",
     "items": [
       {
         "slug": "ki-bewerbungshelfer",
@@ -138,46 +138,33 @@
   "Skills": {
     "title": "Kenntnisse",
     "eyebrow": "Werkzeuge & Wissen",
-    "intro": "Mein Profil verbindet starke KI- und Automatisierungspraxis mit bewusst ehrlich eingeordneten Web-Grundlagen.",
+    "intro": "Mein Profil verbindet starke Automatisierungspraxis mit bewusst ehrlich eingeordneten Web-Grundlagen.",
     "legend": "Selbsteinschätzung auf Basis meiner tatsächlichen täglichen Praxis",
     "groups": [
       {
-        "name": "Frontend",
-        "description": "Grundlagen aus der Frontend-Roadmap; moderne Framework-Projekte setze ich überwiegend KI-gestützt um",
-        "level": 38,
-        "levelLabel": "Grundlagen vorhanden, Framework-Wissen im Ausbau",
+        "name": "Testautomatisierung",
+        "description": "Playwright-End-to-End-Praxis: Meine öffentliche Suite führt UI-, API- und Accessibility-Tests in der CI aus",
+        "level": 70,
+        "levelLabel": "Kernfokus — tägliche Praxis",
         "items": [
-          "HTML & CSS",
-          "JavaScript (Basis)",
-          "React (Basics)",
-          "Next.js (erste Projekte)",
-          "Tailwind CSS"
+          "Playwright",
+          "Page Object Model & Fixtures",
+          "API-Contract-Tests",
+          "axe Accessibility-Checks",
+          "Flaky-Test-Debugging"
         ]
       },
       {
         "name": "Automatisierung & APIs",
-        "description": "Praxis mit Skripten, Datenflüssen, Schnittstellen und wiederholbaren Workflows",
-        "level": 68,
+        "description": "Browser-Automatisierung im großen Maßstab, Skripte, Datenflüsse und wiederholbare Workflows",
+        "level": 76,
         "levelLabel": "Umfangreiche eigenständige Projektpraxis",
         "items": [
-          "Skripting & Workflow-Automatisierung",
+          "Browser-Automatisierung (Playwright)",
           "REST APIs & Integrationen",
-          "JSON",
-          "Datenverarbeitung",
+          "Proxy- & Session-Management",
+          "DevTools-Netzwerkanalyse",
           "Fehleranalyse & Wiederholbarkeit"
-        ]
-      },
-      {
-        "name": "Umsetzung & Qualität",
-        "description": "Von der Anforderung über die Aufgabenzerlegung bis zur getesteten Lösung",
-        "level": 74,
-        "levelLabel": "Sicher in eigenständigen, iterativen Workflows",
-        "items": [
-          "Anforderungsanalyse",
-          "Aufgabenzerlegung",
-          "Rapid Prototyping",
-          "Testen & Verifizieren",
-          "Dokumentation"
         ]
       },
       {
@@ -191,6 +178,19 @@
           "Tool- und API-Nutzung",
           "Agentisches Debugging",
           "Qualitätskontrolle"
+        ]
+      },
+      {
+        "name": "Frontend",
+        "description": "Grundlagen aus der Frontend-Roadmap; moderne Framework-Projekte setze ich überwiegend KI-gestützt um",
+        "level": 38,
+        "levelLabel": "Grundlagen vorhanden, Framework-Wissen im Ausbau",
+        "items": [
+          "HTML & CSS",
+          "JavaScript (Basis)",
+          "React (Basics)",
+          "Next.js (erste Projekte)",
+          "Tailwind CSS"
         ]
       },
       {
@@ -211,55 +211,55 @@
   "Resume": {
     "eyebrow": "Werdegang & Projekte",
     "title": "Lebenslauf",
-    "intro": "Mein Weg verbindet klassisches Frontend-Selbststudium mit vier Jahren täglicher KI-gestützter Projekt- und Automatisierungspraxis.",
+    "intro": "Mein Weg verbindet einen anerkannten Abschluss, ein Top-Kursergebnis und vier Jahre tägliche Automatisierungspraxis — jetzt ausgerichtet auf Web-Testautomatisierung.",
     "timeline": [
       {
-        "period": "2022 — 2023",
-        "title": "Strukturiertes Frontend-Selbststudium",
-        "text": "Rund 80 Prozent der Frontend-Roadmap von roadmap.sh bearbeitet und Grundlagen in HTML, CSS, JavaScript und React aufgebaut.",
-        "focus": "Basis: HTML · CSS · JavaScript · React-Grundlagen",
+        "period": "2018 — 2022",
+        "title": "Bachelor Wirtschaftskybernetik — ZAB-anerkannt",
+        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw), von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter ~12.000 Teilnehmenden im RS School / EPAM Vorbereitungskurs und strukturiertes Frontend-Selbststudium.",
+        "focus": "Basis: Abschluss · EPAM RS School Top 1 · HTML/CSS/JS",
         "chips": [
-          "Roadmap ~80%",
-          "Eigeninitiative",
-          "Technische Grundlagen"
+          "Bachelor + ZAB",
+          "Top 1 / ~12.000",
+          "Selbststudium"
         ]
       },
       {
         "period": "2022 — heute",
-        "title": "Tägliche KI-gestützte Projektpraxis",
-        "text": "Mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen umgesetzt. Schwerpunkt: Anforderungen klären, Agenten steuern, Schnittstellen verbinden, testen und iterieren.",
-        "focus": "Fokus: KI-Agenten · Automatisierung · funktionierende Ergebnisse",
+        "title": "Selbstständig: Browser-Automatisierung mit Playwright im Maßstab",
+        "text": "Browser-Automatisierung mit Tausenden parallelen Sessions aufgebaut und betrieben: Selector-Engineering, Wait-Strategien, Proxy- und Fingerprint-Management, Failure-Recovery und eigene mitmproxy-Traffic-Analyse — dazu 20+ eigene Projekte und 100+ Skripte.",
+        "focus": "Fokus: Playwright · Automatisierung · Zuverlässigkeit",
         "chips": [
-          "20+ Projekte",
+          "Playwright im Maßstab",
           "100+ Skripte",
           "Tägliche Praxis"
         ]
       },
       {
-        "period": "Nächster Schritt",
-        "title": "Junior- oder Entry-Level-Rolle im Entwicklungsteam",
-        "text": "Einstieg in ein professionelles Team, um meine Umsetzungspraxis mit Code Reviews, wartbarem Code, Zusammenarbeit und Verantwortung im Produktalltag zu verbinden.",
-        "focus": "Ziel: produktiv beitragen und technisch fundierter werden",
+        "period": "2026",
+        "title": "Fokus: professionelle Web-Testautomatisierung",
+        "text": "Eine E2E/API/A11y-Suite (Playwright + TypeScript, POM, Fixtures, axe, GitHub Actions) gebaut und veröffentlicht, die genau diese Website in der CI testet. Ich suche eine QA-/Testautomatisierungs-Rolle in einem professionellen Team.",
+        "focus": "Ziel: zuverlässige Tests, Ursachenanalyse, Teamarbeit",
         "chips": [
-          "Lernbereitschaft",
-          "Teamfähigkeit",
-          "Verlässlichkeit"
+          "Öffentliche E2E-Suite",
+          "CI gegen Produktion",
+          "QA-Fokus"
         ]
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich bringe hohe Umsetzungsgeschwindigkeit mit KI und Agenten mit, spreche aber offen über meinen aktuellen Kenntnisstand in JavaScript, React und modernen Frameworks. Mein Ziel ist, im Team zuverlässig mitzuwirken und technisch fundierter zu werden.",
+    "closingText": "Ich bringe vier Jahre Automatisierungspraxis und hohe Umsetzungsgeschwindigkeit mit KI mit, spreche aber offen über meinen aktuellen Kenntnisstand in JavaScript und modernen Frameworks. Mein Ziel: zuverlässige, wartbare Testautomatisierung im Team.",
     "closingBadges": [
       "Ab sofort verfügbar",
-      "Remote-fähig",
+      "Raum München oder remote",
       "Schnelle Lernkurve",
-      "AI-Workflow"
+      "Zuverlässigkeits-Mindset"
     ]
   },
   "Contact": {
     "eyebrow": "Kontakt & nächster Schritt",
     "title": "Kontakt",
-    "intro": "Ich freue mich über Gespräche zu Junior-Entwicklerstellen — Frontend, Full-Stack oder Backend. Remote oder vor Ort in Deutschland.",
+    "intro": "Ich freue mich über Gespräche zu QA- und Testautomatisierungs-Stellen — Raum München, deutschlandweit oder remote.",
     "linksTitle": "Direkte Kontaktwege",
     "linksIntro": "Für eine schnelle Rückmeldung erreichen Sie mich direkt per E-Mail oder über meine Profile.",
     "quickLinks": [
@@ -281,7 +281,7 @@
     ],
     "availability": {
       "title": "Verfügbarkeit",
-      "text": "Aktiv auf Jobsuche. Offen für Junior-Entwicklerstellen, Traineeships und Probearbeit — Remote oder vor Ort in Deutschland.",
+      "text": "Aktiv auf Jobsuche. Offen für QA-/Testautomatisierungs-Stellen und Probearbeit — vor Ort oder remote.",
       "badges": [
         "Ab sofort",
         "Remote oder vor Ort",
@@ -315,7 +315,7 @@
       "messageRequired": "Bitte fügen Sie eine Nachricht hinzu.",
       "messageMin": "Bitte schreiben Sie mindestens 24 Zeichen, damit ich den Kontext verstehe."
     },
-    "mailSubject": "Kontakt über Portfolio — Junior Web Developer",
+    "mailSubject": "Kontakt über Portfolio — Testautomatisierung",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {
