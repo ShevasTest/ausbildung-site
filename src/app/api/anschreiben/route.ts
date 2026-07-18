@@ -8,7 +8,9 @@ export const maxDuration = 60;
 const MAX_VACANCY_CHARS = 6_000;
 const MAX_NAME_CHARS = 80;
 const MAX_CITY_CHARS = 80;
+const MAX_PROFILE_CHARS = 1_500;
 const MAX_STRENGTHS = 3;
+const DEFAULT_APPLICANT = "Oleksandr Shevchenko";
 
 type AnschreibenPayload = {
   vacancyText?: unknown;
@@ -17,6 +19,7 @@ type AnschreibenPayload = {
   strengths?: unknown;
   applicantName?: unknown;
   applicantCity?: unknown;
+  applicantProfile?: unknown;
   locale?: unknown;
   model?: unknown;
 };
@@ -55,7 +58,57 @@ const TONE_HINTS: Record<string, { de: string; en: string }> = {
   },
 };
 
-function buildSystemPrompt(locale: "de" | "en"): string {
+function buildSystemPrompt(
+  locale: "de" | "en",
+  applicantProfile: string,
+  hasCustomName: boolean,
+): string {
+  // A visitor-provided profile replaces the demo persona entirely, so anyone
+  // can generate a letter about themselves instead of about Oleksandr.
+  if (applicantProfile) {
+    if (locale === "de") {
+      return [
+        "Du bist ein erfahrener Bewerbungscoach für den deutschen Arbeitsmarkt.",
+        "Du schreibst ein Anschreiben für die folgende Person. Nutze ausschließlich diese Angaben als Profil:",
+        applicantProfile,
+        "Regeln: Erfinde keine Abschlüsse, Zeugnisse, Anstellungen, Kunden oder Kenntnisse, die nicht in den Angaben stehen. Vermeide übertriebene Aussagen wie 'idealer Kandidat'.",
+        "Struktur: Betreffzeile, Anrede, Einstieg mit Bezug zur Stelle, 2–3 Absätze Passung/Motivation, Abschluss mit Gesprächswunsch, Grußformel.",
+        "Länge: 220–320 Wörter. Sprache: Deutsch. Keine Markdown-Formatierung, nur reiner Brieftext.",
+      ].join(" ");
+    }
+
+    return [
+      "You are an experienced application coach for the German job market.",
+      "You write a cover letter for the following person. Use only these details as the candidate profile:",
+      applicantProfile,
+      "Rules: never invent degrees, certificates, employment, clients or skills that are not in the details. Avoid inflated claims such as 'ideal candidate'.",
+      "Structure: subject line, salutation, opening tied to the vacancy, 2–3 paragraphs on fit/motivation, closing with interview interest, sign-off.",
+      "Length: 220–320 words. Language: English. No markdown formatting, plain letter text only.",
+    ].join(" ");
+  }
+
+  // A custom name without profile details: write honestly and generically
+  // instead of attaching the demo persona's biography to a stranger's name.
+  if (hasCustomName) {
+    if (locale === "de") {
+      return [
+        "Du bist ein erfahrener Bewerbungscoach für den deutschen Arbeitsmarkt.",
+        "Zum Profil der Person liegen keine Details vor. Schreibe ein ehrliches, konkretes Anschreiben entlang der Anforderungen der Stellenanzeige und der angegebenen Stärken.",
+        "Regeln: Erfinde keine konkreten Abschlüsse, Arbeitgeber, Jahreszahlen oder Zertifikate. Vermeide übertriebene Aussagen.",
+        "Struktur: Betreffzeile, Anrede, Einstieg mit Bezug zur Stelle, 2–3 Absätze Passung/Motivation, Abschluss mit Gesprächswunsch, Grußformel.",
+        "Länge: 220–320 Wörter. Sprache: Deutsch. Keine Markdown-Formatierung, nur reiner Brieftext.",
+      ].join(" ");
+    }
+
+    return [
+      "You are an experienced application coach for the German job market.",
+      "No profile details are available for this person. Write an honest, concrete cover letter built around the vacancy requirements and the selected strengths.",
+      "Rules: never invent specific degrees, employers, years of experience or certificates. Avoid inflated claims.",
+      "Structure: subject line, salutation, opening tied to the vacancy, 2–3 paragraphs on fit/motivation, closing with interview interest, sign-off.",
+      "Length: 220–320 words. Language: English. No markdown formatting, plain letter text only.",
+    ].join(" ");
+  }
+
   if (locale === "de") {
     return [
       "Du bist ein erfahrener Bewerbungscoach für den deutschen IT-Arbeitsmarkt (QA und Testautomatisierung, Junior bis Mid-Level).",
@@ -112,9 +165,15 @@ export async function POST(request: Request) {
   const applicantName =
     typeof payload.applicantName === "string" && payload.applicantName.trim()
       ? payload.applicantName.trim().slice(0, MAX_NAME_CHARS)
-      : "Oleksandr Shevchenko";
+      : DEFAULT_APPLICANT;
   const applicantCity =
     typeof payload.applicantCity === "string" ? payload.applicantCity.trim().slice(0, MAX_CITY_CHARS) : "";
+  const applicantProfile =
+    typeof payload.applicantProfile === "string"
+      ? payload.applicantProfile.trim().slice(0, MAX_PROFILE_CHARS)
+      : "";
+  const hasProfile = applicantProfile.length >= 30;
+  const hasCustomName = applicantName !== DEFAULT_APPLICANT;
 
   const userPrompt = [
     locale === "de" ? "Stellenanzeige:" : "Vacancy text:",
@@ -144,9 +203,9 @@ export async function POST(request: Request) {
   }
 
   const result = await streamWithFallback(chain, {
-    system: buildSystemPrompt(locale),
+    system: buildSystemPrompt(locale, hasProfile ? applicantProfile : "", hasCustomName),
     messages: [{ role: "user", content: userPrompt }],
-    maxTokens: 1_000,
+    maxTokens: 2_000,
     temperature: 0.6,
   });
 

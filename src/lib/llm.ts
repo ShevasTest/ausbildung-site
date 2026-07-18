@@ -1,4 +1,5 @@
 import "server-only";
+import { createThinkStripper } from "./strip-think";
 
 export type LlmMessage = {
   role: "user" | "assistant";
@@ -35,7 +36,7 @@ let modelCache: { models: LlmModel[]; fetchedAt: number } | null = null;
  * application portfolio pass this filter.
  */
 const BLOCKED_MODEL_PATTERN =
-  /uncensored|venice|guard|safety|moderat|whisper|tts|audio|lyria|image|vision|-vl|router|distill|base$/i;
+  /uncensored|venice|guard|safety|moderat|whisper|tts|audio|lyria|image|vision|-vl|router|distill|base$|thinking|reasoner|qwq|deepseek-r1/i;
 
 const PREFERENCE_TIERS: Array<{ pattern: RegExp; score: number }> = [
   { pattern: /llama-3\.3-70b/i, score: 100 },
@@ -310,6 +311,9 @@ function extractGoogleText(payload: string): string {
 function sseToTextStream(body: ReadableStream<Uint8Array>, extract: SseExtractor): ReadableStream<Uint8Array> {
   const decoder = new TextDecoder();
   const encoder = new TextEncoder();
+  // Reasoning models leak their chain of thought as <think>…</think> inside
+  // the content stream — never show that to visitors.
+  const stripper = createThinkStripper();
   let buffer = "";
 
   return new ReadableStream<Uint8Array>({
@@ -340,11 +344,16 @@ function sseToTextStream(body: ReadableStream<Uint8Array>, extract: SseExtractor
               continue;
             }
 
-            const text = extract(payload);
+            const text = stripper.process(extract(payload));
             if (text) {
               controller.enqueue(encoder.encode(text));
             }
           }
+        }
+
+        const rest = stripper.flush();
+        if (rest) {
+          controller.enqueue(encoder.encode(rest));
         }
       } finally {
         reader.releaseLock();
@@ -357,13 +366,18 @@ function sseToTextStream(body: ReadableStream<Uint8Array>, extract: SseExtractor
   });
 }
 
-function openAiCompatibleBody(model: LlmModel, request: LlmRequest): string {
+function openAiCompatibleBody(
+  model: LlmModel,
+  request: LlmRequest,
+  extra?: Record<string, unknown>,
+): string {
   return JSON.stringify({
     model: model.model,
     max_tokens: request.maxTokens,
     temperature: request.temperature ?? 0.7,
     stream: true,
     messages: [{ role: "system", content: request.system }, ...request.messages],
+    ...extra,
   });
 }
 
@@ -391,7 +405,8 @@ async function callUpstream(model: LlmModel, request: LlmRequest): Promise<Respo
           "HTTP-Referer": "https://work.oleksandr-shevchenko.de",
           "X-Title": "Oleksandr Shevchenko Portfolio",
         },
-        body: openAiCompatibleBody(model, request),
+        // Keep chain-of-thought out of the stream for reasoning-capable models.
+        body: openAiCompatibleBody(model, request, { reasoning: { exclude: true } }),
         signal: timeout,
       });
 

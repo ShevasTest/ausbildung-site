@@ -42,6 +42,9 @@ type DemoCopy = {
     namePlaceholder: string;
     cityLabel: string;
     cityPlaceholder: string;
+    profileLabel: string;
+    profilePlaceholder: string;
+    profileHint: string;
     presetsLabel: string;
     focusLabel: string;
     toneLabel: string;
@@ -117,7 +120,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     badge: "Live-Demo · KI-Bewerbungshelfer",
     title: "KI-Bewerbungshelfer",
     subtitle:
-      "Stellenanzeige einfügen, Fokus setzen, Anschreiben generieren. Die Ausgabe kommt als Streaming-Text von einem echten Sprachmodell über eine eigene Server-Route — ohne konfigurierten API-Key läuft automatisch ein lokaler Demo-Modus.",
+      "Stellenanzeige einfügen, optional das eigene Profil angeben, Fokus setzen — Anschreiben generieren. Die Ausgabe kommt als Streaming-Text von einem echten Sprachmodell über eine eigene Server-Route — ohne konfigurierten API-Key läuft automatisch ein lokaler Demo-Modus.",
     back: "Zurück zur Startseite",
     chips: ["Streaming-Ausgabe", "HR-taugliche Formulierungen", "Echte KI · Demo-Fallback"],
     input: {
@@ -139,6 +142,11 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       namePlaceholder: "z.B. Max Mustermann",
       cityLabel: "Ihr Standort",
       cityPlaceholder: "z.B. München",
+      profileLabel: "Ihr Profil (optional)",
+      profilePlaceholder:
+        "Ausbildung, Erfahrung, Kenntnisse, Stärken — Stichpunkte reichen. Das Anschreiben nutzt dann nur Ihre Angaben.",
+      profileHint:
+        "Ohne eigene Angaben schreibt die KI mit dem Demo-Profil von Oleksandr. Bitte keine sensiblen Daten eingeben.",
       generate: "Anschreiben generieren",
       generating: "Generiere Anschreiben ...",
       errorRequired: "Bitte zuerst eine Stellenanzeige einfügen.",
@@ -304,7 +312,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     badge: "Live demo · AI Application Assistant",
     title: "AI Application Assistant",
     subtitle:
-      "Paste a job description, set your focus and generate a cover letter. The output streams from a real language model through a dedicated server route — without a configured API key the demo automatically falls back to a local mode.",
+      "Paste a job description, optionally add your own profile, set the focus — and generate a cover letter. The output streams from a real language model through a dedicated server route — without a configured API key the demo automatically falls back to a local mode.",
     back: "Back to homepage",
     chips: ["Streaming output", "HR-ready wording", "Real AI · demo fallback"],
     input: {
@@ -326,6 +334,11 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       namePlaceholder: "e.g. John Smith",
       cityLabel: "Your location",
       cityPlaceholder: "e.g. Munich",
+      profileLabel: "Your profile (optional)",
+      profilePlaceholder:
+        "Education, experience, skills, strengths — bullet points are fine. The letter will then use only your details.",
+      profileHint:
+        "Without your own details, the AI writes with Oleksandr's demo profile. Please do not enter sensitive data.",
       generate: "Generate cover letter",
       generating: "Generating cover letter ...",
       errorRequired: "Please paste a job description first.",
@@ -678,6 +691,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   const [tone, setTone] = useState<ToneKey>("professional");
   const [applicantName, setApplicantName] = useState("Oleksandr Shevchenko");
   const [applicantCity, setApplicantCity] = useState("");
+  const [applicantProfile, setApplicantProfile] = useState("");
   const [selectedStrengths, setSelectedStrengths] = useState<string[]>([
     copy.strengths[0]?.id ?? "initiative",
     copy.strengths[2]?.id ?? "structure",
@@ -889,6 +903,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
           strengths: strengthLabels,
           applicantName: applicantName.trim() || "Oleksandr Shevchenko",
           applicantCity: applicantCity.trim(),
+          applicantProfile: applicantProfile.trim(),
           locale: localeKey,
           model: selectedModel || undefined,
         }),
@@ -1050,6 +1065,22 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
                 className="contact-field mt-1.5 w-full rounded-xl px-3 py-2.5 text-sm"
               />
             </div>
+          </div>
+
+          <div className="mt-4">
+            <label htmlFor="applicant-profile" className="block text-sm font-semibold text-foreground">
+              {copy.input.profileLabel}
+            </label>
+            <textarea
+              id="applicant-profile"
+              value={applicantProfile}
+              onChange={(e) => setApplicantProfile(e.target.value)}
+              placeholder={copy.input.profilePlaceholder}
+              rows={3}
+              maxLength={1500}
+              className="contact-field mt-1.5 w-full resize-y rounded-xl px-3 py-2.5 text-sm"
+            />
+            <p className="mt-1 text-xs text-muted">{copy.input.profileHint}</p>
           </div>
 
           <div className="mt-5">
