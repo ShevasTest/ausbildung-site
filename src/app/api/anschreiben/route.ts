@@ -205,7 +205,9 @@ export async function POST(request: Request) {
   const result = await streamWithFallback(chain, {
     system: buildSystemPrompt(locale, hasProfile ? applicantProfile : "", hasCustomName),
     messages: [{ role: "user", content: userPrompt }],
-    maxTokens: 2_000,
+    // Reasoning-capable models burn a large hidden thinking budget before the
+    // letter itself; the headroom is harmless for plain instruct models.
+    maxTokens: 4_000,
     temperature: 0.6,
   });
 
