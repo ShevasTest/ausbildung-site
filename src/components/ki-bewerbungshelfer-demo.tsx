@@ -8,6 +8,7 @@ import { extractCompany, extractRole } from "@/lib/vacancy-analysis";
 type LocaleKey = "de" | "en";
 type FocusKey = "frontend" | "fullstack" | "teamfit" | "ai";
 type ToneKey = "professional" | "motivated" | "direct";
+type LengthKey = "short" | "standard" | "long";
 
 type VacancyPreset = {
   id: string;
@@ -45,6 +46,12 @@ type DemoCopy = {
     profileLabel: string;
     profilePlaceholder: string;
     profileHint: string;
+    contactLabel: string;
+    contactPlaceholder: string;
+    letterLanguageLabel: string;
+    letterLanguageOptions: { value: "de" | "en"; label: string }[];
+    lengthLabel: string;
+    lengthOptions: { value: LengthKey; label: string }[];
     presetsLabel: string;
     focusLabel: string;
     toneLabel: string;
@@ -147,6 +154,19 @@ const COPY: Record<LocaleKey, DemoCopy> = {
         "Ausbildung, Erfahrung, Kenntnisse, Stärken — Stichpunkte reichen. Das Anschreiben nutzt dann nur Ihre Angaben.",
       profileHint:
         "Ohne eigene Angaben schreibt die KI mit dem Demo-Profil von Oleksandr. Bitte keine sensiblen Daten eingeben.",
+      contactLabel: "Ansprechpartner:in (optional)",
+      contactPlaceholder: "z.B. Frau Müller",
+      letterLanguageLabel: "Sprache des Anschreibens",
+      letterLanguageOptions: [
+        { value: "de", label: "Deutsch" },
+        { value: "en", label: "Englisch" },
+      ],
+      lengthLabel: "Länge",
+      lengthOptions: [
+        { value: "short", label: "Kurz (ca. 150 Wörter)" },
+        { value: "standard", label: "Standard (220–320 Wörter)" },
+        { value: "long", label: "Ausführlich (350–450 Wörter)" },
+      ],
       generate: "Anschreiben generieren",
       generating: "Generiere Anschreiben ...",
       errorRequired: "Bitte zuerst eine Stellenanzeige einfügen.",
@@ -189,46 +209,18 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     statusDemo: "Demo-Modus",
     presets: [
       {
+        id: "preset-qa-testing",
+        label: "QA / Test Automation",
+        focus: "ai",
+        text:
+          "Ein Softwarehaus in Frankfurt sucht einen Junior QA Automation Developer (m/w/d). Aufgaben sind Testfall-Design, automatisierte UI/API-Tests, Fehleranalyse und Zusammenarbeit mit Dev-Teams. Vorteilhaft: Interesse an Testing-Tools, CI und genauer Dokumentation.",
+      },
+      {
         id: "preset-startup-frontend",
         label: "Start-up Frontend (Berlin)",
         focus: "frontend",
         text:
           "Ein Berliner SaaS-Start-up sucht einen Junior Frontend Developer (m/w/d). Du entwickelst im Produktteam Features mit React, Next.js und TypeScript, arbeitest eng mit Product und Design zusammen und verbesserst UX sowie Ladezeiten. Wichtig sind Lernbereitschaft, saubere Kommunikation und ein nachvollziehbarer Entwicklungsprozess.",
-      },
-      {
-        id: "preset-corporate-it",
-        label: "Corporate IT (Inhouse)",
-        focus: "teamfit",
-        text:
-          "Für unsere zentrale IT in München suchen wir einen Junior Developer (w/m/d). Du arbeitest an internen Tools, APIs und Automatisierung. Wichtig sind Dokumentation, Abstimmung mit Fachabteilungen und eine verlässliche Zusammenarbeit im Team.",
-      },
-      {
-        id: "preset-ecommerce",
-        label: "E-Commerce Plattform",
-        focus: "fullstack",
-        text:
-          "Ein wachsender E-Commerce-Anbieter in Hamburg sucht einen Junior Web Developer (m/w/d). Aufgaben: Weiterentwicklung von Shop-Frontend, Checkout-Prozessen und Schnittstellen zu Zahlungs- und Warenwirtschaftssystemen. Erwartet werden JavaScript-Grundlagen, API-Verständnis und datengetriebenes Denken.",
-      },
-      {
-        id: "preset-public-sector",
-        label: "Behörden / Öffentlicher Dienst",
-        focus: "teamfit",
-        text:
-          "Eine kommunale IT-Dienststelle sucht einen Junior Developer (m/w/d) für Digitalisierungsprojekte. Sie unterstützen Bürgerportale, Formular-Workflows und barrierearme Oberflächen. Gefragt sind Sorgfalt, Datenschutzbewusstsein und klare Kommunikation.",
-      },
-      {
-        id: "preset-agency",
-        label: "Digitalagentur Webprojekte",
-        focus: "frontend",
-        text:
-          "Eine Digitalagentur in Köln sucht Verstärkung auf Junior-Level. Sie arbeiten in wechselnden Kundenprojekten an Landingpages, Content-Plattformen und UI-Komponenten. Gewünscht: saubere HTML/CSS/JS-Grundlagen, Kreativität und strukturierte Projektarbeit.",
-      },
-      {
-        id: "preset-qa-testing",
-        label: "QA / Testing Fokus",
-        focus: "ai",
-        text:
-          "Ein Softwarehaus in Frankfurt sucht einen Junior QA Automation Developer (m/w/d). Aufgaben sind Testfall-Design, automatisierte UI/API-Tests, Fehleranalyse und Zusammenarbeit mit Dev-Teams. Vorteilhaft: Interesse an Testing-Tools, CI und genauer Dokumentation.",
       },
     ],
     focusOptions: [
@@ -339,6 +331,19 @@ const COPY: Record<LocaleKey, DemoCopy> = {
         "Education, experience, skills, strengths — bullet points are fine. The letter will then use only your details.",
       profileHint:
         "Without your own details, the AI writes with Oleksandr's demo profile. Please do not enter sensitive data.",
+      contactLabel: "Contact person (optional)",
+      contactPlaceholder: "e.g. Ms. Miller",
+      letterLanguageLabel: "Letter language",
+      letterLanguageOptions: [
+        { value: "de", label: "German" },
+        { value: "en", label: "English" },
+      ],
+      lengthLabel: "Length",
+      lengthOptions: [
+        { value: "short", label: "Short (about 150 words)" },
+        { value: "standard", label: "Standard (220–320 words)" },
+        { value: "long", label: "Detailed (350–450 words)" },
+      ],
       generate: "Generate cover letter",
       generating: "Generating cover letter ...",
       errorRequired: "Please paste a job description first.",
@@ -381,46 +386,18 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     statusDemo: "Demo mode",
     presets: [
       {
+        id: "preset-qa-testing",
+        label: "QA / test automation",
+        focus: "ai",
+        text:
+          "A software company in Frankfurt is hiring a junior QA automation developer. Responsibilities include test case design, automated UI/API testing, bug triage and collaboration with developers. Interest in testing tools, CI pipelines and precise documentation is a plus.",
+      },
+      {
         id: "preset-startup-frontend",
         label: "Startup frontend (Berlin)",
         focus: "frontend",
         text:
           "A Berlin SaaS startup is hiring a junior frontend developer (m/f/d). You will build product-facing features with React, Next.js and TypeScript, collaborate with product/design and improve UX and page performance. We value willingness to learn, clear communication and a traceable development process.",
-      },
-      {
-        id: "preset-corporate-it",
-        label: "Corporate IT (in-house)",
-        focus: "teamfit",
-        text:
-          "Our central IT department in Munich is hiring a junior developer. You work on internal tools, APIs and workflow automation. We expect clear documentation, cross-team collaboration and reliable delivery in a structured environment.",
-      },
-      {
-        id: "preset-ecommerce",
-        label: "E-commerce platform",
-        focus: "fullstack",
-        text:
-          "A fast-growing e-commerce company in Hamburg is looking for a junior web developer (m/f/d). Tasks include improving storefront features, checkout flows and integrations with payment/inventory systems. We value JavaScript foundations, API understanding and data-aware thinking.",
-      },
-      {
-        id: "preset-public-sector",
-        label: "Public sector / government IT",
-        focus: "teamfit",
-        text:
-          "A municipal IT service provider is hiring a junior developer for digital services. You support citizen portals, digital form workflows and accessibility-focused interfaces. We are looking for diligence, privacy awareness and clear communication.",
-      },
-      {
-        id: "preset-agency",
-        label: "Digital agency client work",
-        focus: "frontend",
-        text:
-          "A digital agency in Cologne is hiring at junior level. You contribute to multiple client projects: landing pages, content platforms and reusable UI components. Solid HTML/CSS/JS foundations, creativity and structured teamwork are required.",
-      },
-      {
-        id: "preset-qa-testing",
-        label: "QA / testing-focused role",
-        focus: "ai",
-        text:
-          "A software company in Frankfurt is hiring a junior QA automation developer. Responsibilities include test case design, automated UI/API testing, bug triage and collaboration with developers. Interest in testing tools, CI pipelines and precise documentation is a plus.",
       },
     ],
     focusOptions: [
@@ -692,6 +669,9 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   const [applicantName, setApplicantName] = useState("Oleksandr Shevchenko");
   const [applicantCity, setApplicantCity] = useState("");
   const [applicantProfile, setApplicantProfile] = useState("");
+  const [contactPerson, setContactPerson] = useState("");
+  const [letterLanguage, setLetterLanguage] = useState<"de" | "en">(localeKey);
+  const [letterLength, setLetterLength] = useState<LengthKey>("standard");
   const [selectedStrengths, setSelectedStrengths] = useState<string[]>([
     copy.strengths[0]?.id ?? "initiative",
     copy.strengths[2]?.id ?? "structure",
@@ -904,7 +884,9 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
           applicantName: applicantName.trim() || "Oleksandr Shevchenko",
           applicantCity: applicantCity.trim(),
           applicantProfile: applicantProfile.trim(),
-          locale: localeKey,
+          contactPerson: contactPerson.trim(),
+          letterLength,
+          locale: letterLanguage,
           model: selectedModel || undefined,
         }),
         signal: controller.signal,
@@ -1081,6 +1063,49 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
               className="contact-field mt-1.5 w-full resize-y rounded-xl px-3 py-2.5 text-sm"
             />
             <p className="mt-1 text-xs text-muted">{copy.input.profileHint}</p>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <label className="text-sm font-semibold text-foreground">
+              {copy.input.letterLanguageLabel}
+              <select
+                value={letterLanguage}
+                onChange={(event) => setLetterLanguage(event.target.value as "de" | "en")}
+                className="contact-field mt-1.5 w-full rounded-2xl px-3 py-2.5 text-sm font-normal"
+              >
+                {copy.input.letterLanguageOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="text-sm font-semibold text-foreground">
+              {copy.input.lengthLabel}
+              <select
+                value={letterLength}
+                onChange={(event) => setLetterLength(event.target.value as LengthKey)}
+                className="contact-field mt-1.5 w-full rounded-2xl px-3 py-2.5 text-sm font-normal"
+              >
+                {copy.input.lengthOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="text-sm font-semibold text-foreground">
+              {copy.input.contactLabel}
+              <input
+                type="text"
+                value={contactPerson}
+                onChange={(event) => setContactPerson(event.target.value)}
+                placeholder={copy.input.contactPlaceholder}
+                className="contact-field mt-1.5 w-full rounded-xl px-3 py-2.5 text-sm font-normal"
+              />
+            </label>
           </div>
 
           <div className="mt-5">
