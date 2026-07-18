@@ -17,10 +17,10 @@ type ProjectCaseStudyProps = {
 
 const CODE_URLS: Record<ProjectCaseStudyProps["slug"], string> = {
   "e2e-suite": "https://github.com/ShevasTest/portfolio-e2e-tests",
-  "ki-bewerbungshelfer": "https://github.com/ShevasTest/ausbildung-site",
-  "mietpreise-tracker": "https://github.com/ShevasTest/ausbildung-site",
-  smartchat: "https://github.com/ShevasTest/ausbildung-site",
-  devdash: "https://github.com/ShevasTest/ausbildung-site",
+  "ki-bewerbungshelfer": "https://github.com/ShevasTest/portfolio-website",
+  "mietpreise-tracker": "https://github.com/ShevasTest/portfolio-website",
+  smartchat: "https://github.com/ShevasTest/portfolio-website",
+  devdash: "https://github.com/ShevasTest/portfolio-website",
 };
 
 const COPY = {
