@@ -12,7 +12,8 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
   const homeLabel = locale === "de" ? "Zur Startseite" : "Go to homepage";
   const navLabel = locale === "de" ? "Hauptnavigation" : "Main navigation";
   const sections = [
-    { id: "projects", label: t("projects") },
+    // "Projekte" lands on the flagship project card, same as the hero CTA.
+    { id: "featured-project", label: t("projects") },
     { id: "resume", label: t("resume") },
     { id: "about", label: t("about") },
     { id: "contact", label: t("contact") },
