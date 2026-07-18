@@ -59,7 +59,7 @@ const CASE_STUDIES: Record<LocaleKey, Record<ProjectCaseStudyProps["slug"], Case
         "Traces und Screenshots bei Fehlschlägen als Build-Artefakte",
       ],
       learning:
-        "Als Nächstes ergänze ich einen Positioning-Contract gegen veraltete Inhalte und tiefere deterministische Workflow-Szenarien für die Produkt-Demos.",
+        "Der Positioning-Contract gegen veraltete Inhalte ist inzwischen Teil der Suite. Als Nächstes: tiefere deterministische Workflow-Szenarien für die Produkt-Demos.",
     },
     "ki-bewerbungshelfer": {
       eyebrow: "Case Study · AI mit überprüfbarem Nutzen",
@@ -156,7 +156,7 @@ const CASE_STUDIES: Record<LocaleKey, Record<ProjectCaseStudyProps["slug"], Case
         "Traces and screenshots on failure as build artifacts",
       ],
       learning:
-        "Next up: a positioning contract against outdated content and deeper deterministic workflow scenarios for the product demos.",
+        "The positioning contract against outdated content is now part of the suite. Next up: deeper deterministic workflow scenarios for the product demos.",
     },
     "ki-bewerbungshelfer": {
       eyebrow: "Case study · Verifiable AI value",

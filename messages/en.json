@@ -326,7 +326,7 @@
   },
   "ProjectPage": {
     "badge": "Project details",
-    "description": "Detailed goals, architecture decisions, tech stack and demo links will be added here soon.",
+    "description": "Goals, architecture decisions, tech stack and implementation notes for this project.",
     "back": "Back to homepage"
   },
   "Footer": {

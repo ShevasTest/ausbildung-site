@@ -111,7 +111,7 @@
       {
         "slug": "e2e-suite",
         "title": "Portfolio E2E-Testsuite",
-        "summary": "Playwright + TypeScript Suite, die diese Website in der CI testet: UI, API und Accessibility — Desktop und Mobile.",
+        "summary": "E2E-Suite mit Playwright + TypeScript, die diese Website in der CI testet: UI, API und Accessibility — Desktop und Mobile.",
         "stack": "Playwright · TypeScript · GitHub Actions"
       },
       {
@@ -326,7 +326,7 @@
   },
   "ProjectPage": {
     "badge": "Projektdetails",
-    "description": "Hier folgen bald Ziele, Architektur-Entscheidungen, Tech Stack und Demo-Links.",
+    "description": "Ziele, Architektur-Entscheidungen, Tech-Stack und Umsetzungsdetails zu diesem Projekt.",
     "back": "Zurück zur Startseite"
   },
   "Footer": {

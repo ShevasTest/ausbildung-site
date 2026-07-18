@@ -20,7 +20,6 @@ const projectSlugs = [
   "mietpreise-tracker",
   "smartchat",
   "devdash",
-  "portfolio",
 ] as const;
 
 type ProjectPageProps = {
@@ -234,7 +233,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <li>— {isDe ? "Smoke-, Navigations- und i18n-Flows (DE/EN)" : "Smoke, navigation and i18n flows (DE/EN)"}</li>
               <li>— {isDe ? "API-Contract-Tests für /api-Routen" : "API contract tests for the /api routes"}</li>
               <li>— {isDe ? "SEO: Sitemap, robots, Canonical, Open Graph" : "SEO: sitemap, robots, canonical, Open Graph"}</li>
-              <li>— {isDe ? "axe-Accessibility-Gate auf beiden Sprachen" : "axe accessibility gate on both locales"}</li>
+              <li>— {isDe ? "axe-Accessibility-Gate in beiden Sprachen" : "axe accessibility gate on both locales"}</li>
             </ul>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a

@@ -56,7 +56,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
         title: "4. E-Mail-Kontakt",
         paragraphs: [
           "Wenn Sie über den auf der Website angebotenen E-Mail-Link Kontakt aufnehmen, öffnet sich Ihr eigenes E-Mail-Programm. Die Nachricht wird nicht über ein Kontaktformular dieser Website übertragen. Die von Ihnen freiwillig übermittelten Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.",
-          "Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Ausbildungs- bzw. Beschäftigungsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO. Die Nachricht verbleibt in meinem E-Mail-Postfach und wird gelöscht, sobald sie für die Bearbeitung und mögliche Anschlusskommunikation nicht mehr erforderlich ist.",
+          "Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Beschäftigungsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO. Die Nachricht verbleibt in meinem E-Mail-Postfach und wird gelöscht, sobald sie für die Bearbeitung und mögliche Anschlusskommunikation nicht mehr erforderlich ist.",
         ],
       },
       {
@@ -136,7 +136,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
         title: "4. Email contact",
         paragraphs: [
           "When you use the email link provided on this website, your own email application opens. The message is not transmitted through a contact form on this website. Any data you voluntarily send is used exclusively to handle your request.",
-          "The legal basis is Art. 6(1)(b) GDPR (steps prior to entering into an apprenticeship or employment relationship) and/or Art. 6(1)(f) GDPR. The message remains in my email inbox and is deleted once it is no longer required for handling and possible follow-up communication.",
+          "The legal basis is Art. 6(1)(b) GDPR (steps prior to entering into an employment relationship) and/or Art. 6(1)(f) GDPR. The message remains in my email inbox and is deleted once it is no longer required for handling and possible follow-up communication.",
         ],
       },
       {

@@ -7,7 +7,6 @@ const projectSlugs = [
   "mietpreise-tracker",
   "smartchat",
   "devdash",
-  "portfolio",
 ];
 
 const locales = ["de", "en"] as const;

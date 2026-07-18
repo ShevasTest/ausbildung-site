@@ -48,8 +48,9 @@
   --radius-3xl: 1.1rem;
 }
 
+/* Anchor jumps are intentionally instant: CSS smooth scrolling is silently
+   ignored in some real Chrome environments, leaving anchor links dead. */
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -999,10 +1000,6 @@ body {
 --------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   .page-transition-shell,
   .hero-reveal,
   .hero-word-track {
