@@ -392,7 +392,13 @@ async function callUpstream(model: LlmModel, request: LlmRequest): Promise<Respo
           Authorization: `Bearer ${process.env.GROQ_API_KEY ?? ""}`,
           "Content-Type": "application/json",
         },
-        body: openAiCompatibleBody(model, request),
+        // Groq's Qwen/DeepSeek models emit raw <think> reasoning inside the
+        // content stream by default — keep it out of the response entirely.
+        body: openAiCompatibleBody(
+          model,
+          request,
+          /qwen|deepseek/i.test(model.model) ? { reasoning_format: "hidden" } : undefined,
+        ),
         signal: timeout,
       });
 
