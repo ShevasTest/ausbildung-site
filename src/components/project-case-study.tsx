@@ -54,7 +54,7 @@ const CASE_STUDIES: Record<LocaleKey, Record<ProjectCaseStudyProps["slug"], Case
         "Accessibility als Gate: ernste axe-Verstöße lassen den Build fehlschlagen.",
       ],
       proof: [
-        "54 Checks auf Desktop Chrome und Pixel 7 (Mobile)",
+        "56 Checks auf Desktop Chrome und Pixel 7 (Mobile)",
         "CI bei jedem Push plus wöchentlicher Lauf gegen Produktion",
         "Traces und Screenshots bei Fehlschlägen als Build-Artefakte",
       ],
@@ -151,7 +151,7 @@ const CASE_STUDIES: Record<LocaleKey, Record<ProjectCaseStudyProps["slug"], Case
         "Accessibility as a gate: serious axe violations fail the build.",
       ],
       proof: [
-        "54 checks on Desktop Chrome and Pixel 7 (mobile)",
+        "56 checks on Desktop Chrome and Pixel 7 (mobile)",
         "CI on every push plus a weekly run against production",
         "Traces and screenshots on failure as build artifacts",
       ],

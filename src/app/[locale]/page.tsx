@@ -1,4 +1,5 @@
 import Image from "next/image";
+import NextLink from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
@@ -110,12 +111,12 @@ export default async function HomePage({ params }: HomePageProps) {
           </p>
 
           <div className="hero-actions">
-            <a href="#projects" className="button button-primary">
+            <NextLink href="#projects" className="button button-primary">
               {isDe ? "Projekte ansehen" : "View projects"}
-            </a>
-            <a href="#resume" className="button button-secondary">
+            </NextLink>
+            <NextLink href="#resume" className="button button-secondary">
               {isDe ? "Lebenslauf" : "Resume"}
-            </a>
+            </NextLink>
           </div>
         </div>
 
@@ -138,8 +139,8 @@ export default async function HomePage({ params }: HomePageProps) {
           <h2>{isDe ? "Praktische Projekte. Klarer Fokus." : "Practical projects. Clear focus."}</h2>
           <p>
             {isDe
-              ? "Das Kernprojekt: eine öffentliche Playwright-Testsuite, die genau diese Website in der CI prüft — 54 Checks auf Desktop und Mobile. Dazu vier Produkt-Demos aus mehr als 20 eigenen Projekten; jede Demo kann direkt im Browser ausprobiert werden."
-              : "The flagship: a public Playwright test suite that checks this very website in CI — 54 checks across desktop and mobile. Alongside it, four product demos from more than 20 personal projects; every demo can be tried directly in the browser."}
+              ? "Das Kernprojekt: eine öffentliche Playwright-Testsuite, die genau diese Website in der CI prüft — 56 Checks auf Desktop und Mobile. Dazu vier Produkt-Demos aus mehr als 20 eigenen Projekten; jede Demo kann direkt im Browser ausprobiert werden."
+              : "The flagship: a public Playwright test suite that checks this very website in CI — 56 checks across desktop and mobile. Alongside it, four product demos from more than 20 personal projects; every demo can be tried directly in the browser."}
           </p>
           <a
             href="https://github.com/ShevasTest/portfolio-e2e-tests"

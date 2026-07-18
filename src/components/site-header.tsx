@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import { getTranslations } from "next-intl/server";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 
@@ -37,13 +38,13 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
 
         <nav aria-label={navLabel} className="hidden items-center gap-7 text-sm text-muted md:flex">
           {sections.map((section) => (
-            <a
+            <NextLink
               key={section.id}
               href={`${homeHref}#${section.id}`}
               className="nav-link transition hover:text-foreground"
             >
               {section.label}
-            </a>
+            </NextLink>
           ))}
         </nav>
 
