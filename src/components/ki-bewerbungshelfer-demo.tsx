@@ -64,6 +64,8 @@ type DemoCopy = {
     generate: string;
     generating: string;
     errorRequired: string;
+    errorName: string;
+    errorProfile: string;
   };
   output: {
     title: string;
@@ -149,11 +151,11 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       namePlaceholder: "z.B. Max Mustermann",
       cityLabel: "Ihr Standort",
       cityPlaceholder: "z.B. München",
-      profileLabel: "Ihr Profil (optional)",
+      profileLabel: "Ihr Profil",
       profilePlaceholder:
         "Ausbildung, Erfahrung, Kenntnisse, Stärken — Stichpunkte reichen. Das Anschreiben nutzt dann nur Ihre Angaben.",
       profileHint:
-        "Ohne eigene Angaben schreibt die KI mit dem Demo-Profil von Oleksandr. Bitte keine sensiblen Daten eingeben.",
+        "Das Anschreiben wird ausschließlich aus Ihren Angaben geschrieben. Bitte keine sensiblen Daten eingeben.",
       contactLabel: "Ansprechpartner:in (optional)",
       contactPlaceholder: "z.B. Frau Müller",
       letterLanguageLabel: "Sprache des Anschreibens",
@@ -163,13 +165,15 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       ],
       lengthLabel: "Länge",
       lengthOptions: [
-        { value: "short", label: "Kurz (ca. 150 Wörter)" },
-        { value: "standard", label: "Standard (220–320 Wörter)" },
-        { value: "long", label: "Ausführlich (350–450 Wörter)" },
+        { value: "short", label: "Kurz (~150)" },
+        { value: "standard", label: "Standard" },
+        { value: "long", label: "Ausführlich" },
       ],
       generate: "Anschreiben generieren",
       generating: "Generiere Anschreiben ...",
       errorRequired: "Bitte zuerst eine Stellenanzeige einfügen.",
+      errorName: "Bitte geben Sie Ihren Namen ein.",
+      errorProfile: "Bitte beschreiben Sie kurz Ihr Profil (mindestens 30 Zeichen) — das Anschreiben entsteht nur aus Ihren Angaben.",
     },
     output: {
       title: "Generiertes Anschreiben",
@@ -271,13 +275,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     ],
     focusParagraphs: {
       frontend:
-        "Ich bringe Grundlagen in HTML, CSS, JavaScript und React aus strukturiertem Selbststudium mit. Moderne Next.js- und TypeScript-Projekte setze ich überwiegend KI-gestützt um und überprüfe das Ergebnis mit Tests, Build-Checks und manueller Qualitätskontrolle.",
+        "Besonders reizt mich die Arbeit an nutzerfreundlichen, zugänglichen Oberflächen — mit Blick auf Details, Performance und ein konsistentes Nutzererlebnis.",
       fullstack:
-        "Meine praktische Stärke liegt in Automatisierung, API-Integrationen und klaren Datenflüssen. Ich kann Anforderungen zerlegen, passende Tools verbinden und eine Lösung iterativ bis zu einem funktionierenden Ergebnis führen.",
+        "Mich motiviert das Zusammenspiel aus Frontend, APIs und Datenflüssen: Anforderungen zerlegen, Schnittstellen sauber verbinden und Lösungen Schritt für Schritt zu einem stabilen Ergebnis führen.",
       teamfit:
-        "Ich suche bewusst ein professionelles Team, in dem ich strukturiert Verantwortung übernehme, Feedback schnell in bessere Lösungen übersetze und mich fachlich wie menschlich weiterentwickle.",
+        "Ich suche ein Team, in dem ich Verantwortung übernehme, Feedback schnell umsetze und mich fachlich wie persönlich weiterentwickeln kann.",
       ai:
-        "Seit rund vier Jahren arbeite ich täglich mit KI und Agenten. Ich plane mehrstufige Workflows, steuere Kontext und Tools und behandle die Ausgabe nicht als Blackbox: Ergebnisse werden getestet, hinterfragt und iterativ verbessert.",
+        "KI-Tools setze ich produktiv und verantwortungsvoll ein: als Beschleuniger für Routineaufgaben, deren Ergebnisse ich konsequent prüfe und nachvollziehbar dokumentiere.",
     },
     toneOpeners: {
       professional:
@@ -289,7 +293,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     strengthSentences: {
       initiative:
-        "Eigeninitiative zeige ich durch vier Jahre tägliche Projektpraxis sowie mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen.",
+        "Eigeninitiative zeige ich, indem ich Aufgaben aktiv aufgreife, mich selbstständig einarbeite und Dinge zuverlässig zu Ende führe.",
       learning:
         "Neue Technologien und Arbeitsweisen eigne ich mir schnell an und setze Feedback direkt in konkrete Verbesserungen um.",
       structure:
@@ -326,11 +330,11 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       namePlaceholder: "e.g. John Smith",
       cityLabel: "Your location",
       cityPlaceholder: "e.g. Munich",
-      profileLabel: "Your profile (optional)",
+      profileLabel: "Your profile",
       profilePlaceholder:
         "Education, experience, skills, strengths — bullet points are fine. The letter will then use only your details.",
       profileHint:
-        "Without your own details, the AI writes with Oleksandr's demo profile. Please do not enter sensitive data.",
+        "The cover letter is written exclusively from your details. Please do not enter sensitive data.",
       contactLabel: "Contact person (optional)",
       contactPlaceholder: "e.g. Ms. Miller",
       letterLanguageLabel: "Letter language",
@@ -340,13 +344,15 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       ],
       lengthLabel: "Length",
       lengthOptions: [
-        { value: "short", label: "Short (about 150 words)" },
-        { value: "standard", label: "Standard (220–320 words)" },
-        { value: "long", label: "Detailed (350–450 words)" },
+        { value: "short", label: "Short (~150)" },
+        { value: "standard", label: "Standard" },
+        { value: "long", label: "Detailed" },
       ],
       generate: "Generate cover letter",
       generating: "Generating cover letter ...",
       errorRequired: "Please paste a job description first.",
+      errorName: "Please enter your name.",
+      errorProfile: "Please describe your profile briefly (at least 30 characters) — the letter is written only from your details.",
     },
     output: {
       title: "Generated cover letter",
@@ -448,13 +454,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     ],
     focusParagraphs: {
       frontend:
-        "I have foundations in HTML, CSS, JavaScript and React from structured self-study. I build modern Next.js and TypeScript projects mainly with AI assistance and verify the result through tests, build checks and manual quality control.",
+        "I am particularly drawn to building user-friendly, accessible interfaces — with attention to detail, performance and a consistent user experience.",
       fullstack:
-        "My practical strength lies in automation, API integrations and clear data flows. I can break down requirements, connect suitable tools and guide a solution iteratively to a functional result.",
+        "I enjoy the interplay of frontend, APIs and data flows: breaking down requirements, connecting interfaces cleanly and guiding solutions step by step to a stable result.",
       teamfit:
-        "I am intentionally looking for a professional team where I can take ownership, turn feedback into better solutions quickly and grow in a structured environment.",
+        "I am looking for a team where I can take ownership, act on feedback quickly and keep growing professionally and personally.",
       ai:
-        "I have worked with AI and agents every day for around four years. I plan multi-step workflows, manage context and tools, and do not treat output as a black box: results are tested, questioned and improved iteratively.",
+        "I use AI tools productively and responsibly: as an accelerator for routine work whose results I consistently verify and document.",
     },
     toneOpeners: {
       professional:
@@ -465,7 +471,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     strengthSentences: {
       initiative:
-        "I demonstrate initiative through four years of daily project practice, more than 20 personal projects and over 100 scripts and automations.",
+        "I show initiative by taking on tasks proactively, learning independently and reliably following through.",
       learning:
         "I learn new technologies quickly and turn feedback into concrete improvements without delay.",
       structure:
@@ -539,8 +545,12 @@ function buildGermanLetter(params: {
   copy: DemoCopy;
   applicantName: string;
   applicantCity: string;
+  applicantProfile: string;
 }) {
-  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity } = params;
+  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity, applicantProfile } = params;
+  const profileParagraph = applicantProfile
+    ? `Kurz zu meinem Hintergrund: ${applicantProfile.replace(/\s+/g, " ").trim()}`
+    : "";
   const salutation =
     analysis.company === copy.analysis.unknownCompany
       ? "Sehr geehrtes Recruiting-Team,"
@@ -572,6 +582,7 @@ function buildGermanLetter(params: {
     "",
     copy.toneOpeners[tone],
     "",
+    ...(profileParagraph ? [profileParagraph, ""] : []),
     copy.focusParagraphs[focus],
     "",
     keywordLine,
@@ -595,8 +606,12 @@ function buildEnglishLetter(params: {
   copy: DemoCopy;
   applicantName: string;
   applicantCity: string;
+  applicantProfile: string;
 }) {
-  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity } = params;
+  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity, applicantProfile } = params;
+  const profileParagraph = applicantProfile
+    ? `A little about my background: ${applicantProfile.replace(/\s+/g, " ").trim()}`
+    : "";
   const salutation =
     analysis.company === copy.analysis.unknownCompany
       ? "Dear recruiting team,"
@@ -630,6 +645,7 @@ function buildEnglishLetter(params: {
     "",
     copy.toneOpeners[tone],
     "",
+    ...(profileParagraph ? [profileParagraph, ""] : []),
     copy.focusParagraphs[focus],
     "",
     keywordLine,
@@ -666,7 +682,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   const [vacancyText, setVacancyText] = useState(copy.presets[0]?.text ?? "");
   const [focus, setFocus] = useState<FocusKey>(copy.presets[0]?.focus ?? "frontend");
   const [tone, setTone] = useState<ToneKey>("professional");
-  const [applicantName, setApplicantName] = useState("Oleksandr Shevchenko");
+  const [applicantName, setApplicantName] = useState("");
   const [applicantCity, setApplicantCity] = useState("");
   const [applicantProfile, setApplicantProfile] = useState("");
   const [contactPerson, setContactPerson] = useState("");
@@ -832,8 +848,9 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             focus,
             strengths: selectedStrengths,
             copy,
-            applicantName: applicantName.trim() || "Oleksandr Shevchenko",
+            applicantName: applicantName.trim(),
             applicantCity: applicantCity.trim(),
+            applicantProfile: applicantProfile.trim(),
           })
         : buildEnglishLetter({
             analysis: nextAnalysis,
@@ -841,8 +858,9 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             focus,
             strengths: selectedStrengths,
             copy,
-            applicantName: applicantName.trim() || "Oleksandr Shevchenko",
+            applicantName: applicantName.trim(),
             applicantCity: applicantCity.trim(),
+            applicantProfile: applicantProfile.trim(),
           });
 
     streamText(generated);
@@ -852,6 +870,14 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
     const trimmed = vacancyText.trim();
     if (!trimmed) {
       setInputError(copy.input.errorRequired);
+      return;
+    }
+    if (!applicantName.trim()) {
+      setInputError(copy.input.errorName);
+      return;
+    }
+    if (applicantProfile.trim().length < 30) {
+      setInputError(copy.input.errorProfile);
       return;
     }
 
@@ -881,7 +907,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
           focus,
           tone,
           strengths: strengthLabels,
-          applicantName: applicantName.trim() || "Oleksandr Shevchenko",
+          applicantName: applicantName.trim(),
           applicantCity: applicantCity.trim(),
           applicantProfile: applicantProfile.trim(),
           contactPerson: contactPerson.trim(),
@@ -1066,12 +1092,12 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
           </div>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
-            <label className="text-sm font-semibold text-foreground">
-              {copy.input.letterLanguageLabel}
+            <label className="flex flex-col text-sm font-semibold text-foreground">
+              <span className="pb-1.5">{copy.input.letterLanguageLabel}</span>
               <select
                 value={letterLanguage}
                 onChange={(event) => setLetterLanguage(event.target.value as "de" | "en")}
-                className="contact-field mt-1.5 w-full rounded-2xl px-3 py-2.5 text-sm font-normal"
+                className="contact-field mt-auto w-full rounded-2xl px-3 py-2.5 text-sm font-normal"
               >
                 {copy.input.letterLanguageOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -1081,12 +1107,12 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
               </select>
             </label>
 
-            <label className="text-sm font-semibold text-foreground">
-              {copy.input.lengthLabel}
+            <label className="flex flex-col text-sm font-semibold text-foreground">
+              <span className="pb-1.5">{copy.input.lengthLabel}</span>
               <select
                 value={letterLength}
                 onChange={(event) => setLetterLength(event.target.value as LengthKey)}
-                className="contact-field mt-1.5 w-full rounded-2xl px-3 py-2.5 text-sm font-normal"
+                className="contact-field mt-auto w-full rounded-2xl px-3 py-2.5 text-sm font-normal"
               >
                 {copy.input.lengthOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -1096,14 +1122,14 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
               </select>
             </label>
 
-            <label className="text-sm font-semibold text-foreground">
-              {copy.input.contactLabel}
+            <label className="flex flex-col text-sm font-semibold text-foreground">
+              <span className="pb-1.5">{copy.input.contactLabel}</span>
               <input
                 type="text"
                 value={contactPerson}
                 onChange={(event) => setContactPerson(event.target.value)}
                 placeholder={copy.input.contactPlaceholder}
-                className="contact-field mt-1.5 w-full rounded-xl px-3 py-2.5 text-sm font-normal"
+                className="contact-field mt-auto w-full rounded-xl px-3 py-2.5 text-sm font-normal"
               />
             </label>
           </div>

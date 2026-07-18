@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { ClientDemo } from "@/components/client-demo";
 import { ProjectCaseStudy } from "@/components/project-case-study";
 import {
   absoluteUrl,
@@ -32,52 +32,6 @@ type ProjectTranslationItem = {
   summary: string;
   stack?: string;
 };
-
-type DemoProps = {
-  locale: string;
-};
-
-function ProjectDemoLoading() {
-  return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
-      <section className="overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8">
-        <div className="h-3 w-28 animate-pulse rounded-full bg-border/80" />
-        <div className="mt-5 h-9 w-2/3 animate-pulse rounded-xl bg-border/80" />
-        <div className="mt-3 h-4 w-full animate-pulse rounded-md bg-border/70" />
-        <div className="mt-2 h-4 w-11/12 animate-pulse rounded-md bg-border/70" />
-        <div className="mt-7 h-64 animate-pulse rounded-2xl border border-border bg-background/70" />
-      </section>
-    </main>
-  );
-}
-
-const KIBewerbungshelferDemo = dynamic<DemoProps>(
-  () => import("@/components/ki-bewerbungshelfer-demo").then((module) => module.KIBewerbungshelferDemo),
-  {
-    loading: ProjectDemoLoading,
-  },
-);
-
-const MietpreiseTrackerDemo = dynamic<DemoProps>(
-  () => import("@/components/mietpreise-tracker-demo").then((module) => module.MietpreiseTrackerDemo),
-  {
-    loading: ProjectDemoLoading,
-  },
-);
-
-const SmartChatDemo = dynamic<DemoProps>(
-  () => import("@/components/smartchat-demo").then((module) => module.SmartChatDemo),
-  {
-    loading: ProjectDemoLoading,
-  },
-);
-
-const DevDashDemo = dynamic<DemoProps>(
-  () => import("@/components/devdash-demo").then((module) => module.DevDashDemo),
-  {
-    loading: ProjectDemoLoading,
-  },
-);
 
 function formatSlugTitle(slug: string) {
   return slug
@@ -264,7 +218,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return (
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-        <KIBewerbungshelferDemo locale={safeLocale} />
+        <ClientDemo slug="ki-bewerbungshelfer" locale={safeLocale} />
         <ProjectCaseStudy locale={safeLocale} slug="ki-bewerbungshelfer" />
       </>
     );
@@ -274,7 +228,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return (
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-        <MietpreiseTrackerDemo locale={safeLocale} />
+        <ClientDemo slug="mietpreise-tracker" locale={safeLocale} />
         <ProjectCaseStudy locale={safeLocale} slug="mietpreise-tracker" />
       </>
     );
@@ -284,7 +238,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return (
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-        <SmartChatDemo locale={safeLocale} />
+        <ClientDemo slug="smartchat" locale={safeLocale} />
         <ProjectCaseStudy locale={safeLocale} slug="smartchat" />
       </>
     );
@@ -294,7 +248,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return (
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-        <DevDashDemo locale={safeLocale} />
+        <ClientDemo slug="devdash" locale={safeLocale} />
         <ProjectCaseStudy locale={safeLocale} slug="devdash" />
       </>
     );
