@@ -34,7 +34,7 @@
       "Public e2e suite for this very website: Playwright + TypeScript, Page Object Model, API and accessibility tests",
       "GitHub Actions CI — runs on every push and weekly against production",
       "More than 20 personal projects and over 100 scripts and automations",
-      "1st place among ~6,000 participants in the RS School / EPAM preparation course"
+      "1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
@@ -61,7 +61,7 @@
     "eyebrow": "Three years of daily automation practice",
     "lead": "My strength is not one specific framework, but structured problem-solving with automation, AI and verification — from the first idea to a checked result.",
     "paragraphs": [
-      "My path started with a strong signal: after my degree in Economic Cybernetics (a ZAB-recognized bachelor's), I took 1st place among about 6,000 participants in the RS School / EPAM preparation course — with pixel-perfect HTML/CSS work as my strongest discipline.",
+      "My path started with a strong signal: after my degree in Economic Cybernetics (a ZAB-recognized bachelor's), I took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course — with pixel-perfect HTML/CSS work as my strongest discipline.",
       "Since then, I have worked on browser automation every day for around three years — AI-assisted: I define the workflows, direct coding agents, verify behaviour in the real browser and debug through DevTools and network traffic analysis. The systems span more than 10,000 isolated browser profiles with their own network, identity and session configuration, with up to 10 sessions running concurrently. When an unstable workflow directly costs money, verification becomes a habit.",
       "Today I focus that experience on web test automation. My public e2e suite (Playwright + TypeScript, Page Object Model, API contract tests, accessibility gate) tests this very website in CI — AI-assisted implementation, with scope, verification and debugging in my hands. I am looking for a QA / test automation role in a professional team."
     ],
@@ -222,7 +222,7 @@
       {
         "period": "2018 — 2022",
         "title": "Bachelor, Economic Cybernetics — ZAB-recognized",
-        "text": "Degree at the State University of Trade and Economics (Kyiv), recognized by the German ZAB as equivalent to a bachelor's degree (03/2025). Followed by 1st place among ~6,000 participants in the RS School / EPAM preparation course — strongest discipline: pixel-perfect HTML/CSS.",
+        "text": "Degree at the State University of Trade and Economics (Kyiv), recognized by the German ZAB as equivalent to a bachelor's degree (03/2025). Followed by 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course — strongest discipline: pixel-perfect HTML/CSS.",
         "focus": "Foundation: Degree · EPAM RS School Top 1 · HTML/CSS",
         "chips": [
           "Bachelor + ZAB",

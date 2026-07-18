@@ -37,7 +37,7 @@ const PORTFOLIO_FACTS = [
   "- Oleksandr Shevchenko is open to QA / test automation roles in Germany (Munich area, on-site or remote).",
   "- For around three years he has built and operated browser automation daily — AI-assisted — across more than 10,000 isolated browser profiles with their own network, identity and session configuration; up to 10 sessions run concurrently.",
   "- His strongest area is AI-assisted engineering: task decomposition, agent orchestration, verification in the real browser, DevTools and network traffic analysis; 20+ personal projects and 100+ scripts/automations.",
-  "- He took 1st place among about 6,000 participants in the RS School / EPAM preparation course; his strongest discipline was pixel-perfect HTML/CSS.",
+  "- He took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course; his strongest discipline was pixel-perfect HTML/CSS.",
   "- His public Playwright + TypeScript e2e suite tests this website in CI (Page Object Model, fixtures, API and accessibility checks). The implementation is AI-assisted; scope, verification and debugging are his.",
   "- Do not present him as an independent TypeScript, React or Next.js expert, and never claim years of hand-written Playwright code or professional QA team experience. Web fundamentals are being actively refreshed; modern framework projects were built mainly with AI assistance.",
   "- Public demos: AI Application Assistant, Rent Price Tracker, SmartChat and DevDash.",
