@@ -193,7 +193,8 @@
         "levelLabel": "Foundations in place, actively refreshing",
         "items": [
           "HTML & CSS (pixel-perfect layouts)",
-          "JavaScript / TypeScript (foundations, refreshing)",
+          "JavaScript (foundations, refreshing)",
+          "TypeScript (learning now — the language of my e2e suite)",
           "React (basics)",
           "Python (basics)",
           "Next.js (AI-assisted projects)"
@@ -254,7 +255,7 @@
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I bring three years of daily automation practice and professional command of AI-assisted development, and I speak openly about my current hand-coding level — I am actively rebuilding JavaScript, TypeScript and Playwright fundamentals. My goal: reliable, maintainable test automation in a team.",
+    "closingText": "I bring three years of daily automation practice and professional command of AI-assisted development, and I speak openly about my current hand-coding level — I am actively rebuilding my JavaScript fundamentals and learning TypeScript and Playwright from the ground up. My goal: reliable, maintainable test automation in a team.",
     "closingBadges": [
       "Available immediately",
       "Munich area or remote",

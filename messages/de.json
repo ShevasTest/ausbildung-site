@@ -193,7 +193,8 @@
         "levelLabel": "Grundlagen vorhanden, aktive Auffrischung",
         "items": [
           "HTML & CSS (pixelgenaue Layouts)",
-          "JavaScript / TypeScript (Grundlagen, in Auffrischung)",
+          "JavaScript (Grundlagen, in Auffrischung)",
+          "TypeScript (lerne ich gerade — Sprache meiner E2E-Suite)",
           "React (Basics)",
           "Python (Basics)",
           "Next.js (KI-gestützte Projekte)"
@@ -254,7 +255,7 @@
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich bringe drei Jahre tägliche Automatisierungspraxis und professionelles KI-gestütztes Arbeiten mit und spreche offen über mein aktuelles Niveau beim eigenständigen Codeschreiben — JavaScript, TypeScript und Playwright frische ich gerade aktiv auf. Mein Ziel: zuverlässige, wartbare Testautomatisierung im Team.",
+    "closingText": "Ich bringe drei Jahre tägliche Automatisierungspraxis und professionelles KI-gestütztes Arbeiten mit und spreche offen über mein aktuelles Niveau beim eigenständigen Codeschreiben — JavaScript frische ich gerade aktiv auf, TypeScript und Playwright lerne ich neu. Mein Ziel: zuverlässige, wartbare Testautomatisierung im Team.",
     "closingBadges": [
       "Ab sofort verfügbar",
       "Raum München oder remote",
