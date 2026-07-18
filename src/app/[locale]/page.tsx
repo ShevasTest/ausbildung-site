@@ -56,7 +56,7 @@ export default async function HomePage({ params }: HomePageProps) {
       name: siteConfig.authorName,
       url: homeUrl,
       email: `mailto:${siteConfig.email}`,
-      sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl],
+      sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl, "https://t.me/Shevas_o"],
       jobTitle: isDe
         ? "Browser- & Testautomatisierung (KI-gestützt)"
         : "Browser & Test Automation (AI-assisted)",
