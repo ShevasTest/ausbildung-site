@@ -106,8 +106,8 @@ export default async function HomePage({ params }: HomePageProps) {
           </p>
           <p className="hero-lead">
             {isDe
-              ? "Seit rund drei Jahren baue und betreibe ich täglich Browser-Automatisierung — KI-gestützt, über mehr als 10.000 isolierte Browserprofile mit eigener Netzwerk-, Identitäts- und Session-Konfiguration. Diese Erfahrung bringe ich jetzt in zuverlässige Web-Testautomatisierung mit Playwright ein: Meine öffentliche E2E-Suite testet genau diese Website in der CI."
-              : "For around three years, I have built and operated browser automation every day — AI-assisted, across more than 10,000 isolated browser profiles with their own network, identity and session configuration. I am now transferring this experience into reliable web test automation with Playwright: my public e2e suite tests this very website in CI."}
+              ? "Seit rund drei Jahren baue und betreibe ich täglich Browser-Automatisierung — KI-gestützt, über viele isolierte Browserprofile mit eigener Netzwerk-, Identitäts- und Session-Konfiguration, die ich über Monate zuverlässig in Betrieb halte. Diese Erfahrung bringe ich jetzt in zuverlässige Web-Testautomatisierung mit Playwright ein: Meine öffentliche E2E-Suite testet genau diese Website in der CI."
+              : "For around three years, I have built and operated browser automation every day — AI-assisted, across many isolated browser profiles with their own network, identity and session configuration, kept reliably in operation over months. I am now transferring this experience into reliable web test automation with Playwright: my public e2e suite tests this very website in CI."}
           </p>
 
           <div className="hero-actions">

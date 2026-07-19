@@ -746,7 +746,7 @@ ${style.voice}
 - **Teamwert:** zeigen, wie deine Arbeitsweise einem professionellen Entwicklungsteam hilft.
 
 ### Beispiel-Formulierung
-"Ich arbeite seit rund drei Jahren täglich KI-gestützt an Browser-Automatisierung — mit mehr als 10.000 isolierten Browserprofilen. Meine besondere Stärke ist, komplexe Workflows zu zerlegen, Agenten gezielt zu steuern und Ergebnisse im echten Browser zu verifizieren. In einer QA-Rolle möchte ich diese Praxis in ein professionelles Team einbringen und meine Grundlagen weiter vertiefen."
+"Ich arbeite seit rund drei Jahren täglich KI-gestützt an Browser-Automatisierung — über viele isolierte Browserprofile hinweg, in 20+ Projekten und 100+ Workflows. Meine besondere Stärke ist, komplexe Workflows zu zerlegen, Agenten gezielt zu steuern und Ergebnisse im echten Browser zu verifizieren. In einer QA-Rolle möchte ich diese Praxis in ein professionelles Team einbringen und meine Grundlagen weiter vertiefen."
 
 ### Nächster Schritt
 - Verbinde diese Aussage mit 1–2 konkreten Portfolio-Projekten.
@@ -854,7 +854,7 @@ ${style.voice}
 - **Team value:** show how your workflow helps a professional development team.
 
 ### Example phrasing
-"For around three years I have worked on AI-assisted browser automation every day — across more than 10,000 isolated browser profiles. My particular strength is breaking down complex workflows, orchestrating agents deliberately and verifying results in the real browser. In a QA role, I want to bring this practice into a professional team and keep deepening my foundations."
+"For around three years I have worked on AI-assisted browser automation every day — across many isolated browser profiles, in 20+ projects and 100+ workflows. My particular strength is breaking down complex workflows, orchestrating agents deliberately and verifying results in the real browser. In a QA role, I want to bring this practice into a professional team and keep deepening my foundations."
 
 ### Next step
 - Link this statement to 1–2 portfolio projects.

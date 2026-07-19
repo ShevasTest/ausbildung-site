@@ -29,7 +29,7 @@
       "CI pipelines that catch regressions"
     ],
     "titleEnd": "and take ideas through to functional, verified results.",
-    "subtitle": "For around three years, I have built and operated browser automation every day — AI-assisted, across more than 10,000 isolated browser profiles with their own network, identity and session configuration. I now bring that verification mindset into web test automation with Playwright.",
+    "subtitle": "For around three years, I have built and operated browser automation every day — AI-assisted, across many isolated browser profiles with their own network, identity and session configuration, kept reliably in operation over months. I now bring that verification mindset into web test automation with Playwright.",
     "points": [
       "Public e2e suite for this very website: Playwright + TypeScript, Page Object Model, API and accessibility tests",
       "GitHub Actions CI — runs on every push and weekly against production",
@@ -62,7 +62,7 @@
     "lead": "My strength is not one specific framework, but structured problem-solving with automation, AI and verification — from the first idea to a checked result.",
     "paragraphs": [
       "My path started with a strong signal: after my degree in Economic Cybernetics (a ZAB-recognized bachelor's), I took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course — with pixel-perfect HTML/CSS work as my strongest discipline.",
-      "Since then, I have worked on browser automation every day for around three years — AI-assisted: I define the workflows, direct coding agents, verify behaviour in the real browser and debug through DevTools and network traffic analysis. The systems span more than 10,000 isolated browser profiles with their own network, identity and session configuration, with up to 10 sessions running concurrently. When an unstable workflow directly costs money, verification becomes a habit.",
+      "Since then, I have worked on browser automation every day for around three years — AI-assisted: I define the workflows, direct coding agents, verify behaviour in the real browser and debug through DevTools and network traffic analysis. The work spans many isolated browser profiles, each with its own network, identity and session configuration — 20+ projects and 100+ automated workflows, kept reliably in operation over months. When an unstable workflow directly costs money, verification becomes a habit.",
       "Today I focus that experience on web test automation. My public e2e suite (Playwright + TypeScript, Page Object Model, API contract tests, accessibility gate) tests this very website in CI — AI-assisted implementation, with scope, verification and debugging in my hands. I am looking for a QA / test automation role in a professional team."
     ],
     "highlights": [
@@ -162,7 +162,7 @@
       },
       {
         "name": "Browser automation & analysis",
-        "description": "Three years of daily practice across 10,000+ isolated browser profiles",
+        "description": "Three years of daily practice — 20+ projects, 100+ automated workflows",
         "level": 76,
         "levelLabel": "Extensive independent project practice",
         "items": [
@@ -234,10 +234,10 @@
       {
         "period": "2023 — present",
         "title": "Independent browser automation projects — AI-assisted",
-        "text": "Built and operated multi-account browser workflows daily: more than 10,000 isolated browser profiles with their own network, identity and session configuration, up to 10 concurrent sessions. Verification in the real browser, DevTools and custom mitmproxy traffic analysis — 20+ projects, 100+ scripts.",
+        "text": "Built and operated multi-account browser workflows daily: many isolated browser profiles with their own network, identity and session configuration, kept reliably in operation over months. Verification in the real browser, DevTools and custom mitmproxy traffic analysis — 20+ projects, 100+ scripts.",
         "focus": "Focus: Browser automation · Verification · Reliability",
         "chips": [
-          "10,000+ profiles",
+          "20+ projects",
           "100+ scripts",
           "Daily practice"
         ]
