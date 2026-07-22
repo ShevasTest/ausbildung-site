@@ -23,13 +23,13 @@
     "kicker": "Open to junior frontend / fullstack roles · anywhere in Germany or remote",
     "titleLead": "I build",
     "rotatingWords": [
-      "interfaces with React and Next.js",
+      "interfaces I implement AI-assisted and test myself",
       "pixel-perfect UI implementations",
       "small web apps with real APIs",
       "projects I verify and test myself"
     ],
     "titleEnd": "and take ideas through to functional, verified results.",
-    "subtitle": "My foundation: 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course, with pixel-perfect HTML/CSS as my strongest discipline. For around three years, I have also worked every day, AI-assisted, on my own automation and software projects. This portfolio itself is my current frontend project: built with Next.js, with several live demos and its own Playwright test suite.",
+    "subtitle": "My foundation: 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course, with pixel-perfect HTML/CSS as my strongest discipline. For around three years, I have also worked every day, AI-assisted, on my own automation and software projects. This portfolio itself is my current frontend project — implemented with Next.js, AI-assisted, with several live demos and its own Playwright test suite. I am learning Next.js and React from the ground up right now.",
     "points": [
       "This portfolio: Next.js, multilingual, several live demos with real APIs",
       "Own Playwright e2e suite tests this very website in CI",
@@ -63,7 +63,7 @@
     "paragraphs": [
       "My path started with a strong signal: after my degree in Economic Cybernetics (a ZAB-recognized bachelor's), I took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course — with pixel-perfect HTML/CSS work, matched against Figma files including messy ones, as my strongest discipline.",
       "Since then, I have worked on my own software and automation projects every day for around three years — AI-assisted: I define the requirements, direct coding agents, verify the result in the real browser and debug through DevTools and network traffic analysis. 20+ projects and 100+ automated workflows, kept reliably in operation over months. When an unstable workflow directly costs money, verification becomes a habit.",
-      "Today I am aiming that combination at professional frontend / fullstack work. This portfolio is my current project: Next.js, multilingual, several live demos with real APIs, plus my own Playwright e2e suite that tests this very website in CI. I am actively rebuilding my web fundamentals (JavaScript, TypeScript, React) and speak openly about where I currently stand — I am looking for a junior frontend / fullstack role where I can deepen that."
+      "Today I am aiming that combination at professional frontend / fullstack work. This portfolio is my current project: multilingual, several live demos with real APIs, implemented with Next.js — the implementation is AI-assisted, and I do not yet know Next.js independently. It also has its own Playwright e2e suite that tests this very website in CI. I am actively building up my web fundamentals (JavaScript, TypeScript, React) and speak openly about where I currently stand — I am looking for a junior frontend / fullstack role where I can learn and deepen that."
     ],
     "highlights": [
       {
@@ -99,7 +99,7 @@
       "facts": [
         "Location: Bavaria · anywhere in Germany or remote",
         "Languages: Ukrainian & Russian (native) · German B1 · English A2 (improving)",
-        "Focus: React · Next.js · TypeScript · AI-assisted development"
+        "Goal: learning React · Next.js · TypeScript · deepening AI-assisted development"
       ]
     }
   },
@@ -149,15 +149,15 @@
     "groups": [
       {
         "name": "Frontend fundamentals",
-        "description": "1st-place result among ~6,000 in the EPAM JS/FE Pre-School course — pixel-perfect HTML/CSS; JavaScript, TypeScript and React currently in active refresh",
-        "level": 46,
-        "levelLabel": "Strong foundation, actively refreshing",
+        "description": "1st-place result among ~6,000 in the EPAM JS/FE Pre-School course — pixel-perfect HTML/CSS as a strong foundation; JavaScript, TypeScript, React and Next.js are areas I am only now building up",
+        "level": 38,
+        "levelLabel": "Strong HTML/CSS foundation, the rest is a work in progress",
         "items": [
           "HTML & CSS (pixel-perfect layouts from Figma)",
           "JavaScript (foundations, refreshing)",
           "TypeScript (learning now — the language of my e2e suite)",
-          "React (basics)",
-          "Next.js (own live projects)",
+          "React (very small base, building it up now)",
+          "Next.js (do not know it independently yet — this portfolio was built AI-assisted)",
           "Python (basics)"
         ]
       },
@@ -242,7 +242,7 @@
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I bring a strong frontend foundation (top 1 of ~6,000 at EPAM), three years of daily automation practice and professional command of AI-assisted development, and I speak openly about my current hand-coding level — I am actively rebuilding my JavaScript fundamentals and deepening TypeScript and React right now. My goal: reliable, maintainable frontend work in a team.",
+    "closingText": "I bring a strong HTML/CSS foundation (top 1 of ~6,000 at EPAM), three years of daily automation practice and professional command of AI-assisted development, and I speak openly about my current hand-coding level — I am actively rebuilding my JavaScript fundamentals and learning TypeScript, React and Next.js from the ground up. My goal: reliable, maintainable frontend work in a team.",
     "closingBadges": [
       "Available immediately",
       "Anywhere in Germany or remote",

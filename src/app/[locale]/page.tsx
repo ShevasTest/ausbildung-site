@@ -106,8 +106,8 @@ export default async function HomePage({ params }: HomePageProps) {
           </p>
           <p className="hero-lead">
             {isDe
-              ? "Meine Grundlage: 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, stärkste Disziplin pixelgenaues HTML/CSS. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Automatisierungs- und Softwareprojekten. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt: gebaut mit Next.js, mit mehreren Live-Demos und einer eigenen Playwright-Testsuite."
-              : "My foundation: 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course, with pixel-perfect HTML/CSS as my strongest discipline. For around three years, I have also worked every day, AI-assisted, on my own automation and software projects. This portfolio itself is my current frontend project: built with Next.js, with several live demos and its own Playwright test suite."}
+              ? "Meine Grundlage: 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, stärkste Disziplin pixelgenaues HTML/CSS. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Automatisierungs- und Softwareprojekten. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt — umgesetzt mit Next.js, KI-gestützt, mit mehreren Live-Demos und einer eigenen Playwright-Testsuite. Next.js und React lerne ich gerade erst von Grund auf."
+              : "My foundation: 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course, with pixel-perfect HTML/CSS as my strongest discipline. For around three years, I have also worked every day, AI-assisted, on my own automation and software projects. This portfolio itself is my current frontend project — implemented with Next.js, AI-assisted, with several live demos and its own Playwright test suite. I am learning Next.js and React from the ground up right now."}
           </p>
 
           <div className="hero-actions">

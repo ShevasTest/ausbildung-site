@@ -746,7 +746,7 @@ ${style.voice}
 - **Teamwert:** zeigen, wie deine Arbeitsweise einem professionellen Entwicklungsteam hilft.
 
 ### Beispiel-Formulierung
-"Meine Grundlage ist der 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Projekten — 20+ Projekte, 100+ Workflows. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt, gebaut mit Next.js. In einer Junior-Frontend-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen und meine Grundlagen weiter vertiefen."
+"Meine Grundlage ist der 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Projekten — 20+ Projekte, 100+ Workflows. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt, umgesetzt mit Next.js — KI-gestützt, Next.js lerne ich gerade erst von Grund auf. In einer Junior-Frontend-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen und meine Grundlagen weiter aufbauen."
 
 ### Nächster Schritt
 - Verbinde diese Aussage mit 1–2 konkreten Portfolio-Projekten.
@@ -854,7 +854,7 @@ ${style.voice}
 - **Team value:** show how your workflow helps a professional development team.
 
 ### Example phrasing
-"My foundation is 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course. For around three years I have also worked on my own projects every day, AI-assisted — 20+ projects, 100+ workflows. This portfolio itself is my current frontend project, built with Next.js. In a junior frontend role, I want to bring this delivery ability into a professional team and keep deepening my foundations."
+"My foundation is 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course. For around three years I have also worked on my own projects every day, AI-assisted — 20+ projects, 100+ workflows. This portfolio itself is my current frontend project, implemented with Next.js — AI-assisted, and I'm still learning Next.js from the ground up. In a junior frontend role, I want to bring this delivery ability into a professional team and keep building up my foundations."
 
 ### Next step
 - Link this statement to 1–2 portfolio projects.

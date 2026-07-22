@@ -23,13 +23,13 @@
     "kicker": "Offen für Junior-Frontend-/Fullstack-Stellen · deutschlandweit oder remote",
     "titleLead": "Ich baue",
     "rotatingWords": [
-      "Interfaces mit React und Next.js",
+      "Interfaces, die ich KI-gestützt umsetze und selbst teste",
       "pixelgenaue UI-Umsetzungen",
       "kleine Web-Apps mit echten APIs",
       "Projekte, die ich selbst verifiziere und teste"
     ],
     "titleEnd": "und bringe Ideen bis zu einem funktionierenden, überprüften Ergebnis.",
-    "subtitle": "Meine Grundlage: 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, stärkste Disziplin pixelgenaues HTML/CSS. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Automatisierungs- und Softwareprojekten. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt: gebaut mit Next.js, mit mehreren Live-Demos und einer eigenen Playwright-Testsuite.",
+    "subtitle": "Meine Grundlage: 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, stärkste Disziplin pixelgenaues HTML/CSS. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Automatisierungs- und Softwareprojekten. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt — umgesetzt mit Next.js, KI-gestützt, mit mehreren Live-Demos und einer eigenen Playwright-Testsuite. Next.js und React lerne ich gerade erst von Grund auf.",
     "points": [
       "Dieses Portfolio: Next.js, mehrsprachig, mehrere Live-Demos mit echten APIs",
       "Eigene Playwright-E2E-Suite testet genau diese Website in der CI",
@@ -63,7 +63,7 @@
     "paragraphs": [
       "Mein Weg begann mit einem starken Signal: Nach meinem Studium der Wirtschaftskybernetik (ZAB-anerkannter Bachelor) erreichte ich den 1. Platz unter rund 6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM — meine stärkste Disziplin: pixelgenaue HTML/CSS-Umsetzung nach Figma-Vorlagen, auch bei unaufgeräumten Layouts.",
       "Seitdem arbeite ich seit rund drei Jahren täglich an eigenen Software- und Automatisierungsprojekten — KI-gestützt: Ich definiere die Anforderungen, steuere Coding-Agenten, verifiziere das Ergebnis im echten Browser und debugge über DevTools und Netzwerk-Traffic-Analyse. 20+ Projekte und 100+ automatisierte Workflows, über Monate zuverlässig in Betrieb. Wenn ein instabiler Workflow direkt Geld kostet, wird Verifikation zur Gewohnheit.",
-      "Heute richte ich diese Kombination auf professionelle Frontend-/Fullstack-Arbeit aus. Dieses Portfolio ist mein aktuelles Projekt: Next.js, mehrsprachig, mehrere Live-Demos mit echten APIs, dazu eine eigene Playwright-E2E-Suite, die genau diese Website in der CI testet. Meine Web-Grundlagen (JavaScript, TypeScript, React) frische ich gerade aktiv auf und spreche offen über meinen aktuellen Stand — ich suche eine Junior-Frontend-/Fullstack-Rolle, in der ich das vertiefen kann."
+      "Heute richte ich diese Kombination auf professionelle Frontend-/Fullstack-Arbeit aus. Dieses Portfolio ist mein aktuelles Projekt: mehrsprachig, mehrere Live-Demos mit echten APIs, umgesetzt mit Next.js — die Implementierung ist KI-gestützt, Next.js selbst kenne ich noch nicht eigenständig. Dazu eine eigene Playwright-E2E-Suite, die genau diese Website in der CI testet. Meine Web-Grundlagen (JavaScript, TypeScript, React) baue ich gerade aktiv auf und spreche offen über meinen aktuellen Stand — ich suche eine Junior-Frontend-/Fullstack-Rolle, in der ich das lernen und vertiefen kann."
     ],
     "highlights": [
       {
@@ -99,7 +99,7 @@
       "facts": [
         "Standort: Bayern · deutschlandweit oder remote",
         "Sprachen: Ukrainisch & Russisch (Muttersprache) · Deutsch B1 · Englisch A2 (im Aufbau)",
-        "Fokus: React · Next.js · TypeScript · KI-gestützte Entwicklung"
+        "Ziel: React · Next.js · TypeScript lernen · KI-gestützte Entwicklung vertiefen"
       ]
     }
   },
@@ -149,15 +149,15 @@
     "groups": [
       {
         "name": "Frontend-Grundlagen",
-        "description": "Top-1-Ergebnis unter ~6.000 im EPAM JS/FE Pre-School-Kurs — pixelgenaues HTML/CSS; JavaScript, TypeScript und React aktuell in aktiver Auffrischung",
-        "level": 46,
-        "levelLabel": "Starkes Fundament, aktive Auffrischung",
+        "description": "Top-1-Ergebnis unter ~6.000 im EPAM JS/FE Pre-School-Kurs — pixelgenaues HTML/CSS als starkes Fundament; JavaScript, TypeScript, React und Next.js sind Bereiche, die ich gerade erst aufbaue",
+        "level": 38,
+        "levelLabel": "Starkes HTML/CSS-Fundament, Rest im Aufbau",
         "items": [
           "HTML & CSS (pixelgenaue Layouts nach Figma)",
           "JavaScript (Grundlagen, in Auffrischung)",
           "TypeScript (lerne ich gerade — Sprache meiner E2E-Suite)",
-          "React (Basics)",
-          "Next.js (eigene Live-Projekte)",
+          "React (sehr kleine Basis, baue ich gerade auf)",
+          "Next.js (kenne ich noch nicht eigenständig — dieses Portfolio ist KI-gestützt entstanden)",
           "Python (Basics)"
         ]
       },
@@ -242,7 +242,7 @@
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich bringe ein starkes Frontend-Fundament (Top 1 / ~6.000 bei EPAM), drei Jahre tägliche Automatisierungspraxis und professionelles KI-gestütztes Arbeiten mit und spreche offen über mein aktuelles Niveau beim eigenständigen Codeschreiben — JavaScript frische ich gerade aktiv auf, TypeScript und React vertiefe ich gerade. Mein Ziel: zuverlässige, wartbare Frontend-Arbeit im Team.",
+    "closingText": "Ich bringe ein starkes HTML/CSS-Fundament (Top 1 / ~6.000 bei EPAM), drei Jahre tägliche Automatisierungspraxis und professionelles KI-gestütztes Arbeiten mit und spreche offen über mein aktuelles Niveau beim eigenständigen Codeschreiben — JavaScript frische ich gerade aktiv auf, TypeScript, React und Next.js lerne ich gerade von Grund auf. Mein Ziel: zuverlässige, wartbare Frontend-Arbeit im Team.",
     "closingBadges": [
       "Ab sofort verfügbar",
       "Deutschlandweit oder remote",
