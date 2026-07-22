@@ -9,16 +9,16 @@ export const contentType = "image/png";
 
 const copy = {
   de: {
-    badge: "Test Automation · Playwright",
+    badge: "Frontend · React/Next.js",
     title: "Oleksandr",
-    subtitle: "Browser-Automatisierung · Testautomatisierung · KI-gestützt",
-    points: "Playwright · E2E · API-Analyse · CI/CD",
+    subtitle: "Frontend-Entwicklung · React/Next.js · KI-gestützt",
+    points: "React · Next.js · TypeScript · eigene E2E-Suite",
   },
   en: {
-    badge: "Test Automation · Playwright",
+    badge: "Frontend · React/Next.js",
     title: "Oleksandr",
-    subtitle: "Browser Automation · Test Automation · AI-assisted",
-    points: "Playwright · E2E · API analysis · CI/CD",
+    subtitle: "Frontend Development · React/Next.js · AI-assisted",
+    points: "React · Next.js · TypeScript · own e2e suite",
   },
 } as const;
 

@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Oleksandr Test Automation Portfolio",
-    short_name: "OleksandrQA",
+    name: "Oleksandr Frontend Portfolio",
+    short_name: "OleksandrFE",
     description:
-      "Portfolio von Oleksandr — Web-Testautomatisierung mit Playwright, TypeScript und einer öffentlichen E2E-Suite in der CI.",
+      "Portfolio von Oleksandr — Frontend-Entwicklung mit React, Next.js und TypeScript, plus einer öffentlichen Playwright-E2E-Suite in der CI.",
     start_url: "/de",
     display: "standalone",
     background_color: "#101213",

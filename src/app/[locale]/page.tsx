@@ -58,14 +58,14 @@ export default async function HomePage({ params }: HomePageProps) {
       email: `mailto:${siteConfig.email}`,
       sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl, "https://t.me/Shevas_o"],
       jobTitle: isDe
-        ? "Browser- & Testautomatisierung (KI-gestützt)"
-        : "Browser & Test Automation (AI-assisted)",
+        ? "Frontend-Entwicklung (KI-gestützt)"
+        : "Frontend Development (AI-assisted)",
       knowsAbout: [
-        "Web test automation",
+        "Frontend development",
+        "React",
+        "Next.js",
+        "TypeScript",
         "Playwright",
-        "Browser automation",
-        "API testing",
-        "CI/CD",
       ],
     },
     {
@@ -90,24 +90,24 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="hero-copy hero-enter">
           <p className="portfolio-eyebrow">
             {isDe
-              ? "Offen für QA- & Testautomatisierungs-Stellen · Raum München"
-              : "Open to QA & test automation roles · Munich area"}
+              ? "Offen für Junior-Frontend-/Fullstack-Stellen · deutschlandweit oder remote"
+              : "Open to junior frontend / fullstack roles · anywhere in Germany or remote"}
           </p>
           <h1 className="hero-name">Oleksandr Shevchenko</h1>
           <p className="hero-role">
             {isDe
-              ? "Browser-Automatisierung · Testautomatisierung · KI-gestützte Entwicklung"
-              : "Browser Automation · Test Automation · AI-assisted Development"}
+              ? "Frontend-Entwicklung · React/Next.js · KI-gestützt"
+              : "Frontend Development · React/Next.js · AI-assisted"}
           </p>
           <p className="hero-specialty">
             {isDe
-              ? "Playwright · E2E · DevTools & API-Analyse · CI/CD"
-              : "Playwright · E2E · DevTools & API analysis · CI/CD"}
+              ? "React · Next.js · TypeScript · eigene Playwright-E2E-Suite"
+              : "React · Next.js · TypeScript · own Playwright e2e suite"}
           </p>
           <p className="hero-lead">
             {isDe
-              ? "Seit rund drei Jahren baue und betreibe ich täglich Browser-Automatisierung — KI-gestützt, über viele isolierte Browserprofile mit eigener Netzwerk-, Identitäts- und Session-Konfiguration, die ich über Monate zuverlässig in Betrieb halte. Diese Erfahrung bringe ich jetzt in zuverlässige Web-Testautomatisierung mit Playwright ein: Meine öffentliche E2E-Suite testet genau diese Website in der CI."
-              : "For around three years, I have built and operated browser automation every day — AI-assisted, across many isolated browser profiles with their own network, identity and session configuration, kept reliably in operation over months. I am now transferring this experience into reliable web test automation with Playwright: my public e2e suite tests this very website in CI."}
+              ? "Meine Grundlage: 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, stärkste Disziplin pixelgenaues HTML/CSS. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Automatisierungs- und Softwareprojekten. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt: gebaut mit Next.js, mit mehreren Live-Demos und einer eigenen Playwright-Testsuite."
+              : "My foundation: 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course, with pixel-perfect HTML/CSS as my strongest discipline. For around three years, I have also worked every day, AI-assisted, on my own automation and software projects. This portfolio itself is my current frontend project: built with Next.js, with several live demos and its own Playwright test suite."}
           </p>
 
           <div className="hero-actions">
@@ -256,8 +256,8 @@ export default async function HomePage({ params }: HomePageProps) {
         <h2>{isDe ? "Lernen wir uns kennen." : "Let’s get to know each other."}</h2>
         <p>
           {isDe
-            ? "Ich bin offen für QA- und Testautomatisierungs-Stellen, Probearbeit oder ein erstes technisches Kennenlerngespräch."
-            : "I am open to QA and test automation roles, trial work or an initial technical conversation."}
+            ? "Ich bin offen für Junior-Frontend-/Fullstack-Stellen, Probearbeit oder ein erstes technisches Kennenlerngespräch."
+            : "I am open to junior frontend / fullstack roles, trial work or an initial technical conversation."}
         </p>
         <a className="contact-email" href={`mailto:${siteConfig.email}`}>
           {siteConfig.email}

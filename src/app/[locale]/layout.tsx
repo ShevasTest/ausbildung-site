@@ -58,17 +58,17 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(siteConfig.baseUrl),
-    applicationName: "Oleksandr Test Automation Portfolio",
+    applicationName: "Oleksandr Frontend Portfolio",
     title: t("title"),
     description: t("description"),
     keywords: [
-      "Test Automation Engineer Germany",
-      "QA Portfolio",
-      "Playwright",
+      "Junior Frontend Developer Germany",
+      "Frontend Portfolio",
+      "React",
+      "Next.js",
       "TypeScript",
-      "Test Automation München",
       "Bewerbung Deutschland",
-      "E2E Testing",
+      "Playwright E2E Testing",
     ],
     authors: [{ name: siteConfig.authorName, url: siteConfig.baseUrl }],
     creator: siteConfig.authorName,

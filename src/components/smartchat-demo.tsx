@@ -209,7 +209,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     quickPromptsTitle: "Quick starters",
     quickPrompts: [
       "What is Oleksandr's strongest technical skill?",
-      "How can I explain initiative in a German QA / test automation interview?",
+      "How can I explain initiative in a German frontend interview?",
       "How exactly does streaming work in this chat?",
       "Which 3 UX details make a chat app feel professional?",
     ],
@@ -746,7 +746,7 @@ ${style.voice}
 - **Teamwert:** zeigen, wie deine Arbeitsweise einem professionellen Entwicklungsteam hilft.
 
 ### Beispiel-Formulierung
-"Ich arbeite seit rund drei Jahren täglich KI-gestützt an Browser-Automatisierung — über viele isolierte Browserprofile hinweg, in 20+ Projekten und 100+ Workflows. Meine besondere Stärke ist, komplexe Workflows zu zerlegen, Agenten gezielt zu steuern und Ergebnisse im echten Browser zu verifizieren. In einer QA-Rolle möchte ich diese Praxis in ein professionelles Team einbringen und meine Grundlagen weiter vertiefen."
+"Meine Grundlage ist der 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Projekten — 20+ Projekte, 100+ Workflows. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt, gebaut mit Next.js. In einer Junior-Frontend-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen und meine Grundlagen weiter vertiefen."
 
 ### Nächster Schritt
 - Verbinde diese Aussage mit 1–2 konkreten Portfolio-Projekten.
@@ -854,7 +854,7 @@ ${style.voice}
 - **Team value:** show how your workflow helps a professional development team.
 
 ### Example phrasing
-"For around three years I have worked on AI-assisted browser automation every day — across many isolated browser profiles, in 20+ projects and 100+ workflows. My particular strength is breaking down complex workflows, orchestrating agents deliberately and verifying results in the real browser. In a QA role, I want to bring this practice into a professional team and keep deepening my foundations."
+"My foundation is 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course. For around three years I have also worked on my own projects every day, AI-assisted — 20+ projects, 100+ workflows. This portfolio itself is my current frontend project, built with Next.js. In a junior frontend role, I want to bring this delivery ability into a professional team and keep deepening my foundations."
 
 ### Next step
 - Link this statement to 1–2 portfolio projects.

@@ -34,12 +34,12 @@ function languageInstruction(latestUserMessage: string, locale: "de" | "en") {
 
 const PORTFOLIO_FACTS = [
   "Verified portfolio facts:",
-  "- Oleksandr Shevchenko is open to QA / test automation roles in Germany (Munich area, on-site or remote).",
-  "- For around three years he has built and operated browser automation daily — AI-assisted — across many isolated browser profiles, each with its own network, identity and session configuration, kept reliably in operation over months; 20+ personal projects and 100+ automated workflows in total.",
-  "- His strongest area is AI-assisted engineering: task decomposition, agent orchestration, verification in the real browser, DevTools and network traffic analysis; 20+ personal projects and 100+ scripts/automations.",
-  "- He took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course; his strongest discipline was pixel-perfect HTML/CSS.",
-  "- His public Playwright + TypeScript e2e suite tests this website in CI (Page Object Model, fixtures, API and accessibility checks). The implementation is AI-assisted; scope, verification and debugging are his.",
-  "- Do not present him as an independent TypeScript, React or Next.js expert, and never claim years of hand-written Playwright code or professional QA team experience. Web fundamentals are being actively refreshed; modern framework projects were built mainly with AI assistance. Do not cite a specific number of browser profiles or accounts.",
+  "- Oleksandr Shevchenko is open to junior frontend / fullstack roles in Germany (anywhere in the country, on-site or remote).",
+  "- He took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course; his strongest discipline was pixel-perfect HTML/CSS matched against Figma files.",
+  "- For around three years he has built and operated his own software and automation projects daily — AI-assisted — across many isolated browser profiles, each with its own network, identity and session configuration, kept reliably in operation over months; 20+ personal projects and 100+ automated workflows in total.",
+  "- His strongest area is AI-assisted engineering: task decomposition, agent orchestration, verification in the real browser, DevTools and network traffic analysis.",
+  "- This portfolio itself is his current frontend project: a multilingual Next.js site with several live demos. It also has its own public Playwright + TypeScript e2e suite that tests the site in CI (Page Object Model, fixtures, API and accessibility checks). The implementation is AI-assisted; scope, verification and debugging are his.",
+  "- Do not present him as an independent TypeScript, React or Next.js expert, and never claim years of hand-written Playwright code or professional frontend/QA team experience. Web fundamentals (JavaScript, TypeScript, React) are being actively refreshed; modern framework projects were built mainly with AI assistance. Do not cite a specific number of browser profiles or accounts.",
   "- Public demos: AI Application Assistant, Rent Price Tracker, SmartChat and DevDash.",
   "- German level: B1. English level: A2 and improving. Ukrainian and Russian: native.",
 ].join(" ");
