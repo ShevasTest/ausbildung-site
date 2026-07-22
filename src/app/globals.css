@@ -1479,7 +1479,7 @@ body {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: clamp(4rem, 8vw, 7rem);
   border-block: 1px solid var(--border);
 }
@@ -1612,14 +1612,14 @@ body {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .skills-grid article:nth-child(3) {
+  .skills-grid article:nth-child(even) {
     border-right: 0;
   }
 
-  .skills-grid article:nth-child(n + 4) {
+  .skills-grid article:nth-child(n + 3) {
     border-top: 1px solid var(--border);
   }
 }
@@ -1761,11 +1761,6 @@ body {
   }
 
   .skills-grid article:nth-child(even) {
-    border-right: 0;
-  }
-
-  .skills-grid article:last-child {
-    grid-column: 1 / -1;
     border-right: 0;
   }
 
