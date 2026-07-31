@@ -168,7 +168,7 @@ export default async function HomePage({ params }: HomePageProps) {
             />
           </Link>
           <div className="featured-project-copy">
-            <p className="project-index">01 / 05</p>
+            <p className="project-index">01 / {String(projects.length).padStart(2, "0")}</p>
             <h3>{featuredProject.title}</h3>
             <p>{featuredProject.summary}</p>
             <ul className="tag-list" aria-label={isDe ? "Technologien" : "Technologies"}>
