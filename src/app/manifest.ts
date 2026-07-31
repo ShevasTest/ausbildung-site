@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Oleksandr Frontend Portfolio",
-    short_name: "OleksandrFE",
+    name: "Oleksandr Daten- & KI-Portfolio",
+    short_name: "OleksandrData",
     description:
-      "Portfolio von Oleksandr — Frontend-Entwicklung mit React, Next.js und TypeScript, plus einer öffentlichen Playwright-E2E-Suite in der CI.",
+      "Portfolio von Oleksandr — Datenaufbereitung, Automatisierung und KI-Agenten, plus einem öffentlichen RAG-Agenten über eine OpenAPI-Spezifikation.",
     start_url: "/de",
     display: "standalone",
     background_color: "#101213",

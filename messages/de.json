@@ -1,9 +1,9 @@
 {
   "Meta": {
-    "title": "Frontend-Portfolio",
-    "description": "Portfolio von Oleksandr — Frontend-Entwicklung mit React/Next.js, aufgebaut auf einem Top-Ergebnis im JS/FE-Kurs von RS School / EPAM und drei Jahren täglicher KI-gestützter Automatisierungspraxis.",
-    "ogTitle": "Oleksandr | Frontend-Portfolio",
-    "ogDescription": "Frontend-Entwicklung mit React/Next.js: mehrere Live-Projekte, ein Top-1-Ergebnis im EPAM JS/FE-Kurs und ehrliches KI-gestütztes Engineering.",
+    "title": "Daten- & KI-Portfolio",
+    "description": "Portfolio von Oleksandr — Datenaufbereitung, Automatisierung und KI-Agenten. Drei Jahre tägliche Praxis auf unsauberen, sich ständig ändernden Daten; RAG-Agent über eine OpenAPI-Spezifikation als Kernprojekt.",
+    "ogTitle": "Oleksandr | Daten- & KI-Portfolio",
+    "ogDescription": "Daten aufbereiten, Pipelines betreiben, KI-Agenten bauen — mit Messungen statt Vermutungen. Kernprojekt: RAG-Agent über eine offizielle OpenAPI-Spezifikation.",
     "projectTitle": "Projekt: {slug}",
     "projectDescription": "Projektdetails: Ziele, Tech Stack und Umsetzung."
   },
@@ -19,32 +19,32 @@
     "theme": "Designmodus"
   },
   "Hero": {
-    "badge": "Frontend-Entwicklung · React/Next.js · KI-gestützt",
-    "kicker": "Offen für Junior-Frontend-/Fullstack-Stellen · deutschlandweit oder remote",
+    "badge": "Daten & Pipelines · KI-Agenten · KI-gestützt",
+    "kicker": "Offen für Junior-Rollen in Daten- und KI-Engineering · remote oder in Bayern",
     "titleLead": "Ich baue",
     "rotatingWords": [
-      "Interfaces, die ich KI-gestützt umsetze und selbst teste",
-      "pixelgenaue UI-Umsetzungen",
-      "kleine Web-Apps mit echten APIs",
-      "Projekte, die ich selbst verifiziere und teste"
+      "Pipelines, die unsaubere Daten überstehen",
+      "KI-Agenten, deren Ausgabe überprüfbar ist",
+      "Automatisierung, die über Monate läuft",
+      "Systeme, die ich messe statt vermute"
     ],
-    "titleEnd": "und bringe Ideen bis zu einem funktionierenden, überprüften Ergebnis.",
-    "subtitle": "Meine Grundlage: 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, stärkste Disziplin pixelgenaues HTML/CSS. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Automatisierungs- und Softwareprojekten. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt — umgesetzt mit Next.js, KI-gestützt, mit mehreren Live-Demos und einer eigenen Playwright-Testsuite. Next.js und React lerne ich gerade erst von Grund auf.",
+    "titleEnd": "und bringe sie bis zu einem Ergebnis, das ich belegen kann.",
+    "subtitle": "Seit rund drei Jahren arbeite ich täglich mit Daten, die verschmutzt sind, sich ständig ändern und trotzdem verarbeitet werden müssen. Daraus ist eine Arbeitsweise geworden: messen, bevor ich etwas behaupte, und umbauen, wenn die Messung schlecht ausfällt. Mein Kernprojekt ist ein RAG-Agent über eine offizielle OpenAPI-Spezifikation — an einem Tag entstanden und an diesem Tag zweimal überarbeitet, weil die Messwerte es verlangten.",
     "points": [
-      "Dieses Portfolio: Next.js, mehrsprachig, mehrere Live-Demos mit echten APIs",
-      "Eigene Playwright-E2E-Suite testet genau diese Website in der CI",
-      "Mehr als 20 eigene Projekte und über 100 Skripte und Automatisierungen",
+      "mono-api-agent: RAG über eine OpenAPI-Spezifikation, deterministische Halluzinationsprüfung",
+      "Drei Jahre tägliche Automatisierung auf unsauberen, sich ändernden Daten",
+      "Mehr als 20 eigene Projekte und über 100 Skripte und Workflows",
       "1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM"
     ],
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
-    "panelTitle": "Starkes Fundament. Bereit für professionelle Frontend-Arbeit.",
-    "panelText": "Ich kann eine UI-Idee schnell in ein funktionierendes, überprüftes Ergebnis übersetzen — KI-gestützt, mit Verifikation und Debugging in meiner Hand. In einer Junior-Frontend-/Fullstack-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen, meine Grundlagen vertiefen und von erfahrenen Entwickler:innen lernen.",
+    "panelTitle": "Datenqualität ernst nehmen. Ergebnisse belegen statt behaupten.",
+    "panelText": "Ein Modell wird nie besser als seine Daten — und eine Pipeline ist nur so gut wie ihr schlechtester Eingabetag. Genau dort liegt meine Praxis: Daten aufbereiten und bereinigen, Fehlerhaftes finden, Verarbeitung automatisieren und den Betrieb stabil halten. In einer Junior-Rolle möchte ich das in ein Team einbringen und von erfahrenen Leuten lernen, wo meine Grundlagen noch dünn sind.",
     "stats": [
       {
         "label": "Kernprojekt",
-        "value": "Dieses Portfolio — Next.js, live"
+        "value": "mono-api-agent — RAG, öffentlich"
       },
       {
         "label": "Automatisierung",
@@ -52,18 +52,18 @@
       },
       {
         "label": "Arbeitsweise",
-        "value": "Pixelgenaue Umsetzung · Verifikation · Iteration"
+        "value": "Messen · Verifizieren · Umbauen"
       }
     ]
   },
   "About": {
     "title": "Über mich",
-    "eyebrow": "Frontend-Grundlage plus drei Jahre Automatisierungspraxis",
-    "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern strukturiertes Problemlösen mit Frontend-Grundlagen, KI und Verifikation — von der Idee bis zum überprüften Ergebnis.",
+    "eyebrow": "Drei Jahre Praxis auf Daten, die nie sauber sind",
+    "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern der Umgang mit unzuverlässigen Daten: aufbereiten, prüfen, automatisieren — und das Ergebnis messen, bevor ich es für fertig erkläre.",
     "paragraphs": [
-      "Mein Weg begann mit einem starken Signal: Nach meinem Studium der Wirtschaftskybernetik (ZAB-anerkannter Bachelor) erreichte ich den 1. Platz unter rund 6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM — meine stärkste Disziplin: pixelgenaue HTML/CSS-Umsetzung nach Figma-Vorlagen, auch bei unaufgeräumten Layouts.",
-      "Seitdem arbeite ich seit rund drei Jahren täglich an eigenen Software- und Automatisierungsprojekten — KI-gestützt: Ich definiere die Anforderungen, steuere Coding-Agenten, verifiziere das Ergebnis im echten Browser und debugge über DevTools und Netzwerk-Traffic-Analyse. 20+ Projekte und 100+ automatisierte Workflows, über Monate zuverlässig in Betrieb. Wenn ein instabiler Workflow direkt Geld kostet, wird Verifikation zur Gewohnheit.",
-      "Heute richte ich diese Kombination auf professionelle Frontend-/Fullstack-Arbeit aus. Dieses Portfolio ist mein aktuelles Projekt: mehrsprachig, mehrere Live-Demos mit echten APIs, umgesetzt mit Next.js — die Implementierung ist KI-gestützt, Next.js selbst kenne ich noch nicht eigenständig. Dazu eine eigene Playwright-E2E-Suite, die genau diese Website in der CI testet. Meine Web-Grundlagen (JavaScript, TypeScript, React) baue ich gerade aktiv auf und spreche offen über meinen aktuellen Stand — ich suche eine Junior-Frontend-/Fullstack-Rolle, in der ich das lernen und vertiefen kann."
+      "Nach meinem Studium der Wirtschaftskybernetik (ZAB-anerkannter Bachelor, also mathematische Modellierung und Informationssysteme) erreichte ich den 1. Platz unter rund 6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM. Das ist die einzige Zahl über mich, die sich in einer Sekunde überprüfen lässt — und sie sagt vor allem eines: Ich lerne schnell, wenn ich einen konkreten Gegenstand habe.",
+      "Seitdem arbeite ich seit rund drei Jahren täglich an eigenen Software- und Automatisierungsprojekten — KI-gestützt: Ich definiere die Anforderungen, steuere Coding-Agenten, verifiziere das Ergebnis und debugge über DevTools und Netzwerk-Traffic-Analyse. Die Eingangsdaten waren dabei nie sauber und selten stabil. 20+ Projekte und 100+ automatisierte Workflows, über Monate zuverlässig in Betrieb. Wenn ein instabiler Workflow direkt Geld kostet, wird Verifikation zur Gewohnheit.",
+      "Heute richte ich diese Kombination auf Daten- und KI-Engineering aus. Mein Kernprojekt ist mono-api-agent: ein RAG-Agent über die offizielle OpenAPI-Spezifikation von monobank, an einem Tag entstanden. Chunking pro API-Methode statt nach Zeichenzahl, Embedding über den Methodenzweck statt über den vollständigen Chunk, deterministische Halluzinationsprüfung statt LLM-Judge. Am selben Tag habe ich zweimal umgebaut, was bereits funktionierte, weil die Messungen zeigten, dass es schlecht funktionierte. Modelle in Produktion trainiert habe ich nicht — das ist der Bereich, in dem ich lernen will."
     ],
     "highlights": [
       {
@@ -71,8 +71,8 @@
         "value": "Ich arbeite seit rund drei Jahren täglich an eigenen Software- und Automatisierungsaufgaben."
       },
       {
-        "label": "Frontend-Fundament",
-        "value": "1. Platz unter ~6.000 im EPAM JS/FE Pre-School-Kurs — pixelgenaues HTML/CSS als stärkste Disziplin."
+        "label": "Messen statt vermuten",
+        "value": "Ich baue auch Funktionierendes um, wenn die Messwerte zeigen, dass es schlecht funktioniert."
       },
       {
         "label": "KI- & Agenten-Workflows",
@@ -80,45 +80,51 @@
       },
       {
         "label": "Sofort verfügbar",
-        "value": "Wohnhaft in Bayern, offen für Frontend-/Fullstack-Stellen deutschlandweit oder remote."
+        "value": "Wohnhaft in Bayern, offen für Daten- und KI-Rollen remote oder vor Ort."
       }
     ],
     "motivationTitle": "Was ein Team von mir bekommt",
     "motivationPoints": [
-      "Ich übersetze unklare Anforderungen in konkrete Arbeitsschritte und funktionierende, getestete Lösungen.",
-      "Ich nutze KI nicht als Blackbox: Ergebnisse werden getestet, hinterfragt und iterativ verbessert.",
-      "Ich spreche offen über Wissenslücken und möchte von erfahrenen Entwickler:innen saubere Frontend-Praktiken lernen."
+      "Ich übersetze unklare Anforderungen in konkrete Arbeitsschritte und überprüfbare Ergebnisse.",
+      "Ich nutze KI nicht als Blackbox: Ergebnisse werden gemessen, hinterfragt und iterativ verbessert.",
+      "Ich spreche offen über Wissenslücken, statt sie zu überspielen — auch in einer Bewerbung."
     ],
     "profile": {
       "badge": "Profil",
       "name": "Oleksandr Shevchenko",
-      "role": "Frontend-Entwicklung (KI-gestützt)",
+      "role": "Daten & KI-Engineering (KI-gestützt)",
       "initials": "OS",
       "placeholder": "Foto folgt",
-      "caption": "Starkes Frontend-Fundament (Top 1 / ~6.000 bei EPAM) plus drei Jahre tägliche Automatisierungspraxis — jetzt fokussiert auf professionelle Frontend-/Fullstack-Arbeit in einem Team.",
+      "caption": "Drei Jahre tägliche Praxis auf unsauberen Daten, ein öffentlicher RAG-Agent als Kernprojekt und ein Top-1-Ergebnis unter ~6.000 bei EPAM — jetzt ausgerichtet auf Daten- und KI-Arbeit im Team.",
       "facts": [
-        "Standort: Bayern · deutschlandweit oder remote",
-        "Sprachen: Ukrainisch & Russisch (Muttersprache) · Deutsch B1 · Englisch A2 (im Aufbau)",
-        "Ziel: React · Next.js · TypeScript lernen · KI-gestützte Entwicklung vertiefen"
+        "Standort: Bayern · remote oder vor Ort",
+        "Sprachen: Ukrainisch & Russisch (Muttersprache) · Deutsch B1 · Englisch A2 (techn. Doku täglich)",
+        "Ziel: Datenqualität, Pipelines und angewandte KI im professionellen Umfeld"
       ]
     }
   },
   "Projects": {
     "title": "Projekte",
     "eyebrow": "Ausgewählte Arbeiten",
-    "intro": "Dieses Portfolio selbst ist das Kernprojekt: eine mehrsprachige Next.js-Seite mit mehreren Live-Demos. Die eigene E2E-Testsuite prüft sie in der CI.",
+    "intro": "Das Kernprojekt ist mono-api-agent — ein RAG-Agent über eine offizielle OpenAPI-Spezifikation. Dazu eine eigene E2E-Testsuite und mehrere Live-Demos auf dieser Seite.",
     "items": [
+      {
+        "slug": "mono-api-agent",
+        "title": "mono-api-agent",
+        "summary": "RAG-Agent über die offizielle OpenAPI-Spezifikation von monobank: Chunking pro Methode, hybride Suche und eine deterministische Halluzinationsprüfung statt LLM-Judge.",
+        "stack": "TypeScript · LangGraph · lokale Embeddings"
+      },
+      {
+        "slug": "e2e-suite",
+        "title": "Portfolio E2E-Testsuite",
+        "summary": "Eigene Playwright + TypeScript E2E-Suite, die diese Website in der CI testet: UI, API und Accessibility — Desktop und Mobile.",
+        "stack": "Playwright · TypeScript · GitHub Actions"
+      },
       {
         "slug": "ki-bewerbungshelfer",
         "title": "KI-Bewerbungshelfer",
         "summary": "Analysiert Stellenanzeigen und erstellt personalisierte Anschreiben mit editierbarem Export.",
         "stack": "Next.js · LLM-Streaming · API-Routen"
-      },
-      {
-        "slug": "mietpreise-tracker",
-        "title": "Mietpreise-Tracker",
-        "summary": "Vergleicht Mietkosten deutscher Städte mit Trends und einem Einkommensrechner.",
-        "stack": "Next.js · Marktdaten Q4 2025 · SVG-Charts"
       },
       {
         "slug": "smartchat",
@@ -133,10 +139,10 @@
         "stack": "Next.js · Live-APIs · PWA"
       },
       {
-        "slug": "e2e-suite",
-        "title": "Portfolio E2E-Testsuite",
-        "summary": "Eigene Playwright + TypeScript E2E-Suite, die diese Website in der CI testet: UI, API und Accessibility — Desktop und Mobile.",
-        "stack": "Playwright · TypeScript · GitHub Actions"
+        "slug": "mietpreise-tracker",
+        "title": "Mietpreise-Tracker",
+        "summary": "Vergleicht Mietkosten deutscher Städte mit Trends und einem Einkommensrechner.",
+        "stack": "Next.js · Marktdaten Q4 2025 · SVG-Charts"
       }
     ],
     "openProject": "Details"
@@ -144,60 +150,58 @@
   "Skills": {
     "title": "Kenntnisse",
     "eyebrow": "Werkzeuge & Wissen",
-    "intro": "Mein Profil verbindet ein starkes Frontend-Fundament mit bewusst ehrlich eingeordnetem aktuellem Stand und intensiver Automatisierungspraxis.",
+    "intro": "Mein Profil verbindet drei Jahre tägliche Datenpraxis mit bewusst ehrlich eingeordneten Lücken — besonders dort, wo es um trainierte Modelle geht.",
     "legend": "Selbsteinschätzung auf Basis meiner tatsächlichen täglichen Praxis",
     "groups": [
       {
-        "name": "Frontend-Grundlagen",
-        "description": "Top-1-Ergebnis unter ~6.000 im EPAM JS/FE Pre-School-Kurs — pixelgenaues HTML/CSS als starkes Fundament; JavaScript, TypeScript, React und Next.js sind Bereiche, die ich gerade erst aufbaue",
-        "level": 38,
-        "levelLabel": "Starkes HTML/CSS-Fundament, Rest im Aufbau",
+        "name": "Daten & Pipelines",
+        "description": "Der Kern meiner Praxis: Daten aufbereiten und bereinigen, fehlerhafte Datensätze finden, Verarbeitung automatisieren und den Betrieb über Monate stabil halten",
+        "level": 72,
+        "levelLabel": "Tägliche Praxis seit rund drei Jahren",
         "items": [
-          "HTML & CSS (pixelgenaue Layouts nach Figma)",
-          "JavaScript (Grundlagen, in Auffrischung)",
-          "TypeScript (lerne ich gerade — Sprache meiner E2E-Suite)",
-          "React (sehr kleine Basis, baue ich gerade auf)",
-          "Next.js (kenne ich noch nicht eigenständig — dieses Portfolio ist KI-gestützt entstanden)",
-          "Python (Basics)"
+          "Datenaufbereitung & -bereinigung",
+          "Fehlerhafte und unvollständige Datensätze aufspüren",
+          "Formatkonvertierung & Validierung",
+          "Python für Automatisierung und Skripting",
+          "Pipeline-Betrieb unter wechselnden Eingaben"
         ]
       },
       {
-        "name": "KI & Agenten",
-        "description": "Fortgeschrittene Steuerung von Modellen, Agenten, Kontext, Tools und parallelen Aufgaben",
-        "level": 92,
+        "name": "KI, Agenten & RAG",
+        "description": "Steuerung von Modellen, Agenten, Kontext und Tools — dazu Retrieval-Architektur aus dem eigenen RAG-Projekt",
+        "level": 88,
         "levelLabel": "Zentrale Stärke aus drei Jahren täglicher Praxis",
         "items": [
-          "Multi-Agent-Workflows",
-          "Prompt- & Kontext-Engineering",
-          "Tool- und API-Nutzung",
-          "Agentisches Debugging",
-          "Qualitätskontrolle"
+          "RAG: Chunking-Strategien, Embeddings, Vektorsuche",
+          "Hybride Suche (lexikalisches Signal über Vektoren)",
+          "Deterministische Prüfung statt LLM-Judge",
+          "Multi-Agent-Workflows (LangGraph)",
+          "Prompt- & Kontext-Engineering"
         ]
       },
       {
-        "name": "Browser-Automatisierung & Testing",
+        "name": "Automatisierung & Testing",
         "description": "Drei Jahre tägliche Praxis — 20+ Projekte, 100+ automatisierte Workflows; dazu eine eigene Playwright-E2E-Suite für dieses Portfolio",
         "level": 68,
         "levelLabel": "Umfangreiche eigenständige Projektpraxis",
         "items": [
           "Playwright (öffentliche E2E-Suite)",
-          "Page Object Model & Fixtures",
-          "DevTools-Netzwerkanalyse",
-          "Session- & Profil-State-Management",
+          "Browser-Automatisierung",
+          "DevTools- & Netzwerkanalyse",
+          "Git / GitHub Actions (CI)",
           "Fehleranalyse & Recovery"
         ]
       },
       {
-        "name": "Soft Skills",
-        "description": "Arbeitsweise für ein professionelles Team: Ehrlichkeit, Eigeninitiative und Lernbereitschaft.",
-        "level": 80,
-        "levelLabel": "Zuverlässig, lernbereit und strukturiert",
+        "name": "Machine Learning",
+        "description": "Der Bereich, in dem ich am wenigsten mitbringe — und das schreibe ich lieber hin, als es im Gespräch zu erklären: Grundlagen ja, trainierte Modelle in Produktion nein",
+        "level": 22,
+        "levelLabel": "Grundlagen, kein Produktionseinsatz",
         "items": [
-          "Eigeninitiative",
-          "Strukturierte Problemlösung",
-          "Dokumentation",
-          "Feedback-Umsetzung",
-          "Kontinuierliches Lernen"
+          "Metriken lesen und einordnen",
+          "Trainingsverläufe interpretieren",
+          "Keine eigenen Modelle in Produktion trainiert",
+          "Aktueller Lernschwerpunkt"
         ]
       }
     ]
@@ -205,24 +209,24 @@
   "Resume": {
     "eyebrow": "Werdegang & Projekte",
     "title": "Lebenslauf",
-    "intro": "Mein Weg verbindet einen anerkannten Abschluss, ein Top-Kursergebnis im Frontend und drei Jahre tägliche Automatisierungspraxis — jetzt ausgerichtet auf professionelle Frontend-/Fullstack-Arbeit.",
+    "intro": "Mein Weg verbindet einen anerkannten Abschluss, ein Top-Kursergebnis und drei Jahre tägliche Praxis mit unsauberen Daten — jetzt ausgerichtet auf Daten- und KI-Engineering.",
     "timeline": [
       {
         "period": "2018 — 2022",
         "title": "Bachelor Wirtschaftskybernetik — ZAB-anerkannt",
-        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw), von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM — stärkste Disziplin: pixelgenaue HTML/CSS-Umsetzung.",
-        "focus": "Basis: Abschluss · EPAM RS School Top 1 · HTML/CSS",
+        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw) — mathematische Modellierung und Informationssysteme, von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM.",
+        "focus": "Basis: Abschluss · EPAM RS School Top 1",
         "chips": [
           "Bachelor + ZAB",
           "Top 1 / ~6.000",
-          "Pixelgenaues HTML/CSS"
+          "Mathem. Modellierung"
         ]
       },
       {
         "period": "2023 — heute",
         "title": "Eigene Software- & Automatisierungsprojekte — KI-gestützt",
-        "text": "Täglich eigene Projekte aufgebaut und betrieben: von Browser-Workflows bis zu kleinen Web-Apps. Verifikation im echten Browser, DevTools und eigene Traffic-Analyse — 20+ Projekte, 100+ Skripte und Workflows, über Monate zuverlässig in Betrieb.",
-        "focus": "Fokus: Eigene Projekte · Verifikation · Zuverlässigkeit",
+        "text": "Täglich eigene Projekte aufgebaut und betrieben, durchgehend auf Daten, die verschmutzt waren und sich ständig änderten. Verifikation, DevTools und eigene Traffic-Analyse — 20+ Projekte, 100+ Skripte und Workflows, über Monate zuverlässig in Betrieb.",
+        "focus": "Fokus: Unsaubere Daten · Verifikation · Zuverlässigkeit",
         "chips": [
           "20+ Projekte",
           "100+ Skripte",
@@ -231,29 +235,29 @@
       },
       {
         "period": "2026",
-        "title": "Fokus: professionelle Frontend-/Fullstack-Arbeit",
-        "text": "Dieses Portfolio als aktuelles Frontend-Projekt gebaut und veröffentlicht: Next.js, mehrsprachig, mehrere Live-Demos mit echten APIs, dazu eine eigene Playwright-E2E-Suite, die die Website in der CI testet — KI-gestützte Implementierung; Anforderungen, Verifikation und Debugging liegen bei mir. Ich suche eine Junior-Frontend-/Fullstack-Rolle in einem professionellen Team.",
-        "focus": "Ziel: Frontend/Fullstack, saubere Grundlagen, Teamarbeit",
+        "title": "Fokus: Daten- & KI-Engineering",
+        "text": "mono-api-agent gebaut und veröffentlicht: ein RAG-Agent über die offizielle OpenAPI-Spezifikation von monobank, an einem Tag entstanden und an diesem Tag zweimal überarbeitet, weil die Messwerte es verlangten — Chunking pro Methode, Embedding über den Methodenzweck, deterministische Halluzinationsprüfung (60 s → 2,8 s, fünf Modellaufrufe → zwei). Ich suche eine Junior-Rolle, in der ich das in einem Team weiterentwickle.",
+        "focus": "Ziel: Datenqualität, Retrieval, angewandte KI",
         "chips": [
-          "Live-Portfolio (Next.js)",
-          "Eigene E2E-Suite",
-          "Frontend-Fokus"
+          "mono-api-agent (öffentlich)",
+          "RAG & Retrieval",
+          "Messbare Ergebnisse"
         ]
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich bringe ein starkes HTML/CSS-Fundament (Top 1 / ~6.000 bei EPAM), drei Jahre tägliche Automatisierungspraxis und professionelles KI-gestütztes Arbeiten mit und spreche offen über mein aktuelles Niveau beim eigenständigen Codeschreiben — JavaScript frische ich gerade aktiv auf, TypeScript, React und Next.js lerne ich gerade von Grund auf. Mein Ziel: zuverlässige, wartbare Frontend-Arbeit im Team.",
+    "closingText": "Ich bringe drei Jahre tägliche Praxis mit unzuverlässigen Daten mit, ein öffentliches RAG-Projekt mit nachvollziehbaren Entscheidungen und die Gewohnheit, Ergebnisse zu messen statt sie zu behaupten. Über meine Lücken spreche ich offen: Modelle in Produktion habe ich nicht trainiert, und mein eigenständiges Codeschreiben frische ich gerade aktiv auf. Mein Ziel: zuverlässige Datenarbeit im Team.",
     "closingBadges": [
       "Ab sofort verfügbar",
-      "Deutschlandweit oder remote",
+      "Remote oder vor Ort",
       "Schnelle Lernkurve",
-      "Zuverlässigkeit im Fokus"
+      "Datenqualität im Fokus"
     ]
   },
   "Contact": {
     "eyebrow": "Kontakt & nächster Schritt",
     "title": "Kontakt",
-    "intro": "Ich freue mich über Gespräche zu Junior-Frontend-/Fullstack-Stellen — deutschlandweit oder remote.",
+    "intro": "Ich freue mich über Gespräche zu Junior-Rollen in Daten- und KI-Engineering — remote oder in Bayern.",
     "linksTitle": "Direkte Kontaktwege",
     "linksIntro": "Für eine schnelle Rückmeldung erreichen Sie mich direkt per E-Mail oder über meine Profile.",
     "quickLinks": [
@@ -268,11 +272,6 @@
         "href": "https://github.com/ShevasTest"
       },
       {
-        "label": "LinkedIn",
-        "value": "linkedin.com/in/oleksandr-it",
-        "href": "https://www.linkedin.com/in/oleksandr-it/"
-      },
-      {
         "label": "Telegram",
         "value": "t.me/Shevas_o",
         "href": "https://t.me/Shevas_o"
@@ -285,7 +284,7 @@
     ],
     "availability": {
       "title": "Verfügbarkeit",
-      "text": "Aktiv auf Jobsuche. Offen für Junior-Frontend-/Fullstack-Stellen und Probearbeit — deutschlandweit oder remote.",
+      "text": "Aktiv auf Jobsuche. Offen für Junior-Rollen in Daten- und KI-Engineering — remote oder vor Ort.",
       "badges": [
         "Ab sofort",
         "Remote oder vor Ort",
@@ -319,7 +318,7 @@
       "messageRequired": "Bitte fügen Sie eine Nachricht hinzu.",
       "messageMin": "Bitte schreiben Sie mindestens 24 Zeichen, damit ich den Kontext verstehe."
     },
-    "mailSubject": "Kontakt über Portfolio — Frontend",
+    "mailSubject": "Kontakt über Portfolio — Daten & KI",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {

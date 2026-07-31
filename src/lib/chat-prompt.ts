@@ -34,12 +34,13 @@ function languageInstruction(latestUserMessage: string, locale: "de" | "en") {
 
 const PORTFOLIO_FACTS = [
   "Verified portfolio facts:",
-  "- Oleksandr Shevchenko is open to junior frontend / fullstack roles in Germany (anywhere in the country, on-site or remote).",
-  "- He took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course; his strongest discipline was pixel-perfect HTML/CSS matched against Figma files.",
-  "- For around three years he has built and operated his own software and automation projects daily — AI-assisted — across many isolated browser profiles, each with its own network, identity and session configuration, kept reliably in operation over months; 20+ personal projects and 100+ automated workflows in total.",
-  "- His strongest area is AI-assisted engineering: task decomposition, agent orchestration, verification in the real browser, DevTools and network traffic analysis.",
-  "- This portfolio itself is his current frontend project: a multilingual Next.js site with several live demos. It also has its own public Playwright + TypeScript e2e suite that tests the site in CI (Page Object Model, fixtures, API and accessibility checks). The implementation is AI-assisted; scope, verification and debugging are his.",
-  "- Do not present him as an independent TypeScript, React or Next.js expert, and never claim years of hand-written Playwright code or professional frontend/QA team experience. He does not know Next.js independently yet — this portfolio's implementation is AI-assisted. His React knowledge is only a very small foundation he is now building up. JavaScript fundamentals are being actively refreshed. Do not cite a specific number of browser profiles or accounts.",
+  "- Oleksandr Shevchenko is open to junior roles in data and AI engineering — remote or on site in Bavaria.",
+  "- He took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course. It is the one externally verifiable measure of how fast he learns.",
+  "- For around three years he has built and operated his own software and automation projects daily — AI-assisted — consistently on input data that was messy and constantly changing, kept reliably in operation over months; 20+ personal projects and 100+ automated workflows in total.",
+  "- His core project is mono-api-agent: a RAG agent over monobank's official OpenAPI specification, built in one day. Chunking per API method instead of by character count; embeddings computed over the method's purpose rather than the full chunk; a lexical signal layered over vector search; a deterministic hallucination check instead of an LLM judge (60 s to 2.8 s, five model calls to two). Public at github.com/ShevasTest/mono-api-agent.",
+  "- His strongest area is AI-assisted engineering: task decomposition, agent orchestration, retrieval design, verification and measurement.",
+  "- This portfolio is a multilingual Next.js site with several live demos and its own public Playwright + TypeScript e2e suite that tests the site in CI. The implementation is AI-assisted; scope, verification and debugging are his.",
+  "- Honest limits, state them plainly if asked: he has not trained machine-learning models in production, he has no commercial team experience, and he does not know Next.js independently — this site's implementation is AI-assisted. JavaScript fundamentals are being actively refreshed. Never claim years of hand-written code or professional team experience. Do not cite a specific number of browser profiles or accounts.",
   "- Public demos: AI Application Assistant, Rent Price Tracker, SmartChat and DevDash.",
   "- German level: B1. English level: A2 and improving. Ukrainian and Russian: native.",
 ].join(" ");

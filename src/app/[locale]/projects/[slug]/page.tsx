@@ -15,6 +15,7 @@ import {
 } from "@/lib/seo";
 
 const projectSlugs = [
+  "mono-api-agent",
   "e2e-suite",
   "ki-bewerbungshelfer",
   "mietpreise-tracker",
@@ -170,6 +171,41 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   };
 
   const structuredData = toJsonLd([projectStructuredData, breadcrumbStructuredData]);
+
+  if (slug === "mono-api-agent") {
+    const isDe = safeLocale === "de";
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
+        <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
+          <section className="overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8">
+            <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              {isDe ? "Öffentliches Repository · Kernprojekt" : "Public repository · core project"}
+            </span>
+            <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h1>
+            <p className="mt-4 max-w-3xl leading-relaxed text-muted">{summary}</p>
+            <ul className="mt-6 grid max-w-3xl gap-2 text-sm leading-relaxed text-muted sm:grid-cols-2">
+              <li>— {isDe ? "25 Endpunkte und 45 Schemata, ~70 Chunks" : "25 endpoints and 45 schemas, ~70 chunks"}</li>
+              <li>— {isDe ? "Chunking pro Methode, nicht nach Zeichenzahl" : "Chunking per method, not by character count"}</li>
+              <li>— {isDe ? "Hybride Suche: lexikalisches Signal über Vektoren" : "Hybrid retrieval: lexical signal over vectors"}</li>
+              <li>— {isDe ? "Deterministische Prüfung statt LLM-Judge" : "Deterministic checking instead of an LLM judge"}</li>
+            </ul>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://github.com/ShevasTest/mono-api-agent"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-primary-solid px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:opacity-95"
+              >
+                {isDe ? "Repository auf GitHub" : "Repository on GitHub"} ↗
+              </a>
+            </div>
+          </section>
+        </main>
+        <ProjectCaseStudy locale={safeLocale} slug="mono-api-agent" />
+      </>
+    );
+  }
 
   if (slug === "e2e-suite") {
     const isDe = safeLocale === "de";

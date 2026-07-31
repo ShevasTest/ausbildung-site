@@ -58,14 +58,14 @@ export default async function HomePage({ params }: HomePageProps) {
       email: `mailto:${siteConfig.email}`,
       sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl, "https://t.me/Shevas_o"],
       jobTitle: isDe
-        ? "Frontend-Entwicklung (KI-gestützt)"
-        : "Frontend Development (AI-assisted)",
+        ? "Daten- & KI-Engineering (KI-gestützt)"
+        : "Data & AI Engineering (AI-assisted)",
       knowsAbout: [
-        "Frontend development",
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Playwright",
+        "Data engineering",
+        "Data cleaning",
+        "Retrieval-augmented generation",
+        "AI agents",
+        "Automation",
       ],
     },
     {
@@ -90,24 +90,24 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="hero-copy hero-enter">
           <p className="portfolio-eyebrow">
             {isDe
-              ? "Offen für Junior-Frontend-/Fullstack-Stellen · deutschlandweit oder remote"
-              : "Open to junior frontend / fullstack roles · anywhere in Germany or remote"}
+              ? "Offen für Junior-Rollen in Daten- und KI-Engineering · remote oder in Bayern"
+              : "Open to junior roles in data and AI engineering · remote or in Bavaria"}
           </p>
           <h1 className="hero-name">Oleksandr Shevchenko</h1>
           <p className="hero-role">
             {isDe
-              ? "Frontend-Entwicklung · React/Next.js · KI-gestützt"
-              : "Frontend Development · React/Next.js · AI-assisted"}
+              ? "Daten & Pipelines · KI-Agenten · KI-gestützt"
+              : "Data & pipelines · AI agents · AI-assisted"}
           </p>
           <p className="hero-specialty">
             {isDe
-              ? "React · Next.js · TypeScript · eigene Playwright-E2E-Suite"
-              : "React · Next.js · TypeScript · own Playwright e2e suite"}
+              ? "Datenaufbereitung · RAG & Retrieval · Automatisierung · Python"
+              : "Data preparation · RAG & retrieval · automation · Python"}
           </p>
           <p className="hero-lead">
             {isDe
-              ? "Meine Grundlage: 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, stärkste Disziplin pixelgenaues HTML/CSS. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Automatisierungs- und Softwareprojekten. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt — umgesetzt mit Next.js, KI-gestützt, mit mehreren Live-Demos und einer eigenen Playwright-Testsuite. Next.js und React lerne ich gerade erst von Grund auf."
-              : "My foundation: 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course, with pixel-perfect HTML/CSS as my strongest discipline. For around three years, I have also worked every day, AI-assisted, on my own automation and software projects. This portfolio itself is my current frontend project — implemented with Next.js, AI-assisted, with several live demos and its own Playwright test suite. I am learning Next.js and React from the ground up right now."}
+              ? "Seit rund drei Jahren arbeite ich täglich mit Daten, die verschmutzt sind, sich ständig ändern und trotzdem verarbeitet werden müssen. Daraus ist eine Arbeitsweise geworden: messen, bevor ich etwas behaupte, und umbauen, wenn die Messung schlecht ausfällt. Mein Kernprojekt ist mono-api-agent — ein RAG-Agent über eine offizielle OpenAPI-Spezifikation, an einem Tag entstanden und an diesem Tag zweimal überarbeitet, weil die Messwerte es verlangten. Modelle in Produktion trainiert habe ich nicht — das ist der Bereich, in dem ich lernen will."
+              : "For about three years I have worked daily with data that is dirty, constantly changing and still has to be processed. That turned into a working method: measure before claiming anything, and rebuild when the measurement comes back bad. My core project is mono-api-agent — a RAG agent over an official OpenAPI specification, built in one day and rewritten twice that same day because the numbers demanded it. I have not trained models in production — that is the area I want to learn."}
           </p>
 
           <div className="hero-actions">
@@ -256,8 +256,8 @@ export default async function HomePage({ params }: HomePageProps) {
         <h2>{isDe ? "Lernen wir uns kennen." : "Let’s get to know each other."}</h2>
         <p>
           {isDe
-            ? "Ich bin offen für Junior-Frontend-/Fullstack-Stellen, Probearbeit oder ein erstes technisches Kennenlerngespräch."
-            : "I am open to junior frontend / fullstack roles, trial work or an initial technical conversation."}
+            ? "Ich bin offen für Junior-Rollen in Daten- und KI-Engineering oder ein erstes technisches Kennenlerngespräch."
+            : "I am open to junior roles in data and AI engineering or an initial technical conversation."}
         </p>
         <a className="contact-email" href={`mailto:${siteConfig.email}`}>
           {siteConfig.email}

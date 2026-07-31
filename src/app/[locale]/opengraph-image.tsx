@@ -9,16 +9,16 @@ export const contentType = "image/png";
 
 const copy = {
   de: {
-    badge: "Frontend · React/Next.js",
+    badge: "Daten & KI · RAG",
     title: "Oleksandr",
-    subtitle: "Frontend-Entwicklung · React/Next.js · KI-gestützt",
-    points: "React · Next.js · TypeScript · eigene E2E-Suite",
+    subtitle: "Daten & Pipelines · KI-Agenten · KI-gestützt",
+    points: "Datenaufbereitung · RAG & Retrieval · Python · Automatisierung",
   },
   en: {
-    badge: "Frontend · React/Next.js",
+    badge: "Data & AI · RAG",
     title: "Oleksandr",
-    subtitle: "Frontend Development · React/Next.js · AI-assisted",
-    points: "React · Next.js · TypeScript · own e2e suite",
+    subtitle: "Data & pipelines · AI agents · AI-assisted",
+    points: "Data preparation · RAG & retrieval · Python · automation",
   },
 } as const;
 

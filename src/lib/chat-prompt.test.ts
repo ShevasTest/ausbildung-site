@@ -24,10 +24,10 @@ describe("buildChatSystemPrompt", () => {
 
     expect(prompt).toContain("20+ personal projects");
     expect(prompt).toContain("100+ automated workflows");
-    expect(prompt).toContain("open to junior frontend / fullstack roles");
+    expect(prompt).toContain("open to junior roles in data and AI engineering");
     expect(prompt).toContain("about 6,000 participants");
-    expect(prompt).toContain("Do not present him as an independent TypeScript, React or Next.js expert");
-    expect(prompt).toContain("never claim years of hand-written Playwright code");
+    expect(prompt).toContain("he has not trained machine-learning models in production");
+    expect(prompt).toContain("Never claim years of hand-written code");
   });
 
   it("contains the actual streaming architecture", () => {

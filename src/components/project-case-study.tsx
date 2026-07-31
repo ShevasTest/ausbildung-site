@@ -12,10 +12,17 @@ type CaseStudy = {
 
 type ProjectCaseStudyProps = {
   locale: string;
-  slug: "e2e-suite" | "ki-bewerbungshelfer" | "mietpreise-tracker" | "smartchat" | "devdash";
+  slug:
+    | "mono-api-agent"
+    | "e2e-suite"
+    | "ki-bewerbungshelfer"
+    | "mietpreise-tracker"
+    | "smartchat"
+    | "devdash";
 };
 
 const CODE_URLS: Record<ProjectCaseStudyProps["slug"], string> = {
+  "mono-api-agent": "https://github.com/ShevasTest/mono-api-agent",
   "e2e-suite": "https://github.com/ShevasTest/portfolio-e2e-tests",
   "ki-bewerbungshelfer": "https://github.com/ShevasTest/portfolio-website",
   "mietpreise-tracker": "https://github.com/ShevasTest/portfolio-website",
@@ -42,6 +49,26 @@ const COPY = {
 
 const CASE_STUDIES: Record<LocaleKey, Record<ProjectCaseStudyProps["slug"], CaseStudy>> = {
   de: {
+    "mono-api-agent": {
+      eyebrow: "Case Study · RAG & Retrieval",
+      title: "Ein RAG-Agent über eine offizielle OpenAPI-Spezifikation — an einem Tag",
+      intro:
+        "Der Agent beantwortet Fragen zur öffentlichen monobank-API ausschließlich aus deren offizieller OpenAPI-Spezifikation: 25 Endpunkte und 45 Schemata, zerlegt in rund 70 Chunks. Entstanden an einem Tag — und an diesem Tag zweimal umgebaut, weil die Messwerte es verlangten.",
+      role: "Architektur, Retrieval-Strategie und alle Messungen stammen von mir; die Implementierung ist KI-gestützt — die Entscheidungen, warum etwas so und nicht anders gebaut ist, kann ich einzeln begründen.",
+      decisions: [
+        "Chunking pro API-Methode statt nach Zeichenzahl: In einer API-Dokumentation ist eine Methode die natürliche Grenze — eine größenbasierte Aufteilung reißt Beschreibung und Felder auseinander.",
+        "Das Embedding wird nicht über den gesamten Chunk berechnet: Bei zwei Zeilen Beschreibung und vierzig Zeilen ausgerolltem Schema beschrieb der Vektor Feldnamen statt des Zwecks der Methode — invoice/create landete nicht in den Top-3.",
+        "Ein lexikalisches Signal liegt über der Vektorsuche: Die Scores drängten sich bei 0,82–0,87 zusammen; eine exakte Wortübereinstimmung ist ein starkes Signal, das der Vektor unterbewertet.",
+        "Die Selbstprüfung ist deterministisch statt LLM-Judge: Der Judge lieferte Fehlalarme und erzwang eine zusätzliche Runde.",
+      ],
+      proof: [
+        "Antwortzeit 60 s → 2,8 s, Modellaufrufe pro Frage 5 → 2",
+        "Deterministische Prüfung fängt erfundene Endpunkt-Pfade ab",
+        "Fällt kein Modell an, gibt der Agent die gefundenen Spezifikationsfragmente mit Warnung zurück",
+      ],
+      learning:
+        "Ehrliche Grenze: Die Prüfung fängt erfundene Pfade, aber noch keine erfundenen Feldnamen — genau das ist der nächste Schritt.",
+    },
     "e2e-suite": {
       eyebrow: "Case Study · Testautomatisierung",
       title: "Eine öffentliche E2E-Suite als überprüfbarer Qualitätsnachweis",
@@ -139,6 +166,26 @@ const CASE_STUDIES: Record<LocaleKey, Record<ProjectCaseStudyProps["slug"], Case
     },
   },
   en: {
+    "mono-api-agent": {
+      eyebrow: "Case study · RAG & retrieval",
+      title: "A RAG agent over an official OpenAPI specification — in one day",
+      intro:
+        "The agent answers questions about monobank's public API strictly from their official OpenAPI specification: 25 endpoints and 45 schemas, split into roughly 70 chunks. Built in a single day — and rebuilt twice that day because the measurements demanded it.",
+      role: "Architecture, retrieval strategy and every measurement are mine; the implementation is AI-assisted — I can justify each decision about why it is built this way and not another.",
+      decisions: [
+        "Chunking per API method instead of by character count: in API documentation a method is the natural boundary — size-based splitting tears the description away from its fields.",
+        "The embedding is not computed over the whole chunk: with a two-line description and forty lines of expanded schema, the vector described field names instead of the method's purpose — invoice/create never reached the top 3.",
+        "A lexical signal sits on top of vector search: scores clustered at 0.82–0.87, and an exact word match is a strong signal that the vector underweights.",
+        "Self-checking is deterministic rather than an LLM judge: the judge produced false positives and forced an extra round trip.",
+      ],
+      proof: [
+        "Response time 60 s → 2.8 s, model calls per question 5 → 2",
+        "The deterministic check catches invented endpoint paths",
+        "If no model responds, the agent returns the retrieved spec fragments with a warning",
+      ],
+      learning:
+        "An honest limit: the check catches invented paths but not yet invented field names — that is exactly the next step.",
+    },
     "e2e-suite": {
       eyebrow: "Case study · Test automation",
       title: "A public e2e suite as verifiable proof of quality",

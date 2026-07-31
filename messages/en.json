@@ -1,9 +1,9 @@
 {
   "Meta": {
-    "title": "Frontend Portfolio",
-    "description": "Portfolio of Oleksandr — frontend development with React/Next.js, built on a top result in the RS School / EPAM JS/FE course and three years of daily AI-assisted automation practice.",
-    "ogTitle": "Oleksandr | Frontend Portfolio",
-    "ogDescription": "Frontend development with React/Next.js: several live projects, a 1st-place result in the EPAM JS/FE course, and honest AI-assisted engineering.",
+    "title": "Data & AI Portfolio",
+    "description": "Portfolio of Oleksandr — data preparation, automation and AI agents. Three years of daily practice on messy, constantly changing data; a RAG agent over an OpenAPI specification as the core project.",
+    "ogTitle": "Oleksandr | Data & AI Portfolio",
+    "ogDescription": "Preparing data, running pipelines, building AI agents — measuring instead of assuming. Core project: a RAG agent over an official OpenAPI specification.",
     "projectTitle": "Project: {slug}",
     "projectDescription": "Project details: goals, tech stack and implementation."
   },
@@ -19,124 +19,130 @@
     "theme": "Theme"
   },
   "Hero": {
-    "badge": "Frontend Development · React/Next.js · AI-assisted",
-    "kicker": "Open to junior frontend / fullstack roles · anywhere in Germany or remote",
+    "badge": "Data & pipelines · AI agents · AI-assisted",
+    "kicker": "Open to junior roles in data and AI engineering · remote or in Bavaria",
     "titleLead": "I build",
     "rotatingWords": [
-      "interfaces I implement AI-assisted and test myself",
-      "pixel-perfect UI implementations",
-      "small web apps with real APIs",
-      "projects I verify and test myself"
+      "pipelines that survive messy data",
+      "AI agents whose output can be verified",
+      "automation that keeps running for months",
+      "systems I measure instead of assume"
     ],
-    "titleEnd": "and take ideas through to functional, verified results.",
-    "subtitle": "My foundation: 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course, with pixel-perfect HTML/CSS as my strongest discipline. For around three years, I have also worked every day, AI-assisted, on my own automation and software projects. This portfolio itself is my current frontend project — implemented with Next.js, AI-assisted, with several live demos and its own Playwright test suite. I am learning Next.js and React from the ground up right now.",
+    "titleEnd": "and take them to a result I can actually prove.",
+    "subtitle": "For about three years I have worked daily with data that is dirty, constantly changing and still has to be processed. That turned into a working method: measure before claiming anything, and rebuild when the measurement comes back bad. My core project is a RAG agent over an official OpenAPI specification — built in one day, and rewritten twice that same day because the numbers demanded it.",
     "points": [
-      "This portfolio: Next.js, multilingual, several live demos with real APIs",
-      "Own Playwright e2e suite tests this very website in CI",
-      "More than 20 personal projects and over 100 scripts and automations",
+      "mono-api-agent: RAG over an OpenAPI specification with a deterministic hallucination check",
+      "Three years of daily automation on messy, shifting data",
+      "More than 20 personal projects and over 100 scripts and workflows",
       "1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "Strong foundation. Ready for professional frontend work.",
-    "panelText": "I can turn a UI idea into a working, verified result quickly — AI-assisted, with verification and debugging in my own hands. In a junior frontend / fullstack role, I want to bring this delivery ability into a professional team, deepen my fundamentals and learn from experienced developers.",
+    "panelTitle": "Take data quality seriously. Prove results instead of claiming them.",
+    "panelText": "A model is never better than its data — and a pipeline is only as good as its worst input day. That is exactly where my practice sits: preparing and cleaning data, finding what is broken, automating the processing and keeping it running. In a junior role I want to bring that into a team and learn from experienced people where my foundations are still thin.",
     "stats": [
       {
         "label": "Core project",
-        "value": "This portfolio — live on Next.js"
+        "value": "mono-api-agent — RAG, public"
       },
       {
         "label": "Automation",
         "value": "100+ scripts & workflows"
       },
       {
-        "label": "Work style",
-        "value": "Pixel-perfect delivery · Verification · Iteration"
+        "label": "Method",
+        "value": "Measure · Verify · Rebuild"
       }
     ]
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Frontend foundation plus three years of automation practice",
-    "lead": "My strength is not one specific framework, but structured problem-solving with frontend fundamentals, AI and verification — from the first idea to a checked result.",
+    "eyebrow": "Three years of practice on data that is never clean",
+    "lead": "My strength is not a single framework but handling unreliable data: prepare it, check it, automate it — and measure the result before calling it done.",
     "paragraphs": [
-      "My path started with a strong signal: after my degree in Economic Cybernetics (a ZAB-recognized bachelor's), I took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course — with pixel-perfect HTML/CSS work, matched against Figma files including messy ones, as my strongest discipline.",
-      "Since then, I have worked on my own software and automation projects every day for around three years — AI-assisted: I define the requirements, direct coding agents, verify the result in the real browser and debug through DevTools and network traffic analysis. 20+ projects and 100+ automated workflows, kept reliably in operation over months. When an unstable workflow directly costs money, verification becomes a habit.",
-      "Today I am aiming that combination at professional frontend / fullstack work. This portfolio is my current project: multilingual, several live demos with real APIs, implemented with Next.js — the implementation is AI-assisted, and I do not yet know Next.js independently. It also has its own Playwright e2e suite that tests this very website in CI. I am actively building up my web fundamentals (JavaScript, TypeScript, React) and speak openly about where I currently stand — I am looking for a junior frontend / fullstack role where I can learn and deepen that."
+      "After my degree in Economic Cybernetics (ZAB-recognised bachelor, meaning mathematical modelling and information systems) I finished 1st among roughly 6,000 participants in the RS School / EPAM JS/FE Pre-School course. It is the only number about me that can be verified in a second — and mostly it says one thing: I learn fast when I have something concrete in front of me.",
+      "Since then I have spent about three years working daily on my own software and automation projects — AI-assisted: I define the requirements, drive coding agents, verify the result and debug through DevTools and network traffic analysis. The input data was never clean and rarely stable. 20+ projects and 100+ automated workflows, kept reliably in operation over months. When an unstable workflow costs money directly, verification becomes a habit.",
+      "Today I am pointing that combination at data and AI engineering. My core project is mono-api-agent: a RAG agent over monobank's official OpenAPI specification, built in a single day. Chunking per API method instead of by character count, embeddings computed over the method's purpose instead of the full chunk, a deterministic hallucination check instead of an LLM judge. That same day I rebuilt twice what already worked, because the measurements showed it worked badly. I have not trained models in production — that is the area I want to learn."
     ],
     "highlights": [
       {
         "label": "Initiative",
-        "value": "I have worked on personal software and automation tasks every day for around three years."
+        "value": "I have worked daily on my own software and automation tasks for about three years."
       },
       {
-        "label": "Frontend foundation",
-        "value": "1st place among ~6,000 in the EPAM JS/FE Pre-School course — pixel-perfect HTML/CSS as my strongest discipline."
+        "label": "Measure, don't assume",
+        "value": "I rebuild working code when the numbers show it is working badly."
       },
       {
         "label": "AI & agent workflows",
         "value": "I plan multi-step agent tasks, manage context and tools, and verify results systematically."
       },
       {
-        "label": "Available now",
-        "value": "Based in Bavaria, open to frontend / fullstack roles anywhere in Germany or remote."
+        "label": "Available immediately",
+        "value": "Based in Bavaria, open to data and AI roles remote or on site."
       }
     ],
     "motivationTitle": "What a team gets from me",
     "motivationPoints": [
-      "I turn unclear requirements into concrete work packages and functioning, tested solutions.",
-      "I do not treat AI as a black box: results are tested, questioned and improved iteratively.",
-      "I communicate knowledge gaps honestly and want to learn clean frontend practices from experienced engineers."
+      "I turn unclear requirements into concrete steps and verifiable results.",
+      "I don't use AI as a black box: results get measured, questioned and improved.",
+      "I name my knowledge gaps instead of papering over them — including in an application."
     ],
     "profile": {
       "badge": "Profile",
       "name": "Oleksandr Shevchenko",
-      "role": "Frontend Development (AI-assisted)",
+      "role": "Data & AI engineering (AI-assisted)",
       "initials": "OS",
-      "placeholder": "Photo placeholder",
-      "caption": "A strong frontend foundation (top 1 of ~6,000 at EPAM) plus three years of daily automation practice — now focused on professional frontend / fullstack work in a team.",
+      "placeholder": "Photo coming",
+      "caption": "Three years of daily practice on messy data, a public RAG agent as the core project and a top-1 result among ~6,000 at EPAM — now aimed at data and AI work in a team.",
       "facts": [
-        "Location: Bavaria · anywhere in Germany or remote",
-        "Languages: Ukrainian & Russian (native) · German B1 · English A2 (improving)",
-        "Goal: learning React · Next.js · TypeScript · deepening AI-assisted development"
+        "Location: Bavaria · remote or on site",
+        "Languages: Ukrainian & Russian (native) · German B1 · English A2 (technical docs daily)",
+        "Goal: data quality, pipelines and applied AI in a professional setting"
       ]
     }
   },
   "Projects": {
     "title": "Projects",
     "eyebrow": "Selected work",
-    "intro": "This portfolio itself is the flagship project: a multilingual Next.js site with several live demos. Its own e2e suite checks it in CI.",
+    "intro": "The core project is mono-api-agent — a RAG agent over an official OpenAPI specification. Alongside it: my own E2E test suite and several live demos on this site.",
     "items": [
       {
-        "slug": "ki-bewerbungshelfer",
-        "title": "AI Application Assistant",
-        "summary": "Analyzes job posts and drafts personalized cover letters with editable export.",
-        "stack": "Next.js · LLM streaming · API routes"
+        "slug": "mono-api-agent",
+        "title": "mono-api-agent",
+        "summary": "RAG agent over monobank's official OpenAPI specification: chunking per method, hybrid retrieval and a deterministic hallucination check instead of an LLM judge.",
+        "stack": "TypeScript · LangGraph · local embeddings"
       },
       {
-        "slug": "mietpreise-tracker",
-        "title": "Rent Price Tracker",
-        "summary": "Compares rent costs across German cities with trend charts and an income calculator.",
-        "stack": "Next.js · Market data Q4 2025 · SVG charts"
+        "slug": "e2e-suite",
+        "title": "Portfolio E2E test suite",
+        "summary": "My own Playwright + TypeScript E2E suite testing this website in CI: UI, API and accessibility — desktop and mobile.",
+        "stack": "Playwright · TypeScript · GitHub Actions"
+      },
+      {
+        "slug": "ki-bewerbungshelfer",
+        "title": "AI Application Helper",
+        "summary": "Analyses job ads and generates personalised cover letters with an editable export.",
+        "stack": "Next.js · LLM streaming · API routes"
       },
       {
         "slug": "smartchat",
         "title": "SmartChat",
-        "summary": "Advanced AI chat with streaming answers, history, markdown and code highlighting.",
-        "stack": "Next.js · LLM streaming · localStorage"
+        "summary": "Modern AI chat with streaming, history, markdown and code highlighting.",
+        "stack": "Next.js · LLM streaming · LocalStorage"
       },
       {
         "slug": "devdash",
         "title": "DevDash",
-        "summary": "Customizable developer dashboard with widgets, Pomodoro and GitHub activity.",
-        "stack": "Next.js · Live APIs · PWA"
+        "summary": "Customisable developer dashboard with widgets, Pomodoro and GitHub activity.",
+        "stack": "Next.js · live APIs · PWA"
       },
       {
-        "slug": "e2e-suite",
-        "title": "Portfolio E2E Test Suite",
-        "summary": "Own Playwright + TypeScript suite testing this website in CI: UI, API and accessibility — desktop and mobile.",
-        "stack": "Playwright · TypeScript · GitHub Actions"
+        "slug": "mietpreise-tracker",
+        "title": "Rent Price Tracker",
+        "summary": "Compares rent costs across German cities with trends and an income calculator.",
+        "stack": "Next.js · Q4 2025 market data · SVG charts"
       }
     ],
     "openProject": "Details"
@@ -144,85 +150,83 @@
   "Skills": {
     "title": "Skills",
     "eyebrow": "Tools & knowledge",
-    "intro": "My profile combines a strong frontend foundation with a deliberately honest account of where I stand today, plus intensive automation practice.",
+    "intro": "My profile combines three years of daily data practice with deliberately honest gaps — especially where trained models are concerned.",
     "legend": "Self-assessment based on my actual daily practice",
     "groups": [
       {
-        "name": "Frontend fundamentals",
-        "description": "1st-place result among ~6,000 in the EPAM JS/FE Pre-School course — pixel-perfect HTML/CSS as a strong foundation; JavaScript, TypeScript, React and Next.js are areas I am only now building up",
-        "level": 38,
-        "levelLabel": "Strong HTML/CSS foundation, the rest is a work in progress",
+        "name": "Data & pipelines",
+        "description": "The core of my practice: preparing and cleaning data, finding broken records, automating processing and keeping it stable over months",
+        "level": 72,
+        "levelLabel": "Daily practice for about three years",
         "items": [
-          "HTML & CSS (pixel-perfect layouts from Figma)",
-          "JavaScript (foundations, refreshing)",
-          "TypeScript (learning now — the language of my e2e suite)",
-          "React (very small base, building it up now)",
-          "Next.js (do not know it independently yet — this portfolio was built AI-assisted)",
-          "Python (basics)"
+          "Data preparation & cleaning",
+          "Spotting broken and incomplete records",
+          "Format conversion & validation",
+          "Python for automation and scripting",
+          "Running pipelines under shifting inputs"
         ]
       },
       {
-        "name": "AI & agents",
-        "description": "Advanced orchestration of models, agents, context, tools and parallel tasks",
-        "level": 92,
+        "name": "AI, agents & RAG",
+        "description": "Driving models, agents, context and tools — plus retrieval architecture from my own RAG project",
+        "level": 88,
         "levelLabel": "Core strength from three years of daily practice",
         "items": [
-          "Multi-agent workflows",
-          "Prompt & context engineering",
-          "Tool and API use",
-          "Agentic debugging",
-          "Quality control"
+          "RAG: chunking strategies, embeddings, vector search",
+          "Hybrid retrieval (lexical signal over vectors)",
+          "Deterministic checking instead of an LLM judge",
+          "Multi-agent workflows (LangGraph)",
+          "Prompt & context engineering"
         ]
       },
       {
-        "name": "Browser automation & testing",
-        "description": "Three years of daily practice — 20+ projects, 100+ automated workflows; plus my own Playwright e2e suite for this portfolio",
+        "name": "Automation & testing",
+        "description": "Three years of daily practice — 20+ projects, 100+ automated workflows; plus my own Playwright E2E suite for this portfolio",
         "level": 68,
         "levelLabel": "Extensive independent project practice",
         "items": [
-          "Playwright (public e2e suite)",
-          "Page Object Model & fixtures",
-          "DevTools network analysis",
-          "Session & profile state management",
-          "Error analysis & recovery"
+          "Playwright (public E2E suite)",
+          "Browser automation",
+          "DevTools & network analysis",
+          "Git / GitHub Actions (CI)",
+          "Failure analysis & recovery"
         ]
       },
       {
-        "name": "Soft Skills",
-        "description": "Professional team qualities: honesty, initiative and willingness to learn.",
-        "level": 80,
-        "levelLabel": "Reliable, collaborative and eager to learn",
+        "name": "Machine learning",
+        "description": "The area where I bring the least — and I would rather write it down than explain it in an interview: basics yes, trained models in production no",
+        "level": 22,
+        "levelLabel": "Fundamentals, no production use",
         "items": [
-          "Initiative",
-          "Structured problem solving",
-          "Documentation",
-          "Fast feedback integration",
-          "Continuous learning"
+          "Reading and interpreting metrics",
+          "Interpreting training curves",
+          "No models of my own trained in production",
+          "Current learning focus"
         ]
       }
     ]
   },
   "Resume": {
-    "eyebrow": "Background & Projects",
+    "eyebrow": "Career & projects",
     "title": "Resume",
-    "intro": "My path combines a recognized degree, a top frontend course result and three years of daily automation practice — now aimed at professional frontend / fullstack work.",
+    "intro": "My path combines a recognised degree, a top course result and three years of daily practice with messy data — now aimed at data and AI engineering.",
     "timeline": [
       {
         "period": "2018 — 2022",
-        "title": "Bachelor, Economic Cybernetics — ZAB-recognized",
-        "text": "Degree at the State University of Trade and Economics (Kyiv), recognized by the German ZAB as equivalent to a bachelor's degree (03/2025). Followed by 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course — strongest discipline: pixel-perfect HTML/CSS.",
-        "focus": "Foundation: Degree · EPAM RS School Top 1 · HTML/CSS",
+        "title": "Bachelor in Economic Cybernetics — ZAB-recognised",
+        "text": "Degree from the State University of Trade and Economics (Kyiv) — mathematical modelling and information systems, recognised by the ZAB as equivalent to a German bachelor (03/2025). Followed by 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course.",
+        "focus": "Foundation: degree · EPAM RS School top 1",
         "chips": [
           "Bachelor + ZAB",
           "Top 1 / ~6,000",
-          "Pixel-perfect HTML/CSS"
+          "Mathematical modelling"
         ]
       },
       {
-        "period": "2023 — present",
-        "title": "Independent software & automation projects — AI-assisted",
-        "text": "Built and operated my own projects daily, from browser workflows to small web apps. Verification in the real browser, DevTools and custom traffic analysis — 20+ projects, 100+ scripts and workflows, kept reliably in operation over months.",
-        "focus": "Focus: Own projects · Verification · Reliability",
+        "period": "2023 — today",
+        "title": "Own software & automation projects — AI-assisted",
+        "text": "Built and operated my own projects daily, consistently on data that was dirty and constantly shifting. Verification, DevTools and my own traffic analysis — 20+ projects, 100+ scripts and workflows, kept reliably in operation over months.",
+        "focus": "Focus: messy data · verification · reliability",
         "chips": [
           "20+ projects",
           "100+ scripts",
@@ -231,31 +235,31 @@
       },
       {
         "period": "2026",
-        "title": "Focus: professional frontend / fullstack work",
-        "text": "Built and published this portfolio as my current frontend project: Next.js, multilingual, several live demos with real APIs, plus my own Playwright e2e suite that tests the site in CI — AI-assisted implementation; scope, verification and debugging are mine. Looking for a junior frontend / fullstack role in a professional team.",
-        "focus": "Goal: frontend/fullstack, solid fundamentals, teamwork",
+        "title": "Focus: data & AI engineering",
+        "text": "Built and published mono-api-agent: a RAG agent over monobank's official OpenAPI specification, created in one day and rewritten twice that day because the measurements demanded it — chunking per method, embeddings over the method's purpose, a deterministic hallucination check (60 s → 2.8 s, five model calls → two). I am looking for a junior role where I can develop this further inside a team.",
+        "focus": "Goal: data quality, retrieval, applied AI",
         "chips": [
-          "Live portfolio (Next.js)",
-          "Own e2e suite",
-          "Frontend focus"
+          "mono-api-agent (public)",
+          "RAG & retrieval",
+          "Measurable results"
         ]
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I bring a strong HTML/CSS foundation (top 1 of ~6,000 at EPAM), three years of daily automation practice and professional command of AI-assisted development, and I speak openly about my current hand-coding level — I am actively rebuilding my JavaScript fundamentals and learning TypeScript, React and Next.js from the ground up. My goal: reliable, maintainable frontend work in a team.",
+    "closingText": "I bring three years of daily practice with unreliable data, a public RAG project with decisions you can trace, and the habit of measuring results instead of asserting them. I am open about my gaps: I have not trained models in production, and I am actively refreshing my independent coding. My goal: reliable data work in a team.",
     "closingBadges": [
       "Available immediately",
-      "Anywhere in Germany or remote",
-      "Fast learner",
-      "Reliability mindset"
+      "Remote or on site",
+      "Fast learning curve",
+      "Data quality in focus"
     ]
   },
   "Contact": {
     "eyebrow": "Contact & next step",
     "title": "Contact",
-    "intro": "Open to conversations about junior frontend / fullstack roles — anywhere in Germany or remote.",
-    "linksTitle": "Direct channels",
-    "linksIntro": "For a fast response, reach out via email or my public profiles.",
+    "intro": "I'm glad to talk about junior roles in data and AI engineering — remote or in Bavaria.",
+    "linksTitle": "Direct contact",
+    "linksIntro": "For a quick reply, reach me directly by email or through my profiles.",
     "quickLinks": [
       {
         "label": "Email",
@@ -266,11 +270,6 @@
         "label": "GitHub",
         "value": "github.com/ShevasTest",
         "href": "https://github.com/ShevasTest"
-      },
-      {
-        "label": "LinkedIn",
-        "value": "linkedin.com/in/oleksandr-it",
-        "href": "https://www.linkedin.com/in/oleksandr-it/"
       },
       {
         "label": "Telegram",
@@ -285,46 +284,46 @@
     ],
     "availability": {
       "title": "Availability",
-      "text": "Actively looking for work. Open to junior frontend / fullstack roles and trial days — anywhere in Germany or remote.",
+      "text": "Actively job hunting. Open to junior roles in data and AI engineering — remote or on site.",
       "badges": [
-        "Available now",
-        "Remote or on-site",
+        "Immediately",
+        "Remote or on site",
         "Reply within 24h"
       ]
     },
     "form": {
       "title": "Prepare an email",
-      "intro": "Share the role, team or project context in a few lines. Submitting opens your email app with a ready-to-send draft — no form data is stored on this website.",
+      "intro": "Briefly describe the role, team or project. On submit your email client opens with a prepared message — no form data is stored on this website.",
       "nameLabel": "Name",
       "namePlaceholder": "Your name",
       "emailLabel": "Email",
       "emailPlaceholder": "name@company.com",
       "messageLabel": "Message",
-      "messagePlaceholder": "What is this about? (role, timeline, team, next steps)"
+      "messagePlaceholder": "What is it about? (role, timeline, team, next steps)"
     },
     "submit": {
       "idle": "Open email draft",
       "sending": "Sending ...",
-      "successTitle": "Thanks for your message",
-      "successText": "Your message has been delivered. I usually reply within 24 hours.",
+      "successTitle": "Thank you for your message",
+      "successText": "Your message has arrived. I usually reply within 24 hours.",
       "mailtoTitle": "Almost done",
-      "mailtoText": "Your email app was opened with a prefilled draft — just hit send.",
+      "mailtoText": "Your email client opened with a prepared message — just send it.",
       "errorTitle": "Sending failed",
-      "errorText": "Please try again later or write to me directly via email."
+      "errorText": "Please try again later or email me directly."
     },
     "validation": {
       "nameRequired": "Please enter your name.",
       "emailRequired": "Please enter an email address.",
       "emailInvalid": "Please enter a valid email address.",
-      "messageRequired": "Please add a short message.",
-      "messageMin": "Please write at least 24 characters so I can understand the context."
+      "messageRequired": "Please add a message.",
+      "messageMin": "Please write at least 24 characters so I understand the context."
     },
-    "mailSubject": "Portfolio contact — Frontend",
+    "mailSubject": "Contact via portfolio — Data & AI",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {
     "badge": "Project details",
-    "description": "Goals, architecture decisions, tech stack and implementation notes for this project.",
+    "description": "Goals, architecture decisions, tech stack and implementation details for this project.",
     "back": "Back to homepage"
   },
   "Footer": {

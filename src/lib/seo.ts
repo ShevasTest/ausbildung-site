@@ -1,5 +1,5 @@
 export const siteConfig = {
-  baseUrl: "https://work.oleksandr-shevchenko.de",
+  baseUrl: "https://data.oleksandr-shevchenko.de",
   siteName: "Oleksandr Portfolio",
   authorName: "Oleksandr Shevchenko",
   githubUrl: "https://github.com/ShevasTest",

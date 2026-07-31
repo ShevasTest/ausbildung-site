@@ -746,7 +746,7 @@ ${style.voice}
 - **Teamwert:** zeigen, wie deine Arbeitsweise einem professionellen Entwicklungsteam hilft.
 
 ### Beispiel-Formulierung
-"Meine Grundlage ist der 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM. Seit rund drei Jahren arbeite ich zusätzlich täglich KI-gestützt an eigenen Projekten — 20+ Projekte, 100+ Workflows. Dieses Portfolio selbst ist mein aktuelles Frontend-Projekt, umgesetzt mit Next.js — KI-gestützt, Next.js lerne ich gerade erst von Grund auf. In einer Junior-Frontend-Rolle möchte ich diese Umsetzungskraft in ein professionelles Team einbringen und meine Grundlagen weiter aufbauen."
+"Meine Grundlage ist der 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM. Seit rund drei Jahren arbeite ich täglich KI-gestützt an eigenen Projekten, durchgehend auf Daten, die nie sauber waren — 20+ Projekte, 100+ Workflows. Mein Kernprojekt ist mono-api-agent: ein RAG-Agent über eine offizielle OpenAPI-Spezifikation, an einem Tag entstanden und an diesem Tag zweimal überarbeitet, weil die Messwerte es verlangten. Modelle in Produktion habe ich nicht trainiert — genau das möchte ich in einem Team lernen."
 
 ### Nächster Schritt
 - Verbinde diese Aussage mit 1–2 konkreten Portfolio-Projekten.
@@ -854,7 +854,7 @@ ${style.voice}
 - **Team value:** show how your workflow helps a professional development team.
 
 ### Example phrasing
-"My foundation is 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course. For around three years I have also worked on my own projects every day, AI-assisted — 20+ projects, 100+ workflows. This portfolio itself is my current frontend project, implemented with Next.js — AI-assisted, and I'm still learning Next.js from the ground up. In a junior frontend role, I want to bring this delivery ability into a professional team and keep building up my foundations."
+"My foundation is 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course. For around three years I have worked on my own projects every day, AI-assisted, consistently on data that was never clean — 20+ projects, 100+ workflows. My core project is mono-api-agent: a RAG agent over an official OpenAPI specification, built in one day and rewritten twice that day because the measurements demanded it. I have not trained models in production — that is exactly what I want to learn inside a team."
 
 ### Next step
 - Link this statement to 1–2 portfolio projects.
