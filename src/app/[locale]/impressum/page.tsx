@@ -11,7 +11,7 @@ type ImpressumPageProps = {
 const COPY = {
   de: {
     title: "Impressum",
-    metaDescription: "Impressum und Anbieterkennzeichnung von oleksandr-shevchenko.de gemäß § 5 DDG.",
+    metaDescription: "Impressum und Anbieterkennzeichnung von work.oleksandr-shevchenko.de gemäß § 5 DDG.",
     providerTitle: "Angaben gemäß § 5 DDG",
     contactTitle: "Kontakt",
     emailLabel: "E-Mail:",
@@ -29,14 +29,14 @@ const COPY = {
   en: {
     title: "Legal Notice (Impressum)",
     metaDescription:
-      "Legal notice and provider identification for oleksandr-shevchenko.de according to Section 5 DDG (German Digital Services Act).",
+      "Legal notice and provider identification for work.oleksandr-shevchenko.de according to Section 5 DDG (German Digital Services Act).",
     providerTitle: "Information according to § 5 DDG (German Digital Services Act)",
     contactTitle: "Contact",
     emailLabel: "Email:",
     responsibleTitle: "Responsible for the content",
     purposeTitle: "About this website",
     purposeText:
-      "This website is a private, non-commercial portfolio. Its sole purpose is my personal presentation while applying for roles in data maintenance, digitalisation and automation.",
+      "This website is a private, non-commercial portfolio. Its sole purpose is my personal presentation while applying for junior roles in data and AI engineering.",
     linksTitle: "Liability for links",
     linksText:
       "This website contains links to external third-party websites (e.g. GitHub, LinkedIn) whose content I cannot control. The respective provider or operator of the linked pages is always responsible for their content. No unlawful content was identifiable at the time of linking.",

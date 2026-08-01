@@ -377,8 +377,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
         subtitle: "Live-Daten von Open-Meteo",
       },
       github: {
-        title: "GitHub Heatmap",
-        subtitle: "Öffentliche Aktivität von @ShevasTest (live)",
+        title: "GitHub API Pulse",
+        subtitle: "Öffentliche Repositories und Events von @ShevasTest",
       },
       pomodoro: {
         title: "Pomodoro",
@@ -408,12 +408,12 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       forecast: "4-Tage-Ausblick",
     },
     github: {
-      total: "Events (13 Wochen)",
-      activeDays: "Aktive Tage",
-      streak: "Aktuelle Streak",
-      legend: "Intensität",
-      no: "Keine",
-      intense: "Hoch",
+      total: "Öffentliche Repositories",
+      activeDays: "Kürzlich aktualisiert",
+      streak: "Follower",
+      legend: "Öffentliche Events · letzte 90 Tage",
+      no: "Keine Aktivität",
+      intense: "Hohe Aktivität",
     },
     pomodoro: {
       modeFocus: "Fokus",
@@ -488,8 +488,8 @@ const COPY: Record<LocaleKey, DemoCopy> = {
         subtitle: "Live data from Open-Meteo",
       },
       github: {
-        title: "GitHub heatmap",
-        subtitle: "Public activity of @ShevasTest (live)",
+        title: "GitHub API pulse",
+        subtitle: "Public repositories and events from @ShevasTest",
       },
       pomodoro: {
         title: "Pomodoro",
@@ -519,10 +519,10 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       forecast: "4-day outlook",
     },
     github: {
-      total: "Events (13 weeks)",
-      activeDays: "Active days",
-      streak: "Current streak",
-      legend: "Intensity",
+      total: "Public repositories",
+      activeDays: "Recently updated",
+      streak: "Followers",
+      legend: "Public events · last 90 days",
       no: "None",
       intense: "High",
     },
@@ -787,27 +787,6 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
     () => Math.max(...(selectedWeather?.forecast ?? []).map((item) => item.temperature), 1),
     [selectedWeather],
   );
-
-  const heatmapStats = useMemo(() => {
-    const allValues = heatmap.flat();
-    const total = allValues.reduce((sum, value) => sum + value, 0);
-    const activeDays = allValues.filter((value) => value > 0).length;
-
-    let currentStreak = 0;
-    for (let index = allValues.length - 1; index >= 0; index -= 1) {
-      if (allValues[index] > 0) {
-        currentStreak += 1;
-      } else {
-        break;
-      }
-    }
-
-    return {
-      total,
-      activeDays,
-      currentStreak,
-    };
-  }, [heatmap]);
 
   const filteredNews = useMemo(() => {
     const base = newsCategory === "all" ? newsItems : newsItems.filter((item) => item.category === newsCategory);
@@ -1187,7 +1166,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
                   </div>
                   <div className="rounded-xl border border-border bg-card px-2.5 py-2">
                     <dt className="text-muted">{copy.weather.humidity}</dt>
-                    <dd className="mt-0.5 font-semibold text-foreground">{selectedWeather.humidity}%</dd>
+                    <dd className="mt-0.5 font-semibold text-foreground">{selectedWeather.humidity}&nbsp;%</dd>
                   </div>
                   <div className="rounded-xl border border-border bg-card px-2.5 py-2">
                     <dt className="text-muted">{copy.weather.wind}</dt>
@@ -1234,19 +1213,33 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
           <dl className="grid gap-2 sm:grid-cols-3">
             <div className="rounded-2xl border border-border bg-background/70 p-3">
               <dt className="text-[11px] tracking-[0.13em] text-muted uppercase">{copy.github.total}</dt>
-              <dd className="mt-1 text-lg font-semibold text-foreground">{heatmapStats.total}</dd>
+              <dd className="mt-1 text-lg font-semibold text-foreground">
+                {githubData?.publicRepos ?? "—"}
+              </dd>
             </div>
             <div className="rounded-2xl border border-border bg-background/70 p-3">
               <dt className="text-[11px] tracking-[0.13em] text-muted uppercase">{copy.github.activeDays}</dt>
-              <dd className="mt-1 text-lg font-semibold text-foreground">{heatmapStats.activeDays}</dd>
+              <dd className="mt-1 text-lg font-semibold text-foreground">
+                {githubData?.recentRepos.length ?? "—"}
+              </dd>
             </div>
             <div className="rounded-2xl border border-border bg-background/70 p-3">
               <dt className="text-[11px] tracking-[0.13em] text-muted uppercase">{copy.github.streak}</dt>
-              <dd className="mt-1 text-lg font-semibold text-foreground">{heatmapStats.currentStreak}</dd>
+              <dd className="mt-1 text-lg font-semibold text-foreground">
+                {githubData?.followers ?? "—"}
+              </dd>
             </div>
           </dl>
 
-          <div className="overflow-x-auto rounded-2xl border border-border bg-background/65 p-3">
+          <div
+            className="overflow-x-auto rounded-2xl border border-border bg-background/65 p-3"
+            role="img"
+            aria-label={
+              localeKey === "de"
+                ? `GitHub-Aktivität: ${githubData?.days.reduce((sum, day) => sum + day.count, 0) ?? 0} öffentliche Events in den letzten 90 Tagen`
+                : `GitHub activity: ${githubData?.days.reduce((sum, day) => sum + day.count, 0) ?? 0} public events in the last 90 days`
+            }
+          >
             <div className="inline-grid grid-flow-col gap-1">
               {heatmap.map((week, weekIndex) => (
                 <div key={`week-${weekIndex}`} className="grid grid-rows-7 gap-1">
@@ -1255,6 +1248,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
                       key={`day-${weekIndex}-${dayIndex}`}
                       className={`devdash-heat-cell level-${heatLevel(value)}`}
                       title={`${value} Events`}
+                      aria-hidden="true"
                     />
                   ))}
                 </div>
@@ -1267,7 +1261,11 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
             <div className="flex items-center gap-1.5">
               <span>{copy.github.no}</span>
               {[0, 1, 2, 3, 4].map((level) => (
-                <span key={`legend-${level}`} className={`devdash-heat-cell level-${level}`} />
+                <span
+                  key={`legend-${level}`}
+                  className={`devdash-heat-cell level-${level}`}
+                  aria-hidden="true"
+                />
               ))}
               <span>{copy.github.intense}</span>
             </div>
@@ -1280,7 +1278,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
                   href={`https://github.com/${githubData.user}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-mono text-xs font-semibold text-primary transition hover:opacity-80"
+                  className="inline-flex min-h-6 items-center font-mono text-xs font-semibold text-primary transition hover:opacity-80"
                 >
                   @{githubData.user} ↗
                 </a>
@@ -1546,7 +1544,7 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
                       href={entry.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xs font-semibold text-primary transition hover:opacity-80"
+                      className="inline-flex min-h-6 items-center text-xs font-semibold text-primary transition hover:opacity-80"
                     >
                       {copy.news.open} ↗
                     </a>
@@ -1597,10 +1595,13 @@ export function DevDashDemo({ locale }: DevDashDemoProps) {
           <article className="rounded-2xl border border-border bg-background/70 p-3.5">
             <p className="text-[11px] font-semibold tracking-[0.13em] text-muted uppercase">{copy.controls.time}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
-              {new Intl.DateTimeFormat(intlLocale, {
-                hour: "2-digit",
-                minute: "2-digit",
-              }).format(new Date(now))}
+              {hasHydratedStorage
+                ? new Intl.DateTimeFormat(intlLocale, {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    timeZone: "Europe/Berlin",
+                  }).format(new Date(now))
+                : "—"}
             </p>
             <p className="mt-1 text-xs text-muted">
               {copy.controls.connectivity}: {isOnline ? copy.controls.online : copy.controls.offline}

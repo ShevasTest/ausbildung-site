@@ -1,6 +1,6 @@
+import NextLink from "next/link";
 import { getTranslations } from "next-intl/server";
 import { LocaleSwitcher } from "@/components/locale-switcher";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 type SiteHeaderProps = {
   locale: string;
@@ -11,67 +11,48 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
   const homeHref = `/${locale}`;
   const homeLabel = locale === "de" ? "Zur Startseite" : "Go to homepage";
   const navLabel = locale === "de" ? "Hauptnavigation" : "Main navigation";
-  const mobileNavLabel = locale === "de" ? "Abschnittsnavigation" : "Section navigation";
-
   const sections = [
-    { id: "hero", label: t("hero") },
-    { id: "about", label: t("about") },
-    { id: "projects", label: t("projects") },
-    { id: "skills", label: t("skills") },
+    // "Projekte" lands on the flagship project card, same as the hero CTA.
+    { id: "featured-project", label: t("projects") },
     { id: "resume", label: t("resume") },
+    { id: "about", label: t("about") },
     { id: "contact", label: t("contact") },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background">
-      <div aria-hidden className="scroll-progress" />
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6">
+    <header className="portfolio-header">
+      <div className="portfolio-shell flex items-center justify-between gap-4 py-4 sm:py-5">
         <a
           href={homeHref}
           aria-label={homeLabel}
-          className="font-display flex min-w-0 items-center gap-2.5 text-base font-semibold tracking-tight text-foreground sm:text-lg"
+          className="font-display flex min-w-0 items-center gap-2.5 text-[15px] font-semibold tracking-tight text-foreground sm:text-base"
         >
           <span
             aria-hidden
-            className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-foreground font-mono text-[10px] font-bold text-background"
+            className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-solid font-mono text-[10px] font-bold text-white"
           >
             OS
           </span>
-          <span className="max-w-[8.75rem] truncate sm:max-w-none">{t("brand")}</span>
+          <span className="sm:hidden">Oleksandr</span>
+          <span className="hidden sm:inline">{t("brand")}</span>
         </a>
 
-        <nav aria-label={navLabel} className="hidden items-center gap-5 text-sm text-muted md:flex">
+        <nav aria-label={navLabel} className="hidden items-center gap-7 text-sm text-muted md:flex">
           {sections.map((section) => (
-            <a
+            <NextLink
               key={section.id}
               href={`${homeHref}#${section.id}`}
               className="nav-link transition hover:text-foreground"
             >
               {section.label}
-            </a>
+            </NextLink>
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <div className="flex shrink-0 items-center">
           <LocaleSwitcher />
-          <ThemeToggle />
         </div>
       </div>
-
-      <nav
-        aria-label={mobileNavLabel}
-        className="mx-auto flex w-full max-w-6xl items-center gap-2 overflow-x-auto px-4 pb-2 text-xs text-muted md:hidden sm:px-6 sm:pb-3 sm:text-sm"
-      >
-        {sections.map((section) => (
-          <a
-            key={section.id}
-            href={`${homeHref}#${section.id}`}
-            className="whitespace-nowrap rounded-full border border-border bg-card px-2.5 py-1.5 transition hover:text-foreground sm:px-3"
-          >
-            {section.label}
-          </a>
-        ))}
-      </nav>
     </header>
   );
 }

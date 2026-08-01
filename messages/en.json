@@ -5,11 +5,11 @@
     "ogTitle": "Oleksandr | Digitalisation & Data Maintenance",
     "ogDescription": "Keeping structured data clean and current, and automating recurring workflows — with a public Playwright suite running in CI.",
     "projectTitle": "Project: {slug}",
-    "projectDescription": "Detailed project page with goals, stack and implementation notes."
+    "projectDescription": "Project details: goals, tech stack and implementation."
   },
   "Nav": {
     "brand": "Oleksandr Shevchenko",
-    "hero": "Hero",
+    "hero": "Home",
     "about": "About",
     "projects": "Projects",
     "skills": "Skills",
@@ -94,7 +94,7 @@
       "name": "Oleksandr Shevchenko",
       "role": "Data maintenance, digitalisation & automation",
       "initials": "OS",
-      "placeholder": "Photo placeholder",
+      "placeholder": "Photo coming",
       "caption": "Three years of daily automation practice — now focused on clean, current data and lean digital workflows.",
       "facts": [
         "Location: Weihmichl near Landshut · on site or remote",
@@ -106,34 +106,46 @@
   "Projects": {
     "title": "Projects",
     "eyebrow": "Selected work",
-    "intro": "Four practical projects that address real everyday needs and show my current working style.",
+    "intro": "The core project is mono-api-agent — a RAG agent over an official OpenAPI specification. Alongside it: my own E2E test suite and several live demos on this site.",
     "items": [
       {
-        "slug": "ki-bewerbungshelfer",
-        "title": "AI Application Assistant",
-        "summary": "Analyzes job posts and drafts personalized cover letters with editable export.",
-        "stack": "Next.js · LLM streaming · API routes"
+        "slug": "mono-api-agent",
+        "title": "mono-api-agent",
+        "summary": "RAG agent over monobank's official OpenAPI specification: chunking per method, hybrid retrieval and a deterministic hallucination check instead of an LLM judge.",
+        "stack": "TypeScript · LangGraph · local embeddings"
       },
       {
-        "slug": "mietpreise-tracker",
-        "title": "Rent Price Tracker",
-        "summary": "Compares rent costs across German cities with trend charts and income calculator.",
-        "stack": "Next.js · Market data Q4 2025 · SVG charts"
+        "slug": "e2e-suite",
+        "title": "Portfolio E2E test suite",
+        "summary": "My own Playwright + TypeScript E2E suite testing this website in CI: UI, API and accessibility — desktop and mobile.",
+        "stack": "Playwright · TypeScript · GitHub Actions"
+      },
+      {
+        "slug": "ki-bewerbungshelfer",
+        "title": "AI Application Helper",
+        "summary": "Analyses job ads and generates personalised cover letters with an editable export.",
+        "stack": "Next.js · LLM streaming · API routes"
       },
       {
         "slug": "smartchat",
         "title": "SmartChat",
-        "summary": "Advanced AI chat with streaming answers, history, markdown and code highlighting.",
-        "stack": "Next.js · LLM streaming · localStorage"
+        "summary": "Modern AI chat with streaming, history, markdown and code highlighting.",
+        "stack": "Next.js · LLM streaming · LocalStorage"
       },
       {
         "slug": "devdash",
         "title": "DevDash",
-        "summary": "Customizable developer dashboard with widgets, Pomodoro and GitHub activity.",
-        "stack": "Next.js · Live APIs · PWA"
+        "summary": "Customisable developer dashboard with widgets, Pomodoro and GitHub activity.",
+        "stack": "Next.js · live APIs · PWA"
+      },
+      {
+        "slug": "mietpreise-tracker",
+        "title": "Rent Price Tracker",
+        "summary": "Compares rent costs across German cities with trends and an income calculator.",
+        "stack": "Next.js · Q4 2025 market data · SVG charts"
       }
     ],
-    "openProject": "Open project"
+    "openProject": "Details"
   },
   "Skills": {
     "title": "Skills",
@@ -144,6 +156,7 @@
       {
         "name": "Data & maintenance",
         "description": "Preparing, cleaning, reconciling and keeping records current",
+        "level": 72,
         "levelLabel": "Daily focus of my work",
         "items": [
           "Data maintenance & quality",
@@ -156,6 +169,7 @@
       {
         "name": "Automation",
         "description": "Turning recurring web and data tasks into verifiable workflows",
+        "level": 70,
         "levelLabel": "Confident in practical use",
         "items": [
           "Python (scripting)",
@@ -168,6 +182,7 @@
       {
         "name": "Web & content",
         "description": "Maintaining and shipping content — my own site runs in production",
+        "level": 52,
         "levelLabel": "Solid basics from my own projects",
         "items": [
           "HTML & CSS",
@@ -180,6 +195,7 @@
       {
         "name": "Tools",
         "description": "Version control, CI and AI tools in daily use",
+        "level": 65,
         "levelLabel": "Confident with the core tooling",
         "items": [
           "Git & GitHub",
@@ -192,6 +208,7 @@
       {
         "name": "Way of working",
         "description": "How I work when a task repeats a hundred times",
+        "level": 78,
         "levelLabel": "Reliable, careful and structured",
         "items": [
           "Care with routine",
@@ -204,7 +221,7 @@
     ]
   },
   "Resume": {
-    "eyebrow": "Resume & Growth Path",
+    "eyebrow": "Career & projects",
     "title": "Resume",
     "intro": "My path is hands-on: a completed degree, a strong course result and about three years of daily work on real automation and data tasks.",
     "timeline": [
@@ -255,8 +272,8 @@
     "eyebrow": "Contact & next step",
     "title": "Contact",
     "intro": "I am glad to talk about roles in data maintenance, digitalisation and automation — full-time or part-time.",
-    "linksTitle": "Direct channels",
-    "linksIntro": "For a fast response, feel free to reach out via email or my public profiles.",
+    "linksTitle": "Direct contact",
+    "linksIntro": "For a quick reply, reach me directly by email or through my profiles.",
     "quickLinks": [
       {
         "label": "Email",
@@ -269,9 +286,14 @@
         "href": "https://github.com/ShevasTest"
       },
       {
-        "label": "LinkedIn",
-        "value": "linkedin.com/in/oleksandr-it",
-        "href": "https://www.linkedin.com/in/oleksandr-it/"
+        "label": "Telegram",
+        "value": "t.me/Shevas_o",
+        "href": "https://t.me/Shevas_o"
+      },
+      {
+        "label": "WhatsApp",
+        "value": "+49 171 8198348",
+        "href": "https://wa.me/491718198348"
       }
     ],
     "availability": {
@@ -284,41 +306,41 @@
       ]
     },
     "form": {
-      "title": "Send a short message",
-      "intro": "Share the role, team or project context in a few lines. I reply quickly and with clear structure.",
+      "title": "Prepare an email",
+      "intro": "Briefly describe the role, team or project. On submit your email client opens with a prepared message — no form data is stored on this website.",
       "nameLabel": "Name",
       "namePlaceholder": "Your name",
       "emailLabel": "Email",
       "emailPlaceholder": "name@company.com",
       "messageLabel": "Message",
-      "messagePlaceholder": "What is this about? (role, timeline, team, next steps)"
+      "messagePlaceholder": "What is it about? (role, timeline, team, next steps)"
     },
     "submit": {
-      "idle": "Send message",
+      "idle": "Open email draft",
       "sending": "Sending ...",
-      "successTitle": "Thanks for your message",
-      "successText": "Your message has been delivered. I usually reply within 24 hours.",
+      "successTitle": "Thank you for your message",
+      "successText": "Your message has arrived. I usually reply within 24 hours.",
       "mailtoTitle": "Almost done",
-      "mailtoText": "Your email app was opened with a prefilled draft — just hit send.",
+      "mailtoText": "Your email client opened with a prepared message — just send it.",
       "errorTitle": "Sending failed",
-      "errorText": "Please try again later or write to me directly via email."
+      "errorText": "Please try again later or email me directly."
     },
     "validation": {
       "nameRequired": "Please enter your name.",
       "emailRequired": "Please enter an email address.",
       "emailInvalid": "Please enter a valid email address.",
-      "messageRequired": "Please add a short message.",
-      "messageMin": "Please write at least 24 characters so I can understand the context."
+      "messageRequired": "Please add a message.",
+      "messageMin": "Please write at least 24 characters so I understand the context."
     },
     "mailSubject": "Contact via portfolio — Data maintenance & digitalisation",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {
-    "badge": "Project page coming soon",
-    "description": "Detailed goals, architecture decisions, tech stack and demo links will be added here soon.",
+    "badge": "Project details",
+    "description": "Goals, architecture decisions, tech stack and implementation details for this project.",
     "back": "Back to homepage"
   },
   "Footer": {
-    "rights": "© {year} Oleksandr Shevchenko. Built with Next.js & TypeScript."
+    "rights": "© {year} Oleksandr Shevchenko."
   }
 }

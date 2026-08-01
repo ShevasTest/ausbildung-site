@@ -1,4 +1,5 @@
 import "server-only";
+import { createThinkStripper } from "./strip-think";
 
 export type LlmMessage = {
   role: "user" | "assistant";
@@ -24,7 +25,7 @@ export type LlmModel = {
   model: string;
 };
 
-const MODEL_CACHE_TTL_MS = 15 * 60 * 1000;
+const MODEL_CACHE_TTL_MS = 5 * 60 * 1000;
 const MAX_LISTED_MODELS = 10;
 
 let modelCache: { models: LlmModel[]; fetchedAt: number } | null = null;
@@ -35,7 +36,7 @@ let modelCache: { models: LlmModel[]; fetchedAt: number } | null = null;
  * application portfolio pass this filter.
  */
 const BLOCKED_MODEL_PATTERN =
-  /uncensored|venice|guard|safety|moderat|whisper|tts|audio|lyria|image|vision|-vl|router|distill|base$/i;
+  /uncensored|venice|guard|safety|moderat|whisper|tts|audio|lyria|image|vision|-vl|router|distill|base$|thinking|reasoner|qwq|deepseek-r1/i;
 
 const PREFERENCE_TIERS: Array<{ pattern: RegExp; score: number }> = [
   { pattern: /llama-3\.3-70b/i, score: 100 },
@@ -105,13 +106,6 @@ function toModel(provider: ProviderKind, nativeId: string, name?: string): LlmMo
   };
 }
 
-const GROQ_STATIC_FALLBACK = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
-const OPENROUTER_STATIC_FALLBACK = [
-  "meta-llama/llama-3.3-70b-instruct:free",
-  "qwen/qwen3-next-80b-a3b-instruct:free",
-  "openai/gpt-oss-20b:free",
-];
-
 async function fetchGroqModels(): Promise<LlmModel[]> {
   const key = process.env.GROQ_API_KEY;
   if (!key) {
@@ -121,6 +115,7 @@ async function fetchGroqModels(): Promise<LlmModel[]> {
   try {
     const response = await fetch("https://api.groq.com/openai/v1/models", {
       headers: { Authorization: `Bearer ${key}` },
+      cache: "no-store",
       signal: AbortSignal.timeout(6_000),
     });
 
@@ -145,7 +140,7 @@ async function fetchGroqModels(): Promise<LlmModel[]> {
 
     return ids.map((id) => toModel("groq", id));
   } catch {
-    return GROQ_STATIC_FALLBACK.map((id) => toModel("groq", id));
+    return [];
   }
 }
 
@@ -164,6 +159,7 @@ async function fetchOpenRouterModels(): Promise<LlmModel[]> {
 
   try {
     const response = await fetch("https://openrouter.ai/api/v1/models", {
+      cache: "no-store",
       signal: AbortSignal.timeout(6_000),
     });
 
@@ -195,7 +191,7 @@ async function fetchOpenRouterModels(): Promise<LlmModel[]> {
         return toModel("openrouter", entry.id ?? "", cleanName);
       });
   } catch {
-    return OPENROUTER_STATIC_FALLBACK.map((id) => toModel("openrouter", id));
+    return [];
   }
 }
 
@@ -315,6 +311,9 @@ function extractGoogleText(payload: string): string {
 function sseToTextStream(body: ReadableStream<Uint8Array>, extract: SseExtractor): ReadableStream<Uint8Array> {
   const decoder = new TextDecoder();
   const encoder = new TextEncoder();
+  // Reasoning models leak their chain of thought as <think>…</think> inside
+  // the content stream — never show that to visitors.
+  const stripper = createThinkStripper();
   let buffer = "";
 
   return new ReadableStream<Uint8Array>({
@@ -345,11 +344,16 @@ function sseToTextStream(body: ReadableStream<Uint8Array>, extract: SseExtractor
               continue;
             }
 
-            const text = extract(payload);
+            const text = stripper.process(extract(payload));
             if (text) {
               controller.enqueue(encoder.encode(text));
             }
           }
+        }
+
+        const rest = stripper.flush();
+        if (rest) {
+          controller.enqueue(encoder.encode(rest));
         }
       } finally {
         reader.releaseLock();
@@ -362,13 +366,18 @@ function sseToTextStream(body: ReadableStream<Uint8Array>, extract: SseExtractor
   });
 }
 
-function openAiCompatibleBody(model: LlmModel, request: LlmRequest): string {
+function openAiCompatibleBody(
+  model: LlmModel,
+  request: LlmRequest,
+  extra?: Record<string, unknown>,
+): string {
   return JSON.stringify({
     model: model.model,
     max_tokens: request.maxTokens,
     temperature: request.temperature ?? 0.7,
     stream: true,
     messages: [{ role: "system", content: request.system }, ...request.messages],
+    ...extra,
   });
 }
 
@@ -383,7 +392,13 @@ async function callUpstream(model: LlmModel, request: LlmRequest): Promise<Respo
           Authorization: `Bearer ${process.env.GROQ_API_KEY ?? ""}`,
           "Content-Type": "application/json",
         },
-        body: openAiCompatibleBody(model, request),
+        // Groq's Qwen/DeepSeek models emit raw <think> reasoning inside the
+        // content stream by default — keep it out of the response entirely.
+        body: openAiCompatibleBody(
+          model,
+          request,
+          /qwen|deepseek/i.test(model.model) ? { reasoning_format: "hidden" } : undefined,
+        ),
         signal: timeout,
       });
 
@@ -393,10 +408,11 @@ async function callUpstream(model: LlmModel, request: LlmRequest): Promise<Respo
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY ?? ""}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "https://oleksandr-shevchenko.de",
+          "HTTP-Referer": "https://work.oleksandr-shevchenko.de",
           "X-Title": "Oleksandr Shevchenko Portfolio",
         },
-        body: openAiCompatibleBody(model, request),
+        // Keep chain-of-thought out of the stream for reasoning-capable models.
+        body: openAiCompatibleBody(model, request, { reasoning: { exclude: true } }),
         signal: timeout,
       });
 

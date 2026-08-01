@@ -5,14 +5,14 @@
     "ogTitle": "Oleksandr | Digitalisierung & Datenpflege",
     "ogDescription": "Strukturierte Daten pflegen, aktuell halten und wiederkehrende Abläufe automatisieren — mit öffentlicher Playwright-Suite in der CI.",
     "projectTitle": "Projekt: {slug}",
-    "projectDescription": "Detaillierte Projektseite mit Zielen, Stack und Umsetzungsschritten."
+    "projectDescription": "Projektdetails: Ziele, Tech Stack und Umsetzung."
   },
   "Nav": {
     "brand": "Oleksandr Shevchenko",
-    "hero": "Hero",
+    "hero": "Start",
     "about": "Über mich",
     "projects": "Projekte",
-    "skills": "Kenntnisse",
+    "skills": "Skills",
     "resume": "Lebenslauf",
     "contact": "Kontakt",
     "language": "Sprache",
@@ -106,19 +106,25 @@
   "Projects": {
     "title": "Projekte",
     "eyebrow": "Ausgewählte Arbeiten",
-    "intro": "Vier praxisnahe Projekte, die reale Alltagsthemen aufgreifen und meine aktuelle Arbeitsweise zeigen.",
+    "intro": "Das Kernprojekt ist mono-api-agent — ein RAG-Agent über eine offizielle OpenAPI-Spezifikation. Dazu eine eigene E2E-Testsuite und mehrere Live-Demos auf dieser Seite.",
     "items": [
+      {
+        "slug": "mono-api-agent",
+        "title": "mono-api-agent",
+        "summary": "RAG-Agent über die offizielle OpenAPI-Spezifikation von monobank: Chunking pro Methode, hybride Suche und eine deterministische Halluzinationsprüfung statt LLM-Judge.",
+        "stack": "TypeScript · LangGraph · lokale Embeddings"
+      },
+      {
+        "slug": "e2e-suite",
+        "title": "Portfolio E2E-Testsuite",
+        "summary": "Eigene Playwright + TypeScript E2E-Suite, die diese Website in der CI testet: UI, API und Accessibility — Desktop und Mobile.",
+        "stack": "Playwright · TypeScript · GitHub Actions"
+      },
       {
         "slug": "ki-bewerbungshelfer",
         "title": "KI-Bewerbungshelfer",
         "summary": "Analysiert Stellenanzeigen und erstellt personalisierte Anschreiben mit editierbarem Export.",
         "stack": "Next.js · LLM-Streaming · API-Routen"
-      },
-      {
-        "slug": "mietpreise-tracker",
-        "title": "Mietpreise-Tracker",
-        "summary": "Vergleicht Mietkosten deutscher Städte mit Trends und Einkommens-Rechner.",
-        "stack": "Next.js · Marktdaten Q4 2025 · SVG-Charts"
       },
       {
         "slug": "smartchat",
@@ -131,9 +137,15 @@
         "title": "DevDash",
         "summary": "Anpassbares Entwickler-Dashboard mit Widgets, Pomodoro und GitHub-Aktivität.",
         "stack": "Next.js · Live-APIs · PWA"
+      },
+      {
+        "slug": "mietpreise-tracker",
+        "title": "Mietpreise-Tracker",
+        "summary": "Vergleicht Mietkosten deutscher Städte mit Trends und einem Einkommensrechner.",
+        "stack": "Next.js · Marktdaten Q4 2025 · SVG-Charts"
       }
     ],
-    "openProject": "Projekt öffnen"
+    "openProject": "Details"
   },
   "Skills": {
     "title": "Kenntnisse",
@@ -144,6 +156,7 @@
       {
         "name": "Daten & Datenpflege",
         "description": "Bestände aufbereiten, bereinigen, abgleichen und aktuell halten",
+        "level": 72,
         "levelLabel": "Täglicher Arbeitsschwerpunkt",
         "items": [
           "Datenpflege & Datenqualität",
@@ -156,6 +169,7 @@
       {
         "name": "Automatisierung",
         "description": "Wiederkehrende Web- und Datenaufgaben in überprüfbare Abläufe übersetzen",
+        "level": 70,
         "levelLabel": "Sicher im praktischen Einsatz",
         "items": [
           "Python (Skripting)",
@@ -168,6 +182,7 @@
       {
         "name": "Web & Inhalte",
         "description": "Inhalte pflegen und ausliefern — eigene Website im Produktivbetrieb",
+        "level": 52,
         "levelLabel": "Solide Grundlagen aus eigenen Projekten",
         "items": [
           "HTML & CSS",
@@ -180,6 +195,7 @@
       {
         "name": "Werkzeuge",
         "description": "Versionierung, CI und KI-Werkzeuge im Alltag",
+        "level": 65,
         "levelLabel": "Sicher in den Basiswerkzeugen",
         "items": [
           "Git & GitHub",
@@ -192,6 +208,7 @@
       {
         "name": "Arbeitsweise",
         "description": "Wie ich arbeite, wenn eine Aufgabe sich hundertmal wiederholt",
+        "level": 78,
         "levelLabel": "Zuverlässig, sorgfältig und strukturiert",
         "items": [
           "Sorgfalt bei Routine",
@@ -204,7 +221,7 @@
     ]
   },
   "Resume": {
-    "eyebrow": "Lebenslauf & Entwicklung",
+    "eyebrow": "Werdegang & Projekte",
     "title": "Lebenslauf",
     "intro": "Mein Weg ist praxisnah: abgeschlossenes Studium, ein starkes Kursergebnis und seit rund drei Jahren tägliche Arbeit an echten Automatisierungs- und Datenaufgaben.",
     "timeline": [
@@ -269,9 +286,14 @@
         "href": "https://github.com/ShevasTest"
       },
       {
-        "label": "LinkedIn",
-        "value": "linkedin.com/in/oleksandr-it",
-        "href": "https://www.linkedin.com/in/oleksandr-it/"
+        "label": "Telegram",
+        "value": "t.me/Shevas_o",
+        "href": "https://t.me/Shevas_o"
+      },
+      {
+        "label": "WhatsApp",
+        "value": "+49 171 8198348",
+        "href": "https://wa.me/491718198348"
       }
     ],
     "availability": {
@@ -284,8 +306,8 @@
       ]
     },
     "form": {
-      "title": "Kurze Nachricht senden",
-      "intro": "Schildern Sie kurz Rolle, Team oder Projekt. Ich antworte strukturiert und zeitnah.",
+      "title": "E-Mail vorbereiten",
+      "intro": "Schildern Sie kurz Rolle, Team oder Projekt. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer fertig vorbereiteten Nachricht — es werden keine Formulardaten auf dieser Website gespeichert.",
       "nameLabel": "Name",
       "namePlaceholder": "Ihr Name",
       "emailLabel": "E-Mail",
@@ -294,7 +316,7 @@
       "messagePlaceholder": "Worum geht es? (Rolle, Zeitraum, Team, nächste Schritte)"
     },
     "submit": {
-      "idle": "Nachricht senden",
+      "idle": "E-Mail-Entwurf öffnen",
       "sending": "Wird gesendet ...",
       "successTitle": "Danke für Ihre Nachricht",
       "successText": "Ihre Nachricht ist angekommen. Ich melde mich in der Regel innerhalb von 24 Stunden.",
@@ -314,11 +336,11 @@
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {
-    "badge": "Projektseite in Vorbereitung",
-    "description": "Hier folgen bald Ziele, Architektur-Entscheidungen, Tech Stack und Demo-Links.",
+    "badge": "Projektdetails",
+    "description": "Ziele, Architektur-Entscheidungen, Tech-Stack und Umsetzungsdetails zu diesem Projekt.",
     "back": "Zurück zur Startseite"
   },
   "Footer": {
-    "rights": "© {year} Oleksandr Shevchenko. Entwickelt mit Next.js & TypeScript."
+    "rights": "© {year} Oleksandr Shevchenko."
   }
 }

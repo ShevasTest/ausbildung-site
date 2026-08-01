@@ -37,5 +37,5 @@ export function absoluteUrl(path: string) {
 }
 
 export function toJsonLd(value: object | object[]) {
-  return JSON.stringify(value).replace(/</g, "\\u003c");
+  return JSON.stringify(value).replace(/</g, "\u003c");
 }

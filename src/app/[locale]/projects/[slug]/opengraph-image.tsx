@@ -8,6 +8,16 @@ export const size = {
 export const contentType = "image/png";
 
 const projectCopy = {
+  "e2e-suite": {
+    de: {
+      title: "Portfolio E2E-Testsuite",
+      subtitle: "Playwright + TypeScript · CI gegen Produktion · UI, API & A11y",
+    },
+    en: {
+      title: "Portfolio E2E Test Suite",
+      subtitle: "Playwright + TypeScript · CI against production · UI, API & a11y",
+    },
+  },
   "ki-bewerbungshelfer": {
     de: {
       title: "KI-Bewerbungshelfer",
@@ -51,11 +61,11 @@ const projectCopy = {
   portfolio: {
     de: {
       title: "Portfolio-Website",
-      subtitle: "Mehrsprachig, responsiv und mit E2E-Tests in der CI",
+      subtitle: "Mehrsprachig, responsiv und durch eine öffentliche E2E-Suite getestet",
     },
     en: {
       title: "Portfolio Website",
-      subtitle: "Multilingual, responsive and covered by E2E tests in CI",
+      subtitle: "Multilingual, responsive and covered by a public e2e test suite",
     },
   },
 } as const;
@@ -82,8 +92,8 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
   const subtitle = knownProject
     ? knownProject[safeLocale].subtitle
     : safeLocale === "de"
-      ? "Projekt-Demo im Portfolio von Oleksandr"
-      : "Project demo from Oleksandr's portfolio";
+      ? "Projekt-Demo im Developer Portfolio"
+      : "Project demo from the developer portfolio";
 
   return new ImageResponse(
     (
@@ -158,7 +168,7 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
           </div>
 
           <div style={{ display: "flex", gap: "14px", alignItems: "center", fontSize: "24px" }}>
-            <span style={{ color: "#5ECF9A", fontWeight: 600 }}>oleksandr-shevchenko.de</span>
+            <span style={{ color: "#5ECF9A", fontWeight: 600 }}>work.oleksandr-shevchenko.de</span>
             <span style={{ color: "#5B6260" }}>•</span>
             <span style={{ color: "#9AA19E" }}>Next.js · TypeScript</span>
           </div>

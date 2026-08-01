@@ -2,10 +2,13 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { decodeLlmLabel } from "@/lib/llm-label";
+import { extractCompany, extractRole } from "@/lib/vacancy-analysis";
 
 type LocaleKey = "de" | "en";
 type FocusKey = "frontend" | "fullstack" | "teamfit" | "ai";
 type ToneKey = "professional" | "motivated" | "direct";
+type LengthKey = "short" | "standard" | "long";
 
 type VacancyPreset = {
   id: string;
@@ -40,16 +43,29 @@ type DemoCopy = {
     namePlaceholder: string;
     cityLabel: string;
     cityPlaceholder: string;
+    profileLabel: string;
+    profilePlaceholder: string;
+    profileHint: string;
+    contactLabel: string;
+    contactPlaceholder: string;
+    letterLanguageLabel: string;
+    letterLanguageOptions: { value: "de" | "en"; label: string }[];
+    lengthLabel: string;
+    lengthOptions: { value: LengthKey; label: string }[];
     presetsLabel: string;
     focusLabel: string;
     toneLabel: string;
     modelLabel: string;
     modelHint: string;
+    modelLoading: string;
+    modelUnavailable: string;
     strengthsLabel: string;
     strengthsHint: string;
     generate: string;
     generating: string;
     errorRequired: string;
+    errorName: string;
+    errorProfile: string;
   };
   output: {
     title: string;
@@ -76,8 +92,10 @@ type DemoCopy = {
     noKeywords: string;
   };
   footerNote: string;
+  footerNoteAvailable: string;
   footerNoteLive: string;
   aiModeNote: string;
+  aiModeNoteAvailable: string;
   aiModeNoteLive: string;
   statusLive: string;
   statusDemo: string;
@@ -111,29 +129,51 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     badge: "Live-Demo · KI-Bewerbungshelfer",
     title: "KI-Bewerbungshelfer",
     subtitle:
-      "Stellenanzeige einfügen, Fokus setzen, Anschreiben generieren. Die Ausgabe kommt als Streaming-Text von einem echten Sprachmodell über eine eigene Server-Route — ohne konfigurierten API-Key läuft automatisch ein lokaler Demo-Modus.",
+      "Stellenanzeige einfügen, optional das eigene Profil angeben, Fokus setzen — Anschreiben generieren. Die Ausgabe kommt als Streaming-Text von einem echten Sprachmodell über eine eigene Server-Route — ohne konfigurierten API-Key läuft automatisch ein lokaler Demo-Modus.",
     back: "Zurück zur Startseite",
-    chips: ["Streaming Output", "HR-taugliche Formulierungen", "Echte KI · Demo-Fallback"],
+    chips: ["Streaming-Ausgabe", "HR-taugliche Formulierungen", "Echte KI · Demo-Fallback"],
     input: {
       title: "Stellenanzeige einfügen",
       hint: "Verwenden Sie den Originaltext der Ausschreibung. Der Helfer extrahiert Rolle, Keywords und passende Argumentation.",
       placeholder:
-        "Beispiel: Wir suchen zum 01.08.2026 eine/n Auszubildende/n Fachinformatiker/in für Anwendungsentwicklung (m/w/d) in Berlin ...",
+        "Beispiel: Wir suchen einen Junior Frontend Developer (m/w/d) für unser Produktteam in Berlin ...",
       characters: "Zeichen",
       presetsLabel: "Schnellstart-Vorlagen",
       focusLabel: "Fokus im Anschreiben",
       toneLabel: "Ton",
       modelLabel: "KI-Modell",
       modelHint: "Kostenlose Modelle — die Liste passt sich automatisch an die aktuell verfügbaren Modelle an.",
+      modelLoading: "Verfügbare KI-Modelle werden geladen …",
+      modelUnavailable: "Lokaler Demo-Modus · Groq/OpenRouter nicht konfiguriert",
       strengthsLabel: "Persönliche Stärken hervorheben",
       strengthsHint: "Maximal 3 auswählen",
       nameLabel: "Ihr Name",
       namePlaceholder: "z.B. Max Mustermann",
       cityLabel: "Ihr Standort",
       cityPlaceholder: "z.B. München",
+      profileLabel: "Ihr Profil",
+      profilePlaceholder:
+        "Ausbildung, Erfahrung, Kenntnisse, Stärken — Stichpunkte reichen. Das Anschreiben nutzt dann nur Ihre Angaben.",
+      profileHint:
+        "Das Anschreiben wird ausschließlich aus Ihren Angaben geschrieben. Bitte keine sensiblen Daten eingeben.",
+      contactLabel: "Ansprechpartner:in (optional)",
+      contactPlaceholder: "z.B. Frau Müller",
+      letterLanguageLabel: "Sprache des Anschreibens",
+      letterLanguageOptions: [
+        { value: "de", label: "Deutsch" },
+        { value: "en", label: "Englisch" },
+      ],
+      lengthLabel: "Länge",
+      lengthOptions: [
+        { value: "short", label: "Kurz (~150)" },
+        { value: "standard", label: "Standard" },
+        { value: "long", label: "Ausführlich" },
+      ],
       generate: "Anschreiben generieren",
       generating: "Generiere Anschreiben ...",
       errorRequired: "Bitte zuerst eine Stellenanzeige einfügen.",
+      errorName: "Bitte geben Sie Ihren Namen ein.",
+      errorProfile: "Bitte beschreiben Sie kurz Ihr Profil (mindestens 30 Zeichen) — das Anschreiben entsteht nur aus Ihren Angaben.",
     },
     output: {
       title: "Generiertes Anschreiben",
@@ -162,54 +202,29 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     footerNote:
       "Hinweis: Aktuell läuft der lokale Demo-Modus (kein API-Key auf dem Server konfiguriert). Aufbau, Streaming und Analyse funktionieren identisch — mit API-Key schreibt ein echtes Sprachmodell.",
+    footerNoteAvailable:
+      "Hinweis: Live-Modelle sind verfügbar. Bei der Generierung wird das ausgewählte Modell über eine Server-Route mit Rate-Limit verwendet. Bitte prüfen Sie den Text vor dem Versand und geben Sie keine sensiblen Daten ein.",
     footerNoteLive:
       "Hinweis: Das Anschreiben wird von einem echten Sprachmodell über eine Server-Route mit Rate-Limit generiert. Bitte prüfen Sie den Text vor dem Versand und geben Sie keine sensiblen Daten ein.",
     aiModeNote: "KI-Modus: Lokaler Demo-Generator (kein externes LLM)",
+    aiModeNoteAvailable: "KI-Modus: Live-Modelle verfügbar",
     aiModeNoteLive: "KI-Modus: Live — echtes Sprachmodell über Server-Route",
     statusLive: "Live-KI",
     statusDemo: "Demo-Modus",
     presets: [
       {
-        id: "preset-startup-frontend",
-        label: "Startup Frontend (Berlin)",
-        focus: "frontend",
-        text:
-          "Ein Berliner SaaS-Startup sucht zum 01.08.2026 eine/n Auszubildende/n Fachinformatiker/in für Anwendungsentwicklung (m/w/d). Du entwickelst im Frontend-Team Features mit React, Next.js und TypeScript, arbeitest eng mit Product/Design zusammen und verbesserst UX sowie Ladezeiten.",
-      },
-      {
-        id: "preset-corporate-it",
-        label: "Corporate IT (Inhouse)",
-        focus: "teamfit",
-        text:
-          "Für unsere zentrale IT in München suchen wir Auszubildende zum Fachinformatiker für Anwendungsentwicklung (w/m/d). Du arbeitest an internen Tools, APIs und Automatisierung. Wichtig sind Dokumentation, Abstimmung mit Fachabteilungen und eine verlässliche Zusammenarbeit im Team.",
-      },
-      {
-        id: "preset-ecommerce",
-        label: "E-Commerce Plattform",
-        focus: "fullstack",
-        text:
-          "Ein wachsender E-Commerce-Anbieter in Hamburg stellt Auszubildende (m/w/d) ein. Aufgaben: Weiterentwicklung von Shop-Frontend, Checkout-Prozessen und Schnittstellen zu Zahlungs- und Warenwirtschaftssystemen. Erwartet werden JavaScript/TypeScript-Basis, API-Verständnis und datengetriebenes Denken.",
-      },
-      {
-        id: "preset-public-sector",
-        label: "Behörden / Öffentlicher Dienst",
-        focus: "teamfit",
-        text:
-          "Eine kommunale IT-Dienststelle sucht Auszubildende zum Fachinformatiker für Anwendungsentwicklung (m/w/d) für Digitalisierungsprojekte. Sie unterstützen Bürgerportale, Formular-Workflows und barrierearme Oberflächen. Gefragt sind Sorgfalt, Datenschutzbewusstsein und klare Kommunikation.",
-      },
-      {
-        id: "preset-agency",
-        label: "Digitalagentur Webprojekte",
-        focus: "frontend",
-        text:
-          "Eine Agentur in Köln sucht Unterstützung im Bereich Anwendungsentwicklung. Sie arbeiten in wechselnden Kundenprojekten an Landingpages, Content-Plattformen und UI-Komponenten. Gewünscht: saubere HTML/CSS/JS-Grundlagen, Kreativität und strukturierte Projektarbeit.",
-      },
-      {
         id: "preset-qa-testing",
-        label: "QA / Testing Fokus",
+        label: "QA / Test Automation",
         focus: "ai",
         text:
-          "Ein Softwarehaus in Frankfurt sucht Auszubildende (m/w/d) mit Schwerpunkt Qualitätssicherung in der Entwicklung. Aufgaben sind Testfall-Design, automatisierte UI/API-Tests, Fehleranalyse und Zusammenarbeit mit Dev-Teams. Vorteilhaft: Interesse an Testing-Tools, CI und genauer Dokumentation.",
+          "Ein Softwarehaus in Frankfurt sucht einen Junior QA Automation Developer (m/w/d). Aufgaben sind Testfall-Design, automatisierte UI/API-Tests, Fehleranalyse und Zusammenarbeit mit Dev-Teams. Vorteilhaft: Interesse an Testing-Tools, CI und genauer Dokumentation.",
+      },
+      {
+        id: "preset-startup-frontend",
+        label: "Start-up Frontend (Berlin)",
+        focus: "frontend",
+        text:
+          "Ein Berliner SaaS-Start-up sucht einen Junior Frontend Developer (m/w/d). Du entwickelst im Produktteam Features mit React, Next.js und TypeScript, arbeitest eng mit Product und Design zusammen und verbesserst UX sowie Ladezeiten. Wichtig sind Lernbereitschaft, saubere Kommunikation und ein nachvollziehbarer Entwicklungsprozess.",
       },
     ],
     focusOptions: [
@@ -220,17 +235,17 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
       {
         value: "fullstack",
-        label: "Full-Stack Orientierung",
+        label: "Full-Stack-Orientierung",
         hint: "API-Denken, Datenfluss, saubere Schnittstellen",
       },
       {
         value: "teamfit",
-        label: "Teamfit",
+        label: "Team-Fit & Junior-Rolle",
         hint: "Lernkurve, Zuverlässigkeit, Zusammenarbeit",
       },
       {
         value: "ai",
-        label: "AI-Produktivität",
+        label: "KI-Produktivität",
         hint: "Automatisierung, strukturierte Prompt-Workflows",
       },
     ],
@@ -260,13 +275,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     ],
     focusParagraphs: {
       frontend:
-        "Ich sammle aktuell praktische Erfahrung in der Umsetzung responsiver Frontend-Lösungen mit Next.js und TypeScript. Dabei achte ich auf Accessibility, Performance und eine klare Informationsarchitektur.",
+        "Besonders reizt mich die Arbeit an nutzerfreundlichen, zugänglichen Oberflächen — mit Blick auf Details, Performance und ein konsistentes Nutzererlebnis.",
       fullstack:
-        "Neben der UI-Umsetzung denke ich Schnittstellen und Datenfluss mit. In Projekten habe ich API-Integrationen, Validierung und wartbare Strukturierung von Frontend- und Backend-Logik kombiniert.",
+        "Mich motiviert das Zusammenspiel aus Frontend, APIs und Datenflüssen: Anforderungen zerlegen, Schnittstellen sauber verbinden und Lösungen Schritt für Schritt zu einem stabilen Ergebnis führen.",
       teamfit:
-        "Ich suche bewusst ein Team, in dem ich strukturiert Verantwortung übernehme, Feedback schnell in bessere Lösungen übersetze und mich fachlich wie menschlich weiterentwickle.",
+        "Ich suche ein Team, in dem ich Verantwortung übernehme, Feedback schnell umsetze und mich fachlich wie persönlich weiterentwickeln kann.",
       ai:
-        "Ich nutze KI-Tools produktiv und verantwortungsvoll: für Recherche, Strukturierung und schnellere Iteration — immer mit klarer Qualitätskontrolle im finalen Code.",
+        "KI-Tools setze ich produktiv und verantwortungsvoll ein: als Beschleuniger für Routineaufgaben, deren Ergebnisse ich konsequent prüfe und nachvollziehbar dokumentiere.",
     },
     toneOpeners: {
       professional:
@@ -278,7 +293,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     strengthSentences: {
       initiative:
-        "Eigeninitiative zeige ich durch konsequentes Selbststudium und die eigenständige Umsetzung kompletter Projektmodule.",
+        "Eigeninitiative zeige ich, indem ich Aufgaben aktiv aufgreife, mich selbstständig einarbeite und Dinge zuverlässig zu Ende führe.",
       learning:
         "Neue Technologien und Arbeitsweisen eigne ich mir schnell an und setze Feedback direkt in konkrete Verbesserungen um.",
       structure:
@@ -293,29 +308,51 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     badge: "Live demo · AI Application Assistant",
     title: "AI Application Assistant",
     subtitle:
-      "Paste a job description, set your focus and generate a cover letter. The output streams from a real language model through a dedicated server route — without a configured API key the demo automatically falls back to a local mode.",
+      "Paste a job description, optionally add your own profile, set the focus — and generate a cover letter. The output streams from a real language model through a dedicated server route — without a configured API key the demo automatically falls back to a local mode.",
     back: "Back to homepage",
     chips: ["Streaming output", "HR-ready wording", "Real AI · demo fallback"],
     input: {
       title: "Paste job description",
       hint: "Use the original vacancy text. The assistant extracts role, keywords and argument strategy.",
       placeholder:
-        "Example: We are hiring an apprentice software developer (m/f/d) starting August 2026 in Berlin ...",
+        "Example: We are hiring a junior frontend developer (m/f/d) for our product team in Berlin ...",
       characters: "characters",
       presetsLabel: "Quick presets",
       focusLabel: "Cover letter focus",
       toneLabel: "Tone",
       modelLabel: "AI model",
       modelHint: "Free models — the list adapts automatically to what is currently available.",
+      modelLoading: "Loading available AI models …",
+      modelUnavailable: "Local demo mode · Groq/OpenRouter not configured",
       strengthsLabel: "Highlight strengths",
       strengthsHint: "Select up to 3",
       nameLabel: "Your name",
       namePlaceholder: "e.g. John Smith",
       cityLabel: "Your location",
       cityPlaceholder: "e.g. Munich",
+      profileLabel: "Your profile",
+      profilePlaceholder:
+        "Education, experience, skills, strengths — bullet points are fine. The letter will then use only your details.",
+      profileHint:
+        "The cover letter is written exclusively from your details. Please do not enter sensitive data.",
+      contactLabel: "Contact person (optional)",
+      contactPlaceholder: "e.g. Ms. Miller",
+      letterLanguageLabel: "Letter language",
+      letterLanguageOptions: [
+        { value: "de", label: "German" },
+        { value: "en", label: "English" },
+      ],
+      lengthLabel: "Length",
+      lengthOptions: [
+        { value: "short", label: "Short (~150)" },
+        { value: "standard", label: "Standard" },
+        { value: "long", label: "Detailed" },
+      ],
       generate: "Generate cover letter",
       generating: "Generating cover letter ...",
       errorRequired: "Please paste a job description first.",
+      errorName: "Please enter your name.",
+      errorProfile: "Please describe your profile briefly (at least 30 characters) — the letter is written only from your details.",
     },
     output: {
       title: "Generated cover letter",
@@ -344,54 +381,29 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     footerNote:
       "Note: the local demo mode is active (no API key configured on the server). Structure, streaming and analysis behave identically — with an API key a real language model writes the letter.",
+    footerNoteAvailable:
+      "Note: live models are available. Generation uses the selected model through a rate-limited server route. Review the result before sending and do not enter sensitive data.",
     footerNoteLive:
       "Note: the cover letter is generated by a real language model through a rate-limited server route. Please review the text before sending and do not enter sensitive data.",
     aiModeNote: "AI mode: local demo generator (no external LLM)",
+    aiModeNoteAvailable: "AI mode: live models available",
     aiModeNoteLive: "AI mode: live — real language model via server route",
     statusLive: "Live AI",
     statusDemo: "Demo mode",
     presets: [
       {
+        id: "preset-qa-testing",
+        label: "QA / test automation",
+        focus: "ai",
+        text:
+          "A software company in Frankfurt is hiring a junior QA automation developer. Responsibilities include test case design, automated UI/API testing, bug triage and collaboration with developers. Interest in testing tools, CI pipelines and precise documentation is a plus.",
+      },
+      {
         id: "preset-startup-frontend",
         label: "Startup frontend (Berlin)",
         focus: "frontend",
         text:
-          "A Berlin SaaS startup is hiring an apprentice software developer (m/f/d) starting August 2026. You will build product-facing frontend features with React, Next.js and TypeScript, collaborate closely with product/design and improve UX and page performance.",
-      },
-      {
-        id: "preset-corporate-it",
-        label: "Corporate IT (in-house)",
-        focus: "teamfit",
-        text:
-          "Our central IT department in Munich is hiring apprentice developers. You work on internal tools, APIs and workflow automation. We expect clear documentation, cross-team collaboration and reliable delivery in a structured environment.",
-      },
-      {
-        id: "preset-ecommerce",
-        label: "E-commerce platform",
-        focus: "fullstack",
-        text:
-          "A fast-growing e-commerce company in Hamburg is looking for apprentices (m/f/d). Tasks include improving storefront features, checkout flows and integrations with payment/inventory systems. We value JavaScript/TypeScript basics, API understanding and data-aware thinking.",
-      },
-      {
-        id: "preset-public-sector",
-        label: "Public sector / government IT",
-        focus: "teamfit",
-        text:
-          "A municipal IT service provider offers an apprenticeship in software development. You support citizen portals, digital form workflows and accessibility-focused interfaces. We are looking for diligence, privacy awareness and clear communication.",
-      },
-      {
-        id: "preset-agency",
-        label: "Digital agency client work",
-        focus: "frontend",
-        text:
-          "A digital agency in Cologne is hiring apprentices for web application development. You contribute to multiple client projects: landing pages, content platforms and reusable UI components. Solid HTML/CSS/JS basics, creativity and structured teamwork are required.",
-      },
-      {
-        id: "preset-qa-testing",
-        label: "QA / testing-focused role",
-        focus: "ai",
-        text:
-          "A software company in Frankfurt is hiring apprentices with a QA/testing focus. Responsibilities include test case design, automated UI/API testing, bug triage and collaboration with developers. Interest in testing tools, CI pipelines and precise documentation is a plus.",
+          "A Berlin SaaS startup is hiring a junior frontend developer (m/f/d). You will build product-facing features with React, Next.js and TypeScript, collaborate with product/design and improve UX and page performance. We value willingness to learn, clear communication and a traceable development process.",
       },
     ],
     focusOptions: [
@@ -407,7 +419,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
       {
         value: "teamfit",
-        label: "Team fit",
+        label: "Team fit & junior role",
         hint: "Learning speed, reliability, collaboration",
       },
       {
@@ -442,13 +454,13 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     ],
     focusParagraphs: {
       frontend:
-        "I am currently building practical experience in responsive frontend solutions with Next.js and TypeScript, with clear attention to accessibility, performance and hierarchy.",
+        "I am particularly drawn to building user-friendly, accessible interfaces — with attention to detail, performance and a consistent user experience.",
       fullstack:
-        "Beyond UI delivery, I think in APIs and data flow. In projects, I combine integration work, validation and maintainable frontend/backend structures.",
+        "I enjoy the interplay of frontend, APIs and data flows: breaking down requirements, connecting interfaces cleanly and guiding solutions step by step to a stable result.",
       teamfit:
-        "I am intentionally looking for a team where I can take ownership early, turn feedback into better solutions quickly and grow in a structured environment.",
+        "I am looking for a team where I can take ownership, act on feedback quickly and keep growing professionally and personally.",
       ai:
-        "I use AI tools productively and responsibly for research, structuring and faster iteration, always with strict quality checks before final delivery.",
+        "I use AI tools productively and responsibly: as an accelerator for routine work whose results I consistently verify and document.",
     },
     toneOpeners: {
       professional:
@@ -459,7 +471,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     },
     strengthSentences: {
       initiative:
-        "I show initiative through disciplined self-learning and independent delivery of complete project modules.",
+        "I show initiative by taking on tasks proactively, learning independently and reliably following through.",
       learning:
         "I learn new technologies quickly and turn feedback into concrete improvements without delay.",
       structure:
@@ -502,62 +514,6 @@ const KEYWORD_LIBRARY: KeywordEntry[] = [
   { match: "node", labelDe: "Node.js", labelEn: "Node.js" },
 ];
 
-function normalizeCompany(rawValue: string) {
-  return rawValue
-    .replace(/[|,;:\n]/g, " ")
-    .replace(/\s+/g, " ")
-    .replace(/[.!?]$/, "")
-    .trim();
-}
-
-function extractCompany(vacancyText: string) {
-  const patterns = [
-    /(?:bei|für)\s+([A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9&.\- ]{2,42})/i,
-    /(?:unternehmen|arbeitgeber)\s*[:\-]\s*([A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9&.\- ]{2,42})/i,
-    /([A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9&.\- ]{2,42})\s+(?:sucht|stellt ein|sucht zum)/i,
-  ];
-
-  for (const pattern of patterns) {
-    const match = vacancyText.match(pattern);
-    if (!match?.[1]) {
-      continue;
-    }
-
-    const normalized = normalizeCompany(match[1]);
-    if (normalized.length > 1) {
-      return normalized;
-    }
-  }
-
-  return "";
-}
-
-function extractRole(vacancyText: string, fallbackRole: string) {
-  const text = vacancyText.toLowerCase();
-
-  if (text.includes("fachinformatiker") && text.includes("anwendungsentwicklung")) {
-    return "Fachinformatiker/in für Anwendungsentwicklung (m/w/d)";
-  }
-
-  if (text.includes("frontend")) {
-    return "Frontend Developer (m/w/d)";
-  }
-
-  if (text.includes("fullstack") || text.includes("full-stack")) {
-    return "Full-Stack Developer (m/w/d)";
-  }
-
-  if (text.includes("ausbildung") && text.includes("software")) {
-    return "Ausbildung im Bereich Softwareentwicklung (m/w/d)";
-  }
-
-  if (text.includes("softwareentwickler") || text.includes("software developer")) {
-    return "Software Developer (m/w/d)";
-  }
-
-  return fallbackRole;
-}
-
 function extractKeywords(vacancyText: string, localeKey: LocaleKey) {
   const lowered = vacancyText.toLowerCase();
   const found: string[] = [];
@@ -589,8 +545,12 @@ function buildGermanLetter(params: {
   copy: DemoCopy;
   applicantName: string;
   applicantCity: string;
+  applicantProfile: string;
 }) {
-  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity } = params;
+  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity, applicantProfile } = params;
+  const profileParagraph = applicantProfile
+    ? `Kurz zu meinem Hintergrund: ${applicantProfile.replace(/\s+/g, " ").trim()}`
+    : "";
   const salutation =
     analysis.company === copy.analysis.unknownCompany
       ? "Sehr geehrtes Recruiting-Team,"
@@ -622,6 +582,7 @@ function buildGermanLetter(params: {
     "",
     copy.toneOpeners[tone],
     "",
+    ...(profileParagraph ? [profileParagraph, ""] : []),
     copy.focusParagraphs[focus],
     "",
     keywordLine,
@@ -633,7 +594,7 @@ function buildGermanLetter(params: {
     "Mit freundlichen Grüßen",
     applicantName,
     "",
-    "Anlagen: Lebenslauf, Zeugnisse",
+    "Anlage: Lebenslauf",
   ].join("\n");
 }
 
@@ -645,8 +606,12 @@ function buildEnglishLetter(params: {
   copy: DemoCopy;
   applicantName: string;
   applicantCity: string;
+  applicantProfile: string;
 }) {
-  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity } = params;
+  const { analysis, tone, focus, strengths, copy, applicantName, applicantCity, applicantProfile } = params;
+  const profileParagraph = applicantProfile
+    ? `A little about my background: ${applicantProfile.replace(/\s+/g, " ").trim()}`
+    : "";
   const salutation =
     analysis.company === copy.analysis.unknownCompany
       ? "Dear recruiting team,"
@@ -680,6 +645,7 @@ function buildEnglishLetter(params: {
     "",
     copy.toneOpeners[tone],
     "",
+    ...(profileParagraph ? [profileParagraph, ""] : []),
     copy.focusParagraphs[focus],
     "",
     keywordLine,
@@ -695,7 +661,7 @@ function buildEnglishLetter(params: {
 
 function createAnalysis(copy: DemoCopy, vacancyText: string, focus: FocusKey, localeKey: LocaleKey): VacancyAnalysis {
   const company = extractCompany(vacancyText) || copy.analysis.unknownCompany;
-  const role = extractRole(vacancyText, copy.analysis.fallbackRole);
+  const role = extractRole(vacancyText, copy.analysis.fallbackRole, localeKey);
   const keywords = extractKeywords(vacancyText, localeKey);
 
   const argumentLabel =
@@ -716,8 +682,12 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   const [vacancyText, setVacancyText] = useState(copy.presets[0]?.text ?? "");
   const [focus, setFocus] = useState<FocusKey>(copy.presets[0]?.focus ?? "frontend");
   const [tone, setTone] = useState<ToneKey>("professional");
-  const [applicantName, setApplicantName] = useState("Oleksandr");
+  const [applicantName, setApplicantName] = useState("");
   const [applicantCity, setApplicantCity] = useState("");
+  const [applicantProfile, setApplicantProfile] = useState("");
+  const [contactPerson, setContactPerson] = useState("");
+  const [letterLanguage, setLetterLanguage] = useState<"de" | "en">(localeKey);
+  const [letterLength, setLetterLength] = useState<LengthKey>("standard");
   const [selectedStrengths, setSelectedStrengths] = useState<string[]>([
     copy.strengths[0]?.id ?? "initiative",
     copy.strengths[2]?.id ?? "structure",
@@ -734,6 +704,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   const [isLiveRun, setIsLiveRun] = useState(false);
   const [models, setModels] = useState<AvailableModel[]>([]);
   const [selectedModel, setSelectedModel] = useState("");
+  const [modelsLoading, setModelsLoading] = useState(true);
 
   const streamTimerRef = useRef<number | null>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -750,7 +721,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/models")
+    fetch("/api/models", { cache: "no-store" })
       .then((response) => (response.ok ? response.json() : null))
       .then((data: { models?: AvailableModel[] } | null) => {
         if (cancelled || !data?.models || data.models.length === 0) {
@@ -761,6 +732,11 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
       })
       .catch(() => {
         // Without a model list the demo silently stays in local mode.
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setModelsLoading(false);
+        }
       });
 
     return () => {
@@ -872,8 +848,9 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             focus,
             strengths: selectedStrengths,
             copy,
-            applicantName: applicantName.trim() || "Oleksandr",
+            applicantName: applicantName.trim(),
             applicantCity: applicantCity.trim(),
+            applicantProfile: applicantProfile.trim(),
           })
         : buildEnglishLetter({
             analysis: nextAnalysis,
@@ -881,8 +858,9 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             focus,
             strengths: selectedStrengths,
             copy,
-            applicantName: applicantName.trim() || "Oleksandr",
+            applicantName: applicantName.trim(),
             applicantCity: applicantCity.trim(),
+            applicantProfile: applicantProfile.trim(),
           });
 
     streamText(generated);
@@ -892,6 +870,14 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
     const trimmed = vacancyText.trim();
     if (!trimmed) {
       setInputError(copy.input.errorRequired);
+      return;
+    }
+    if (!applicantName.trim()) {
+      setInputError(copy.input.errorName);
+      return;
+    }
+    if (applicantProfile.trim().length < 30) {
+      setInputError(copy.input.errorProfile);
       return;
     }
 
@@ -921,9 +907,12 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
           focus,
           tone,
           strengths: strengthLabels,
-          applicantName: applicantName.trim() || "Oleksandr",
+          applicantName: applicantName.trim(),
           applicantCity: applicantCity.trim(),
-          locale: localeKey,
+          applicantProfile: applicantProfile.trim(),
+          contactPerson: contactPerson.trim(),
+          letterLength,
+          locale: letterLanguage,
           model: selectedModel || undefined,
         }),
         signal: controller.signal,
@@ -935,7 +924,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
       }
 
       setEngineMode("live");
-      setEngineLabel(response.headers.get("X-Llm-Label") ?? "");
+      setEngineLabel(decodeLlmLabel(response.headers.get("X-Llm-Label")));
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
@@ -1086,6 +1075,65 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             </div>
           </div>
 
+          <div className="mt-4">
+            <label htmlFor="applicant-profile" className="block text-sm font-semibold text-foreground">
+              {copy.input.profileLabel}
+            </label>
+            <textarea
+              id="applicant-profile"
+              value={applicantProfile}
+              onChange={(e) => setApplicantProfile(e.target.value)}
+              placeholder={copy.input.profilePlaceholder}
+              rows={3}
+              maxLength={1500}
+              className="contact-field mt-1.5 w-full resize-y rounded-xl px-3 py-2.5 text-sm"
+            />
+            <p className="mt-1 text-xs text-muted">{copy.input.profileHint}</p>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <label className="flex flex-col text-sm font-semibold text-foreground">
+              <span className="pb-1.5">{copy.input.letterLanguageLabel}</span>
+              <select
+                value={letterLanguage}
+                onChange={(event) => setLetterLanguage(event.target.value as "de" | "en")}
+                className="contact-field mt-auto w-full rounded-2xl px-3 py-2.5 text-sm font-normal"
+              >
+                {copy.input.letterLanguageOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="flex flex-col text-sm font-semibold text-foreground">
+              <span className="pb-1.5">{copy.input.lengthLabel}</span>
+              <select
+                value={letterLength}
+                onChange={(event) => setLetterLength(event.target.value as LengthKey)}
+                className="contact-field mt-auto w-full rounded-2xl px-3 py-2.5 text-sm font-normal"
+              >
+                {copy.input.lengthOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="flex flex-col text-sm font-semibold text-foreground">
+              <span className="pb-1.5">{copy.input.contactLabel}</span>
+              <input
+                type="text"
+                value={contactPerson}
+                onChange={(event) => setContactPerson(event.target.value)}
+                placeholder={copy.input.contactPlaceholder}
+                className="contact-field mt-auto w-full rounded-xl px-3 py-2.5 text-sm font-normal"
+              />
+            </label>
+          </div>
+
           <div className="mt-5">
             <p className="text-xs font-semibold tracking-[0.13em] text-primary uppercase">
               {copy.input.presetsLabel}
@@ -1100,7 +1148,7 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
                 >
                   <p className="text-sm font-semibold text-foreground">{preset.label}</p>
                   <p className="mt-1 break-words text-xs leading-relaxed text-muted">
-                    {preset.text.slice(0, 120)}...
+                    {preset.text}
                   </p>
                 </button>
               ))}
@@ -1139,25 +1187,30 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
             </label>
           </div>
 
-          {models.length > 0 ? (
-            <div className="mt-5">
-              <label className="text-sm font-semibold text-foreground">
-                {copy.input.modelLabel}
-                <select
-                  value={selectedModel}
-                  onChange={(event) => setSelectedModel(event.target.value)}
-                  className="contact-field mt-2 w-full rounded-2xl px-3 py-2.5 text-sm"
-                >
-                  {models.map((model) => (
+          <div className="mt-5">
+            <label className="text-sm font-semibold text-foreground">
+              {copy.input.modelLabel}
+              <select
+                value={models.length > 0 ? selectedModel : modelsLoading ? "loading" : "demo"}
+                onChange={(event) => setSelectedModel(event.target.value)}
+                disabled={models.length === 0}
+                className="contact-field mt-2 w-full rounded-2xl px-3 py-2.5 text-sm disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {models.length > 0 ? (
+                  models.map((model) => (
                     <option key={model.id} value={model.id}>
                       {model.label}
                     </option>
-                  ))}
-                </select>
-              </label>
-              <p className="mt-1.5 text-xs text-muted">{copy.input.modelHint}</p>
-            </div>
-          ) : null}
+                  ))
+                ) : (
+                  <option value={modelsLoading ? "loading" : "demo"}>
+                    {modelsLoading ? copy.input.modelLoading : copy.input.modelUnavailable}
+                  </option>
+                )}
+              </select>
+            </label>
+            <p className="mt-1.5 text-xs text-muted">{copy.input.modelHint}</p>
+          </div>
 
           <div className="mt-5">
             <p className="text-sm font-semibold text-foreground">{copy.input.strengthsLabel}</p>
@@ -1307,10 +1360,22 @@ export function KIBewerbungshelferDemo({ locale }: KIBewerbungshelferDemoProps) 
 
       <div className="mt-5 space-y-1.5">
         <p className="text-xs leading-relaxed text-muted">
-          {engineMode === "live" ? copy.footerNoteLive : copy.footerNote}
+          {engineMode === "live"
+            ? copy.footerNoteLive
+            : modelsLoading
+              ? copy.input.modelLoading
+            : engineMode === "demo" || (!modelsLoading && models.length === 0)
+              ? copy.footerNote
+              : copy.footerNoteAvailable}
         </p>
         <p className="text-xs font-semibold text-primary">
-          {engineMode === "live" ? copy.aiModeNoteLive : copy.aiModeNote}
+          {engineMode === "live"
+            ? copy.aiModeNoteLive
+            : modelsLoading
+              ? copy.input.modelLoading
+            : engineMode === "demo" || (!modelsLoading && models.length === 0)
+              ? copy.aiModeNote
+              : copy.aiModeNoteAvailable}
         </p>
       </div>
     </main>

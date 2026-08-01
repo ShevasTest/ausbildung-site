@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { resolveModelChain, streamWithFallback } from "@/lib/llm";
+import { encodeLlmLabel } from "@/lib/llm-label";
 import { clientIpFrom, isRateLimited } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
@@ -7,6 +8,7 @@ export const maxDuration = 60;
 const MAX_VACANCY_CHARS = 6_000;
 const MAX_NAME_CHARS = 80;
 const MAX_CITY_CHARS = 80;
+const MAX_PROFILE_CHARS = 1_500;
 const MAX_STRENGTHS = 3;
 
 type AnschreibenPayload = {
@@ -16,8 +18,26 @@ type AnschreibenPayload = {
   strengths?: unknown;
   applicantName?: unknown;
   applicantCity?: unknown;
+  applicantProfile?: unknown;
+  contactPerson?: unknown;
+  letterLength?: unknown;
   locale?: unknown;
   model?: unknown;
+};
+
+const LENGTH_HINTS: Record<string, { de: string; en: string }> = {
+  short: {
+    de: "Länge: 120–180 Wörter, kompakt.",
+    en: "Length: 120–180 words, compact.",
+  },
+  standard: {
+    de: "Länge: 220–320 Wörter.",
+    en: "Length: 220–320 words.",
+  },
+  long: {
+    de: "Länge: 350–450 Wörter, ausführlich.",
+    en: "Length: 350–450 words, detailed.",
+  },
 };
 
 const FOCUS_HINTS: Record<string, { de: string; en: string }> = {
@@ -54,25 +74,51 @@ const TONE_HINTS: Record<string, { de: string; en: string }> = {
   },
 };
 
-function buildSystemPrompt(locale: "de" | "en"): string {
+function buildSystemPrompt(
+  locale: "de" | "en",
+  applicantProfile: string,
+  lengthHint: string,
+): string {
+  // The letter is always about the visitor: either strictly from the profile
+  // they provided, or honestly generic when only name and vacancy are known.
+  if (applicantProfile) {
+    if (locale === "de") {
+      return [
+        "Du bist ein erfahrener Bewerbungscoach für den deutschen Arbeitsmarkt.",
+        "Du schreibst ein Anschreiben für die folgende Person. Nutze ausschließlich diese Angaben als Profil:",
+        applicantProfile,
+        "Regeln: Erfinde keine Abschlüsse, Zeugnisse, Anstellungen, Kunden oder Kenntnisse, die nicht in den Angaben stehen. Vermeide übertriebene Aussagen wie 'idealer Kandidat'.",
+        "Struktur: Betreffzeile, Anrede, Einstieg mit Bezug zur Stelle, 2–3 Absätze Passung/Motivation, Abschluss mit Gesprächswunsch, Grußformel.",
+        `${lengthHint} Sprache: Deutsch. Keine Markdown-Formatierung, nur reiner Brieftext.`,
+      ].join(" ");
+    }
+
+    return [
+      "You are an experienced application coach for the German job market.",
+      "You write a cover letter for the following person. Use only these details as the candidate profile:",
+      applicantProfile,
+      "Rules: never invent degrees, certificates, employment, clients or skills that are not in the details. Avoid inflated claims such as 'ideal candidate'.",
+      "Structure: subject line, salutation, opening tied to the vacancy, 2–3 paragraphs on fit/motivation, closing with interview interest, sign-off.",
+      `${lengthHint} Language: English. No markdown formatting, plain letter text only.`,
+    ].join(" ");
+  }
+
   if (locale === "de") {
     return [
       "Du bist ein erfahrener Bewerbungscoach für den deutschen Arbeitsmarkt.",
-      "Du schreibst Anschreiben für Oleksandr (Datenpflege, Digitalisierung und Automatisierung):",
-      "ZAB-anerkannter Bachelor (Wirtschaftskybernetik), 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, seit rund drei Jahren tägliche Web- und Datenautomatisierung (20+ Projekte, 100+ Workflows), öffentliche Playwright-E2E-Suite mit GitHub-Actions-CI, Deutsch B1.",
-      "Regeln: Erfinde keine Abschlüsse, Zeugnisse oder Berufserfahrung. Bleibe bei diesem Profil.",
+      "Zum Profil der Person liegen keine Details vor. Schreibe ein ehrliches, konkretes Anschreiben entlang der Anforderungen der Stellenanzeige und der angegebenen Stärken.",
+      "Regeln: Erfinde keine konkreten Abschlüsse, Arbeitgeber, Jahreszahlen oder Zertifikate. Vermeide übertriebene Aussagen.",
       "Struktur: Betreffzeile, Anrede, Einstieg mit Bezug zur Stelle, 2–3 Absätze Passung/Motivation, Abschluss mit Gesprächswunsch, Grußformel.",
-      "Länge: 220–320 Wörter. Sprache: Deutsch. Keine Markdown-Formatierung, nur reiner Brieftext.",
+      `${lengthHint} Sprache: Deutsch. Keine Markdown-Formatierung, nur reiner Brieftext.`,
     ].join(" ");
   }
 
   return [
-    "You are an experienced application coach for the German apprenticeship market.",
-    "You write cover letters for Oleksandr (aspiring Fachinformatiker für Anwendungsentwicklung):",
-    "career changer with disciplined self-study, hands-on experience in HTML/CSS, JavaScript/TypeScript, React and Next.js, a portfolio of working projects, productive use of AI tools, German level B1 (working towards B2).",
-    "Rules: never invent degrees, certificates or work experience. Stay within this profile.",
+    "You are an experienced application coach for the German job market.",
+    "No profile details are available for this person. Write an honest, concrete cover letter built around the vacancy requirements and the selected strengths.",
+    "Rules: never invent specific degrees, employers, years of experience or certificates. Avoid inflated claims.",
     "Structure: subject line, salutation, opening tied to the vacancy, 2–3 paragraphs on fit/motivation, closing with interview interest, sign-off.",
-    "Length: 220–320 words. Language: English. No markdown formatting, plain letter text only.",
+    `${lengthHint} Language: English. No markdown formatting, plain letter text only.`,
   ].join(" ");
 }
 
@@ -109,11 +155,20 @@ export async function POST(request: Request) {
     : [];
 
   const applicantName =
-    typeof payload.applicantName === "string" && payload.applicantName.trim()
-      ? payload.applicantName.trim().slice(0, MAX_NAME_CHARS)
-      : "Oleksandr";
+    typeof payload.applicantName === "string" ? payload.applicantName.trim().slice(0, MAX_NAME_CHARS) : "";
   const applicantCity =
     typeof payload.applicantCity === "string" ? payload.applicantCity.trim().slice(0, MAX_CITY_CHARS) : "";
+  const applicantProfile =
+    typeof payload.applicantProfile === "string"
+      ? payload.applicantProfile.trim().slice(0, MAX_PROFILE_CHARS)
+      : "";
+  const hasProfile = applicantProfile.length >= 30;
+  const contactPerson =
+    typeof payload.contactPerson === "string" ? payload.contactPerson.trim().slice(0, MAX_NAME_CHARS) : "";
+  const lengthHint =
+    (LENGTH_HINTS[typeof payload.letterLength === "string" ? payload.letterLength : ""] ?? LENGTH_HINTS.standard)[
+      locale
+    ];
 
   const userPrompt = [
     locale === "de" ? "Stellenanzeige:" : "Vacancy text:",
@@ -126,7 +181,18 @@ export async function POST(request: Request) {
         ? `Hervorzuhebende Stärken: ${strengths.join(", ")}.`
         : `Strengths to highlight: ${strengths.join(", ")}.`
       : "",
-    locale === "de" ? `Name des Bewerbers: ${applicantName}.` : `Applicant name: ${applicantName}.`,
+    applicantName
+      ? locale === "de"
+        ? `Name des Bewerbers: ${applicantName}.`
+        : `Applicant name: ${applicantName}.`
+      : locale === "de"
+        ? "Kein Name angegeben — beende den Brief mit dem Platzhalter [Vor- und Nachname]."
+        : "No name provided — end the letter with the placeholder [First Last].",
+    contactPerson
+      ? locale === "de"
+        ? `Ansprechpartner:in für die Anrede: ${contactPerson}.`
+        : `Address the salutation to: ${contactPerson}.`
+      : "",
     applicantCity
       ? locale === "de"
         ? `Wohnort: ${applicantCity} (mit Datumszeile beginnen).`
@@ -143,9 +209,11 @@ export async function POST(request: Request) {
   }
 
   const result = await streamWithFallback(chain, {
-    system: buildSystemPrompt(locale),
+    system: buildSystemPrompt(locale, hasProfile ? applicantProfile : "", lengthHint),
     messages: [{ role: "user", content: userPrompt }],
-    maxTokens: 1_000,
+    // Reasoning-capable models burn a large hidden thinking budget before the
+    // letter itself; the headroom is harmless for plain instruct models.
+    maxTokens: 4_000,
     temperature: 0.6,
   });
 
@@ -158,7 +226,7 @@ export async function POST(request: Request) {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "no-store",
       "X-Accel-Buffering": "no",
-      "X-Llm-Label": result.model.label,
+      "X-Llm-Label": encodeLlmLabel(result.model.label),
       "X-Llm-Model": result.model.id,
     },
   });

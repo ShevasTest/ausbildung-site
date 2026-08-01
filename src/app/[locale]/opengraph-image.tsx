@@ -9,16 +9,16 @@ export const contentType = "image/png";
 
 const copy = {
   de: {
-    badge: "Portfolio 2026",
+    badge: "Daten & KI · RAG",
     title: "Oleksandr",
-    subtitle: "Datenpflege · Digitalisierung · Automatisierung",
-    points: "Playwright · Python · TypeScript · CI/CD",
+    subtitle: "Daten & Pipelines · KI-Agenten · KI-gestützt",
+    points: "Datenaufbereitung · RAG & Retrieval · Python · Automatisierung",
   },
   en: {
-    badge: "Portfolio 2026",
+    badge: "Datenpflege · Digitalisierung",
     title: "Oleksandr",
-    subtitle: "Data maintenance · Digitalisation · Automation",
-    points: "Playwright · Python · TypeScript · CI/CD",
+    subtitle: "Data & pipelines · AI agents · AI-assisted",
+    points: "Data preparation · RAG & retrieval · Python · automation",
   },
 } as const;
 
@@ -108,7 +108,7 @@ export default async function OpenGraphImage({ params }: OpenGraphImageProps) {
           </div>
 
           <div style={{ fontSize: "24px", color: "#9AA19E", fontWeight: 500 }}>
-            oleksandr-shevchenko.de
+            work.oleksandr-shevchenko.de
           </div>
         </div>
       </div>

@@ -1,16 +1,11 @@
 import Image from "next/image";
+import NextLink from "next/link";
 import { getTranslations } from "next-intl/server";
-import { AboutSection, type AboutHighlight } from "@/components/about-section";
-import { ProjectsSection, type ProjectItem } from "@/components/projects-section";
-import { SkillsSection, type SkillGroup } from "@/components/skills-section";
-import { ResumeSection, type ResumeTimelineEntry } from "@/components/resume-section";
-import {
-  ContactSection,
-  type ContactFormCopy,
-  type ContactQuickLink,
-  type ContactSubmitCopy,
-  type ContactValidationCopy,
-} from "@/components/contact-section";
+import { Link } from "@/i18n/navigation";
+import { RevealOnScroll } from "@/components/reveal-on-scroll";
+import type { ProjectItem } from "@/components/projects-section";
+import type { ResumeTimelineEntry } from "@/components/resume-section";
+import type { SkillGroup } from "@/components/skills-section";
 import {
   absoluteUrl,
   localeToLanguageTag,
@@ -20,43 +15,32 @@ import {
   toJsonLd,
 } from "@/lib/seo";
 
-type HeroStat = {
-  label: string;
-  value: string;
-};
-
 type HomePageProps = {
   params: Promise<{ locale: string }>;
 };
 
+type QuickLink = {
+  label: string;
+  value: string;
+  href: string;
+};
+
+function projectTags(project: ProjectItem) {
+  return (project.tags ?? project.stack?.split("·") ?? []).map((tag) => tag.trim()).filter(Boolean);
+}
+
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale });
-
-  const projects = t.raw("Projects.items") as ProjectItem[];
-  const skillGroups = t.raw("Skills.groups") as SkillGroup[];
-  const timeline = t.raw("Resume.timeline") as ResumeTimelineEntry[];
-  const resumeClosingBadges = t.raw("Resume.closingBadges") as string[];
-  const aboutParagraphs = t.raw("About.paragraphs") as string[];
-  const aboutHighlights = t.raw("About.highlights") as AboutHighlight[];
-  const aboutMotivationPoints = t.raw("About.motivationPoints") as string[];
-  const aboutProfileFacts = t.raw("About.profile.facts") as string[];
-  const heroWordsRaw = t.raw("Hero.rotatingWords") as string[];
-  const heroWords =
-    heroWordsRaw.length > 0
-      ? heroWordsRaw
-      : ["fast web apps", "accessible UI", "clean architecture", "real impact"];
-  const heroPoints = t.raw("Hero.points") as string[];
-  const heroStats = t.raw("Hero.stats") as HeroStat[];
-  const contactQuickLinks = t.raw("Contact.quickLinks") as ContactQuickLink[];
-  const contactAvailabilityBadges = t.raw("Contact.availability.badges") as string[];
-  const contactFormCopy = t.raw("Contact.form") as ContactFormCopy;
-  const contactSubmitCopy = t.raw("Contact.submit") as ContactSubmitCopy;
-  const contactValidationCopy = t.raw("Contact.validation") as ContactValidationCopy;
-
   const safeLocale = normalizeLocale(locale);
-  const homePath = localizedPath(safeLocale, "/");
-  const homeUrl = absoluteUrl(homePath);
+  const isDe = safeLocale === "de";
+  const projects = t.raw("Projects.items") as ProjectItem[];
+  const timeline = t.raw("Resume.timeline") as ResumeTimelineEntry[];
+  const skills = t.raw("Skills.groups") as SkillGroup[];
+  const quickLinks = t.raw("Contact.quickLinks") as QuickLink[];
+  const aboutParagraphs = t.raw("About.paragraphs") as string[];
+  const featuredProject = projects[0];
+  const homeUrl = absoluteUrl(localizedPath(safeLocale, "/"));
 
   const structuredData = toJsonLd([
     {
@@ -72,214 +56,222 @@ export default async function HomePage({ params }: HomePageProps) {
       name: siteConfig.authorName,
       url: homeUrl,
       email: `mailto:${siteConfig.email}`,
-      sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl],
-      jobTitle:
-        safeLocale === "de"
-          ? "Datenpflege, Digitalisierung & Automatisierung"
-          : "Data maintenance, digitalisation & automation",
+      sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl, "https://t.me/Shevas_o"],
+      jobTitle: isDe
+        ? "Datenpflege, Digitalisierung & Automatisierung"
+        : "Data maintenance, digitalisation & automation",
       knowsAbout: [
         "Datenpflege",
         "Datenqualität",
         "Automatisierung",
         "Playwright",
         "Python",
-        "Next.js",
-        "TypeScript",
       ],
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "DE",
-      },
     },
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: safeLocale === "de" ? "Projektübersicht" : "Project overview",
+      name: isDe ? "Projekte" : "Projects",
       itemListElement: projects.map((project, index) => ({
         "@type": "ListItem",
         position: index + 1,
         name: project.title,
-        description: project.summary,
         url: absoluteUrl(localizedPath(safeLocale, `/projects/${project.slug}`)),
       })),
     },
   ]);
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
+    <main>
+      <RevealOnScroll />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-      <section id="hero" className="relative scroll-mt-32">
-        <p className="hero-reveal dim-line" style={{ animationDelay: "0.04s" }}>
-          <span className="status-dot" aria-hidden />
-          <span>{t("Hero.kicker")}</span>
-        </p>
 
-        <div className="mt-6 grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-start lg:gap-12">
-          <div>
-            <h1
-              className="hero-reveal font-display text-[2.5rem] leading-[1.04] font-semibold tracking-tight text-balance sm:text-6xl lg:text-[4.4rem]"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <span>{t("Hero.titleLead")}</span>
-              <span className="hero-word-window" aria-hidden>
-                <span className="hero-word-track">
-                  {heroWords.map((word) => (
-                    <span key={word} className="hero-word">
-                      {word}
-                    </span>
-                  ))}
-                  <span className="hero-word">{heroWords[0]}</span>
-                </span>
-              </span>
-              <span className="sr-only">{heroWords.join(", ")}</span>
-              <span className="block">{t("Hero.titleEnd")}</span>
-            </h1>
+      <section id="hero" className="portfolio-shell hero-section scroll-mt-24">
+        <div className="hero-copy hero-enter">
+          <p className="portfolio-eyebrow">
+            {isDe
+              ? "Offen für Junior-Rollen in Datenpflege und Digitalisierung · Raum Landshut/München oder remote"
+              : "Open to junior roles in data maintenance and digitalisation · Landshut/Munich area or remote"}
+          </p>
+          <h1 className="hero-name">Oleksandr Shevchenko</h1>
+          <p className="hero-role">
+            {isDe
+              ? "Datenpflege · Digitalisierung · Automatisierung"
+              : "Data maintenance · Digitalisation · Automation"}
+          </p>
+          <p className="hero-specialty">
+            {isDe
+              ? "Datenqualität · Web-Inhalte · Playwright · Python"
+              : "Data quality · Web content · Playwright · Python"}
+          </p>
+          <p className="hero-lead">
+            {isDe
+              ? "Seit rund drei Jahren arbeite ich täglich mit Daten, die unsauber sind, sich ständig ändern und trotzdem verlässlich verarbeitet werden müssen. Daraus ist eine Arbeitsweise geworden: Bestände sauber und aktuell halten, Inkonsistenzen finden, bevor sie auffallen, und die immer gleichen Handgriffe durch überprüfbare Automatisierung ersetzen — messen, bevor ich etwas behaupte, und umbauen, wenn die Messung schlecht ausfällt. Datenpflege ist eine Daueraufgabe mit vielen Wiederholungen; ich leiste sie sorgfältig und sehe zugleich, was sich automatisieren lässt."
+              : "For about three years I have worked daily with data that is messy, constantly changing and still has to be processed reliably. That turned into a working method: keep records clean and current, find inconsistencies before anyone notices them, and replace the same manual steps with verifiable automation — measure before claiming anything, and rebuild when the measurement comes back bad. Data maintenance is an ongoing task full of repetition; I do it carefully and at the same time see what can be automated."}
+          </p>
 
-            <p
-              className="hero-reveal mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
-              style={{ animationDelay: "0.18s" }}
-            >
-              {t("Hero.subtitle")}
-            </p>
-
-            <div
-              className="hero-reveal mt-8 flex flex-col gap-3 sm:flex-row"
-              style={{ animationDelay: "0.26s" }}
-            >
-              <a
-                href="#projects"
-                className="inline-flex w-full items-center justify-center rounded-full bg-primary-solid px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:opacity-95 sm:w-auto"
-              >
-                {t("Hero.ctaProjects")}
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex w-full items-center justify-center rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:w-auto"
-              >
-                {t("Hero.ctaContact")}
-              </a>
-            </div>
-
-            <ul
-              className="hero-reveal mt-10 grid max-w-2xl gap-x-8 gap-y-3 sm:grid-cols-2"
-              style={{ animationDelay: "0.34s" }}
-            >
-              {heroPoints.map((point) => (
-                <li
-                  key={point}
-                  className="flex items-start gap-2.5 border-t border-border pt-3 text-sm leading-relaxed text-muted"
-                >
-                  <span aria-hidden className="mt-[0.5em] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-primary" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="hero-actions">
+            <NextLink href="#featured-project" className="button button-primary">
+              {isDe ? "Projekte ansehen" : "View projects"}
+            </NextLink>
+            <NextLink href="#resume" className="button button-secondary">
+              {isDe ? "Lebenslauf" : "Resume"}
+            </NextLink>
           </div>
+        </div>
 
-          <aside
-            className="hero-reveal relative overflow-hidden rounded-3xl border border-border bg-card"
-            style={{ animationDelay: "0.18s" }}
-          >
-            <div aria-hidden className="blueprint-grid" style={{ maskImage: "none", WebkitMaskImage: "none", opacity: 0.5 }} />
-
-            <div className="relative p-5 sm:p-6">
-              <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-primary uppercase">
-                {t("Hero.panelEyebrow")}
-              </p>
-
-              <div className="mt-4 flex items-center gap-4">
-                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-border bg-background">
-                  <Image
-                    src="/profile.jpg"
-                    alt={t("About.profile.name")}
-                    fill
-                    className="scale-[1.04] object-cover object-[50%_18%]"
-                    sizes="80px"
-                    priority
-                  />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-lg font-semibold tracking-tight text-foreground">
-                    {t("About.profile.name")}
-                  </p>
-                  <p className="mt-0.5 text-sm leading-snug text-muted">{t("Hero.badge")}</p>
-                </div>
-              </div>
-
-              <p className="mt-4 text-sm leading-relaxed text-muted">{t("Hero.panelText")}</p>
-
-              <dl className="mt-5 space-y-3 border-t border-border pt-4">
-                {heroStats.map((stat) => (
-                  <div key={stat.label}>
-                    <dt className="font-mono text-[10px] font-medium tracking-[0.14em] text-muted uppercase">
-                      {stat.label}
-                    </dt>
-                    <dd className="mt-0.5 text-sm font-semibold text-foreground">{stat.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </aside>
+        <div className="hero-portrait-wrap hero-enter hero-enter-late">
+          <div className="hero-portrait-accent" aria-hidden />
+          <Image
+            src="/profile-hero.jpg"
+            alt={isDe ? "Porträt von Oleksandr Shevchenko" : "Portrait of Oleksandr Shevchenko"}
+            fill
+            priority
+            className="hero-portrait"
+            sizes="(max-width: 767px) 92vw, 42vw"
+          />
         </div>
       </section>
 
-      <AboutSection
-        eyebrow={t("About.eyebrow")}
-        title={t("About.title")}
-        lead={t("About.lead")}
-        paragraphs={aboutParagraphs}
-        highlights={aboutHighlights}
-        motivationTitle={t("About.motivationTitle")}
-        motivationPoints={aboutMotivationPoints}
-        profileBadge={t("About.profile.badge")}
-        profileName={t("About.profile.name")}
-        profileRole={t("About.profile.role")}
-        profileCaption={t("About.profile.caption")}
-        profileFacts={aboutProfileFacts}
-      />
+      <section id="projects" className="portfolio-shell portfolio-section render-deferred scroll-mt-24">
+        <div className="section-intro" data-reveal>
+          <p className="portfolio-eyebrow">{isDe ? "Ausgewählte Projekte" : "Selected projects"}</p>
+          <h2>{isDe ? "Praktische Projekte. Klarer Fokus." : "Practical projects. Clear focus."}</h2>
+          <p>
+            {isDe
+              ? "Das Kernprojekt: eine öffentliche Playwright-Testsuite, die genau diese Website in der CI prüft — 56 Checks auf Desktop und Mobile. Dazu vier Produkt-Demos aus mehr als 20 eigenen Projekten; jede Demo kann direkt im Browser ausprobiert werden."
+              : "The flagship: a public Playwright test suite that checks this very website in CI — 56 checks across desktop and mobile. Alongside it, four product demos from more than 20 personal projects; every demo can be tried directly in the browser."}
+          </p>
+          <a
+            href="https://github.com/ShevasTest/portfolio-e2e-tests"
+            target="_blank"
+            rel="noreferrer"
+            className="text-link"
+          >
+            {isDe ? "Test-Suite auf GitHub ansehen" : "View the test suite on GitHub"}
+          </a>
+        </div>
 
-      <ProjectsSection
-        eyebrow={t("Projects.eyebrow")}
-        title={t("Projects.title")}
-        intro={t("Projects.intro")}
-        openProjectLabel={t("Projects.openProject")}
-        projects={projects}
-      />
+        <article id="featured-project" className="featured-project scroll-mt-24" data-reveal>
+          <Link
+            href={`/projects/${featuredProject.slug}`}
+            className="featured-project-visual"
+            aria-label={`${featuredProject.title} – ${isDe ? "Projekt ansehen" : "View project"}`}
+            prefetch={false}
+          >
+            <Image
+              src={`/projects/${featuredProject.slug}.png`}
+              alt={`${featuredProject.title} – ${isDe ? "Projektansicht" : "project preview"}`}
+              fill
+              className="project-screenshot"
+              sizes="(max-width: 900px) 100vw, 64vw"
+            />
+          </Link>
+          <div className="featured-project-copy">
+            <p className="project-index">01 / {String(projects.length).padStart(2, "0")}</p>
+            <h3>{featuredProject.title}</h3>
+            <p>{featuredProject.summary}</p>
+            <ul className="tag-list" aria-label={isDe ? "Technologien" : "Technologies"}>
+              {projectTags(featuredProject).map((tag) => (
+                <li key={tag}>{tag}</li>
+              ))}
+            </ul>
+            <Link href={`/projects/${featuredProject.slug}`} className="text-link" prefetch={false}>
+              {isDe ? "Projekt ansehen" : "View project"}
+            </Link>
+          </div>
+        </article>
 
-      <SkillsSection
-        eyebrow={t("Skills.eyebrow")}
-        title={t("Skills.title")}
-        intro={t("Skills.intro")}
-        legend={t("Skills.legend")}
-        groups={skillGroups}
-      />
+        <div className="project-list" data-reveal>
+          {projects.slice(1).map((project, index) => (
+            <Link
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+              prefetch={false}
+              className="project-row"
+            >
+              <span className="project-row-index">0{index + 2}</span>
+              <span className="project-row-title">{project.title}</span>
+              <span className="project-row-summary">{project.summary}</span>
+              <span className="project-row-action">{isDe ? "Ansehen" : "View"}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-      <ResumeSection
-        eyebrow={t("Resume.eyebrow")}
-        title={t("Resume.title")}
-        intro={t("Resume.intro")}
-        timeline={timeline}
-        closingTitle={t("Resume.closingTitle")}
-        closingText={t("Resume.closingText")}
-        closingBadges={resumeClosingBadges}
-      />
+      <section id="resume" className="portfolio-section portfolio-section-muted render-deferred scroll-mt-24">
+        <div className="portfolio-shell split-section">
+          <div className="section-intro section-intro-sticky" data-reveal>
+            <p className="portfolio-eyebrow">{isDe ? "Praxis & Entwicklung" : "Practice & growth"}</p>
+            <h2>{isDe ? "Von der Handarbeit zu überprüfbaren Abläufen." : "From manual work to verifiable workflows."}</h2>
+            <p>
+              {isDe
+              ? "Drei Jahre tägliche Praxis mit Daten und Automatisierung — mehr als 20 Projekte, über 100 Skripte und seit 2026 eine öffentliche E2E-Suite in der CI. Mit einem ehrlichen Blick auf Stärken und Wissensgrenzen."
+              : "Three years of daily practice with data and automation — more than 20 projects, over 100 scripts and, since 2026, a public e2e suite in CI. With an honest view of strengths and knowledge boundaries."}
+            </p>
+          </div>
 
-      <ContactSection
-        eyebrow={t("Contact.eyebrow")}
-        title={t("Contact.title")}
-        intro={t("Contact.intro")}
-        linksTitle={t("Contact.linksTitle")}
-        linksIntro={t("Contact.linksIntro")}
-        quickLinks={contactQuickLinks}
-        availabilityTitle={t("Contact.availability.title")}
-        availabilityText={t("Contact.availability.text")}
-        availabilityBadges={contactAvailabilityBadges}
-        formCopy={contactFormCopy}
-        submitCopy={contactSubmitCopy}
-        validationCopy={contactValidationCopy}
-        mailSubject={t("Contact.mailSubject")}
-        emailAddress={t("Contact.email")}
-      />
+          <ol className="timeline-clean" data-reveal>
+            {timeline.map((entry) => (
+              <li key={`${entry.period}-${entry.title}`}>
+                <p className="timeline-period">{entry.period}</p>
+                <h3>{entry.title}</h3>
+                <p>{entry.text}</p>
+                {entry.focus ? <span>{entry.focus}</span> : null}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="about" className="portfolio-shell portfolio-section render-deferred scroll-mt-24">
+        <div className="about-grid">
+          <div className="section-intro" data-reveal>
+            <p className="portfolio-eyebrow">{isDe ? "Über mich" : "About me"}</p>
+            <h2>
+              {isDe
+                ? "Ich pflege Daten sorgfältig. Und automatisiere, was sich wiederholt."
+                : "I orchestrate AI. I take responsibility for the result."}
+            </h2>
+          </div>
+          <div className="about-copy" data-reveal>
+            <p>{aboutParagraphs[0]}</p>
+            <p>{aboutParagraphs[1]}</p>
+            <p>{aboutParagraphs[2]}</p>
+          </div>
+        </div>
+
+        <div id="skills" className="skills-grid" data-reveal>
+          {skills.map((group) => (
+            <article key={group.name}>
+              <h3>{group.name}</h3>
+              <p>{group.items.join(" · ")}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="portfolio-shell contact-section scroll-mt-24" data-reveal>
+        <p className="portfolio-eyebrow">{isDe ? "Kontakt" : "Contact"}</p>
+        <h2>{isDe ? "Lernen wir uns kennen." : "Let’s get to know each other."}</h2>
+        <p>
+          {isDe
+            ? "Ich bin offen für Rollen in Datenpflege, Digitalisierung und Automatisierung — in Vollzeit oder Teilzeit."
+            : "I am open to roles in data maintenance, digitalisation and automation — full-time or part-time."}
+        </p>
+        <a className="contact-email" href={`mailto:${siteConfig.email}`}>
+          {siteConfig.email}
+        </a>
+        <div className="contact-links">
+          {quickLinks
+            .filter((link) => !link.href.startsWith("mailto:"))
+            .map((link) => (
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
+            ))}
+        </div>
+      </section>
     </main>
   );
 }

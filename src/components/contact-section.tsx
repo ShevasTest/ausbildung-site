@@ -186,7 +186,6 @@ export function ContactSection({
   const [values, setValues] = useState<ContactFormValues>(INITIAL_VALUES);
   const [touched, setTouched] = useState<Record<ContactField, boolean>>(INITIAL_TOUCHED);
   const [errors, setErrors] = useState<ContactErrors>({});
-  const [honeypot, setHoneypot] = useState("");
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
 
   const contactEmail = useMemo(() => {
@@ -246,7 +245,7 @@ export function ContactSection({
     window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setTouched({
@@ -262,37 +261,8 @@ export function ContactSection({
       return;
     }
 
-    setSubmitState("sending");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: values.name.trim(),
-          email: values.email.trim(),
-          message: values.message.trim(),
-          website: honeypot,
-        }),
-      });
-
-      if (response.ok) {
-        setSubmitState("sent");
-        setValues(INITIAL_VALUES);
-        setTouched(INITIAL_TOUCHED);
-        return;
-      }
-
-      if (response.status === 503) {
-        openMailFallback();
-        setSubmitState("mailto");
-        return;
-      }
-
-      setSubmitState("error");
-    } catch {
-      setSubmitState("error");
-    }
+    openMailFallback();
+    setSubmitState("mailto");
   };
 
   const statusCopy =
@@ -421,19 +391,6 @@ export function ContactSection({
                   {errors.email}
                 </p>
               ) : null}
-            </div>
-
-            <div className="hidden" aria-hidden>
-              <label htmlFor="contact-website">Website</label>
-              <input
-                id="contact-website"
-                name="website"
-                type="text"
-                tabIndex={-1}
-                autoComplete="off"
-                value={honeypot}
-                onChange={(event) => setHoneypot(event.target.value)}
-              />
             </div>
 
             <div>

@@ -2,11 +2,11 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/seo";
 
 const projectSlugs = [
+  "e2e-suite",
   "ki-bewerbungshelfer",
   "mietpreise-tracker",
   "smartchat",
   "devdash",
-  "portfolio",
 ];
 
 const locales = ["de", "en"] as const;

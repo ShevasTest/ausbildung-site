@@ -30,7 +30,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
   de: {
     title: "Datenschutzerklärung",
     metaDescription:
-      "Datenschutzerklärung von oleksandr-shevchenko.de: Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
+      "Datenschutzerklärung von work.oleksandr-shevchenko.de: Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
     responsibleTitle: "1. Verantwortlicher",
     responsibleIntro: "Verantwortlich für die Datenverarbeitung auf dieser Website ist:",
     emailLabel: "E-Mail:",
@@ -38,32 +38,31 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "2. Überblick",
         paragraphs: [
-          "Diese Website ist ein privates, nicht-kommerzielles Portfolio. Sie verwendet keine Cookies, keine Tracking- oder Analyse-Tools und keine Werbung. Personenbezogene Daten werden nur verarbeitet, soweit dies für die Bereitstellung der Website und die unten beschriebenen Funktionen erforderlich ist.",
+          "Diese Website ist ein privates, nicht-kommerzielles Portfolio. Sie setzt keine Cookies, verwendet keine Tracking- oder Analyse-Tools und zeigt keine Werbung. Personenbezogene Daten werden nur verarbeitet, soweit dies für die Bereitstellung der Website und die unten beschriebenen Funktionen erforderlich ist.",
         ],
       },
       {
         title: "3. Hosting (Vercel)",
         paragraphs: [
-          "Die Website wird bei Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA gehostet. Beim Aufruf der Website verarbeitet Vercel automatisch technische Zugriffsdaten (insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite und User-Agent). Diese Server-Logs sind für die Auslieferung der Inhalte sowie für Stabilität und Sicherheit erforderlich und werden nach kurzer Zeit gelöscht.",
+          "Die Website wird bei Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA gehostet. Beim Aufruf der Website verarbeitet Vercel automatisch technische Zugriffsdaten (insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite und User-Agent). Diese Daten sind für die Auslieferung der Inhalte sowie für Stabilität und Sicherheit erforderlich. Die Speicherdauer richtet sich nach den vertraglichen Einstellungen und den Angaben von Vercel.",
           "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und effizienten Betrieb der Website). Soweit Daten in die USA übermittelt werden, erfolgt dies auf Grundlage des EU-US Data Privacy Framework bzw. der EU-Standardvertragsklauseln.",
         ],
         link: {
           label: "Datenschutzerklärung von Vercel",
-          href: "https://vercel.com/legal/privacy-policy",
+          href: "https://vercel.com/legal/privacy-notice",
         },
       },
       {
-        title: "4. Kontaktformular und E-Mail-Kontakt",
+        title: "4. E-Mail-Kontakt",
         paragraphs: [
-          "Wenn Sie das Kontaktformular nutzen, werden die von Ihnen angegebenen Daten (Name, E-Mail-Adresse, Nachricht) über den technischen Dienstleister Resend (Resend, Inc., USA) als E-Mail an mich übermittelt und ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Beschäftigungsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO. Die Nachrichten verbleiben in meinem E-Mail-Postfach und werden gelöscht, sobald sie nicht mehr erforderlich sind.",
-          "Ist der E-Mail-Versand serverseitig nicht konfiguriert, öffnet das Formular stattdessen Ihr eigenes E-Mail-Programm (mailto) — in diesem Fall werden keine Formulardaten über diese Website übertragen.",
-          "Zum Schutz vor automatisiertem Missbrauch wird Ihre IP-Adresse kurzzeitig im Arbeitsspeicher des Servers verarbeitet (Rate-Limiting) und nicht dauerhaft gespeichert.",
+          "Wenn Sie über den auf der Website angebotenen E-Mail-Link Kontakt aufnehmen, öffnet sich Ihr eigenes E-Mail-Programm. Die Nachricht wird nicht über ein Kontaktformular dieser Website übertragen. Die von Ihnen freiwillig übermittelten Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.",
+          "Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Beschäftigungsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO. Die Nachricht verbleibt in meinem E-Mail-Postfach und wird gelöscht, sobald sie für die Bearbeitung und mögliche Anschlusskommunikation nicht mehr erforderlich ist.",
         ],
       },
       {
         title: "5. KI-Demos (KI-Bewerbungshelfer, SmartChat)",
         paragraphs: [
-          "Texteingaben in den KI-Demos werden über eine eigene Server-Route an den jeweils konfigurierten KI-Anbieter (z. B. Groq, OpenRouter, Anthropic oder Google; OpenRouter leitet Anfragen an wechselnde Modellanbieter weiter) übermittelt — ausschließlich zur Generierung der Antwort. Ihre IP-Adresse wird dabei nicht an den KI-Anbieter übermittelt, da die Anfragen über den Server dieser Website laufen. Die Website speichert Ihre Eingaben nicht dauerhaft.",
+          "Texteingaben in den KI-Demos werden über eine eigene Server-Route an den jeweils ausgewählten KI-Anbieter (Groq oder OpenRouter; OpenRouter kann Anfragen an wechselnde Modellanbieter weiterleiten) übermittelt — ausschließlich zur Generierung der Antwort. Ihre IP-Adresse wird dabei nicht direkt an den KI-Anbieter weitergegeben, da die Anfragen über den Server dieser Website laufen. Die Website speichert Ihre Eingaben nicht dauerhaft.",
           "Bitte geben Sie in die KI-Demos keine personenbezogenen oder vertraulichen Daten ein. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Demo-Funktionalität). Ist kein KI-Anbieter konfiguriert, läuft ein lokaler Demo-Modus ohne Datenübermittlung an Dritte.",
           "Zur Missbrauchsvermeidung gilt auch hier ein Rate-Limiting mit kurzzeitiger Verarbeitung der IP-Adresse im Arbeitsspeicher.",
         ],
@@ -78,7 +77,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "7. Lokale Speicherung im Browser (localStorage)",
         paragraphs: [
-          "Für rein funktionale Zwecke speichert die Website Einstellungen ausschließlich lokal in Ihrem Browser: das gewählte Farbschema (hell/dunkel), die Widget-Konfiguration des DevDash-Demos und den Chat-Verlauf des SmartChat-Demos. Diese Daten verlassen Ihren Browser nicht und sind für mich nicht einsehbar.",
+          "Für rein funktionale Zwecke speichert die Website Einstellungen ausschließlich lokal in Ihrem Browser: Widget-Reihenfolge, Notizen, Fokusdauer und Sitzungszähler des DevDash-Demos sowie Unterhaltungen und Antwortstil des SmartChat-Demos. Der DevDash-Newsfeed kann zusätzlich kurzzeitig im sessionStorage zwischengespeichert werden. Diese Daten verlassen Ihren Browser nicht und sind für mich nicht einsehbar.",
           "Die Speicherung ist für die von Ihnen gewünschte Funktion erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG); eine Einwilligung ist daher nicht notwendig. Sie können die Daten jederzeit über die Browsereinstellungen (Websitedaten löschen) entfernen. Cookies werden nicht gesetzt.",
         ],
       },
@@ -100,7 +99,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "9. Schlussbemerkungen",
         paragraphs: [
-          "Zur Ausübung Ihrer Rechte genügt eine formlose E-Mail an die oben genannte Adresse. Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling statt. Sie sind nicht verpflichtet, personenbezogene Daten bereitzustellen; ohne die jeweils genannten Daten können jedoch einzelne Funktionen (z. B. das Kontaktformular) nicht genutzt werden.",
+          "Zur Ausübung Ihrer Rechte genügt eine formlose E-Mail an die oben genannte Adresse. Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling statt. Sie sind nicht verpflichtet, personenbezogene Daten bereitzustellen; ohne Texteingaben können die KI-Demos jedoch keine individuellen Antworten erzeugen.",
           "Diese Datenschutzerklärung wird angepasst, sobald sich die Website oder die Rechtslage ändert.",
         ],
       },
@@ -111,7 +110,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
   en: {
     title: "Privacy Policy",
     metaDescription:
-      "Privacy policy of oleksandr-shevchenko.de: information about the processing of personal data according to the GDPR.",
+      "Privacy policy of work.oleksandr-shevchenko.de: information about the processing of personal data according to the GDPR.",
     responsibleTitle: "1. Controller",
     responsibleIntro: "The controller responsible for data processing on this website is:",
     emailLabel: "Email:",
@@ -119,32 +118,31 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "2. Overview",
         paragraphs: [
-          "This website is a private, non-commercial portfolio. It uses no cookies, no tracking or analytics tools and no advertising. Personal data is only processed to the extent necessary to provide the website and the features described below.",
+          "This website is a private, non-commercial portfolio. It sets no cookies, uses no tracking or analytics tools and displays no advertising. Personal data is only processed to the extent necessary to provide the website and the features described below.",
         ],
       },
       {
         title: "3. Hosting (Vercel)",
         paragraphs: [
-          "This website is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA. When you visit the website, Vercel automatically processes technical access data (in particular IP address, date and time of access, requested page and user agent). These server logs are required to deliver the content and to ensure stability and security, and are deleted after a short period.",
+          "This website is hosted by Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA. When you visit the website, Vercel automatically processes technical access data (in particular IP address, date and time of access, requested page and user agent). This data is required to deliver the content and ensure stability and security. Retention depends on the contractual settings and the information provided by Vercel.",
           "The legal basis is Art. 6(1)(f) GDPR (legitimate interest in a secure and efficient operation of the website). Where data is transferred to the USA, this is based on the EU-US Data Privacy Framework and/or the EU Standard Contractual Clauses.",
         ],
         link: {
           label: "Vercel privacy policy",
-          href: "https://vercel.com/legal/privacy-policy",
+          href: "https://vercel.com/legal/privacy-notice",
         },
       },
       {
-        title: "4. Contact form and email contact",
+        title: "4. Email contact",
         paragraphs: [
-          "If you use the contact form, the data you provide (name, email address, message) is sent to me as an email via the technical service provider Resend (Resend, Inc., USA) and used exclusively to handle your request. The legal basis is Art. 6(1)(b) GDPR (steps prior to entering into an apprenticeship or employment relationship) and/or Art. 6(1)(f) GDPR. Messages remain in my email inbox and are deleted once they are no longer required.",
-          "If email delivery is not configured on the server, the form opens your own email application instead (mailto) — in that case no form data is transmitted through this website.",
-          "To protect against automated abuse, your IP address is processed briefly in the server's memory (rate limiting) and is not stored permanently.",
+          "When you use the email link provided on this website, your own email application opens. The message is not transmitted through a contact form on this website. Any data you voluntarily send is used exclusively to handle your request.",
+          "The legal basis is Art. 6(1)(b) GDPR (steps prior to entering into an employment relationship) and/or Art. 6(1)(f) GDPR. The message remains in my email inbox and is deleted once it is no longer required for handling and possible follow-up communication.",
         ],
       },
       {
         title: "5. AI demos (AI Application Assistant, SmartChat)",
         paragraphs: [
-          "Text you enter in the AI demos is forwarded through this website's own server route to the configured AI provider (e.g. Groq, OpenRouter, Anthropic or Google; OpenRouter routes requests to changing model providers) — exclusively to generate the response. Your IP address is not transmitted to the AI provider, since the requests are proxied through this website's server. The website does not store your inputs permanently.",
+          "Text you enter in the AI demos is forwarded through this website's own server route to the selected AI provider (Groq or OpenRouter; OpenRouter may route requests to changing model providers) — exclusively to generate the response. Your IP address is not sent directly to the AI provider, since requests are proxied through this website's server. The website does not store your inputs permanently.",
           "Please do not enter any personal or confidential data into the AI demos. The legal basis is Art. 6(1)(f) GDPR (provision of the demo functionality). If no AI provider is configured, a local demo mode runs without any data transfer to third parties.",
           "To prevent abuse, rate limiting applies here as well, with brief in-memory processing of the IP address.",
         ],
@@ -159,7 +157,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "7. Local storage in your browser (localStorage)",
         paragraphs: [
-          "For purely functional purposes, the website stores settings exclusively in your local browser storage: the selected color scheme (light/dark), the widget configuration of the DevDash demo and the chat history of the SmartChat demo. This data never leaves your browser and is not accessible to me.",
+          "For purely functional purposes, the website stores settings exclusively in your browser: widget order, notes, focus duration and session count for DevDash, plus conversations and response style for SmartChat. The DevDash news feed may also be cached temporarily in sessionStorage. This data never leaves your browser and is not accessible to me.",
           "This storage is required for the feature you requested (§ 25(2) no. 2 of the German TDDDG); consent is therefore not required. You can remove the data at any time via your browser settings (clear site data). No cookies are set.",
         ],
       },
@@ -179,7 +177,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "9. Final remarks",
         paragraphs: [
-          "To exercise your rights, an informal email to the address above is sufficient. No automated decision-making, including profiling, takes place. You are not obliged to provide personal data; however, without the data mentioned above, individual features (e.g. the contact form) cannot be used.",
+          "To exercise your rights, an informal email to the address above is sufficient. No automated decision-making, including profiling, takes place. You are not obliged to provide personal data; however, without text input the AI demos cannot generate individual responses.",
           "This privacy policy will be updated whenever the website or the legal situation changes.",
         ],
       },

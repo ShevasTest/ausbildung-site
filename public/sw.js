@@ -1,5 +1,5 @@
-const CACHE_NAME = "oleksandr-portfolio-shell-v1";
-const OFFLINE_FALLBACKS = ["/", "/icon.svg"];
+const CACHE_NAME = "oleksandr-portfolio-shell-v5";
+const OFFLINE_FALLBACKS = ["/de", "/en", "/icon.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -19,28 +19,44 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const { request } = event;
+  const url = new URL(request.url);
 
-  if (request.method !== "GET") {
+  if (
+    request.method !== "GET" ||
+    url.origin !== self.location.origin ||
+    url.pathname.startsWith("/api/")
+  ) {
     return;
   }
 
-  event.respondWith(
-    fetch(request)
-      .then((response) => {
-        const responseClone = response.clone();
-        caches
-          .open(CACHE_NAME)
-          .then((cache) => cache.put(request, responseClone))
-          .catch(() => undefined);
-        return response;
-      })
-      .catch(async () => {
-        const cached = await caches.match(request);
-        if (cached) {
-          return cached;
-        }
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then(async (response) => {
+          if (response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(request, response.clone());
+          }
+          return response;
+        })
+        .catch(async () => (await caches.match(request)) || (await caches.match("/de"))),
+    );
+    return;
+  }
 
-        return caches.match("/");
-      }),
-  );
+  if (["style", "script", "image", "font", "manifest", "worker"].includes(request.destination)) {
+    event.respondWith(
+      caches.match(request).then(
+        (cached) =>
+          cached ||
+          fetch(request).then(async (response) => {
+            if (response.ok) {
+              const cache = await caches.open(CACHE_NAME);
+              await cache.put(request, response.clone());
+            }
+            return response;
+          }),
+      ),
+    );
+  }
 });
