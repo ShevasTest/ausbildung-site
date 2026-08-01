@@ -202,7 +202,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
         label: "Digitalagentur Webprojekte",
         focus: "frontend",
         text:
-          "Eine Agentur in Köln bietet eine Ausbildung im Bereich Anwendungsentwicklung an. Sie arbeiten in wechselnden Kundenprojekten an Landingpages, Content-Plattformen und UI-Komponenten. Gewünscht: saubere HTML/CSS/JS-Grundlagen, Kreativität und strukturierte Projektarbeit.",
+          "Eine Agentur in Köln sucht Unterstützung im Bereich Anwendungsentwicklung. Sie arbeiten in wechselnden Kundenprojekten an Landingpages, Content-Plattformen und UI-Komponenten. Gewünscht: saubere HTML/CSS/JS-Grundlagen, Kreativität und strukturierte Projektarbeit.",
       },
       {
         id: "preset-qa-testing",
@@ -225,7 +225,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
       {
         value: "teamfit",
-        label: "Teamfit & Ausbildung",
+        label: "Teamfit",
         hint: "Lernkurve, Zuverlässigkeit, Zusammenarbeit",
       },
       {
@@ -264,7 +264,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       fullstack:
         "Neben der UI-Umsetzung denke ich Schnittstellen und Datenfluss mit. In Projekten habe ich API-Integrationen, Validierung und wartbare Strukturierung von Frontend- und Backend-Logik kombiniert.",
       teamfit:
-        "Ich suche bewusst ein Ausbildungsteam, bei dem ich strukturiert Verantwortung übernehme, Feedback schnell in bessere Lösungen übersetze und mich fachlich wie menschlich weiterentwickle.",
+        "Ich suche bewusst ein Team, in dem ich strukturiert Verantwortung übernehme, Feedback schnell in bessere Lösungen übersetze und mich fachlich wie menschlich weiterentwickle.",
       ai:
         "Ich nutze KI-Tools produktiv und verantwortungsvoll: für Recherche, Strukturierung und schnellere Iteration — immer mit klarer Qualitätskontrolle im finalen Code.",
     },
@@ -407,7 +407,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       },
       {
         value: "teamfit",
-        label: "Team fit & Ausbildung",
+        label: "Team fit",
         hint: "Learning speed, reliability, collaboration",
       },
       {
@@ -446,7 +446,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
       fullstack:
         "Beyond UI delivery, I think in APIs and data flow. In projects, I combine integration work, validation and maintainable frontend/backend structures.",
       teamfit:
-        "I am intentionally looking for an Ausbildung team where I can take ownership early, turn feedback into better solutions quickly and grow in a structured environment.",
+        "I am intentionally looking for a team where I can take ownership early, turn feedback into better solutions quickly and grow in a structured environment.",
       ai:
         "I use AI tools productively and responsibly for research, structuring and faster iteration, always with strict quality checks before final delivery.",
     },
@@ -540,7 +540,7 @@ function extractRole(vacancyText: string, fallbackRole: string) {
   }
 
   if (text.includes("frontend")) {
-    return "Frontend Developer / Frontend-Ausbildung (m/w/d)";
+    return "Frontend Developer (m/w/d)";
   }
 
   if (text.includes("fullstack") || text.includes("full-stack")) {

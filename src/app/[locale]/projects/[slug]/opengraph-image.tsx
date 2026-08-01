@@ -51,11 +51,11 @@ const projectCopy = {
   portfolio: {
     de: {
       title: "Portfolio-Website",
-      subtitle: "Mehrsprachig, responsiv und auf Ausbildung ausgerichtet",
+      subtitle: "Mehrsprachig, responsiv und mit E2E-Tests in der CI",
     },
     en: {
       title: "Portfolio Website",
-      subtitle: "Multilingual, responsive and tailored for Ausbildung applications",
+      subtitle: "Multilingual, responsive and covered by E2E tests in CI",
     },
   },
 } as const;
@@ -82,8 +82,8 @@ export default async function ProjectOpenGraphImage({ params }: ProjectOpenGraph
   const subtitle = knownProject
     ? knownProject[safeLocale].subtitle
     : safeLocale === "de"
-      ? "Projekt-Demo im Ausbildung Portfolio"
-      : "Project demo from the Ausbildung portfolio";
+      ? "Projekt-Demo im Portfolio von Oleksandr"
+      : "Project demo from Oleksandr's portfolio";
 
   return new ImageResponse(
     (

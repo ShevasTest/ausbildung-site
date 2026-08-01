@@ -208,7 +208,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     quickPromptsTitle: "Quick starters",
     quickPrompts: [
       "Show me a TypeScript example for a streaming chat in React.",
-      "How can I explain initiative in a German Ausbildung interview?",
+      "How can I explain initiative in a German job interview?",
       "Design a clean architecture for history + answer styles.",
       "Which 3 UX details make a chat app feel professional?",
     ],
@@ -746,10 +746,10 @@ ${style.voice}
 ### HR-starke Antwortstruktur
 - **Ausgangslage:** kurz erklären, wie du den Einstieg in die Entwicklung gefunden hast.
 - **Eigeninitiative:** konkrete Projekte nennen, die du selbst umgesetzt hast.
-- **Teamwert:** zeigen, wie deine Arbeitsweise einem Ausbildungsteam hilft.
+- **Teamwert:** zeigen, wie deine Arbeitsweise einem Team konkret hilft.
 
 ### Beispiel-Formulierung
-"Ich habe mir Frontend-Entwicklung im Selbststudium aufgebaut und kleinere bis mittlere Projektmodule umgesetzt — inklusive responsiver UI, sauberem TypeScript und Performance-Checks. Damit bringe ich nicht nur Lernbereitschaft, sondern erste praxisnahe Erfahrung in ein Ausbildungsteam mit."
+"Ich arbeite seit rund drei Jahren täglich an Web- und Datenautomatisierung: wiederkehrende Datenpflege und Prüfungen laufen bei mir automatisiert statt manuell, abgesichert durch eine öffentliche Playwright-Suite in der CI. Damit bringe ich nicht nur Lernbereitschaft, sondern belegbare Praxis mit."
 
 ### Nächster Schritt
 - Verbinde diese Aussage mit 1–2 konkreten Portfolio-Projekten.
@@ -854,10 +854,10 @@ ${style.voice}
 ### HR-ready structure
 - **Starting point:** explain briefly how you entered software development.
 - **Initiative:** mention concrete projects built independently.
-- **Team value:** show how your workflow helps an Ausbildung team.
+- **Team value:** show how your workflow concretely helps a team.
 
 ### Example phrasing
-"I built my frontend foundation through structured self-learning and delivered small to medium project modules with responsive UI, clean TypeScript and performance checks. This means I bring not only motivation, but also first practical implementation experience to an Ausbildung team."
+"For about three years I have worked daily on web and data automation: recurring maintenance and checks run automatically instead of by hand, backed by a public Playwright suite in CI. So I bring not just motivation, but practice I can point to."
 
 ### Next step
 - Link this statement to 1–2 portfolio projects.

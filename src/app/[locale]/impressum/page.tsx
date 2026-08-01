@@ -18,7 +18,7 @@ const COPY = {
     responsibleTitle: "Verantwortlich für den Inhalt",
     purposeTitle: "Hinweis zum Angebot",
     purposeText:
-      "Diese Website ist ein privates, nicht-kommerzielles Portfolio. Sie dient ausschließlich der persönlichen Vorstellung im Rahmen der Suche nach einem Ausbildungsplatz als Fachinformatiker für Anwendungsentwicklung.",
+      "Diese Website ist ein privates, nicht-kommerzielles Portfolio. Sie dient ausschließlich der persönlichen Vorstellung im Rahmen meiner Stellensuche im Bereich Datenpflege, Digitalisierung und Automatisierung.",
     linksTitle: "Haftung für Links",
     linksText:
       "Diese Website enthält Links zu externen Websites Dritter (z. B. GitHub, LinkedIn), auf deren Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Zum Zeitpunkt der Verlinkung waren keine rechtswidrigen Inhalte erkennbar.",
@@ -36,7 +36,7 @@ const COPY = {
     responsibleTitle: "Responsible for the content",
     purposeTitle: "About this website",
     purposeText:
-      "This website is a private, non-commercial portfolio. Its sole purpose is my personal presentation while applying for an apprenticeship (Ausbildung) as Fachinformatiker für Anwendungsentwicklung.",
+      "This website is a private, non-commercial portfolio. Its sole purpose is my personal presentation while applying for roles in data maintenance, digitalisation and automation.",
     linksTitle: "Liability for links",
     linksText:
       "This website contains links to external third-party websites (e.g. GitHub, LinkedIn) whose content I cannot control. The respective provider or operator of the linked pages is always responsible for their content. No unlawful content was identifiable at the time of linking.",

@@ -55,7 +55,7 @@ const COPY: Record<"de" | "en", DatenschutzCopy> = {
       {
         title: "4. Kontaktformular und E-Mail-Kontakt",
         paragraphs: [
-          "Wenn Sie das Kontaktformular nutzen, werden die von Ihnen angegebenen Daten (Name, E-Mail-Adresse, Nachricht) über den technischen Dienstleister Resend (Resend, Inc., USA) als E-Mail an mich übermittelt und ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Ausbildungs- bzw. Beschäftigungsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO. Die Nachrichten verbleiben in meinem E-Mail-Postfach und werden gelöscht, sobald sie nicht mehr erforderlich sind.",
+          "Wenn Sie das Kontaktformular nutzen, werden die von Ihnen angegebenen Daten (Name, E-Mail-Adresse, Nachricht) über den technischen Dienstleister Resend (Resend, Inc., USA) als E-Mail an mich übermittelt und ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Beschäftigungsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO. Die Nachrichten verbleiben in meinem E-Mail-Postfach und werden gelöscht, sobald sie nicht mehr erforderlich sind.",
           "Ist der E-Mail-Versand serverseitig nicht konfiguriert, öffnet das Formular stattdessen Ihr eigenes E-Mail-Programm (mailto) — in diesem Fall werden keine Formulardaten über diese Website übertragen.",
           "Zum Schutz vor automatisiertem Missbrauch wird Ihre IP-Adresse kurzzeitig im Arbeitsspeicher des Servers verarbeitet (Rate-Limiting) und nicht dauerhaft gespeichert.",
         ],

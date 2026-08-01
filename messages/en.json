@@ -1,9 +1,9 @@
 {
   "Meta": {
-    "title": "Ausbildung Portfolio",
-    "description": "Portfolio of Oleksandr — aspiring software developer for a German Ausbildung program.",
-    "ogTitle": "Oleksandr | Ausbildung Portfolio",
-    "ogDescription": "Modern web projects focused on performance, accessibility and clean architecture.",
+    "title": "Portfolio — Digitalisation & Data Maintenance",
+    "description": "Portfolio of Oleksandr Shevchenko — data maintenance, digitalisation and automation of recurring web and data tasks.",
+    "ogTitle": "Oleksandr | Digitalisation & Data Maintenance",
+    "ogDescription": "Keeping structured data clean and current, and automating recurring workflows — with a public Playwright suite running in CI.",
     "projectTitle": "Project: {slug}",
     "projectDescription": "Detailed project page with goals, stack and implementation notes."
   },
@@ -19,87 +19,87 @@
     "theme": "Theme"
   },
   "Hero": {
-    "badge": "Aspiring Fachinformatiker (Application Development, AE)",
-    "kicker": "Ausbildung 2026 · Junior frontend track",
-    "titleLead": "I learn",
+    "badge": "Data maintenance · Digitalisation · Automation",
+    "kicker": "Open to junior roles in data maintenance and digitalisation · Landshut/Munich area or remote",
+    "titleLead": "I maintain and automate",
     "rotatingWords": [
-      "web development step by step",
-      "responsive interfaces with HTML/CSS",
-      "React and Next.js basics",
-      "practical projects with AI support"
+      "datasets that have to stay current",
+      "web content and editorial workflows",
+      "recurring tasks instead of manual work",
+      "checks that catch errors early"
     ],
-    "titleEnd": "and prepare for an Ausbildung team in 2026.",
-    "subtitle": "Through self-study and AI-assisted practice, I build solid fundamentals, implement small to medium features and improve my skills continuously.",
+    "titleEnd": "and take tasks through to a verified result.",
+    "subtitle": "For about three years I have worked daily with data that is messy, constantly changing and still has to be processed reliably — AI-assisted, with my own verification and root-cause analysis.",
     "points": [
-      "Mobile-first implementation for recruiters on smartphones",
-      "Clear information structure over visual noise",
-      "First experience with React, Next.js and API integration",
-      "Learning with feedback, documentation and AI tools"
+      "Recurring data maintenance, research and content transfer automated instead of done by hand",
+      "Public E2E suite for this very website: Playwright + TypeScript, Page Object Model, API tests",
+      "GitHub Actions CI — runs on every push against the production site",
+      "1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "From self-study to Ausbildung",
-    "panelText": "I am looking for an Ausbildung position where I can contribute as a junior, learn from experienced developers and grow step by step.",
+    "panelTitle": "Care with routine. An eye for what can be automated.",
+    "panelText": "Keeping data current is an ongoing task with many repetitions. I do that maintenance reliably and at the same time spot which steps can be checked or prepared automatically — reconciling records, finding inconsistencies, preparing new editions from existing data.",
     "stats": [
       {
-        "label": "Project focus",
-        "value": "4 practical demos"
+        "label": "Core project",
+        "value": "Public E2E suite running in CI"
       },
       {
-        "label": "Quality target",
-        "value": "Solid foundations in performance & accessibility"
+        "label": "Automation",
+        "value": "20+ projects · 100+ scripts & workflows"
       },
       {
-        "label": "Work style",
-        "value": "Initiative · Learning mindset · Reliability"
+        "label": "Approach",
+        "value": "Data quality · Root-cause analysis · Verification"
       }
     ]
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Self-learning with clear direction",
-    "lead": "I bring initiative, learning mindset and first project practice — a solid base for starting an Ausbildung.",
+    "eyebrow": "Three years of daily practice with data and automation",
+    "lead": "My strength is not a single tool but structured work with data: maintain, verify, automate and check the result.",
     "paragraphs": [
-      "My path into development started with curiosity: I wanted to understand how strong digital products are built and why some interfaces feel intuitive from the first second.",
-      "To improve consistently, I built a structured learning routine with regular coding sessions, small learning goals and trackable progress.",
-      "Right now I work on smaller frontend tasks and actively use AI tools to research, test and implement solutions faster. For 2026, I am looking for an Ausbildung team where I can grow this foundation professionally."
+      "My path began with a clear signal: after my degree in Economic Cybernetics (bachelor level recognised by the German ZAB), I took 1st place among around 6,000 participants in the RS School / EPAM JS/FE Pre-School course in 2022.",
+      "Since then I have spent about three years working daily on web and data automation — AI-assisted: I define the workflows, implement them, verify the results and systematically look for root causes when something is off.",
+      "Today I focus that experience on data maintenance and digitalisation: keeping records clean and current, finding inconsistencies before anyone notices them, and replacing the same manual steps with verifiable automation."
     ],
     "highlights": [
       {
-        "label": "Initiative",
-        "value": "I learn continuously in self-study and apply new knowledge directly in small projects."
+        "label": "Data maintenance",
+        "value": "Keeping structured records current, reconciled and checked for inconsistencies."
       },
       {
-        "label": "Learning focus",
-        "value": "I work step by step on fundamentals in HTML, CSS, JavaScript and React."
+        "label": "Automation",
+        "value": "Turning recurring tasks into verifiable workflows — Python, Playwright, REST APIs."
       },
       {
-        "label": "AI-assisted workflow",
-        "value": "I use Claude and ChatGPT for research, prototyping and debugging."
+        "label": "Quality assurance",
+        "value": "Public E2E suite (Playwright + TypeScript) with Page Object Model and fixtures, running in GitHub Actions."
       },
       {
-        "label": "2026 goal",
-        "value": "Grow in a team, gain practical experience and contribute reliably."
+        "label": "Available now",
+        "value": "Based in Weihmichl near Landshut — on site or remote, part-time also possible."
       }
     ],
-    "motivationTitle": "What I bring into an Ausbildung role",
+    "motivationTitle": "What a team gets from me",
     "motivationPoints": [
-      "I learn quickly and translate feedback into better technical solutions immediately.",
-      "I work reliably within clear structures while staying focused on user impact.",
-      "I am looking for a team where I can learn from experienced engineers and contribute productively early."
+      "I handle recurring maintenance carefully and do not complain about routine.",
+      "I spot which steps can be automated and implement that without turning it into a big project.",
+      "I do not treat AI as a black box: results are tested, questioned and improved."
     ],
     "profile": {
       "badge": "Profile",
       "name": "Oleksandr Shevchenko",
-      "role": "Aspiring Fachinformatiker (Application Development, AE)",
+      "role": "Data maintenance, digitalisation & automation",
       "initials": "OS",
       "placeholder": "Photo placeholder",
-      "caption": "I combine disciplined self-learning with AI-assisted practice and build my technical foundation step by step.",
+      "caption": "Three years of daily automation practice — now focused on clean, current data and lean digital workflows.",
       "facts": [
-        "Location: Germany · Ausbildung target 2026",
-        "Languages: German B1 (actively improving to B2) · English A2 (actively improving)",
-        "Focus: HTML/CSS, JavaScript fundamentals, first projects with React and Next.js"
+        "Location: Weihmichl near Landshut · on site or remote",
+        "Languages: Ukrainian & Russian (native) · German B1 · English basic",
+        "Focus: Data maintenance · Automation · Web content · CI/CD"
       ]
     }
   },
@@ -138,71 +138,67 @@
   "Skills": {
     "title": "Skills",
     "eyebrow": "Tools & knowledge",
-    "intro": "Technologies and tools I currently use while learning and building first projects.",
-    "legend": "Self-assessment based on my current hands-on practice",
+    "intro": "Tools and topics I work with daily — with an honest assessment of where I stand.",
+    "legend": "Self-assessment based on my daily project practice",
     "groups": [
       {
-        "name": "Frontend",
-        "description": "Basic HTML, CSS knowledge and first experience with React and Next.js",
-        "level": 45,
-        "levelLabel": "Foundations in place, currently improving",
+        "name": "Data & maintenance",
+        "description": "Preparing, cleaning, reconciling and keeping records current",
+        "levelLabel": "Daily focus of my work",
         "items": [
-          "HTML & CSS",
-          "JavaScript (basics)",
-          "React (basics)",
-          "Next.js (first projects)",
-          "Tailwind CSS"
+          "Data maintenance & quality",
+          "Data cleaning",
+          "CSV / JSON / spreadsheets",
+          "Reconciliation & consistency checks",
+          "MS Office"
         ]
       },
       {
-        "name": "Backend",
-        "description": "First steps with Python and API integration",
-        "level": 25,
-        "levelLabel": "Early practical experience",
+        "name": "Automation",
+        "description": "Turning recurring web and data tasks into verifiable workflows",
+        "levelLabel": "Confident in practical use",
         "items": [
-          "Python (basics)",
-          "REST APIs (basics)",
-          "JSON",
-          "Server Actions (Next.js)"
+          "Python (scripting)",
+          "Playwright",
+          "Browser workflows",
+          "REST APIs",
+          "Scheduled jobs"
+        ]
+      },
+      {
+        "name": "Web & content",
+        "description": "Maintaining and shipping content — my own site runs in production",
+        "levelLabel": "Solid basics from my own projects",
+        "items": [
+          "HTML & CSS",
+          "JavaScript / TypeScript",
+          "Next.js",
+          "Editorial workflows",
+          "Accessibility (basics)"
         ]
       },
       {
         "name": "Tools",
-        "description": "Git, VS Code, npm — essential development tools",
-        "level": 55,
-        "levelLabel": "Confident with essential tools",
+        "description": "Version control, CI and AI tools in daily use",
+        "levelLabel": "Confident with the core tooling",
         "items": [
           "Git & GitHub",
+          "GitHub Actions (CI)",
           "VS Code",
-          "npm",
           "AI tools (Claude, ChatGPT)",
           "Lighthouse"
         ]
       },
       {
-        "name": "AI-assisted work",
-        "description": "Structured use of AI tools for research, debugging and prototyping",
-        "level": 72,
-        "levelLabel": "Confident practical usage with clear quality checks",
+        "name": "Way of working",
+        "description": "How I work when a task repeats a hundred times",
+        "levelLabel": "Reliable, careful and structured",
         "items": [
-          "Claude / ChatGPT",
-          "Prompt engineering",
-          "AI-assisted debugging",
-          "Rapid prototyping",
-          "AI-assisted code review"
-        ]
-      },
-      {
-        "name": "Soft Skills",
-        "description": "Team qualities that matter in Ausbildung: reliability, learning mindset and communication.",
-        "level": 80,
-        "levelLabel": "Reliable, collaborative and eager to learn",
-        "items": [
-          "Initiative",
-          "Structured problem solving",
+          "Care with routine",
+          "Systematic debugging",
           "Documentation",
-          "Fast feedback integration",
-          "Continuous learning"
+          "Fast onboarding",
+          "Open communication"
         ]
       }
     ]
@@ -210,55 +206,55 @@
   "Resume": {
     "eyebrow": "Resume & Growth Path",
     "title": "Resume",
-    "intro": "My path into software development is practical and clearly structured: disciplined self-learning with AI support, real projects and a concrete Ausbildung target for 2026.",
+    "intro": "My path is hands-on: a completed degree, a strong course result and about three years of daily work on real automation and data tasks.",
     "timeline": [
       {
-        "period": "2024 — present",
-        "title": "Structured Self-Learning in Frontend with AI Support",
-        "text": "Regular coding sessions, documented learning goals and continuous learning with support from AI tools.",
-        "focus": "Focus: HTML/CSS · JavaScript · React basics",
+        "period": "2018 — 2022",
+        "title": "BSc Economic Cybernetics (distance learning, Kyiv)",
+        "text": "A combination of business and IT subjects. Assessed by the German ZAB as equivalent to German bachelor level (03/2025).",
+        "focus": "Focus: Economics · Computer science · Statistics",
         "chips": [
-          "Initiative",
-          "Daily practice",
-          "AI-assisted"
+          "ZAB-recognised",
+          "Distance learning",
+          "Graduated 2022"
         ]
       },
       {
-        "period": "2025",
-        "title": "Project Delivery with AI Support",
-        "text": "Planned and built multiple demo projects with AI support instead of tutorial-only clones. Focus on understandable UI and functional prototypes.",
-        "focus": "Focus: UI fundamentals · Prototyping",
+        "period": "2022",
+        "title": "JS/FE Pre-School — RS School / EPAM",
+        "text": "Intensive course on JavaScript and frontend fundamentals with weekly assignments and peer review.",
+        "focus": "Result: 1st place among ~6,000 participants",
         "chips": [
-          "4 demo concepts",
-          "Mobile-first",
-          "AI-assisted"
+          "1st place",
+          "~6,000 participants",
+          "JavaScript"
         ]
       },
       {
-        "period": "2026 (goal)",
-        "title": "Ausbildung as Fachinformatiker (Application Development, AE)",
-        "text": "Join an Ausbildung team to combine practical experience with professional development processes, teamwork and accountable product delivery.",
-        "focus": "Goal: Ausbildung start in 2026",
+        "period": "2023 — today",
+        "title": "Daily practice in web and data automation",
+        "text": "More than 20 own projects and over 100 scripts and workflows: recurring data maintenance, research and content transfer automated instead of manual — running reliably for months. Plus a public Playwright E2E suite with GitHub Actions CI against this website.",
+        "focus": "Focus: Data maintenance · Automation · Verification",
         "chips": [
-          "Learning mindset",
-          "Team collaboration",
-          "Reliability"
+          "20+ projects",
+          "100+ workflows",
+          "Playwright & CI"
         ]
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I work in a structured way, learn quickly and speak openly about my current level. My goal is to contribute reliably in a team and keep improving.",
+    "closingText": "I work carefully even when a task repeats, and I am open about where I currently stand. What I cannot do yet I learn quickly — what I can do is backed by public code.",
     "closingBadges": [
-      "Initiative",
+      "Care with routine",
       "Clear communication",
-      "Fast execution",
-      "Ausbildung focus 2026"
+      "Fast delivery",
+      "Available now"
     ]
   },
   "Contact": {
     "eyebrow": "Contact & next step",
     "title": "Contact",
-    "intro": "I am open to conversations about Ausbildung roles, internships or trial work in software development.",
+    "intro": "I am glad to talk about roles in data maintenance, digitalisation and automation — full-time or part-time.",
     "linksTitle": "Direct channels",
     "linksIntro": "For a fast response, feel free to reach out via email or my public profiles.",
     "quickLinks": [
@@ -280,10 +276,10 @@
     ],
     "availability": {
       "title": "Availability",
-      "text": "Actively looking for an Ausbildung position starting in 2026 and open to internships, trial days or intro conversations.",
+      "text": "Available immediately for junior roles in data maintenance, digitalisation and automation — Landshut/Munich area or remote, part-time also possible.",
       "badges": [
-        "Ausbildung 2026",
-        "Internship open",
+        "Available now",
+        "Full-time or part-time",
         "Reply within 24h"
       ]
     },
@@ -314,7 +310,7 @@
       "messageRequired": "Please add a short message.",
       "messageMin": "Please write at least 24 characters so I can understand the context."
     },
-    "mailSubject": "Portfolio contact — Ausbildung as Fachinformatiker (AE)",
+    "mailSubject": "Contact via portfolio — Data maintenance & digitalisation",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {

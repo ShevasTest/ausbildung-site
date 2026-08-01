@@ -1,9 +1,9 @@
 {
   "Meta": {
-    "title": "Ausbildung Portfolio",
-    "description": "Portfolio von Oleksandr — angehender Fachinformatiker für Anwendungsentwicklung.",
-    "ogTitle": "Oleksandr | Ausbildung Portfolio",
-    "ogDescription": "Moderne Webprojekte mit Fokus auf Performance, Accessibility und sauberer Architektur.",
+    "title": "Portfolio — Digitalisierung & Datenpflege",
+    "description": "Portfolio von Oleksandr Shevchenko — Datenpflege, Digitalisierung und Automatisierung wiederkehrender Web- und Datenaufgaben.",
+    "ogTitle": "Oleksandr | Digitalisierung & Datenpflege",
+    "ogDescription": "Strukturierte Daten pflegen, aktuell halten und wiederkehrende Abläufe automatisieren — mit öffentlicher Playwright-Suite in der CI.",
     "projectTitle": "Projekt: {slug}",
     "projectDescription": "Detaillierte Projektseite mit Zielen, Stack und Umsetzungsschritten."
   },
@@ -19,87 +19,87 @@
     "theme": "Designmodus"
   },
   "Hero": {
-    "badge": "Angehender Fachinformatiker für Anwendungsentwicklung",
-    "kicker": "Ausbildung 2026 · Junior-Frontend-Level",
-    "titleLead": "Ich lerne",
+    "badge": "Datenpflege · Digitalisierung · Automatisierung",
+    "kicker": "Offen für Junior-Rollen in Datenpflege und Digitalisierung · Raum Landshut/München oder remote",
+    "titleLead": "Ich pflege und automatisiere",
     "rotatingWords": [
-      "Webentwicklung Schritt für Schritt",
-      "responsive Interfaces mit HTML/CSS",
-      "React- und Next.js-Basics",
-      "praxisnahe Projekte mit KI-Unterstützung"
+      "Datenbestände, die aktuell bleiben müssen",
+      "Web-Inhalte und Redaktionsabläufe",
+      "wiederkehrende Aufgaben statt Handarbeit",
+      "Prüfungen, die Fehler früh finden"
     ],
-    "titleEnd": "und bereite mich auf ein Ausbildungsteam im Jahr 2026 vor.",
-    "subtitle": "Durch Selbststudium und KI-gestützte Praxis baue ich solide Grundlagen auf, setze kleine bis mittlere Features um und entwickle mein technisches Profil kontinuierlich weiter.",
+    "titleEnd": "und bringe Aufgaben bis zu einem überprüften Ergebnis.",
+    "subtitle": "Seit rund drei Jahren arbeite ich täglich mit Daten, die unsauber sind, sich ständig ändern und trotzdem verlässlich verarbeitet werden müssen — KI-gestützt, mit eigener Verifikation und Fehleranalyse.",
     "points": [
-      "Mobile-first Umsetzung für Recruiting auf dem Smartphone",
-      "Klare Informationsstruktur statt visueller Überladung",
-      "Erste Erfahrungen mit React, Next.js und API-Anbindung",
-      "Lernen mit Feedback, Dokumentation und KI-Tools"
+      "Wiederkehrende Datenpflege, Recherche und Inhaltsübertragung automatisiert statt manuell",
+      "Öffentliche E2E-Suite für genau diese Website: Playwright + TypeScript, Page Object Model, API-Tests",
+      "GitHub Actions CI — läuft bei jedem Push gegen die Produktivseite",
+      "1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM"
     ],
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
-    "panelTitle": "Vom Selbststudium in die Ausbildung",
-    "panelText": "Ich suche einen Ausbildungsplatz, in dem ich als Junior mitarbeiten, von erfahrenen Entwickler:innen lernen und mich Schritt für Schritt weiterentwickeln kann.",
+    "panelTitle": "Sorgfalt bei Routine. Blick für das, was sich automatisieren lässt.",
+    "panelText": "Daten aktuell zu halten ist eine Daueraufgabe mit vielen Wiederholungen. Ich leiste diese Pflege zuverlässig und erkenne zugleich, welche Schritte sich automatisiert prüfen oder vorbereiten lassen — Abgleich von Datensätzen, Auffinden von Inkonsistenzen, Vorbereitung von Neuauflagen aus bestehenden Beständen.",
     "stats": [
       {
-        "label": "Projektfokus",
-        "value": "4 praxisnahe Demos"
+        "label": "Kernprojekt",
+        "value": "Öffentliche E2E-Suite in der CI"
       },
       {
-        "label": "Qualitätsziel",
-        "value": "Solide Grundlagen in Performance & Accessibility"
+        "label": "Automatisierung",
+        "value": "20+ Projekte · 100+ Skripte & Workflows"
       },
       {
         "label": "Arbeitsweise",
-        "value": "Eigeninitiative · Lernbereitschaft · Zuverlässigkeit"
+        "value": "Datenqualität · Ursachenanalyse · Verifikation"
       }
     ]
   },
   "About": {
     "title": "Über mich",
-    "eyebrow": "Selbststudium mit klarer Richtung",
-    "lead": "Ich bringe Eigeninitiative, Lernbereitschaft und erste Projektpraxis mit — eine gute Basis für den Ausbildungsstart.",
+    "eyebrow": "Drei Jahre tägliche Praxis mit Daten und Automatisierung",
+    "lead": "Meine Stärke ist nicht ein einzelnes Werkzeug, sondern strukturiertes Arbeiten mit Daten: pflegen, prüfen, automatisieren und das Ergebnis kontrollieren.",
     "paragraphs": [
-      "Mein Einstieg in die Entwicklung begann mit Neugier: Ich wollte verstehen, wie gute digitale Produkte entstehen und warum manche Interfaces sofort logisch wirken.",
-      "Dafür habe ich mir einen festen Lernrhythmus aufgebaut — mit regelmäßigen Coding-Sessions, klaren Lernzielen und nachvollziehbaren Fortschritten.",
-      "Aktuell arbeite ich an kleineren Frontend-Aufgaben und nutze KI-Tools aktiv, um schneller zu recherchieren, zu testen und Lösungen umzusetzen. Für 2026 suche ich ein Ausbildungsteam, in dem ich diese Basis professionell ausbauen kann."
+      "Mein Weg begann mit einem klaren Signal: Nach meinem Studium der Wirtschaftskybernetik (ZAB-anerkannter Bachelor) erreichte ich 2022 den 1. Platz unter rund 6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM.",
+      "Seitdem arbeite ich seit rund drei Jahren täglich an Web- und Datenautomatisierung — KI-gestützt: Ich definiere die Abläufe, setze sie um, verifiziere die Ergebnisse und suche systematisch nach den Ursachen, wenn etwas nicht stimmt.",
+      "Heute richte ich diese Erfahrung auf Datenpflege und Digitalisierung aus: Bestände sauber und aktuell halten, Inkonsistenzen finden, bevor sie auffallen, und die immer gleichen Handgriffe durch überprüfbare Automatisierung ersetzen."
     ],
     "highlights": [
       {
-        "label": "Eigeninitiative",
-        "value": "Ich lerne kontinuierlich im Selbststudium und setze Gelerntes direkt in kleine Projekte um."
+        "label": "Datenpflege",
+        "value": "Strukturierte Bestände aktuell halten, abgleichen und auf Inkonsistenzen prüfen."
       },
       {
-        "label": "Lernfokus",
-        "value": "Ich arbeite strukturiert an Grundlagen in HTML, CSS, JavaScript und React."
+        "label": "Automatisierung",
+        "value": "Wiederkehrende Aufgaben in überprüfbare Abläufe übersetzen — Python, Playwright, REST-APIs."
       },
       {
-        "label": "KI-gestütztes Arbeiten",
-        "value": "Ich nutze Claude und ChatGPT für Recherche, Prototyping und Debugging."
+        "label": "Qualitätssicherung",
+        "value": "Öffentliche E2E-Suite (Playwright + TypeScript) mit Page Object Model und Fixtures, läuft in GitHub Actions."
       },
       {
-        "label": "Ausbildungsziel 2026",
-        "value": "In einem Team fachlich wachsen, Praxis sammeln und zuverlässig mitarbeiten."
+        "label": "Sofort verfügbar",
+        "value": "Wohnhaft in Weihmichl bei Landshut — vor Ort oder remote, auch in Teilzeit."
       }
     ],
-    "motivationTitle": "Was ich in die Ausbildung mitbringe",
+    "motivationTitle": "Was ein Team von mir bekommt",
     "motivationPoints": [
-      "Ich lerne schnell und setze Feedback direkt in bessere technische Lösungen um.",
-      "Ich arbeite zuverlässig in klaren Strukturen und verliere dabei nie den Blick für Nutzer:innen.",
-      "Ich suche ein Team, bei dem ich von erfahrenen Entwickler:innen lerne und früh produktiv mitarbeite."
+      "Ich erledige wiederkehrende Pflegeaufgaben sorgfältig und beschwere mich nicht über Routine.",
+      "Ich erkenne, welche Handgriffe sich automatisieren lassen, und setze das ohne großes Projekt um.",
+      "Ich nutze KI nicht als Blackbox: Ergebnisse werden geprüft, hinterfragt und nachgebessert."
     ],
     "profile": {
       "badge": "Profil",
       "name": "Oleksandr Shevchenko",
-      "role": "Angehender Fachinformatiker für Anwendungsentwicklung",
+      "role": "Datenpflege, Digitalisierung & Automatisierung",
       "initials": "OS",
       "placeholder": "Foto folgt",
-      "caption": "Ich kombiniere diszipliniertes Selbststudium mit KI-gestützter Praxis und baue mein technisches Fundament Schritt für Schritt aus.",
+      "caption": "Drei Jahre tägliche Automatisierungspraxis — jetzt ausgerichtet auf saubere, aktuelle Datenbestände und schlanke digitale Abläufe.",
       "facts": [
-        "Standort: Deutschland · Ausbildung ab 2026",
-        "Sprachen: Deutsch B1 (aktiv Richtung B2) · Englisch A2 (im Aufbau)",
-        "Fokus: HTML/CSS, JavaScript-Grundlagen, erste Projekte mit React und Next.js"
+        "Standort: Weihmichl bei Landshut · vor Ort oder remote",
+        "Sprachen: Ukrainisch & Russisch (Muttersprache) · Deutsch B1 · Englisch Grundkenntnisse",
+        "Fokus: Datenpflege · Automatisierung · Web-Inhalte · CI/CD"
       ]
     }
   },
@@ -138,71 +138,67 @@
   "Skills": {
     "title": "Kenntnisse",
     "eyebrow": "Werkzeuge & Wissen",
-    "intro": "Technologien und Werkzeuge, mit denen ich aktuell lerne und erste Projekte umsetze.",
-    "legend": "Selbsteinschätzung auf Basis meiner aktuellen Praxis im Selbststudium",
+    "intro": "Werkzeuge und Themen, mit denen ich täglich arbeite — mit ehrlicher Einschätzung meines Standes.",
+    "legend": "Selbsteinschätzung auf Basis meiner täglichen Projektpraxis",
     "groups": [
       {
-        "name": "Frontend",
-        "description": "Grundkenntnisse in HTML, CSS und erste Erfahrungen mit React und Next.js",
-        "level": 45,
-        "levelLabel": "Grundlagen vorhanden, aktuell im Ausbau",
+        "name": "Daten & Datenpflege",
+        "description": "Bestände aufbereiten, bereinigen, abgleichen und aktuell halten",
+        "levelLabel": "Täglicher Arbeitsschwerpunkt",
+        "items": [
+          "Datenpflege & Datenqualität",
+          "Datenbereinigung",
+          "CSV / JSON / Tabellen",
+          "Abgleich & Konsistenzprüfung",
+          "MS Office"
+        ]
+      },
+      {
+        "name": "Automatisierung",
+        "description": "Wiederkehrende Web- und Datenaufgaben in überprüfbare Abläufe übersetzen",
+        "levelLabel": "Sicher im praktischen Einsatz",
+        "items": [
+          "Python (Skripting)",
+          "Playwright",
+          "Browser-Workflows",
+          "REST-APIs",
+          "Zeitgesteuerte Jobs"
+        ]
+      },
+      {
+        "name": "Web & Inhalte",
+        "description": "Inhalte pflegen und ausliefern — eigene Website im Produktivbetrieb",
+        "levelLabel": "Solide Grundlagen aus eigenen Projekten",
         "items": [
           "HTML & CSS",
-          "JavaScript (Grundlagen)",
-          "React (Basics)",
-          "Next.js (erste Projekte)",
-          "Tailwind CSS"
+          "JavaScript / TypeScript",
+          "Next.js",
+          "Redaktionsabläufe",
+          "Barrierefreiheit (Basics)"
         ]
       },
       {
-        "name": "Backend",
-        "description": "Erste Schritte mit Python und API-Anbindung",
-        "level": 25,
-        "levelLabel": "Erste praktische Erfahrungen",
-        "items": [
-          "Python (Grundlagen)",
-          "REST APIs (Grundlagen)",
-          "JSON",
-          "Server Actions (Next.js)"
-        ]
-      },
-      {
-        "name": "Tools",
-        "description": "Git, VS Code, npm — Basiswerkzeuge für den Entwicklungsalltag",
-        "level": 55,
+        "name": "Werkzeuge",
+        "description": "Versionierung, CI und KI-Werkzeuge im Alltag",
         "levelLabel": "Sicher in den Basiswerkzeugen",
         "items": [
           "Git & GitHub",
+          "GitHub Actions (CI)",
           "VS Code",
-          "npm",
           "KI-Tools (Claude, ChatGPT)",
           "Lighthouse"
         ]
       },
       {
-        "name": "KI-gestütztes Arbeiten",
-        "description": "Strukturierter Einsatz von KI-Tools für Recherche, Debugging und Prototyping",
-        "level": 72,
-        "levelLabel": "Sicher im praktischen Einsatz mit klarer Qualitätskontrolle",
+        "name": "Arbeitsweise",
+        "description": "Wie ich arbeite, wenn eine Aufgabe sich hundertmal wiederholt",
+        "levelLabel": "Zuverlässig, sorgfältig und strukturiert",
         "items": [
-          "Claude / ChatGPT",
-          "Prompt Engineering",
-          "KI-gestütztes Debugging",
-          "Rapid Prototyping",
-          "Code Review mit KI"
-        ]
-      },
-      {
-        "name": "Soft Skills",
-        "description": "Arbeitsweise, die im Ausbildungsteam zählt: Zuverlässigkeit, Lernbereitschaft und Kommunikation.",
-        "level": 80,
-        "levelLabel": "Zuverlässig, lernbereit und strukturiert",
-        "items": [
-          "Eigeninitiative",
-          "Strukturierte Problemlösung",
+          "Sorgfalt bei Routine",
+          "Systematische Fehlersuche",
           "Dokumentation",
-          "Feedback-Umsetzung",
-          "Kontinuierliches Lernen"
+          "Schnelle Einarbeitung",
+          "Offene Kommunikation"
         ]
       }
     ]
@@ -210,55 +206,55 @@
   "Resume": {
     "eyebrow": "Lebenslauf & Entwicklung",
     "title": "Lebenslauf",
-    "intro": "Mein Weg in die Anwendungsentwicklung ist praxisnah und klar strukturiert: konsequentes Selbststudium mit KI-Unterstützung, reale Projekte und ein konkretes Ausbildungsziel für 2026.",
+    "intro": "Mein Weg ist praxisnah: abgeschlossenes Studium, ein starkes Kursergebnis und seit rund drei Jahren tägliche Arbeit an echten Automatisierungs- und Datenaufgaben.",
     "timeline": [
       {
-        "period": "2024 — heute",
-        "title": "Strukturiertes Selbststudium im Frontend mit KI-Unterstützung",
-        "text": "Regelmäßige Coding-Sessions, dokumentierte Lernziele und kontinuierliches Lernen mit Unterstützung durch KI-Tools.",
-        "focus": "Fokus: HTML/CSS · JavaScript · React-Basics",
+        "period": "2018 — 2022",
+        "title": "Bachelor Wirtschaftskybernetik (Fernstudium, Kyjiw)",
+        "text": "Verbindung aus betriebswirtschaftlichen und IT-Inhalten. Von der ZAB als deutschem Bachelorniveau entsprechend bewertet (03/2025).",
+        "focus": "Fokus: Wirtschaft · Informatik · Statistik",
         "chips": [
-          "Eigeninitiative",
-          "Tägliche Praxis",
-          "KI-gestützt"
+          "ZAB-anerkannt",
+          "Fernstudium",
+          "Abschluss 2022"
         ]
       },
       {
-        "period": "2025",
-        "title": "Projektumsetzung mit KI-Unterstützung",
-        "text": "Planung und Umsetzung mehrerer Demo-Projekte mit KI-Unterstützung statt reiner Tutorial-Nachbauten. Fokus auf verständliche UI und funktionale Prototypen.",
-        "focus": "Fokus: UI-Grundlagen · Prototyping",
+        "period": "2022",
+        "title": "JS/FE Pre-School — RS School / EPAM",
+        "text": "Intensivkurs zu JavaScript und Frontend-Grundlagen mit wöchentlichen Aufgaben und Peer-Review.",
+        "focus": "Ergebnis: 1. Platz unter ~6.000 Teilnehmenden",
         "chips": [
-          "4 Demo-Konzepte",
-          "Mobile-first",
-          "KI-gestützt"
+          "1. Platz",
+          "~6.000 Teilnehmende",
+          "JavaScript"
         ]
       },
       {
-        "period": "2026 (Ziel)",
-        "title": "Ausbildung zum Fachinformatiker für Anwendungsentwicklung (AE)",
-        "text": "Einstieg in ein Ausbildungsteam, um praktische Erfahrung mit professionellen Entwicklungsprozessen, Teamarbeit und Verantwortung im Produktalltag zu verbinden.",
-        "focus": "Ziel: Ausbildungsstart 2026",
+        "period": "2023 — heute",
+        "title": "Tägliche Praxis in Web- und Datenautomatisierung",
+        "text": "Über 20 eigene Projekte und mehr als 100 Skripte und Workflows: wiederkehrende Datenpflege, Recherche und Inhaltsübertragung automatisiert statt manuell — über Monate zuverlässig im Betrieb. Dazu eine öffentliche Playwright-E2E-Suite mit GitHub-Actions-CI gegen diese Website.",
+        "focus": "Fokus: Datenpflege · Automatisierung · Verifikation",
         "chips": [
-          "Lernbereitschaft",
-          "Teamfähigkeit",
-          "Verlässlichkeit"
+          "20+ Projekte",
+          "100+ Workflows",
+          "Playwright & CI"
         ]
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich arbeite strukturiert, lerne schnell und spreche offen über meinen aktuellen Stand. Mein Ziel ist es, im Team zuverlässig mitzuwirken und fachlich zu wachsen.",
+    "closingText": "Ich arbeite sorgfältig, auch wenn eine Aufgabe sich wiederholt, und spreche offen über meinen aktuellen Stand. Was ich noch nicht kann, lerne ich schnell — was ich kann, belege ich mit öffentlichem Code.",
     "closingBadges": [
-      "Eigeninitiative",
+      "Sorgfalt bei Routine",
       "Klare Kommunikation",
       "Schnelle Umsetzung",
-      "Ausbildungsfokus 2026"
+      "Sofort verfügbar"
     ]
   },
   "Contact": {
     "eyebrow": "Kontakt & nächster Schritt",
     "title": "Kontakt",
-    "intro": "Ich freue mich über Gespräche zu einer Ausbildung, zu Praktika oder zu Probearbeit im Bereich Anwendungsentwicklung.",
+    "intro": "Ich freue mich über Gespräche zu Stellen in Datenpflege, Digitalisierung und Automatisierung — in Vollzeit oder Teilzeit.",
     "linksTitle": "Direkte Kontaktwege",
     "linksIntro": "Für eine schnelle Rückmeldung erreichen Sie mich direkt per E-Mail oder über meine Profile.",
     "quickLinks": [
@@ -280,10 +276,10 @@
     ],
     "availability": {
       "title": "Verfügbarkeit",
-      "text": "Aktiv auf der Suche nach einem Ausbildungsplatz für 2026 und offen für Praktikum, Probearbeit oder Kennenlerngespräche.",
+      "text": "Sofort verfügbar für Junior-Rollen in Datenpflege, Digitalisierung und Automatisierung — Raum Landshut/München oder remote, auch in Teilzeit.",
       "badges": [
-        "Ausbildung 2026",
-        "Praktikum möglich",
+        "Sofort verfügbar",
+        "Vollzeit oder Teilzeit",
         "Antwort in 24h"
       ]
     },
@@ -314,7 +310,7 @@
       "messageRequired": "Bitte fügen Sie eine Nachricht hinzu.",
       "messageMin": "Bitte schreiben Sie mindestens 24 Zeichen, damit ich den Kontext verstehe."
     },
-    "mailSubject": "Kontakt über Portfolio — Ausbildung Fachinformatiker Anwendungsentwicklung (AE)",
+    "mailSubject": "Kontakt über Portfolio — Datenpflege & Digitalisierung",
     "email": "oleksandr.o.shevchenko@gmail.com"
   },
   "ProjectPage": {

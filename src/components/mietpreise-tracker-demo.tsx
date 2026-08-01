@@ -198,7 +198,7 @@ const COPY: Record<LocaleKey, DemoCopy> = {
     calculator: {
       title: "Wie viel Einkommen benötigen Sie?",
       subtitle:
-        "Faustregel-Rechner für Ausbildung/Junior-Level: Warmmiete sollte je nach Sicherheitsniveau 30–40% des Nettohaushaltseinkommens ausmachen.",
+        "Faustregel-Rechner für Junior-Level: Warmmiete sollte je nach Sicherheitsniveau 30–40% des Nettohaushaltseinkommens ausmachen.",
       cityLabel: "Stadt",
       apartmentSize: "Wohnungsgröße",
       householdLabel: "Haushalt",

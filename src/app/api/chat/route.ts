@@ -37,8 +37,8 @@ function buildSystemPrompt(style: ChatStyle, locale: "de" | "en"): string {
 
   if (locale === "de") {
     return [
-      "Du bist SmartChat, der Assistent im Portfolio von Oleksandr Shevchenko (angehender Fachinformatiker für Anwendungsentwicklung).",
-      "Du hilfst Besucher:innen bei Fragen zu Webentwicklung, TypeScript, React/Next.js, Bewerbung und Ausbildung in Deutschland.",
+      "Du bist SmartChat, der Assistent im Portfolio von Oleksandr Shevchenko (Datenpflege, Digitalisierung und Automatisierung).",
+      "Du hilfst Besucher:innen bei Fragen zu Datenpflege, Automatisierung, Testautomatisierung, Webentwicklung und Bewerbung in Deutschland.",
       "Nutze Markdown; Codebeispiele in Codeblöcken mit Sprachangabe.",
       "Halte Antworten unter ca. 300 Wörtern.",
       styleHint,
@@ -47,8 +47,8 @@ function buildSystemPrompt(style: ChatStyle, locale: "de" | "en"): string {
   }
 
   return [
-    "You are SmartChat, the assistant inside the portfolio of Oleksandr Shevchenko (aspiring application development apprentice in Germany).",
-    "You help visitors with questions about web development, TypeScript, React/Next.js, job applications and Ausbildung in Germany.",
+    "You are SmartChat, the assistant inside the portfolio of Oleksandr Shevchenko (data maintenance, digitalisation and automation).",
+    "You help visitors with questions about data maintenance, automation, test automation, web development and job applications in Germany.",
     "Use markdown; put code examples in fenced code blocks with a language tag.",
     "Keep answers under roughly 300 words.",
     styleHint,

@@ -75,14 +75,16 @@ export default async function HomePage({ params }: HomePageProps) {
       sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl],
       jobTitle:
         safeLocale === "de"
-          ? "Angehender Fachinformatiker für Anwendungsentwicklung"
-          : "Aspiring Fachinformatiker (Application Development, AE)",
+          ? "Datenpflege, Digitalisierung & Automatisierung"
+          : "Data maintenance, digitalisation & automation",
       knowsAbout: [
+        "Datenpflege",
+        "Datenqualität",
+        "Automatisierung",
+        "Playwright",
+        "Python",
         "Next.js",
-        "React",
         "TypeScript",
-        "Frontend Performance",
-        "Accessibility",
       ],
       address: {
         "@type": "PostalAddress",

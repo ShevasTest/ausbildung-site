@@ -9,16 +9,16 @@ export const contentType = "image/png";
 
 const copy = {
   de: {
-    badge: "Ausbildung Portfolio 2026",
+    badge: "Portfolio 2026",
     title: "Oleksandr",
-    subtitle: "Angehender Fachinformatiker für Anwendungsentwicklung",
-    points: "Next.js · TypeScript · Performance · Accessibility",
+    subtitle: "Datenpflege · Digitalisierung · Automatisierung",
+    points: "Playwright · Python · TypeScript · CI/CD",
   },
   en: {
-    badge: "Ausbildung Portfolio 2026",
+    badge: "Portfolio 2026",
     title: "Oleksandr",
-    subtitle: "Aspiring Fachinformatiker (Application Development, AE)",
-    points: "Next.js · TypeScript · Performance · Accessibility",
+    subtitle: "Data maintenance · Digitalisation · Automation",
+    points: "Playwright · Python · TypeScript · CI/CD",
   },
 } as const;
 

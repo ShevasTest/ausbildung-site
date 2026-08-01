@@ -45,16 +45,18 @@ const themeScript = `
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.baseUrl),
-  applicationName: "Oleksandr Ausbildung Portfolio",
+  applicationName: "Oleksandr Shevchenko Portfolio",
   title: {
-    default: "Oleksandr | Ausbildung Portfolio",
+    default: "Oleksandr | Digitalisierung & Datenpflege",
     template: "%s | Oleksandr",
   },
   description:
-    "Portfolio von Oleksandr — angehender Fachinformatiker für Anwendungsentwicklung.",
+    "Portfolio von Oleksandr Shevchenko — Datenpflege, Digitalisierung und Automatisierung wiederkehrender Web- und Datenaufgaben.",
   keywords: [
-    "Ausbildung Fachinformatiker",
-    "Frontend Portfolio",
+    "Datenpflege",
+    "Digitalisierung",
+    "Automatisierung",
+    "Playwright",
     "Next.js",
     "TypeScript",
     "Bewerbung Deutschland",
@@ -84,9 +86,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.siteName,
-    title: "Oleksandr | Ausbildung Portfolio",
+    title: "Oleksandr | Digitalisierung & Datenpflege",
     description:
-      "Moderne Frontend-Projekte mit Fokus auf Performance, Accessibility und sauberer Architektur.",
+      "Strukturierte Daten pflegen, aktuell halten und wiederkehrende Abläufe automatisieren — mit öffentlicher Playwright-Suite in der CI.",
     locale: "de_DE",
     url: "/de",
     images: [
@@ -94,15 +96,15 @@ export const metadata: Metadata = {
         url: "/de/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Oleksandr Ausbildung Portfolio",
+        alt: "Oleksandr Shevchenko — Digitalisierung & Datenpflege",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oleksandr | Ausbildung Portfolio",
+    title: "Oleksandr | Digitalisierung & Datenpflege",
     description:
-      "Moderne Frontend-Projekte mit Fokus auf Performance, Accessibility und sauberer Architektur.",
+      "Strukturierte Daten pflegen, aktuell halten und wiederkehrende Abläufe automatisieren — mit öffentlicher Playwright-Suite in der CI.",
     images: ["/de/opengraph-image"],
   },
   category: "technology",

@@ -30,8 +30,8 @@ const FOCUS_HINTS: Record<string, { de: string; en: string }> = {
     en: "Focus: full-stack orientation (APIs, data flow, clean interfaces).",
   },
   teamfit: {
-    de: "Schwerpunkt: Teamfit und Ausbildung (Lernkurve, Zuverlässigkeit, Zusammenarbeit).",
-    en: "Focus: team fit and apprenticeship (learning curve, reliability, collaboration).",
+    de: "Schwerpunkt: Teamfit (Lernkurve, Zuverlässigkeit, Zusammenarbeit).",
+    en: "Focus: team fit (learning curve, reliability, collaboration).",
   },
   ai: {
     de: "Schwerpunkt: produktiver, verantwortungsvoller Einsatz von KI-Tools im Entwicklungsalltag.",
@@ -57,9 +57,9 @@ const TONE_HINTS: Record<string, { de: string; en: string }> = {
 function buildSystemPrompt(locale: "de" | "en"): string {
   if (locale === "de") {
     return [
-      "Du bist ein erfahrener Bewerbungscoach für den deutschen Ausbildungsmarkt.",
-      "Du schreibst Anschreiben für Oleksandr (angehender Fachinformatiker für Anwendungsentwicklung):",
-      "Quereinsteiger mit diszipliniertem Selbststudium, praktischer Erfahrung mit HTML/CSS, JavaScript/TypeScript, React und Next.js, eigenem Portfolio mit lauffähigen Projekten, produktivem Umgang mit KI-Tools, Deutsch B1 (aktiv Richtung B2).",
+      "Du bist ein erfahrener Bewerbungscoach für den deutschen Arbeitsmarkt.",
+      "Du schreibst Anschreiben für Oleksandr (Datenpflege, Digitalisierung und Automatisierung):",
+      "ZAB-anerkannter Bachelor (Wirtschaftskybernetik), 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM, seit rund drei Jahren tägliche Web- und Datenautomatisierung (20+ Projekte, 100+ Workflows), öffentliche Playwright-E2E-Suite mit GitHub-Actions-CI, Deutsch B1.",
       "Regeln: Erfinde keine Abschlüsse, Zeugnisse oder Berufserfahrung. Bleibe bei diesem Profil.",
       "Struktur: Betreffzeile, Anrede, Einstieg mit Bezug zur Stelle, 2–3 Absätze Passung/Motivation, Abschluss mit Gesprächswunsch, Grußformel.",
       "Länge: 220–320 Wörter. Sprache: Deutsch. Keine Markdown-Formatierung, nur reiner Brieftext.",

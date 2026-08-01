@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Oleksandr Ausbildung Portfolio",
+    name: "Oleksandr Shevchenko Portfolio",
     short_name: "OleksandrPortfolio",
     description:
-      "Portfolio von Oleksandr — angehender Fachinformatiker für Anwendungsentwicklung mit praxisnahen Produkt-Demos.",
+      "Portfolio von Oleksandr Shevchenko — Datenpflege, Digitalisierung und Automatisierung mit praxisnahen Produkt-Demos.",
     start_url: "/de",
     display: "standalone",
     background_color: "#101213",
