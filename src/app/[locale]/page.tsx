@@ -58,14 +58,14 @@ export default async function HomePage({ params }: HomePageProps) {
       email: `mailto:${siteConfig.email}`,
       sameAs: [siteConfig.githubUrl, siteConfig.linkedInUrl, "https://t.me/Shevas_o"],
       jobTitle: isDe
-        ? "Daten- & KI-Engineering (KI-gestützt)"
-        : "Data & AI Engineering (AI-assisted)",
+        ? "IT-Support & Anwenderbetreuung"
+        : "IT Support & End-User Services",
       knowsAbout: [
-        "Data engineering",
-        "Data cleaning",
-        "Retrieval-augmented generation",
-        "AI agents",
-        "Automation",
+        "IT support",
+        "Windows client administration",
+        "Hardware and device deployment",
+        "Networking fundamentals",
+        "Technical documentation",
       ],
     },
     {
@@ -90,24 +90,24 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="hero-copy hero-enter">
           <p className="portfolio-eyebrow">
             {isDe
-              ? "Offen für Junior-Rollen in Daten- und KI-Engineering · remote oder in Bayern"
-              : "Open to junior roles in data and AI engineering · remote or in Bavaria"}
+              ? "Offen für IT-Support und Anwenderbetreuung · Großraum München · vor Ort"
+              : "Open to IT support and end-user roles · Munich area · on site"}
           </p>
           <h1 className="hero-name">Oleksandr Shevchenko</h1>
           <p className="hero-role">
             {isDe
-              ? "Daten & Pipelines · KI-Agenten · KI-gestützt"
-              : "Data & pipelines · AI agents · AI-assisted"}
+              ? "IT-Support · Windows & Microsoft 365 · Geräte und Netzwerk"
+              : "IT support · Windows & Microsoft 365 · devices and networking"}
           </p>
           <p className="hero-specialty">
             {isDe
-              ? "Datenaufbereitung · RAG & Retrieval · Automatisierung · Python"
-              : "Data preparation · RAG & retrieval · automation · Python"}
+              ? "Arbeitsplätze einrichten · Fehler eingrenzen · Anwender betreuen"
+              : "Setting up workplaces · isolating faults · supporting users"}
           </p>
           <p className="hero-lead">
             {isDe
-              ? "Seit rund drei Jahren arbeite ich täglich mit Daten, die verschmutzt sind, sich ständig ändern und trotzdem verarbeitet werden müssen. Daraus ist eine Arbeitsweise geworden: messen, bevor ich etwas behaupte, und umbauen, wenn die Messung schlecht ausfällt. Mein Kernprojekt ist mono-api-agent — ein RAG-Agent über eine offizielle OpenAPI-Spezifikation, an einem Tag entstanden und an diesem Tag zweimal überarbeitet, weil die Messwerte es verlangten. Modelle in Produktion trainiert habe ich nicht — das ist der Bereich, in dem ich lernen will."
-              : "For about three years I have worked daily with data that is dirty, constantly changing and still has to be processed. That turned into a working method: measure before claiming anything, and rebuild when the measurement comes back bad. My core project is mono-api-agent — a RAG agent over an official OpenAPI specification, built in one day and rewritten twice that same day because the numbers demanded it. I have not trained models in production — that is the area I want to learn."}
+              ? "Als Assistent des Systemadministrators habe ich ein komplettes Büro technisch in Betrieb genommen: Arbeitsplätze, Server, Switches, Netzwerkverkabelung, USV-Anlagen und Drucker. Windows habe ich auf sämtlichen Rechnern installiert und eingerichtet und die fertigen Arbeitsplätze übergeben. Seitdem baue und betreibe ich täglich eigene technische Projekte — die Fehlersuche ist dabei zur Routine geworden: eingrenzen, Ursache finden, Lösung dokumentieren, Betrieb wiederherstellen. Mit Microsoft Entra ID auf Administrationsebene habe ich bisher wenig gearbeitet; darauf bereite ich mich gerade gezielt vor."
+              : "As a system administrator's assistant I brought a complete office online: workstations, servers, switches, network cabling, UPS units and printers. I installed and configured Windows on every machine and handed over ready-to-work setups. Since then I have built and operated my own technical projects daily — troubleshooting has become routine: isolate, find the cause, document the fix, restore service. I have not worked much with Microsoft Entra ID at administration level; that is what I am deliberately preparing for right now."}
           </p>
 
           <div className="hero-actions">
@@ -115,7 +115,7 @@ export default async function HomePage({ params }: HomePageProps) {
               {isDe ? "Projekte ansehen" : "View projects"}
             </NextLink>
             <NextLink href="#resume" className="button button-secondary">
-              {isDe ? "Lebenslauf" : "Resume"}
+              {isDe ? "Werdegang" : "Background"}
             </NextLink>
           </div>
         </div>
@@ -135,12 +135,12 @@ export default async function HomePage({ params }: HomePageProps) {
 
       <section id="projects" className="portfolio-shell portfolio-section render-deferred scroll-mt-24">
         <div className="section-intro" data-reveal>
-          <p className="portfolio-eyebrow">{isDe ? "Ausgewählte Projekte" : "Selected projects"}</p>
-          <h2>{isDe ? "Praktische Projekte. Klarer Fokus." : "Practical projects. Clear focus."}</h2>
+          <p className="portfolio-eyebrow">{isDe ? "Eigene Werkzeuge" : "My own tools"}</p>
+          <h2>{isDe ? "Selbst gebaut. Selbst am Laufen gehalten." : "Built by me. Kept running by me."}</h2>
           <p>
             {isDe
-              ? "Das Kernprojekt: eine öffentliche Playwright-Testsuite, die genau diese Website in der CI prüft — 56 Checks auf Desktop und Mobile. Dazu vier Produkt-Demos aus mehr als 20 eigenen Projekten; jede Demo kann direkt im Browser ausprobiert werden."
-              : "The flagship: a public Playwright test suite that checks this very website in CI — 56 checks across desktop and mobile. Alongside it, four product demos from more than 20 personal projects; every demo can be tried directly in the browser."}
+              ? "Diese Projekte sind kein Support-Nachweis — sie zeigen etwas anderes: dass ich technische Systeme selbst aufsetze, betreibe und wieder zum Laufen bringe, wenn sie kaputtgehen. Genau das unterscheidet guten Support vom reinen Abarbeiten von Tickets. Jede Demo kann direkt im Browser ausprobiert werden."
+              : "These projects are not proof of support experience — they show something else: that I set up, operate and repair technical systems myself when they break. That is what separates good support from merely working through tickets. Every demo can be tried directly in the browser."}
           </p>
           <a
             href="https://github.com/ShevasTest/portfolio-e2e-tests"
@@ -202,12 +202,12 @@ export default async function HomePage({ params }: HomePageProps) {
       <section id="resume" className="portfolio-section portfolio-section-muted render-deferred scroll-mt-24">
         <div className="portfolio-shell split-section">
           <div className="section-intro section-intro-sticky" data-reveal>
-            <p className="portfolio-eyebrow">{isDe ? "Praxis & Entwicklung" : "Practice & growth"}</p>
-            <h2>{isDe ? "Vom Selbststudium zu produktiven Systemen." : "From self-study to working systems."}</h2>
+            <p className="portfolio-eyebrow">{isDe ? "Werdegang" : "Background"}</p>
+            <h2>{isDe ? "Vom Büro-Aufbau zur täglichen Technikpraxis." : "From building an office to daily technical practice."}</h2>
             <p>
               {isDe
-              ? "Drei Jahre tägliche Automatisierungspraxis — mehr als 20 Projekte, über 100 Skripte und seit 2026 eine öffentliche E2E-Suite in der CI. Mit einem ehrlichen Blick auf Stärken und Wissensgrenzen."
-              : "Three years of daily automation practice — more than 20 projects, over 100 scripts and, since 2026, a public e2e suite in CI. With an honest view of strengths and knowledge boundaries."}
+              ? "Ein praktischer Einstieg in die Büro-IT, ein anerkannter Abschluss und drei Jahre tägliche technische Praxis — mit einem ehrlichen Blick auf Stärken und Wissensgrenzen."
+              : "A hands-on entry into office IT, a recognised degree and three years of daily technical practice — with an honest view of strengths and knowledge boundaries."}
             </p>
           </div>
 
@@ -230,8 +230,8 @@ export default async function HomePage({ params }: HomePageProps) {
             <p className="portfolio-eyebrow">{isDe ? "Über mich" : "About me"}</p>
             <h2>
               {isDe
-                ? "Ich steuere KI. Ich übernehme Verantwortung für das Ergebnis."
-                : "I orchestrate AI. I take responsibility for the result."}
+                ? "Ich nehme Technik ab. Und erkläre sie ohne Fachbegriffe."
+                : "I take the technology off your hands. And explain it without jargon."}
             </h2>
           </div>
           <div className="about-copy" data-reveal>
@@ -256,8 +256,8 @@ export default async function HomePage({ params }: HomePageProps) {
         <h2>{isDe ? "Lernen wir uns kennen." : "Let’s get to know each other."}</h2>
         <p>
           {isDe
-            ? "Ich bin offen für Junior-Rollen in Daten- und KI-Engineering oder ein erstes technisches Kennenlerngespräch."
-            : "I am open to junior roles in data and AI engineering or an initial technical conversation."}
+            ? "Ich bin offen für Rollen im IT-Support und in der Anwenderbetreuung — vor Ort im Großraum München."
+            : "I am open to IT support and end-user roles — on site in the Munich area."}
         </p>
         <a className="contact-email" href={`mailto:${siteConfig.email}`}>
           {siteConfig.email}

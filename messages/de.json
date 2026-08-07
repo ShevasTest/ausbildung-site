@@ -1,9 +1,9 @@
 {
   "Meta": {
-    "title": "Daten- & KI-Portfolio",
-    "description": "Portfolio von Oleksandr — Datenaufbereitung, Automatisierung und KI-Agenten. Drei Jahre tägliche Praxis auf unsauberen, sich ständig ändernden Daten; RAG-Agent über eine OpenAPI-Spezifikation als Kernprojekt.",
-    "ogTitle": "Oleksandr | Daten- & KI-Portfolio",
-    "ogDescription": "Daten aufbereiten, Pipelines betreiben, KI-Agenten bauen — mit Messungen statt Vermutungen. Kernprojekt: RAG-Agent über eine offizielle OpenAPI-Spezifikation.",
+    "title": "IT-Support Portfolio",
+    "description": "Portfolio von Oleksandr Shevchenko — IT-Support und Anwenderbetreuung. Ein komplettes Büro technisch in Betrieb genommen, Windows auf allen Rechnern eingerichtet, seit drei Jahren tägliche technische Praxis.",
+    "ogTitle": "Oleksandr Shevchenko | IT-Support & Anwenderbetreuung",
+    "ogDescription": "Arbeitsplätze einrichten, Fehler eingrenzen, Anwender betreuen. Server, Switches, Drucker und Windows auf allen Rechnern — ein Büro von Grund auf in Betrieb genommen.",
     "projectTitle": "Projekt: {slug}",
     "projectDescription": "Projektdetails: Ziele, Tech Stack und Umsetzung."
   },
@@ -19,94 +19,94 @@
     "theme": "Designmodus"
   },
   "Hero": {
-    "badge": "Daten & Pipelines · KI-Agenten · KI-gestützt",
-    "kicker": "Offen für Junior-Rollen in Daten- und KI-Engineering · remote oder in Bayern",
-    "titleLead": "Ich baue",
+    "badge": "IT-Support · Windows & Microsoft 365 · Geräte und Netzwerk",
+    "kicker": "Offen für IT-Support und Anwenderbetreuung · Großraum München · vor Ort",
+    "titleLead": "Ich sorge dafür, dass",
     "rotatingWords": [
-      "Pipelines, die unsaubere Daten überstehen",
-      "KI-Agenten, deren Ausgabe überprüfbar ist",
-      "Automatisierung, die über Monate läuft",
-      "Systeme, die ich messe statt vermute"
+      "Arbeitsplätze am ersten Tag einsatzbereit sind",
+      "Rechner, Drucker und Netzwerk wieder laufen",
+      "Anwender eine verständliche Antwort bekommen",
+      "Lösungen dokumentiert sind statt nur gemerkt"
     ],
-    "titleEnd": "und bringe sie bis zu einem Ergebnis, das ich belegen kann.",
-    "subtitle": "Seit rund drei Jahren arbeite ich täglich mit Daten, die verschmutzt sind, sich ständig ändern und trotzdem verarbeitet werden müssen. Daraus ist eine Arbeitsweise geworden: messen, bevor ich etwas behaupte, und umbauen, wenn die Messung schlecht ausfällt. Mein Kernprojekt ist ein RAG-Agent über eine offizielle OpenAPI-Spezifikation — an einem Tag entstanden und an diesem Tag zweimal überarbeitet, weil die Messwerte es verlangten.",
+    "titleEnd": "— und ich bleibe dran, bis die Ursache gefunden ist.",
+    "subtitle": "Als Assistent des Systemadministrators habe ich ein komplettes Büro technisch in Betrieb genommen: Arbeitsplätze, Server, Switches, Netzwerkverkabelung, USV-Anlagen und Drucker. Windows habe ich auf sämtlichen Rechnern installiert und eingerichtet und die fertigen Arbeitsplätze übergeben. Seitdem baue und betreibe ich täglich eigene technische Projekte — die Fehlersuche ist dabei zur Routine geworden: eingrenzen, Ursache finden, Lösung dokumentieren, Betrieb wiederherstellen.",
     "points": [
-      "mono-api-agent: RAG über eine OpenAPI-Spezifikation, deterministische Halluzinationsprüfung",
-      "Drei Jahre tägliche Automatisierung auf unsauberen, sich ändernden Daten",
-      "Mehr als 20 eigene Projekte und über 100 Skripte und Workflows",
-      "1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM"
+      "Büro-IT von Grund auf: Arbeitsplätze, Server, Switches, Verkabelung, USV, Drucker",
+      "Windows-Installation und -Einrichtung auf allen Arbeitsrechnern",
+      "Systematische Fehlersuche mit Chrome DevTools und eigenem Traffic-Mitschnitt",
+      "Ukrainisch als Muttersprache — Support ohne Sprachbarriere"
     ],
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
     "panelEyebrow": "Was ich einbringe",
-    "panelTitle": "Datenqualität ernst nehmen. Ergebnisse belegen statt behaupten.",
-    "panelText": "Ein Modell wird nie besser als seine Daten — und eine Pipeline ist nur so gut wie ihr schlechtester Eingabetag. Genau dort liegt meine Praxis: Daten aufbereiten und bereinigen, Fehlerhaftes finden, Verarbeitung automatisieren und den Betrieb stabil halten. In einer Junior-Rolle möchte ich das in ein Team einbringen und von erfahrenen Leuten lernen, wo meine Grundlagen noch dünn sind.",
+    "panelTitle": "Technik abnehmen, damit andere einfach arbeiten können.",
+    "panelText": "Guter Support misst sich nicht daran, wie viele Tickets offen sind, sondern daran, ob jemand nach fünf Minuten weiterarbeiten kann. Dafür braucht es zwei Dinge: die Ursache wirklich finden statt nur das Symptom wegklicken — und danach so aufschreiben, dass beim nächsten Mal niemand mehr fragen muss.",
     "stats": [
       {
-        "label": "Kernprojekt",
-        "value": "mono-api-agent — RAG, öffentlich"
+        "label": "Praxis",
+        "value": "Büro-IT komplett in Betrieb genommen"
       },
       {
-        "label": "Automatisierung",
-        "value": "100+ Skripte & Workflows"
+        "label": "Betrieb",
+        "value": "20+ Projekte über Monate stabil gehalten"
       },
       {
         "label": "Arbeitsweise",
-        "value": "Messen · Verifizieren · Umbauen"
+        "value": "Eingrenzen · Ursache finden · Dokumentieren"
       }
     ]
   },
   "About": {
     "title": "Über mich",
-    "eyebrow": "Drei Jahre Praxis auf Daten, die nie sauber sind",
-    "lead": "Meine Stärke ist nicht ein einzelnes Framework, sondern der Umgang mit unzuverlässigen Daten: aufbereiten, prüfen, automatisieren — und das Ergebnis messen, bevor ich es für fertig erkläre.",
+    "eyebrow": "Vom kompletten Büro-Aufbau zur täglichen Technikpraxis",
+    "lead": "Meine Stärke ist nicht ein einzelnes Produkt, sondern der Umgang mit Technik, die gerade nicht funktioniert: eingrenzen, Ursache finden, reparieren und so dokumentieren, dass es beim nächsten Mal schneller geht.",
     "paragraphs": [
-      "Nach meinem Studium der Wirtschaftskybernetik (ZAB-anerkannter Bachelor, also mathematische Modellierung und Informationssysteme) erreichte ich den 1. Platz unter rund 6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM. Das ist die einzige Zahl über mich, die sich in einer Sekunde überprüfen lässt — und sie sagt vor allem eines: Ich lerne schnell, wenn ich einen konkreten Gegenstand habe.",
-      "Seitdem arbeite ich seit rund drei Jahren täglich an eigenen Software- und Automatisierungsprojekten — KI-gestützt: Ich definiere die Anforderungen, steuere Coding-Agenten, verifiziere das Ergebnis und debugge über DevTools und Netzwerk-Traffic-Analyse. Die Eingangsdaten waren dabei nie sauber und selten stabil. 20+ Projekte und 100+ automatisierte Workflows, über Monate zuverlässig in Betrieb. Wenn ein instabiler Workflow direkt Geld kostet, wird Verifikation zur Gewohnheit.",
-      "Heute richte ich diese Kombination auf Daten- und KI-Engineering aus. Mein Kernprojekt ist mono-api-agent: ein RAG-Agent über die offizielle OpenAPI-Spezifikation von monobank, an einem Tag entstanden. Chunking pro API-Methode statt nach Zeichenzahl, Embedding über den Methodenzweck statt über den vollständigen Chunk, deterministische Halluzinationsprüfung statt LLM-Judge. Am selben Tag habe ich zweimal umgebaut, was bereits funktionierte, weil die Messungen zeigten, dass es schlecht funktionierte. Modelle in Produktion trainiert habe ich nicht — das ist der Bereich, in dem ich lernen will."
+      "Meine erste technische Station war die Assistenz des Systemadministrators bei „UkrZoloto“ in Kyjiw. Wir haben dort ein neues Büro komplett in Betrieb genommen — Arbeitsplätze, Server, Switches, Netzwerkverkabelung, USV-Anlagen und Drucker. Windows habe ich auf sämtlichen Rechnern installiert und eingerichtet und die fertigen Arbeitsplätze an die Kolleginnen und Kollegen übergeben. Dort habe ich gelernt, wie viel Technik man einem Menschen abnehmen kann, damit er einfach arbeiten kann.",
+      "Danach kam das Studium der Wirtschaftskybernetik (von der ZAB als deutscher Bachelor anerkannt) und der 1. Platz unter rund 6.000 Teilnehmenden im JS/FE-Pre-School-Kurs von RS School und EPAM — der einzige extern belegbare Messwert dafür, wie schnell ich mich in Neues einarbeite. Seit rund drei Jahren baue und betreibe ich täglich eigene technische Projekte; Störungen zu analysieren und den Betrieb wiederherzustellen ist dabei Routine.",
+      "Ehrlich zu meinen Grenzen: Mit Microsoft Entra ID und Microsoft 365 auf Administrationsebene habe ich bisher wenig gearbeitet, und ein Ticketsystem habe ich beruflich noch nicht bedient. Beides arbeite ich gerade gezielt auf — MS-900 ist mein nächstes Zertifizierungsziel. Was ich sicher mitbringe: Ich lerne schnell, ich gebe nicht auf, bevor die Ursache gefunden ist, und ich kann Technik ohne Fachbegriffe erklären."
     ],
     "highlights": [
       {
+        "label": "Praxis",
+        "value": "Ein komplettes Büro technisch in Betrieb genommen — von der Verkabelung bis zum eingerichteten Arbeitsplatz."
+      },
+      {
         "label": "Eigeninitiative",
-        "value": "Ich arbeite seit rund drei Jahren täglich an eigenen Software- und Automatisierungsaufgaben."
+        "value": "Seit rund drei Jahren täglich eigene technische Projekte, aufgebaut und im Betrieb gehalten."
       },
       {
-        "label": "Messen statt vermuten",
-        "value": "Ich baue auch Funktionierendes um, wenn die Messwerte zeigen, dass es schlecht funktioniert."
+        "label": "Lerntempo",
+        "value": "1. Platz unter rund 6.000 Teilnehmenden im JS/FE-Pre-School-Kurs von RS School / EPAM."
       },
       {
-        "label": "KI- & Agenten-Workflows",
-        "value": "Ich plane mehrstufige Agentenaufgaben, steuere Kontext und Tools und überprüfe die Resultate systematisch."
-      },
-      {
-        "label": "Sofort verfügbar",
-        "value": "Wohnhaft in Bayern, offen für Daten- und KI-Rollen remote oder vor Ort."
+        "label": "Sprachen",
+        "value": "Ukrainisch Muttersprache, Russisch fließend, Deutsch B1 (DTZ)."
       }
     ],
     "motivationTitle": "Was ein Team von mir bekommt",
     "motivationPoints": [
-      "Ich übersetze unklare Anforderungen in konkrete Arbeitsschritte und überprüfbare Ergebnisse.",
-      "Ich nutze KI nicht als Blackbox: Ergebnisse werden gemessen, hinterfragt und iterativ verbessert.",
-      "Ich spreche offen über Wissenslücken, statt sie zu überspielen — auch in einer Bewerbung."
+      "Ich nehme Anwendern die Technik ab und erkläre das Ergebnis ohne Fachbegriffe.",
+      "Ich suche die Ursache, statt das Symptom wegzuklicken — und schreibe auf, was ich gefunden habe.",
+      "Ukrainischsprachige Kolleginnen und Kollegen kann ich ohne Umweg über eine dritte Sprache unterstützen."
     ],
     "profile": {
       "badge": "Profil",
       "name": "Oleksandr Shevchenko",
-      "role": "Daten & KI-Engineering (KI-gestützt)",
+      "role": "IT-Support & Anwenderbetreuung",
       "initials": "OS",
       "placeholder": "Foto folgt",
-      "caption": "Drei Jahre tägliche Praxis auf unsauberen Daten, ein öffentlicher RAG-Agent als Kernprojekt und ein Top-1-Ergebnis unter ~6.000 bei EPAM — jetzt ausgerichtet auf Daten- und KI-Arbeit im Team.",
+      "caption": "Büro-IT von Grund auf aufgebaut, drei Jahre tägliche technische Praxis und ein Top-1-Ergebnis unter rund 6.000 Kursteilnehmenden.",
       "facts": [
-        "Standort: Bayern · remote oder vor Ort",
-        "Sprachen: Ukrainisch & Russisch (Muttersprache) · Deutsch B1 · Englisch A2 (techn. Doku täglich)",
-        "Ziel: Datenqualität, Pipelines und angewandte KI im professionellen Umfeld"
+        "Standort: Bayern · Umzug in den Großraum München möglich",
+        "Sprachen: Ukrainisch (Muttersprache), Russisch, Deutsch B1",
+        "Verfügbar: kurzfristig, Vollzeit vor Ort"
       ]
     }
   },
   "Projects": {
     "title": "Projekte",
-    "eyebrow": "Ausgewählte Arbeiten",
-    "intro": "Das Kernprojekt ist mono-api-agent — ein RAG-Agent über eine offizielle OpenAPI-Spezifikation. Dazu eine eigene E2E-Testsuite und mehrere Live-Demos auf dieser Seite.",
+    "eyebrow": "Eigene Werkzeuge",
+    "intro": "Diese Projekte sind kein Support-Nachweis — sie zeigen etwas anderes: dass ich technische Systeme selbst aufsetze, betreibe und wieder zum Laufen bringe, wenn sie kaputtgehen. Genau das unterscheidet guten Support von reinem Tickets-Abarbeiten.",
     "items": [
       {
         "slug": "mono-api-agent",
@@ -150,83 +150,93 @@
   "Skills": {
     "title": "Kenntnisse",
     "eyebrow": "Werkzeuge & Wissen",
-    "intro": "Mein Profil verbindet drei Jahre tägliche Datenpraxis mit bewusst ehrlich eingeordneten Lücken — besonders dort, wo es um trainierte Modelle geht.",
-    "legend": "Selbsteinschätzung auf Basis meiner tatsächlichen täglichen Praxis",
+    "intro": "Ehrlich eingeordnet: stark bei Geräten, Windows-Clients und Fehlersuche — im Aufbau bei Microsoft 365 und Entra ID auf Administrationsebene.",
+    "legend": "Selbsteinschätzung auf Basis meiner tatsächlichen Praxis",
     "groups": [
       {
-        "name": "Daten & Pipelines",
-        "description": "Der Kern meiner Praxis: Daten aufbereiten und bereinigen, fehlerhafte Datensätze finden, Verarbeitung automatisieren und den Betrieb über Monate stabil halten",
+        "name": "Arbeitsplätze & Geräte",
+        "description": "Rechner, Drucker und Peripherie einrichten, ausrollen und übergeben — inklusive Hardwaretausch bei Defekten",
         "level": 72,
+        "levelLabel": "Praktische Erfahrung aus komplettem Büro-Aufbau",
+        "items": [
+          "Windows-Installation und -Einrichtung",
+          "Arbeitsplätze vorbereiten und übergeben",
+          "Drucker und Peripherie anbinden",
+          "Defekte Komponenten tauschen",
+          "USV-Anlagen anschließen"
+        ]
+      },
+      {
+        "name": "Fehlersuche & Dokumentation",
+        "description": "Ein Problem eingrenzen, die Ursache finden, die Lösung nachvollziehbar aufschreiben",
+        "level": 75,
         "levelLabel": "Tägliche Praxis seit rund drei Jahren",
         "items": [
-          "Datenaufbereitung & -bereinigung",
-          "Fehlerhafte und unvollständige Datensätze aufspüren",
-          "Formatkonvertierung & Validierung",
-          "Python für Automatisierung und Skripting",
-          "Pipeline-Betrieb unter wechselnden Eingaben"
+          "Systematische Eingrenzung statt Raten",
+          "Chrome DevTools & Netzwerk-Mitschnitt",
+          "Eigenes mitmproxy-Werkzeug zur Traffic-Analyse",
+          "Anleitungen und Wissensartikel schreiben",
+          "Technik ohne Fachbegriffe erklären"
         ]
       },
       {
-        "name": "KI, Agenten & RAG",
-        "description": "Steuerung von Modellen, Agenten, Kontext und Tools — dazu Retrieval-Architektur aus dem eigenen RAG-Projekt",
-        "level": 88,
-        "levelLabel": "Zentrale Stärke aus drei Jahren täglicher Praxis",
+        "name": "Netzwerk & Infrastruktur",
+        "description": "Grundlagen aus dem praktischen Aufbau: Switches, Verkabelung, Konnektivität, Serverbetreuung",
+        "level": 52,
+        "levelLabel": "Grundlagen aus praktischem Aufbau",
         "items": [
-          "RAG: Chunking-Strategien, Embeddings, Vektorsuche",
-          "Hybride Suche (lexikalisches Signal über Vektoren)",
-          "Deterministische Prüfung statt LLM-Judge",
-          "Multi-Agent-Workflows (LangGraph)",
-          "Prompt- & Kontext-Engineering"
+          "Switches und Netzwerkverkabelung",
+          "Konnektivitätsprobleme eingrenzen",
+          "Wartung von Server- und Netzwerksystemen",
+          "Benutzer- und Gerätekonfiguration"
         ]
       },
       {
-        "name": "Automatisierung & Testing",
-        "description": "Drei Jahre tägliche Praxis — 20+ Projekte, 100+ automatisierte Workflows; dazu eine eigene Playwright-E2E-Suite für dieses Portfolio",
-        "level": 68,
-        "levelLabel": "Umfangreiche eigenständige Projektpraxis",
+        "name": "Microsoft 365 & Entra ID",
+        "description": "Anwenderseitig sicher, auf Administrationsebene im Aufbau — MS-900 als nächstes Zertifizierungsziel",
+        "level": 34,
+        "levelLabel": "Im gezielten Aufbau (MS-900 in Vorbereitung)",
         "items": [
-          "Playwright (öffentliche E2E-Suite)",
-          "Browser-Automatisierung",
-          "DevTools- & Netzwerkanalyse",
-          "Git / GitHub Actions (CI)",
-          "Fehleranalyse & Recovery"
-        ]
-      },
-      {
-        "name": "Machine Learning",
-        "description": "Der Bereich, in dem ich am wenigsten mitbringe — und das schreibe ich lieber hin, als es im Gespräch zu erklären: Grundlagen ja, trainierte Modelle in Produktion nein",
-        "level": 22,
-        "levelLabel": "Grundlagen, kein Produktionseinsatz",
-        "items": [
-          "Metriken lesen und einordnen",
-          "Trainingsverläufe interpretieren",
-          "Keine eigenen Modelle in Produktion trainiert",
-          "Aktueller Lernschwerpunkt"
+          "Microsoft 365 aus Anwendersicht",
+          "Entra ID & Active Directory — Grundlagen im Aufbau",
+          "MFA und Passwortzurücksetzung — in Einarbeitung",
+          "Ticketsysteme — in Einarbeitung"
         ]
       }
     ]
   },
   "Resume": {
-    "eyebrow": "Werdegang & Projekte",
+    "eyebrow": "Werdegang",
     "title": "Lebenslauf",
-    "intro": "Mein Weg verbindet einen anerkannten Abschluss, ein Top-Kursergebnis und drei Jahre tägliche Praxis mit unsauberen Daten — jetzt ausgerichtet auf Daten- und KI-Engineering.",
+    "intro": "Ein praktischer Einstieg in die Büro-IT, ein anerkannter Abschluss, ein Top-Kursergebnis und drei Jahre tägliche technische Praxis.",
     "timeline": [
+      {
+        "period": "2018",
+        "title": "Assistent des Systemadministrators — „UkrZoloto“, Kyjiw",
+        "text": "Ein neues Büro komplett technisch in Betrieb genommen: Arbeitsplätze, Server, Switches, Netzwerkverkabelung, USV-Anlagen und Drucker. Windows auf sämtlichen Rechnern installiert und eingerichtet, fertige Arbeitsplätze an die Mitarbeitenden übergeben. Dazu Wartung von Server- und Netzwerksystemen, Benutzerverwaltung und Hardwaretausch.",
+        "focus": "Fokus: Geräte · Netzwerk · Anwenderübergabe",
+        "chips": [
+          "Büro-Aufbau",
+          "Windows-Rollout",
+          "Hardware & Netzwerk"
+        ]
+      },
       {
         "period": "2018 — 2022",
         "title": "Bachelor Wirtschaftskybernetik — ZAB-anerkannt",
-        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw) — mathematische Modellierung und Informationssysteme, von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter ~6.000 Teilnehmenden im JS/FE Pre-School-Kurs von RS School / EPAM.",
+        "text": "Abschluss an der Staatlichen Universität für Handelswesen und Wirtschaftswissenschaften (Kyjiw), von der ZAB als einem deutschen Bachelor entsprechend anerkannt (03/2025). Danach 1. Platz unter rund 6.000 Teilnehmenden im JS/FE-Pre-School-Kurs von RS School und EPAM.",
         "focus": "Basis: Abschluss · EPAM RS School Top 1",
         "chips": [
           "Bachelor + ZAB",
           "Top 1 / ~6.000",
-          "Mathem. Modellierung"
+          "IBM-Zertifikate"
         ]
       },
       {
         "period": "2023 — heute",
-        "title": "Eigene Software- & Automatisierungsprojekte — KI-gestützt",
-        "text": "Täglich eigene Projekte aufgebaut und betrieben, durchgehend auf Daten, die verschmutzt waren und sich ständig änderten. Verifikation, DevTools und eigene Traffic-Analyse — 20+ Projekte, 100+ Skripte und Workflows, über Monate zuverlässig in Betrieb.",
-        "focus": "Fokus: Unsaubere Daten · Verifikation · Zuverlässigkeit",
+        "title": "Eigene technische Projekte — täglicher Betrieb",
+        "text": "Täglich eigene Projekte aufgebaut und betrieben. Störungen analysieren, Ursachen finden und den Betrieb wiederherstellen gehört zur Routine; zur Analyse nutze ich Chrome DevTools und ein selbst entwickeltes Werkzeug zur Aufzeichnung von Netzwerkverkehr. 20+ Projekte, 100+ Skripte und Workflows, über Monate zuverlässig in Betrieb.",
+        "focus": "Fokus: Fehlersuche · Betrieb · Zuverlässigkeit",
         "chips": [
           "20+ Projekte",
           "100+ Skripte",
@@ -235,29 +245,29 @@
       },
       {
         "period": "2026",
-        "title": "Fokus: Daten- & KI-Engineering",
-        "text": "mono-api-agent gebaut und veröffentlicht: ein RAG-Agent über die offizielle OpenAPI-Spezifikation von monobank, an einem Tag entstanden und an diesem Tag zweimal überarbeitet, weil die Messwerte es verlangten — Chunking pro Methode, Embedding über den Methodenzweck, deterministische Halluzinationsprüfung (60 s → 2,8 s, fünf Modellaufrufe → zwei). Ich suche eine Junior-Rolle, in der ich das in einem Team weiterentwickle.",
-        "focus": "Ziel: Datenqualität, Retrieval, angewandte KI",
+        "title": "Fokus: IT-Support & Anwenderbetreuung",
+        "text": "Gezielte Vorbereitung auf die Zertifizierung Microsoft 365 Fundamentals (MS-900) und Einarbeitung in die Grundlagen von Microsoft Entra ID und Active Directory über Microsoft Learn. Ziel: eine Rolle im IT-Support vor Ort im Großraum München.",
+        "focus": "Ziel: IT-Support vor Ort",
         "chips": [
-          "mono-api-agent (öffentlich)",
-          "RAG & Retrieval",
-          "Messbare Ergebnisse"
+          "MS-900 in Vorbereitung",
+          "Entra ID & AD",
+          "Vor Ort verfügbar"
         ]
       }
     ],
     "closingTitle": "Was ein Team von mir erwarten kann",
-    "closingText": "Ich bringe drei Jahre tägliche Praxis mit unzuverlässigen Daten mit, ein öffentliches RAG-Projekt mit nachvollziehbaren Entscheidungen und die Gewohnheit, Ergebnisse zu messen statt sie zu behaupten. Über meine Lücken spreche ich offen: Modelle in Produktion habe ich nicht trainiert, und mein eigenständiges Codeschreiben frische ich gerade aktiv auf. Mein Ziel: zuverlässige Datenarbeit im Team.",
+    "closingText": "Praktische Erfahrung damit, eine Büro-IT von Grund auf aufzubauen, drei Jahre tägliche Übung im Eingrenzen und Beheben technischer Störungen — und eine ehrliche Einordnung dessen, was ich noch lerne. Ukrainischsprachige Kolleginnen und Kollegen unterstütze ich in ihrer Muttersprache.",
     "closingBadges": [
-      "Ab sofort verfügbar",
-      "Remote oder vor Ort",
+      "Kurzfristig verfügbar",
+      "Vor Ort im Großraum München",
       "Schnelle Lernkurve",
-      "Datenqualität im Fokus"
+      "Ukrainisch als Muttersprache"
     ]
   },
   "Contact": {
     "eyebrow": "Kontakt & nächster Schritt",
     "title": "Kontakt",
-    "intro": "Ich freue mich über Gespräche zu Junior-Rollen in Daten- und KI-Engineering — remote oder in Bayern.",
+    "intro": "Ich freue mich über Gespräche zu Rollen im IT-Support und in der Anwenderbetreuung — vor Ort im Großraum München.",
     "linksTitle": "Direkte Kontaktwege",
     "linksIntro": "Für eine schnelle Rückmeldung erreichen Sie mich direkt per E-Mail oder über meine Profile.",
     "quickLinks": [
@@ -284,10 +294,10 @@
     ],
     "availability": {
       "title": "Verfügbarkeit",
-      "text": "Aktiv auf Jobsuche. Offen für Junior-Rollen in Daten- und KI-Engineering — remote oder vor Ort.",
+      "text": "Aktiv auf Jobsuche. Offen für IT-Support und Anwenderbetreuung — vor Ort im Großraum München, Umzug möglich.",
       "badges": [
-        "Ab sofort",
-        "Remote oder vor Ort",
+        "Kurzfristig",
+        "Vor Ort",
         "Antwort in 24h"
       ]
     },

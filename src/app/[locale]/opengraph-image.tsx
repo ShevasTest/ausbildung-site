@@ -9,16 +9,16 @@ export const contentType = "image/png";
 
 const copy = {
   de: {
-    badge: "Daten & KI · RAG",
+    badge: "IT-Support · Anwenderbetreuung",
     title: "Oleksandr",
-    subtitle: "Daten & Pipelines · KI-Agenten · KI-gestützt",
-    points: "Datenaufbereitung · RAG & Retrieval · Python · Automatisierung",
+    subtitle: "IT-Support · Windows & Microsoft 365 · Geräte und Netzwerk",
+    points: "Arbeitsplätze einrichten · Fehler eingrenzen · Anwender betreuen",
   },
   en: {
-    badge: "Data & AI · RAG",
+    badge: "IT support · End-user services",
     title: "Oleksandr",
-    subtitle: "Data & pipelines · AI agents · AI-assisted",
-    points: "Data preparation · RAG & retrieval · Python · automation",
+    subtitle: "IT support · Windows & Microsoft 365 · devices and networking",
+    points: "Setting up workplaces · isolating faults · supporting users",
   },
 } as const;
 

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Oleksandr Daten- & KI-Portfolio",
+    name: "Oleksandr Shevchenko — IT-Support",
     short_name: "OleksandrData",
     description:
       "Portfolio von Oleksandr — Datenaufbereitung, Automatisierung und KI-Agenten, plus einem öffentlichen RAG-Agenten über eine OpenAPI-Spezifikation.",

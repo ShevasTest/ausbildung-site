@@ -58,7 +58,7 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(siteConfig.baseUrl),
-    applicationName: "Oleksandr Daten- & KI-Portfolio",
+    applicationName: "Oleksandr Shevchenko — IT-Support",
     title: t("title"),
     description: t("description"),
     keywords: [

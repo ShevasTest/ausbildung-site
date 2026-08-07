@@ -24,9 +24,9 @@ describe("buildChatSystemPrompt", () => {
 
     expect(prompt).toContain("20+ personal projects");
     expect(prompt).toContain("100+ automated workflows");
-    expect(prompt).toContain("open to junior roles in data and AI engineering");
+    expect(prompt).toContain("looking for a role in IT support");
     expect(prompt).toContain("about 6,000 participants");
-    expect(prompt).toContain("he has not trained machine-learning models in production");
+    expect(prompt).toContain("he has not operated a ticketing system professionally");
     expect(prompt).toContain("Never claim years of hand-written code");
   });
 

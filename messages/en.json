@@ -1,9 +1,9 @@
 {
   "Meta": {
-    "title": "Data & AI Portfolio",
-    "description": "Portfolio of Oleksandr — data preparation, automation and AI agents. Three years of daily practice on messy, constantly changing data; a RAG agent over an OpenAPI specification as the core project.",
-    "ogTitle": "Oleksandr | Data & AI Portfolio",
-    "ogDescription": "Preparing data, running pipelines, building AI agents — measuring instead of assuming. Core project: a RAG agent over an official OpenAPI specification.",
+    "title": "IT Support Portfolio",
+    "description": "Portfolio of Oleksandr Shevchenko — IT support and end-user services. Brought a complete office online, installed and configured Windows on every machine, three years of daily hands-on technical practice.",
+    "ogTitle": "Oleksandr Shevchenko | IT Support & End-User Services",
+    "ogDescription": "Setting up workplaces, isolating faults, supporting users. Servers, switches, printers and Windows on every machine — one office brought online from scratch.",
     "projectTitle": "Project: {slug}",
     "projectDescription": "Project details: goals, tech stack and implementation."
   },
@@ -19,94 +19,94 @@
     "theme": "Theme"
   },
   "Hero": {
-    "badge": "Data & pipelines · AI agents · AI-assisted",
-    "kicker": "Open to junior roles in data and AI engineering · remote or in Bavaria",
-    "titleLead": "I build",
+    "badge": "IT support · Windows & Microsoft 365 · devices and networking",
+    "kicker": "Open to IT support and end-user roles · Munich area · on site",
+    "titleLead": "I make sure that",
     "rotatingWords": [
-      "pipelines that survive messy data",
-      "AI agents whose output can be verified",
-      "automation that keeps running for months",
-      "systems I measure instead of assume"
+      "workplaces are ready on day one",
+      "machines, printers and the network run again",
+      "users get an answer they actually understand",
+      "fixes are written down, not just remembered"
     ],
-    "titleEnd": "and take them to a result I can actually prove.",
-    "subtitle": "For about three years I have worked daily with data that is dirty, constantly changing and still has to be processed. That turned into a working method: measure before claiming anything, and rebuild when the measurement comes back bad. My core project is a RAG agent over an official OpenAPI specification — built in one day, and rewritten twice that same day because the numbers demanded it.",
+    "titleEnd": "— and I stay on it until the cause is found.",
+    "subtitle": "As a system administrator's assistant I brought a complete office online: workstations, servers, switches, network cabling, UPS units and printers. I installed and configured Windows on every machine and handed over ready-to-work setups. Since then I have built and operated my own technical projects daily — troubleshooting has become routine: isolate, find the cause, document the fix, restore service.",
     "points": [
-      "mono-api-agent: RAG over an OpenAPI specification with a deterministic hallucination check",
-      "Three years of daily automation on messy, shifting data",
-      "More than 20 personal projects and over 100 scripts and workflows",
-      "1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course"
+      "Office IT from scratch: workstations, servers, switches, cabling, UPS, printers",
+      "Windows installation and configuration across all machines",
+      "Systematic fault isolation with Chrome DevTools and my own traffic capture tool",
+      "Ukrainian as a native language — support without a language barrier"
     ],
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "panelEyebrow": "What I bring",
-    "panelTitle": "Take data quality seriously. Prove results instead of claiming them.",
-    "panelText": "A model is never better than its data — and a pipeline is only as good as its worst input day. That is exactly where my practice sits: preparing and cleaning data, finding what is broken, automating the processing and keeping it running. In a junior role I want to bring that into a team and learn from experienced people where my foundations are still thin.",
+    "panelTitle": "Taking the technology off people's hands so they can just work.",
+    "panelText": "Good support is not measured by how many tickets are open, but by whether someone can get back to work in five minutes. That takes two things: actually finding the cause instead of clicking the symptom away — and then writing it down so nobody has to ask again.",
     "stats": [
       {
-        "label": "Core project",
-        "value": "mono-api-agent — RAG, public"
+        "label": "Practice",
+        "value": "A complete office brought online"
       },
       {
-        "label": "Automation",
-        "value": "100+ scripts & workflows"
+        "label": "Operations",
+        "value": "20+ projects kept stable over months"
       },
       {
         "label": "Method",
-        "value": "Measure · Verify · Rebuild"
+        "value": "Isolate · find the cause · document"
       }
     ]
   },
   "About": {
     "title": "About me",
-    "eyebrow": "Three years of practice on data that is never clean",
-    "lead": "My strength is not a single framework but handling unreliable data: prepare it, check it, automate it — and measure the result before calling it done.",
+    "eyebrow": "From building an office from scratch to daily technical practice",
+    "lead": "My strength is not a single product but dealing with technology that is currently broken: isolate it, find the cause, fix it and write it down so it goes faster next time.",
     "paragraphs": [
-      "After my degree in Economic Cybernetics (ZAB-recognised bachelor, meaning mathematical modelling and information systems) I finished 1st among roughly 6,000 participants in the RS School / EPAM JS/FE Pre-School course. It is the only number about me that can be verified in a second — and mostly it says one thing: I learn fast when I have something concrete in front of me.",
-      "Since then I have spent about three years working daily on my own software and automation projects — AI-assisted: I define the requirements, drive coding agents, verify the result and debug through DevTools and network traffic analysis. The input data was never clean and rarely stable. 20+ projects and 100+ automated workflows, kept reliably in operation over months. When an unstable workflow costs money directly, verification becomes a habit.",
-      "Today I am pointing that combination at data and AI engineering. My core project is mono-api-agent: a RAG agent over monobank's official OpenAPI specification, built in a single day. Chunking per API method instead of by character count, embeddings computed over the method's purpose instead of the full chunk, a deterministic hallucination check instead of an LLM judge. That same day I rebuilt twice what already worked, because the measurements showed it worked badly. I have not trained models in production — that is the area I want to learn."
+      "My first technical role was as a system administrator's assistant at “UkrZoloto” in Kyiv. We brought a new office online completely — workstations, servers, switches, network cabling, UPS units and printers. I installed and configured Windows on every machine and handed the finished workplaces over to colleagues. That is where I learned how much technology you can take off someone's hands so they can simply get on with their work.",
+      "Then came a degree in economic cybernetics (recognised by ZAB as equivalent to a German bachelor's) and 1st place among roughly 6,000 participants in the JS/FE Pre-School course by RS School and EPAM — the one externally verifiable measure of how fast I pick up new things. For about three years I have been building and operating my own technical projects daily; analysing failures and restoring service is routine.",
+      "Honest about my limits: I have not worked much with Microsoft Entra ID or Microsoft 365 at administration level, and I have not used a ticketing system professionally. I am closing both gaps deliberately — MS-900 is my next certification target. What I do bring reliably: I learn fast, I do not give up before the cause is found, and I can explain technology without jargon."
     ],
     "highlights": [
       {
+        "label": "Practice",
+        "value": "Brought a complete office online — from cabling to a configured workstation."
+      },
+      {
         "label": "Initiative",
-        "value": "I have worked daily on my own software and automation tasks for about three years."
+        "value": "About three years of daily personal technical projects, built and kept running."
       },
       {
-        "label": "Measure, don't assume",
-        "value": "I rebuild working code when the numbers show it is working badly."
+        "label": "Learning speed",
+        "value": "1st place among roughly 6,000 participants in the RS School / EPAM JS/FE Pre-School course."
       },
       {
-        "label": "AI & agent workflows",
-        "value": "I plan multi-step agent tasks, manage context and tools, and verify results systematically."
-      },
-      {
-        "label": "Available immediately",
-        "value": "Based in Bavaria, open to data and AI roles remote or on site."
+        "label": "Languages",
+        "value": "Ukrainian native, Russian fluent, German B1 (DTZ)."
       }
     ],
     "motivationTitle": "What a team gets from me",
     "motivationPoints": [
-      "I turn unclear requirements into concrete steps and verifiable results.",
-      "I don't use AI as a black box: results get measured, questioned and improved.",
-      "I name my knowledge gaps instead of papering over them — including in an application."
+      "I take the technology off users' hands and explain the outcome without jargon.",
+      "I look for the cause instead of clicking the symptom away — and write down what I found.",
+      "I can support Ukrainian-speaking colleagues without routing through a third language."
     ],
     "profile": {
       "badge": "Profile",
       "name": "Oleksandr Shevchenko",
-      "role": "Data & AI engineering (AI-assisted)",
+      "role": "IT Support & End-User Services",
       "initials": "OS",
       "placeholder": "Photo coming",
-      "caption": "Three years of daily practice on messy data, a public RAG agent as the core project and a top-1 result among ~6,000 at EPAM — now aimed at data and AI work in a team.",
+      "caption": "Office IT built from scratch, three years of daily technical practice and a top-1 result among roughly 6,000 course participants.",
       "facts": [
-        "Location: Bavaria · remote or on site",
-        "Languages: Ukrainian & Russian (native) · German B1 · English A2 (technical docs daily)",
-        "Goal: data quality, pipelines and applied AI in a professional setting"
+        "Location: Bavaria · relocation to the Munich area possible",
+        "Languages: Ukrainian (native), Russian, German B1",
+        "Available: at short notice, full time on site"
       ]
     }
   },
   "Projects": {
     "title": "Projects",
-    "eyebrow": "Selected work",
-    "intro": "The core project is mono-api-agent — a RAG agent over an official OpenAPI specification. Alongside it: my own E2E test suite and several live demos on this site.",
+    "eyebrow": "My own tools",
+    "intro": "These projects are not proof of support experience — they show something else: that I set up, operate and repair technical systems myself when they break. That is exactly what separates good support from merely working through tickets.",
     "items": [
       {
         "slug": "mono-api-agent",
@@ -150,83 +150,93 @@
   "Skills": {
     "title": "Skills",
     "eyebrow": "Tools & knowledge",
-    "intro": "My profile combines three years of daily data practice with deliberately honest gaps — especially where trained models are concerned.",
-    "legend": "Self-assessment based on my actual daily practice",
+    "intro": "Honestly placed: strong on devices, Windows clients and troubleshooting — still building on Microsoft 365 and Entra ID at administration level.",
+    "legend": "Self-assessment based on my actual practice",
     "groups": [
       {
-        "name": "Data & pipelines",
-        "description": "The core of my practice: preparing and cleaning data, finding broken records, automating processing and keeping it stable over months",
+        "name": "Workplaces & devices",
+        "description": "Setting up, deploying and handing over machines, printers and peripherals — including hardware replacement on failure",
         "level": 72,
+        "levelLabel": "Hands-on experience from a full office build",
+        "items": [
+          "Windows installation and configuration",
+          "Preparing and handing over workplaces",
+          "Connecting printers and peripherals",
+          "Replacing faulty components",
+          "Connecting UPS units"
+        ]
+      },
+      {
+        "name": "Troubleshooting & documentation",
+        "description": "Isolating a problem, finding the cause, writing the fix down so it can be followed",
+        "level": 75,
         "levelLabel": "Daily practice for about three years",
         "items": [
-          "Data preparation & cleaning",
-          "Spotting broken and incomplete records",
-          "Format conversion & validation",
-          "Python for automation and scripting",
-          "Running pipelines under shifting inputs"
+          "Systematic isolation instead of guessing",
+          "Chrome DevTools & network capture",
+          "Own mitmproxy tool for traffic analysis",
+          "Writing guides and knowledge articles",
+          "Explaining technology without jargon"
         ]
       },
       {
-        "name": "AI, agents & RAG",
-        "description": "Driving models, agents, context and tools — plus retrieval architecture from my own RAG project",
-        "level": 88,
-        "levelLabel": "Core strength from three years of daily practice",
+        "name": "Networking & infrastructure",
+        "description": "Fundamentals from hands-on build-out: switches, cabling, connectivity, server upkeep",
+        "level": 52,
+        "levelLabel": "Fundamentals from hands-on build-out",
         "items": [
-          "RAG: chunking strategies, embeddings, vector search",
-          "Hybrid retrieval (lexical signal over vectors)",
-          "Deterministic checking instead of an LLM judge",
-          "Multi-agent workflows (LangGraph)",
-          "Prompt & context engineering"
+          "Switches and network cabling",
+          "Isolating connectivity problems",
+          "Maintaining server and network systems",
+          "User and device configuration"
         ]
       },
       {
-        "name": "Automation & testing",
-        "description": "Three years of daily practice — 20+ projects, 100+ automated workflows; plus my own Playwright E2E suite for this portfolio",
-        "level": 68,
-        "levelLabel": "Extensive independent project practice",
+        "name": "Microsoft 365 & Entra ID",
+        "description": "Confident as a user, still building at administration level — MS-900 is the next certification target",
+        "level": 34,
+        "levelLabel": "Deliberately building (MS-900 in preparation)",
         "items": [
-          "Playwright (public E2E suite)",
-          "Browser automation",
-          "DevTools & network analysis",
-          "Git / GitHub Actions (CI)",
-          "Failure analysis & recovery"
-        ]
-      },
-      {
-        "name": "Machine learning",
-        "description": "The area where I bring the least — and I would rather write it down than explain it in an interview: basics yes, trained models in production no",
-        "level": 22,
-        "levelLabel": "Fundamentals, no production use",
-        "items": [
-          "Reading and interpreting metrics",
-          "Interpreting training curves",
-          "No models of my own trained in production",
-          "Current learning focus"
+          "Microsoft 365 from a user perspective",
+          "Entra ID & Active Directory — fundamentals in progress",
+          "MFA and password resets — in progress",
+          "Ticketing systems — in progress"
         ]
       }
     ]
   },
   "Resume": {
-    "eyebrow": "Career & projects",
+    "eyebrow": "Background",
     "title": "Resume",
-    "intro": "My path combines a recognised degree, a top course result and three years of daily practice with messy data — now aimed at data and AI engineering.",
+    "intro": "A hands-on entry into office IT, a recognised degree, a top course result and three years of daily technical practice.",
     "timeline": [
       {
+        "period": "2018",
+        "title": "System administrator's assistant — “UkrZoloto”, Kyiv",
+        "text": "Brought a new office online completely: workstations, servers, switches, network cabling, UPS units and printers. Installed and configured Windows on every machine and handed finished workplaces over to staff. Plus maintenance of server and network systems, user administration and hardware replacement.",
+        "focus": "Focus: devices · networking · user handover",
+        "chips": [
+          "Office build-out",
+          "Windows rollout",
+          "Hardware & networking"
+        ]
+      },
+      {
         "period": "2018 — 2022",
-        "title": "Bachelor in Economic Cybernetics — ZAB-recognised",
-        "text": "Degree from the State University of Trade and Economics (Kyiv) — mathematical modelling and information systems, recognised by the ZAB as equivalent to a German bachelor (03/2025). Followed by 1st place among ~6,000 participants in the RS School / EPAM JS/FE Pre-School course.",
+        "title": "BSc Economic Cybernetics — ZAB recognised",
+        "text": "Degree from the State University of Trade and Economics (Kyiv), recognised by ZAB as equivalent to a German bachelor's (03/2025). Followed by 1st place among roughly 6,000 participants in the RS School / EPAM JS/FE Pre-School course.",
         "focus": "Foundation: degree · EPAM RS School top 1",
         "chips": [
           "Bachelor + ZAB",
           "Top 1 / ~6,000",
-          "Mathematical modelling"
+          "IBM certificates"
         ]
       },
       {
         "period": "2023 — today",
-        "title": "Own software & automation projects — AI-assisted",
-        "text": "Built and operated my own projects daily, consistently on data that was dirty and constantly shifting. Verification, DevTools and my own traffic analysis — 20+ projects, 100+ scripts and workflows, kept reliably in operation over months.",
-        "focus": "Focus: messy data · verification · reliability",
+        "title": "Own technical projects — daily operation",
+        "text": "Built and operated my own projects daily. Analysing failures, finding causes and restoring service is routine; for analysis I use Chrome DevTools and a tool I built myself to capture network traffic. 20+ projects, 100+ scripts and workflows, kept reliably in operation over months.",
+        "focus": "Focus: troubleshooting · operations · reliability",
         "chips": [
           "20+ projects",
           "100+ scripts",
@@ -235,29 +245,29 @@
       },
       {
         "period": "2026",
-        "title": "Focus: data & AI engineering",
-        "text": "Built and published mono-api-agent: a RAG agent over monobank's official OpenAPI specification, created in one day and rewritten twice that day because the measurements demanded it — chunking per method, embeddings over the method's purpose, a deterministic hallucination check (60 s → 2.8 s, five model calls → two). I am looking for a junior role where I can develop this further inside a team.",
-        "focus": "Goal: data quality, retrieval, applied AI",
+        "title": "Focus: IT support & end-user services",
+        "text": "Deliberate preparation for the Microsoft 365 Fundamentals (MS-900) certification and working through the fundamentals of Microsoft Entra ID and Active Directory on Microsoft Learn. Goal: an on-site IT support role in the Munich area.",
+        "focus": "Goal: on-site IT support",
         "chips": [
-          "mono-api-agent (public)",
-          "RAG & retrieval",
-          "Measurable results"
+          "MS-900 in preparation",
+          "Entra ID & AD",
+          "Available on site"
         ]
       }
     ],
     "closingTitle": "What a team can expect from me",
-    "closingText": "I bring three years of daily practice with unreliable data, a public RAG project with decisions you can trace, and the habit of measuring results instead of asserting them. I am open about my gaps: I have not trained models in production, and I am actively refreshing my independent coding. My goal: reliable data work in a team.",
+    "closingText": "Hands-on experience building an office IT setup from scratch, three years of daily practice isolating and fixing technical failures — and an honest account of what I am still learning. I support Ukrainian-speaking colleagues in their native language.",
     "closingBadges": [
-      "Available immediately",
-      "Remote or on site",
+      "Available at short notice",
+      "On site in the Munich area",
       "Fast learning curve",
-      "Data quality in focus"
+      "Ukrainian as a native language"
     ]
   },
   "Contact": {
     "eyebrow": "Contact & next step",
     "title": "Contact",
-    "intro": "I'm glad to talk about junior roles in data and AI engineering — remote or in Bavaria.",
+    "intro": "I welcome conversations about IT support and end-user roles — on site in the Munich area.",
     "linksTitle": "Direct contact",
     "linksIntro": "For a quick reply, reach me directly by email or through my profiles.",
     "quickLinks": [
@@ -284,10 +294,10 @@
     ],
     "availability": {
       "title": "Availability",
-      "text": "Actively job hunting. Open to junior roles in data and AI engineering — remote or on site.",
+      "text": "Actively job hunting. Open to IT support and end-user services — on site in the Munich area, relocation possible.",
       "badges": [
-        "Immediately",
-        "Remote or on site",
+        "Short notice",
+        "On site",
         "Reply within 24h"
       ]
     },

@@ -34,15 +34,16 @@ function languageInstruction(latestUserMessage: string, locale: "de" | "en") {
 
 const PORTFOLIO_FACTS = [
   "Verified portfolio facts:",
-  "- Oleksandr Shevchenko is open to junior roles in data and AI engineering — remote or on site in Bavaria.",
+  "- Oleksandr Shevchenko is looking for a role in IT support / end-user services, on site in the Munich area. He is willing to relocate there.",
+  "- His first technical role was as a system administrator's assistant at \"UkrZoloto\" in Kyiv (2018). There he helped bring a new office online completely: workstations, servers, switches, network cabling, UPS units and printers. He installed and configured Windows on every machine and handed finished workplaces over to staff. He also maintained server and network systems, handled user administration and replaced faulty hardware.",
   "- He took 1st place among about 6,000 participants in the RS School / EPAM JS/FE Pre-School course. It is the one externally verifiable measure of how fast he learns.",
-  "- For around three years he has built and operated his own software and automation projects daily — AI-assisted — consistently on input data that was messy and constantly changing, kept reliably in operation over months; 20+ personal projects and 100+ automated workflows in total.",
-  "- His core project is mono-api-agent: a RAG agent over monobank's official OpenAPI specification, built in one day. Chunking per API method instead of by character count; embeddings computed over the method's purpose rather than the full chunk; a lexical signal layered over vector search; a deterministic hallucination check instead of an LLM judge (60 s to 2.8 s, five model calls to two). Public at github.com/ShevasTest/mono-api-agent.",
-  "- His strongest area is AI-assisted engineering: task decomposition, agent orchestration, retrieval design, verification and measurement.",
-  "- This portfolio is a multilingual Next.js site with several live demos and its own public Playwright + TypeScript e2e suite that tests the site in CI. The implementation is AI-assisted; scope, verification and debugging are his.",
-  "- Honest limits, state them plainly if asked: he has not trained machine-learning models in production, he has no commercial team experience, and he does not know Next.js independently — this site's implementation is AI-assisted. JavaScript fundamentals are being actively refreshed. Never claim years of hand-written code or professional team experience. Do not cite a specific number of browser profiles or accounts.",
+  "- He holds a bachelor's degree in economic cybernetics from the State University of Trade and Economics in Kyiv, recognised by ZAB as equivalent to a German bachelor's degree (03/2025).",
+  "- For around three years he has built and operated his own technical projects daily — AI-assisted — and kept them reliably in operation over months; 20+ personal projects and 100+ automated workflows in total. Isolating failures, finding root causes and restoring service is routine for him. For analysis he uses Chrome DevTools and a mitmproxy-based desktop tool he built himself.",
+  "- He also holds IBM/Coursera certificates: Introduction to Cloud Computing, Git and GitHub, Web Development with HTML/CSS/JS, and Cloud Native Applications (2022-2023).",
+  "- Honest limits, state them plainly if asked: he has not worked much with Microsoft Entra ID or Microsoft 365 at administration level, and he has not operated a ticketing system professionally. He is deliberately closing both gaps and is preparing for the MS-900 (Microsoft 365 Fundamentals) certification. He has no commercial team experience, and he does not know Next.js independently — this site's implementation is AI-assisted. Never claim years of hand-written code or professional team experience. Do not cite a specific number of browser profiles or accounts.",
+  "- This portfolio is a multilingual Next.js site with several live demos and its own public Playwright + TypeScript e2e suite that tests the site in CI. Scope, verification and debugging are his.",
   "- Public demos: AI Application Assistant, Rent Price Tracker, SmartChat and DevDash.",
-  "- German level: B1. English level: A2 and improving. Ukrainian and Russian: native.",
+  "- German level: B1 (DTZ certificate). English level: A2 and improving. Ukrainian: native. Russian: fluent. Ukrainian being his native language is a real advantage in German-Ukrainian workplaces.",
 ].join(" ");
 
 const ARCHITECTURE_FACTS = [
